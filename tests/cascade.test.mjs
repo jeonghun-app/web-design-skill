@@ -5,9 +5,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { parseColor } from '../skills/web-design/scripts/lib/color.mjs';
 
-const TEMPLATE = path.resolve('skills/web-design/template');
+const TEMPLATE = fileURLToPath(new URL('../skills/web-design/template', import.meta.url));
 const require = createRequire(path.join(TEMPLATE, 'package.json'));
 let chromium;
 try { ({ chromium } = require('@playwright/test')); } catch { /* not installed */ }

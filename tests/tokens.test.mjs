@@ -2,11 +2,12 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { cssValue, flatten, overlay, resolveMode, LIBRARY_TRENDS, listTrends, loadTrend, readJSON } from '../skills/web-design/scripts/lib/tokens.mjs';
 import { toVariable } from '../skills/web-design/scripts/lib/figma.mjs';
 import { checkPack } from '../skills/web-design/scripts/trend.mjs';
 
-const TEMPLATE = path.resolve('skills/web-design/template');
+const TEMPLATE = fileURLToPath(new URL('../skills/web-design/template', import.meta.url));
 const base = flatten(readJSON(path.join(TEMPLATE, 'design/tokens.json')));
 
 test('flatten keeps types and dark modes', () => {

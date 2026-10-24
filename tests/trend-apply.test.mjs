@@ -4,8 +4,9 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 
-const SKILL = path.resolve('skills/web-design');
+const SKILL = fileURLToPath(new URL('../skills/web-design', import.meta.url));
 const run = (cwd, ...a) => spawnSync('node', a, { cwd, encoding: 'utf8' });
 
 function scratch() {

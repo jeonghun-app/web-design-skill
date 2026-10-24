@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
 import path from 'node:path';
 import { test } from 'node:test';
+import { fileURLToPath } from 'node:url';
 import { flatten, overlay, resolveMode, readJSON, listTrends, loadTrend } from '../skills/web-design/scripts/lib/tokens.mjs';
 import { toVariable } from '../skills/web-design/scripts/lib/figma.mjs';
 import { applyChanges, diffDump } from '../skills/web-design/scripts/figma-sync.mjs';
 
-const TEMPLATE = path.resolve('skills/web-design/template');
+const TEMPLATE = fileURLToPath(new URL('../skills/web-design/template', import.meta.url));
 const base = flatten(readJSON(path.join(TEMPLATE, 'design/tokens.json')));
 
 function dumpOf(flat) {
