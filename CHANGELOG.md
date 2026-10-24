@@ -11,3 +11,4 @@
 - `audit.mjs`: Playwright and axe audit of target size, type, measure, CTA hierarchy, reflow, motion, reduced motion and focus, plus a contact sheet.
 - React template: Button, Card, Badge, Field, SectionHeading, Reveal, and sections (nav, hero, logos, bento, stats, testimonial, pricing, FAQ, CTA, footer), with a dev trend switcher.
 - `new-project.mjs`: self-contained scaffolds with vendored scripts and packs.
+- Tests (23): color math, token overlay and resolution, pack checks, the Figma push→pull round trip, a browser cascade test for subtree trend/theme previews, and `trend apply` include handling. CI runs on Node 22 and 24, followed by the full audit.
