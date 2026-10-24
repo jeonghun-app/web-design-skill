@@ -1,0 +1,21 @@
+/* Technical: the hero grid fades out, labels are mono, cards carry corner ticks, the primary action glows. */
+[data-trend="signal-dark"] [data-slot="hero-bg"] {
+  mask-image: radial-gradient(70% 60% at 50% 0%, #000 30%, transparent 75%);
+}
+[data-trend="signal-dark"] [data-slot="eyebrow"] {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+[data-trend="signal-dark"] [data-slot="card"] {
+  position: relative;
+  background-image:
+    linear-gradient(var(--color-border-strong), var(--color-border-strong)), linear-gradient(var(--color-border-strong), var(--color-border-strong)),
+    linear-gradient(var(--color-border-strong), var(--color-border-strong)), linear-gradient(var(--color-border-strong), var(--color-border-strong));
+  background-repeat: no-repeat;
+  background-size: 8px 1px, 1px 8px, 8px 1px, 1px 8px;
+  background-position: top left, top left, bottom right, bottom right;
+}
+[data-trend="signal-dark"] [data-slot="button"][data-variant="solid"][data-tone="brand"]:hover {
+  box-shadow: 0 0 0 1px oklch(from var(--color-brand) l c h / 0.4), 0 0 24px oklch(from var(--color-brand) l c h / 0.35);
+}

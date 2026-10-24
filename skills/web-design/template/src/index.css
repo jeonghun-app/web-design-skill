@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@import "./design/tokens.css";
+
+/* Dark mode follows data-theme (set before paint in index.html), not the OS directly. */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+/* build-tokens also emits a `trend-<id>:` variant per included trend, for
+   structural tweaks inside components (e.g. `trend-neo-brutal:border-2`). */
+
+@utility container-page {
+  width: 100%;
+  max-width: var(--layout-container);
+  margin-inline: auto;
+  padding-inline: var(--layout-gutter);
+}
+
+@utility section-y {
+  padding-block: var(--layout-section-y);
+}
+
+@utility prose-measure {
+  max-width: var(--layout-prose);
+}
+
+/* Content surface (cards, panels): always opaque so text contrast is predictable.
+   Trend packs restyle it through color.surface, shadow.card and effect.border-width. */
+@utility surface {
+  background-color: var(--color-surface);
+  border: var(--effect-border-width) solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+/* Chrome (nav, toolbars, sheets): the only translucent layer. Falls back to opaque
+   when backdrop-filter is unsupported or the user prefers reduced transparency. */
+@utility chrome {
+  background-color: var(--color-bg);
+  @supports (backdrop-filter: blur(1px)) {
+    background-color: var(--color-chrome);
+    backdrop-filter: blur(var(--effect-chrome-blur)) saturate(var(--effect-chrome-saturate));
+  }
+  @media (prefers-reduced-transparency: reduce) {
+    background-color: var(--color-bg);
+    backdrop-filter: none;
+  }
+}
+
+@layer base {
+  html {
+    scroll-padding-top: calc(var(--layout-nav-h) + 1rem); /* FK-03: focus never hides under the sticky nav */
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Grain overlay, off by default (effect.grain-opacity = 0). */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: var(--effect-grain-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: var(--font-weight-heading);
+    letter-spacing: var(--tracking-heading);
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--color-primary-soft);
+    color: var(--color-primary-soft-fg);
+  }
+  /* MT-03: honor reduced motion everywhere; components may opt back into opacity fades. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

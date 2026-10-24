@@ -1,0 +1,233 @@
+{
+  "id": "warm-natural",
+  "name": "Warm natural",
+  "reviewed": "2026-10",
+  "reviewBy": "2027-04",
+  "stage": "rising",
+  "summary": "Warm paper tones, soft optical serif display, rounded organic shapes, gentle unhurried motion and paper grain",
+  "fits": [
+    "wellness and health services",
+    "hospitality and food",
+    "home and skincare",
+    "sustainability and nonprofits"
+  ],
+  "avoid": [
+    "developer tools",
+    "high-urgency commerce",
+    "dense dashboards"
+  ],
+  "why": "Warm low-saturation color and soft rounded forms read as calm and approachable, lowering perceived risk; slower, smooth easing (no bounce) matches the brand promise of ease.",
+  "risks": [
+    "Beige-on-beige can drop below 3:1 for boundaries: input borders keep border-strong",
+    "Slow motion feels laggy on controls: only reveals are slow, controls stay <= 200ms"
+  ],
+  "signature": "Soft serif headline over a warm sunlit gradient",
+  "fonts": [
+    {
+      "family": "Fraunces",
+      "href": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&display=swap"
+    }
+  ],
+  "tokens": {
+    "color": {
+      "brand": {
+        "$value": "oklch(0.52 0.11 45)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.74 0.1 50)"
+          }
+        }
+      },
+      "accent-base": {
+        "$value": "oklch(0.5 0.07 125)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.76 0.07 125)"
+          }
+        }
+      },
+      "bg": {
+        "$value": "oklch(0.965 0.015 80)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.2 0.012 60)"
+          }
+        }
+      },
+      "surface": {
+        "$value": "oklch(0.985 0.01 80)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.24 0.014 60)"
+          }
+        }
+      },
+      "surface-raised": {
+        "$value": "oklch(0.99 0.008 80)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.27 0.014 60)"
+          }
+        }
+      },
+      "surface-sunken": {
+        "$value": "oklch(0.94 0.02 75)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.17 0.01 60)"
+          }
+        }
+      },
+      "fg": {
+        "$value": "oklch(0.25 0.02 60)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.94 0.015 80)"
+          }
+        }
+      },
+      "fg-muted": {
+        "$value": "oklch(0.45 0.02 60)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.76 0.02 70)"
+          }
+        }
+      },
+      "fg-subtle": {
+        "$value": "oklch(0.58 0.02 60)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.62 0.02 70)"
+          }
+        }
+      },
+      "border": {
+        "$value": "oklch(0.25 0.02 60 / 0.12)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.94 0.015 80 / 0.12)"
+          }
+        }
+      },
+      "border-strong": {
+        "$value": "oklch(0.55 0.02 60)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.62 0.02 70)"
+          }
+        }
+      },
+      "primary-fg": {
+        "$value": "oklch(0.99 0.005 80)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.2 0.02 50)"
+          }
+        }
+      },
+      "accent-fg": {
+        "$value": "oklch(0.99 0.005 80)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.2 0.02 125)"
+          }
+        }
+      }
+    },
+    "font": {
+      "display": {
+        "$value": [
+          "Fraunces",
+          "Georgia",
+          "serif"
+        ]
+      }
+    },
+    "font-weight": {
+      "display": {
+        "$value": 400
+      },
+      "heading": {
+        "$value": 450
+      }
+    },
+    "text": {
+      "display": {
+        "$value": "clamp(2.75rem, 1.5rem + 4.5vw, 6rem)"
+      },
+      "display--line-height": {
+        "$value": "1.05"
+      }
+    },
+    "tracking": {
+      "display": {
+        "$value": "-0.02em"
+      },
+      "heading": {
+        "$value": "-0.01em"
+      }
+    },
+    "radius": {
+      "control": {
+        "$value": "9999px"
+      },
+      "card": {
+        "$value": "28px"
+      },
+      "panel": {
+        "$value": "36px"
+      }
+    },
+    "shadow": {
+      "card": {
+        "$value": "0 1px 2px oklch(0.3 0.03 60 / 0.06), 0 8px 24px -12px oklch(0.3 0.03 60 / 0.16)",
+        "$extensions": {
+          "mode": {
+            "dark": "0 8px 24px -12px oklch(0 0 0 / 0.5)"
+          }
+        }
+      },
+      "raised": {
+        "$value": "0 1px 2px oklch(0.3 0.03 60 / 0.08), 0 12px 32px -12px oklch(0.3 0.03 60 / 0.2)",
+        "$extensions": {
+          "mode": {
+            "dark": "0 12px 32px -12px oklch(0 0 0 / 0.6)"
+          }
+        }
+      }
+    },
+    "ease": {
+      "out": {
+        "$value": "cubic-bezier(0.25, 0.1, 0.25, 1)"
+      },
+      "standard": {
+        "$value": "cubic-bezier(0.45, 0, 0.55, 1)"
+      }
+    },
+    "motion": {
+      "duration": {
+        "large": {
+          "$value": "400ms"
+        },
+        "reveal": {
+          "$value": "500ms"
+        }
+      }
+    },
+    "effect": {
+      "grain-opacity": {
+        "$value": "0.05"
+      },
+      "hero-bg": {
+        "$type": "string",
+        "$value": "radial-gradient(70% 60% at 85% 0%, oklch(0.9 0.06 70 / 0.8), transparent 70%)",
+        "$extensions": {
+          "mode": {
+            "dark": "radial-gradient(70% 60% at 85% 0%, oklch(0.32 0.04 60 / 0.8), transparent 70%)"
+          }
+        }
+      }
+    }
+  }
+}

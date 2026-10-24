@@ -1,0 +1,35 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22, 24]
+    defaults:
+      run:
+        working-directory: skills/web-design/template
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+          cache-dependency-path: skills/web-design/template/package-lock.json
+      - run: npm ci
+      - name: Unit tests
+        run: node --test ../../../tests/*.test.mjs
+      - name: Trend packs (contrast, motion, schema)
+        run: npm run trend -- check
+      - name: Build (fails if generated tokens are stale)
+        run: npm run build
+      - name: Human-factors audit (all trends)
+        if: matrix.node == 24
+        run: |
+          npx playwright install --with-deps chromium
+          npm run audit -- --trends all --no-shots

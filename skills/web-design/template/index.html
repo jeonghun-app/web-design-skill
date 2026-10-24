@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>web-design template</title>
+    <script>
+      // Set theme and trend before first paint so there is no flash of the wrong style.
+      (function () {
+        var d = document.documentElement;
+        var theme = localStorage.getItem('wd-theme');
+        if (theme !== 'light' && theme !== 'dark') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        d.dataset.theme = theme;
+        var trend = new URLSearchParams(location.search).get('trend') || localStorage.getItem('wd-trend');
+        if (trend) d.dataset.trend = trend;
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

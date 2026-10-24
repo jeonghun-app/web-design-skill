@@ -1,0 +1,19 @@
+/* Poster hero: single column, headline words rise once on load (<= 500ms each, staggered). */
+[data-trend="kinetic-studio"] [data-slot="hero-grid"] {
+  grid-template-columns: 1fr;
+}
+[data-trend="kinetic-studio"] [data-slot="hero-visual"] {
+  max-width: 56rem;
+}
+[data-trend="kinetic-studio"] [data-slot="eyebrow"] {
+  color: var(--color-fg-muted);
+}
+@keyframes wd-kinetic-rise {
+  from { opacity: 0; transform: translateY(0.45em); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-trend="kinetic-studio"] [data-slot="display-word"] {
+    animation: wd-kinetic-rise var(--motion-duration-reveal) var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 70ms);
+  }
+}

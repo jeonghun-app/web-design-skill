@@ -1,0 +1,40 @@
+[
+  {
+    "id": "frosted",
+    "name": "Frosted",
+    "stage": "peak",
+    "summary": "Restrained glass: a floating translucent nav capsule over soft color, solid raised cards, pill controls and springy press feedback"
+  },
+  {
+    "id": "kinetic-studio",
+    "name": "Kinetic studio",
+    "stage": "peak",
+    "summary": "Poster-scale grotesk type that rises word by word, monochrome canvas with one hot accent, sharp edges",
+    "preferTheme": "dark"
+  },
+  {
+    "id": "loud",
+    "name": "Loud",
+    "stage": "rising",
+    "summary": "Bright pop palette on hard black outlines, offset shadows, chunky display type, sticker accents and grain"
+  },
+  {
+    "id": "quiet-editorial",
+    "name": "Quiet editorial",
+    "stage": "rising",
+    "summary": "Monochrome warm paper, large editorial serif display, pill controls, flat cards and generous space"
+  },
+  {
+    "id": "signal-dark",
+    "name": "Signal dark",
+    "stage": "rising",
+    "summary": "Dark-first technical look: near-black canvas, hairline grids, mono labels and one luminous accent",
+    "preferTheme": "dark"
+  },
+  {
+    "id": "warm-natural",
+    "name": "Warm natural",
+    "stage": "rising",
+    "summary": "Warm paper tones, soft optical serif display, rounded organic shapes, gentle unhurried motion and paper grain"
+  }
+]

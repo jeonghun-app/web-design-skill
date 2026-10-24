@@ -1,0 +1,24 @@
+/* Floating glass capsule nav; press feedback springs. Content cards stay opaque. */
+[data-trend="frosted"] [data-slot="nav"] {
+  top: 0.75rem;
+  width: min(calc(100% - 1.5rem), calc(var(--layout-container) - 1rem));
+  margin: 0.75rem auto 0;
+  border: 1px solid oklch(1 0 0 / 0.35);
+  border-radius: 9999px;
+  box-shadow: 0 8px 32px oklch(0 0 0 / 0.12);
+}
+[data-trend="frosted"] [data-slot="nav"] > nav {
+  padding-inline: 0.75rem 0.5rem;
+}
+[data-trend="frosted"] [data-slot="button"] {
+  transition-timing-function: var(--ease-spring);
+  transition-duration: var(--motion-duration-small);
+}
+[data-trend="frosted"] [data-slot="button"]:active {
+  transform: scale(0.97);
+}
+@media (prefers-reduced-transparency: reduce) {
+  [data-trend="frosted"] [data-slot="nav"] {
+    border-color: var(--color-border);
+  }
+}

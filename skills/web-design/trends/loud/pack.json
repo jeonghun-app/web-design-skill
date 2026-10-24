@@ -1,0 +1,246 @@
+{
+  "id": "loud",
+  "name": "Loud",
+  "reviewed": "2026-10",
+  "reviewBy": "2027-04",
+  "stage": "rising",
+  "summary": "Bright pop palette on hard black outlines, offset shadows, chunky display type, sticker accents and grain",
+  "fits": [
+    "youth consumer brands",
+    "food and beverage",
+    "fashion drops",
+    "creator and music tools"
+  ],
+  "avoid": [
+    "finance, health, government",
+    "enterprise B2B",
+    "dense information"
+  ],
+  "why": "Hard outlines and offset shadows give an unmistakable pressable affordance, and saturated color fields make each tile a distinct region; the playfulness signals personality to audiences that reward it.",
+  "risks": [
+    "Bright fills under light text fail contrast: text on pop colors is always dark",
+    "Visual noise competes with the CTA: chaos stays in decorative layers, the reading column stays calm"
+  ],
+  "signature": "Press-down buttons with hard offset shadows and colored bento tiles",
+  "fonts": [
+    {
+      "family": "Unbounded",
+      "href": "https://fonts.googleapis.com/css2?family=Unbounded:wght@500..800&display=swap"
+    }
+  ],
+  "tokens": {
+    "color": {
+      "brand": {
+        "$value": "oklch(0.62 0.23 350)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.74 0.19 340)"
+          }
+        }
+      },
+      "accent-base": {
+        "$value": "oklch(0.86 0.17 95)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.86 0.17 95)"
+          }
+        }
+      },
+      "bg": {
+        "$value": "oklch(0.97 0.03 95)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.18 0.02 300)"
+          }
+        }
+      },
+      "surface": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.23 0.03 300)"
+          }
+        }
+      },
+      "surface-raised": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.27 0.03 300)"
+          }
+        }
+      },
+      "surface-sunken": {
+        "$value": "oklch(0.93 0.05 95)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.15 0.02 300)"
+          }
+        }
+      },
+      "fg": {
+        "$value": "oklch(0.15 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.97 0.02 95)"
+          }
+        }
+      },
+      "fg-muted": {
+        "$value": "oklch(0.36 0.01 95)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.8 0.02 95)"
+          }
+        }
+      },
+      "fg-subtle": {
+        "$value": "oklch(0.5 0.01 95)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.65 0.02 95)"
+          }
+        }
+      },
+      "border": {
+        "$value": "oklch(0.15 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.97 0.02 95)"
+          }
+        }
+      },
+      "border-strong": {
+        "$value": "oklch(0.15 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.97 0.02 95)"
+          }
+        }
+      },
+      "primary-fg": {
+        "$value": "oklch(0.15 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.15 0 0)"
+          }
+        }
+      },
+      "accent-fg": {
+        "$value": "oklch(0.15 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.15 0 0)"
+          }
+        }
+      },
+      "ring": {
+        "$value": "oklch(0.15 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.97 0.02 95)"
+          }
+        }
+      },
+      "pop-1": {
+        "$value": "oklch(0.86 0.17 95)"
+      },
+      "pop-2": {
+        "$value": "oklch(0.8 0.13 340)"
+      },
+      "pop-3": {
+        "$value": "oklch(0.82 0.11 210)"
+      },
+      "pop-4": {
+        "$value": "oklch(0.84 0.16 145)"
+      },
+      "on-pop": {
+        "$value": "oklch(0.15 0 0)"
+      },
+      "on-pop-muted": {
+        "$value": "oklch(0.3 0 0)"
+      }
+    },
+    "font": {
+      "display": {
+        "$value": [
+          "Unbounded",
+          "Archivo Black",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif"
+        ]
+      }
+    },
+    "font-weight": {
+      "display": {
+        "$value": 800
+      },
+      "heading": {
+        "$value": 800
+      }
+    },
+    "text": {
+      "display": {
+        "$value": "clamp(2.5rem, 1.25rem + 5vw, 5.5rem)"
+      },
+      "display--line-height": {
+        "$value": "1.02"
+      }
+    },
+    "tracking": {
+      "display": {
+        "$value": "-0.02em"
+      },
+      "heading": {
+        "$value": "-0.01em"
+      }
+    },
+    "radius": {
+      "control": {
+        "$value": "10px"
+      },
+      "card": {
+        "$value": "16px"
+      },
+      "panel": {
+        "$value": "24px"
+      }
+    },
+    "shadow": {
+      "card": {
+        "$value": "4px 4px 0 {color.fg}"
+      },
+      "raised": {
+        "$value": "6px 6px 0 {color.fg}"
+      },
+      "overlay": {
+        "$value": "8px 8px 0 {color.fg}"
+      }
+    },
+    "ease": {
+      "spring": {
+        "$type": "string",
+        "$value": "linear(0, 0.12 3%, 0.5 8%, 1.12 16%, 1.2 20%, 1.1 26%, 0.97 34%, 1.02 44%, 1)"
+      }
+    },
+    "motion": {
+      "duration": {
+        "micro": {
+          "$value": "100ms"
+        }
+      }
+    },
+    "effect": {
+      "border-width": {
+        "$value": "2px"
+      },
+      "grain-opacity": {
+        "$value": "0.08"
+      },
+      "card-hover-lift": {
+        "$value": "-2px"
+      }
+    }
+  }
+}

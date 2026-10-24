@@ -1,0 +1,17 @@
+/* Editorial: the last headline word turns italic, labels go mono, cards lose their box. */
+[data-trend="quiet-editorial"] [data-slot="display"] > span:last-child [data-slot="display-word"] {
+  font-style: italic;
+}
+[data-trend="quiet-editorial"] [data-slot="eyebrow"] {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--color-fg-muted);
+}
+[data-trend="quiet-editorial"] [data-slot="bento"] [data-slot="card"] {
+  background: transparent;
+  border-width: 1px 0 0;
+  padding-inline: 0;
+}
+[data-trend="quiet-editorial"] [data-slot="button"][data-variant="outline"] {
+  border-color: var(--color-fg);
+}

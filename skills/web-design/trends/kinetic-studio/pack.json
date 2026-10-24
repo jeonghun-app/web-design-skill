@@ -1,0 +1,214 @@
+{
+  "id": "kinetic-studio",
+  "name": "Kinetic studio",
+  "reviewed": "2026-10",
+  "reviewBy": "2027-04",
+  "stage": "peak",
+  "preferTheme": "dark",
+  "summary": "Poster-scale grotesk type that rises word by word, monochrome canvas with one hot accent, sharp edges",
+  "fits": [
+    "agencies and studios",
+    "product launches and campaigns",
+    "portfolios",
+    "events"
+  ],
+  "avoid": [
+    "task-focused apps",
+    "forms and checkout",
+    "audiences sensitive to motion"
+  ],
+  "why": "Size is the first fixation: a headline several times the body size wins attention before anything else, and a short staggered entrance uses motion onset to pull the eye to it exactly once, then stops.",
+  "risks": [
+    "Motion sensitivity: entrance runs once, <= 500ms per word, and is removed under reduced motion",
+    "Huge type wraps badly on small screens: clamp() keeps 3-4 words per line on mobile"
+  ],
+  "signature": "Word-by-word rising headline at poster scale",
+  "fonts": [
+    {
+      "family": "Inter Tight",
+      "href": "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..700&display=swap"
+    }
+  ],
+  "tokens": {
+    "color": {
+      "brand": {
+        "$value": "oklch(0.62 0.21 40)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.72 0.2 40)"
+          }
+        }
+      },
+      "accent-base": {
+        "$value": "oklch(0.62 0.21 40)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.72 0.2 40)"
+          }
+        }
+      },
+      "bg": {
+        "$value": "oklch(0.97 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.13 0 0)"
+          }
+        }
+      },
+      "surface": {
+        "$value": "oklch(0.995 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.17 0 0)"
+          }
+        }
+      },
+      "surface-raised": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.2 0 0)"
+          }
+        }
+      },
+      "surface-sunken": {
+        "$value": "oklch(0.93 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.1 0 0)"
+          }
+        }
+      },
+      "fg": {
+        "$value": "oklch(0.13 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.97 0 0)"
+          }
+        }
+      },
+      "fg-muted": {
+        "$value": "oklch(0.42 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.74 0 0)"
+          }
+        }
+      },
+      "border": {
+        "$value": "oklch(0.13 0 0 / 0.12)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(1 0 0 / 0.12)"
+          }
+        }
+      },
+      "border-strong": {
+        "$value": "oklch(0.5 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.6 0 0)"
+          }
+        }
+      },
+      "primary-fg": {
+        "$value": "oklch(0.13 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.13 0 0)"
+          }
+        }
+      },
+      "accent-fg": {
+        "$value": "oklch(0.13 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.13 0 0)"
+          }
+        }
+      }
+    },
+    "font": {
+      "display": {
+        "$value": [
+          "Inter Tight",
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif"
+        ]
+      }
+    },
+    "font-weight": {
+      "display": {
+        "$value": 500
+      },
+      "heading": {
+        "$value": 500
+      }
+    },
+    "text": {
+      "display": {
+        "$value": "clamp(3.25rem, 1rem + 8.5vw, 9rem)"
+      },
+      "display--line-height": {
+        "$value": "0.92"
+      },
+      "h2": {
+        "$value": "clamp(2.25rem, 1.25rem + 3.5vw, 4.5rem)"
+      },
+      "h2--line-height": {
+        "$value": "1"
+      }
+    },
+    "tracking": {
+      "display": {
+        "$value": "-0.05em"
+      },
+      "heading": {
+        "$value": "-0.035em"
+      }
+    },
+    "radius": {
+      "control": {
+        "$value": "2px"
+      },
+      "card": {
+        "$value": "0px"
+      },
+      "panel": {
+        "$value": "0px"
+      }
+    },
+    "shadow": {
+      "card": {
+        "$value": "none"
+      },
+      "raised": {
+        "$value": "none"
+      }
+    },
+    "ease": {
+      "out": {
+        "$value": "cubic-bezier(0.16, 1, 0.3, 1)"
+      }
+    },
+    "motion": {
+      "duration": {
+        "reveal": {
+          "$value": "500ms"
+        }
+      },
+      "distance": {
+        "reveal": {
+          "$value": "32px"
+        }
+      }
+    },
+    "effect": {
+      "card-hover-lift": {
+        "$value": "0px"
+      }
+    }
+  }
+}

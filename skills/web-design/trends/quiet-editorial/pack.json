@@ -1,0 +1,243 @@
+{
+  "id": "quiet-editorial",
+  "name": "Quiet editorial",
+  "reviewed": "2026-10",
+  "reviewBy": "2027-04",
+  "stage": "rising",
+  "summary": "Monochrome warm paper, large editorial serif display, pill controls, flat cards and generous space",
+  "fits": [
+    "studios and agencies",
+    "luxury and architecture",
+    "AI or research companies wanting a humane tone",
+    "consulting",
+    "long-form content"
+  ],
+  "avoid": [
+    "dense dashboards",
+    "discount retail",
+    "audiences that need bold call-outs"
+  ],
+  "why": "Restraint lowers visual complexity (strong first-impression effect) and lets one serif headline become the single focal point; serif display signals editorial care while sans body keeps reading fast.",
+  "risks": [
+    "Low-chroma palette can make the primary action easy to miss: the CTA stays solid and is the only filled element",
+    "Serif under ~20px reads poorly in UI labels: keep labels in sans or mono"
+  ],
+  "signature": "Oversized serif headline with an italic final word",
+  "fonts": [
+    {
+      "family": "Newsreader",
+      "href": "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap"
+    },
+    {
+      "family": "Geist Mono",
+      "href": "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400..600&display=swap"
+    }
+  ],
+  "tokens": {
+    "color": {
+      "brand": {
+        "$value": "oklch(0.22 0.01 60)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.95 0.008 85)"
+          }
+        }
+      },
+      "accent-base": {
+        "$value": "oklch(0.5 0.1 40)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.76 0.09 50)"
+          }
+        }
+      },
+      "bg": {
+        "$value": "oklch(0.975 0.008 85)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.17 0.006 60)"
+          }
+        }
+      },
+      "surface": {
+        "$value": "oklch(0.985 0.006 85)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.2 0.006 60)"
+          }
+        }
+      },
+      "surface-raised": {
+        "$value": "oklch(0.99 0.004 85)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.23 0.006 60)"
+          }
+        }
+      },
+      "surface-sunken": {
+        "$value": "oklch(0.95 0.01 85)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.15 0.006 60)"
+          }
+        }
+      },
+      "fg": {
+        "$value": "oklch(0.2 0.01 60)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.95 0.008 85)"
+          }
+        }
+      },
+      "fg-muted": {
+        "$value": "oklch(0.46 0.01 60)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.74 0.01 70)"
+          }
+        }
+      },
+      "fg-subtle": {
+        "$value": "oklch(0.6 0.01 60)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.6 0.01 70)"
+          }
+        }
+      },
+      "border": {
+        "$value": "oklch(0.2 0.01 60 / 0.14)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.95 0.008 85 / 0.14)"
+          }
+        }
+      },
+      "border-strong": {
+        "$value": "oklch(0.5 0.01 60)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.62 0.01 70)"
+          }
+        }
+      },
+      "primary-fg": {
+        "$value": "oklch(0.98 0.008 85)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.17 0.006 60)"
+          }
+        }
+      },
+      "accent-fg": {
+        "$value": "oklch(0.98 0.008 85)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.17 0.006 60)"
+          }
+        }
+      }
+    },
+    "font": {
+      "display": {
+        "$value": [
+          "Newsreader",
+          "Iowan Old Style",
+          "Georgia",
+          "serif"
+        ]
+      },
+      "mono": {
+        "$value": [
+          "Geist Mono",
+          "ui-monospace",
+          "SFMono-Regular",
+          "monospace"
+        ]
+      }
+    },
+    "font-weight": {
+      "display": {
+        "$value": 400
+      },
+      "heading": {
+        "$value": 450
+      }
+    },
+    "text": {
+      "display": {
+        "$value": "clamp(3rem, 1.75rem + 5.25vw, 6.5rem)"
+      },
+      "display--line-height": {
+        "$value": "1.02"
+      },
+      "h2": {
+        "$value": "clamp(2rem, 1.5rem + 2vw, 3.25rem)"
+      }
+    },
+    "tracking": {
+      "display": {
+        "$value": "-0.015em"
+      },
+      "heading": {
+        "$value": "-0.01em"
+      }
+    },
+    "radius": {
+      "control": {
+        "$value": "9999px"
+      },
+      "card": {
+        "$value": "0px"
+      },
+      "panel": {
+        "$value": "0px"
+      }
+    },
+    "shadow": {
+      "card": {
+        "$value": "none"
+      },
+      "raised": {
+        "$value": "0 1px 0 oklch(0.2 0.01 60 / 0.1)",
+        "$extensions": {
+          "mode": {
+            "dark": "0 1px 0 oklch(1 0 0 / 0.08)"
+          }
+        }
+      }
+    },
+    "ease": {
+      "out": {
+        "$value": "cubic-bezier(0.23, 1, 0.32, 1)"
+      }
+    },
+    "motion": {
+      "duration": {
+        "large": {
+          "$value": "300ms"
+        },
+        "reveal": {
+          "$value": "450ms"
+        }
+      },
+      "distance": {
+        "reveal": {
+          "$value": "12px"
+        }
+      }
+    },
+    "layout": {
+      "section-y": {
+        "$value": "clamp(6rem, 3rem + 8vw, 12rem)"
+      }
+    },
+    "effect": {
+      "card-hover-lift": {
+        "$value": "0px"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+/* Soft optical serif: lean on Fraunces' SOFT axis for rounder letterforms. */
+[data-trend="warm-natural"] h1,
+[data-trend="warm-natural"] h2,
+[data-trend="warm-natural"] h3 {
+  font-variation-settings: "SOFT" 60, "opsz" 96;
+}
+[data-trend="warm-natural"] [data-slot="eyebrow"] {
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-weight: 500;
+}

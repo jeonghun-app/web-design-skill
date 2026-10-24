@@ -1,0 +1,233 @@
+{
+  "id": "signal-dark",
+  "name": "Signal dark",
+  "reviewed": "2026-10",
+  "reviewBy": "2027-04",
+  "stage": "rising",
+  "preferTheme": "dark",
+  "summary": "Dark-first technical look: near-black canvas, hairline grids, mono labels and one luminous accent",
+  "fits": [
+    "developer tools",
+    "AI products and assistants",
+    "data and infrastructure",
+    "fintech platforms"
+  ],
+  "avoid": [
+    "older or non-technical audiences",
+    "warm lifestyle brands",
+    "long-form reading"
+  ],
+  "why": "A dark canvas makes a single luminous accent the most salient element on screen (preattentive color pop); mono labels and grids signal precision to expert audiences, and product UI rendered in the same palette reads as real.",
+  "risks": [
+    "Thin grey text on near-black loses contrast quickly: muted text stays at L >= 0.72",
+    "Glow effects can halo and blur text: glow only on the primary button and on hover"
+  ],
+  "signature": "Hairline grid that fades out behind the hero, with an accent glow on the primary action",
+  "fonts": [
+    {
+      "family": "Geist",
+      "href": "https://fonts.googleapis.com/css2?family=Geist:wght@400..700&display=swap"
+    },
+    {
+      "family": "Geist Mono",
+      "href": "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400..600&display=swap"
+    }
+  ],
+  "tokens": {
+    "color": {
+      "brand": {
+        "$value": "oklch(0.5 0.15 150)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.86 0.2 145)"
+          }
+        }
+      },
+      "accent-base": {
+        "$value": "oklch(0.52 0.18 280)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.78 0.13 280)"
+          }
+        }
+      },
+      "bg": {
+        "$value": "oklch(0.985 0.003 265)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.16 0.012 265)"
+          }
+        }
+      },
+      "surface": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.2 0.012 265)"
+          }
+        }
+      },
+      "surface-raised": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.24 0.012 265)"
+          }
+        }
+      },
+      "surface-sunken": {
+        "$value": "oklch(0.96 0.004 265)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.13 0.01 265)"
+          }
+        }
+      },
+      "fg": {
+        "$value": "oklch(0.18 0.01 265)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.96 0 0)"
+          }
+        }
+      },
+      "fg-muted": {
+        "$value": "oklch(0.45 0.01 265)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.73 0.01 265)"
+          }
+        }
+      },
+      "fg-subtle": {
+        "$value": "oklch(0.6 0.01 265)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.55 0.01 265)"
+          }
+        }
+      },
+      "border": {
+        "$value": "oklch(0.18 0.01 265 / 0.1)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(1 0 0 / 0.09)"
+          }
+        }
+      },
+      "border-strong": {
+        "$value": "oklch(0.55 0.01 265)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.56 0.01 265)"
+          }
+        }
+      },
+      "primary-fg": {
+        "$value": "oklch(0.99 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.16 0.03 145)"
+          }
+        }
+      },
+      "accent-fg": {
+        "$value": "oklch(0.99 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.16 0.03 280)"
+          }
+        }
+      }
+    },
+    "font": {
+      "sans": {
+        "$value": [
+          "Geist",
+          "Inter",
+          "Pretendard Variable",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif"
+        ]
+      },
+      "mono": {
+        "$value": [
+          "Geist Mono",
+          "JetBrains Mono",
+          "ui-monospace",
+          "monospace"
+        ]
+      }
+    },
+    "font-weight": {
+      "display": {
+        "$value": 600
+      }
+    },
+    "text": {
+      "display": {
+        "$value": "clamp(2.5rem, 1.5rem + 4.25vw, 4.75rem)"
+      },
+      "display--line-height": {
+        "$value": "1.02"
+      }
+    },
+    "tracking": {
+      "display": {
+        "$value": "-0.04em"
+      },
+      "heading": {
+        "$value": "-0.025em"
+      }
+    },
+    "radius": {
+      "control": {
+        "$value": "8px"
+      },
+      "card": {
+        "$value": "12px"
+      },
+      "panel": {
+        "$value": "16px"
+      }
+    },
+    "shadow": {
+      "card": {
+        "$value": "0 0 0 1px oklch(0.18 0.01 265 / 0.08)",
+        "$extensions": {
+          "mode": {
+            "dark": "0 0 0 1px oklch(1 0 0 / 0.06)"
+          }
+        }
+      },
+      "raised": {
+        "$value": "0 8px 24px -8px oklch(0.18 0.01 265 / 0.18)",
+        "$extensions": {
+          "mode": {
+            "dark": "0 0 0 1px oklch(1 0 0 / 0.08), 0 12px 32px -8px oklch(0 0 0 / 0.6)"
+          }
+        }
+      }
+    },
+    "motion": {
+      "duration": {
+        "micro": {
+          "$value": "120ms"
+        },
+        "small": {
+          "$value": "200ms"
+        }
+      }
+    },
+    "effect": {
+      "hero-bg": {
+        "$type": "string",
+        "$value": "radial-gradient(60% 50% at 50% 0%, oklch(from {color.brand} l c h / 0.16), transparent 70%), linear-gradient(to right, oklch(from {color.fg} l c h / 0.06) 1px, transparent 1px) 0 0 / 48px 48px, linear-gradient(to bottom, oklch(from {color.fg} l c h / 0.06) 1px, transparent 1px) 0 0 / 48px 48px"
+      },
+      "card-hover-lift": {
+        "$value": "0px"
+      }
+    }
+  }
+}

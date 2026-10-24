@@ -1,0 +1,7989 @@
+{
+  "generatedAt": null,
+  "collection": "web-design",
+  "modes": [
+    "light",
+    "dark"
+  ],
+  "trends": {
+    "none": [
+      {
+        "name": "color/brand",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1957,
+            "g": 0.3995,
+            "b": 0.8942,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4178,
+            "g": 0.6046,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-brand)"
+      },
+      {
+        "name": "color/accent-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8133,
+            "g": 0.1585,
+            "b": 0.2722,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9907,
+            "g": 0.4451,
+            "b": 0.4844,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent-base)"
+      },
+      {
+        "name": "color/bg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9842,
+            "g": 0.987,
+            "b": 0.9925,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0451,
+            "g": 0.0521,
+            "b": 0.0658,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-bg)"
+      },
+      {
+        "name": "color/surface",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0773,
+            "g": 0.0865,
+            "b": 0.1047,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface)"
+      },
+      {
+        "name": "color/surface-raised",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1111,
+            "g": 0.1227,
+            "b": 0.1456,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-raised)"
+      },
+      {
+        "name": "color/surface-sunken",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9489,
+            "g": 0.9544,
+            "b": 0.9653,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0246,
+            "g": 0.0286,
+            "b": 0.0374,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-sunken)"
+      },
+      {
+        "name": "color/chrome",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9842,
+            "g": 0.987,
+            "b": 0.9925,
+            "a": 0.82
+          },
+          "dark": {
+            "r": 0.0451,
+            "g": 0.0521,
+            "b": 0.0658,
+            "a": 0.82
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-chrome)"
+      },
+      {
+        "name": "color/fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0728,
+            "g": 0.0865,
+            "b": 0.1137,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.941,
+            "g": 0.948,
+            "b": 0.9616,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg)"
+      },
+      {
+        "name": "color/fg-muted",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3176,
+            "g": 0.3347,
+            "b": 0.3682,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6667,
+            "g": 0.6823,
+            "b": 0.7128,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-muted)"
+      },
+      {
+        "name": "color/fg-subtle",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4652,
+            "g": 0.4799,
+            "b": 0.5085,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5114,
+            "g": 0.5263,
+            "b": 0.5554,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-subtle)"
+      },
+      {
+        "name": "color/border",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8622,
+            "g": 0.8704,
+            "b": 0.8864,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1675,
+            "g": 0.1798,
+            "b": 0.204,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border)"
+      },
+      {
+        "name": "color/border-strong",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4424,
+            "g": 0.457,
+            "b": 0.4853,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4882,
+            "g": 0.503,
+            "b": 0.5318,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border-strong)"
+      },
+      {
+        "name": "color/primary",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1957,
+            "g": 0.3995,
+            "b": 0.8942,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4178,
+            "g": 0.6046,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary)"
+      },
+      {
+        "name": "color/primary-hover",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1314,
+            "g": 0.3236,
+            "b": 0.8129,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4878,
+            "g": 0.6801,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-hover)"
+      },
+      {
+        "name": "color/primary-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0349,
+            "g": 0.0517,
+            "b": 0.086,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-fg)"
+      },
+      {
+        "name": "color/primary-soft",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8823,
+            "g": 0.9371,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1182,
+            "g": 0.1757,
+            "b": 0.2975,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-soft)"
+      },
+      {
+        "name": "color/primary-soft-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0356,
+            "g": 0.206,
+            "b": 0.6928,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.7407,
+            "g": 0.846,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-soft-fg)"
+      },
+      {
+        "name": "color/primary-text",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0996,
+            "g": 0.2852,
+            "b": 0.7726,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5593,
+            "g": 0.7568,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-text)"
+      },
+      {
+        "name": "color/accent",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8133,
+            "g": 0.1585,
+            "b": 0.2722,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9907,
+            "g": 0.4451,
+            "b": 0.4844,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent)"
+      },
+      {
+        "name": "color/accent-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0821,
+            "g": 0.0381,
+            "b": 0.0391,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-accent-fg)"
+      },
+      {
+        "name": "color/ring",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1957,
+            "g": 0.3995,
+            "b": 0.8942,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4178,
+            "g": 0.6046,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-ring)"
+      },
+      {
+        "name": "color/success",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1135,
+            "g": 0.4896,
+            "b": 0.242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3257,
+            "g": 0.746,
+            "b": 0.4404,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-success)"
+      },
+      {
+        "name": "color/success-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0162,
+            "g": 0.0659,
+            "b": 0.0258,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-success-fg)"
+      },
+      {
+        "name": "color/warning",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8959,
+            "g": 0.6198,
+            "b": 0.1315,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9486,
+            "g": 0.6881,
+            "b": 0.2829,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-warning)"
+      },
+      {
+        "name": "color/warning-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1463,
+            "g": 0.0924,
+            "b": 0.014,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1272,
+            "g": 0.0743,
+            "b": 0.0038,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-warning-fg)"
+      },
+      {
+        "name": "color/danger",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8018,
+            "g": 0.1556,
+            "b": 0.1539,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9644,
+            "g": 0.4289,
+            "b": 0.3852,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-danger)"
+      },
+      {
+        "name": "color/danger-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0953,
+            "g": 0.031,
+            "b": 0.0256,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-danger-fg)"
+      },
+      {
+        "name": "color/overlay",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0353,
+            "g": 0.0438,
+            "b": 0.0607,
+            "a": 0.5
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.6
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-overlay)"
+      },
+      {
+        "name": "font/sans",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-sans)"
+      },
+      {
+        "name": "font/display",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-display)"
+      },
+      {
+        "name": "font/mono",
+        "type": "STRING",
+        "values": {
+          "light": "JetBrains Mono",
+          "dark": "JetBrains Mono"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-mono)"
+      },
+      {
+        "name": "font-weight/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 650,
+          "dark": 650
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-display)"
+      },
+      {
+        "name": "font-weight/heading",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-heading)"
+      },
+      {
+        "name": "font-weight/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-control)"
+      },
+      {
+        "name": "text/xs",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-xs)"
+      },
+      {
+        "name": "text/sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 14,
+          "dark": 14
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-sm)"
+      },
+      {
+        "name": "text/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-base)"
+      },
+      {
+        "name": "text/lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 18,
+          "dark": 18
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lg)"
+      },
+      {
+        "name": "text/lede",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lede)"
+      },
+      {
+        "name": "text/h3",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h3)"
+      },
+      {
+        "name": "text/h2",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h2)"
+      },
+      {
+        "name": "text/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 72,
+          "dark": 72
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-display)"
+      },
+      {
+        "name": "radius/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-base)"
+      },
+      {
+        "name": "radius/pill",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-pill)"
+      },
+      {
+        "name": "ease/out",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-out)"
+      },
+      {
+        "name": "ease/in",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-in)"
+      },
+      {
+        "name": "ease/standard",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-standard)"
+      },
+      {
+        "name": "motion/duration/micro",
+        "type": "TIMING",
+        "values": {
+          "light": 0.1,
+          "dark": 0.1
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-micro)"
+      },
+      {
+        "name": "motion/duration/small",
+        "type": "TIMING",
+        "values": {
+          "light": 0.2,
+          "dark": 0.2
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-small)"
+      },
+      {
+        "name": "motion/duration/large",
+        "type": "TIMING",
+        "values": {
+          "light": 0.3,
+          "dark": 0.3
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-large)"
+      },
+      {
+        "name": "motion/duration/reveal",
+        "type": "TIMING",
+        "values": {
+          "light": 0.4,
+          "dark": 0.4
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-reveal)"
+      },
+      {
+        "name": "motion/distance/reveal",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [],
+        "web": "var(--motion-distance-reveal)"
+      },
+      {
+        "name": "size/control-sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-sm)"
+      },
+      {
+        "name": "size/control-md",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-md)"
+      },
+      {
+        "name": "size/control-lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-lg)"
+      },
+      {
+        "name": "size/touch-min",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-touch-min)"
+      },
+      {
+        "name": "layout/container",
+        "type": "FLOAT",
+        "values": {
+          "light": 1280,
+          "dark": 1280
+        },
+        "scopes": [],
+        "web": "var(--layout-container)"
+      },
+      {
+        "name": "layout/gutter",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [],
+        "web": "var(--layout-gutter)"
+      },
+      {
+        "name": "layout/section-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 128,
+          "dark": 128
+        },
+        "scopes": [],
+        "web": "var(--layout-section-y)"
+      },
+      {
+        "name": "layout/nav-h",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [],
+        "web": "var(--layout-nav-h)"
+      },
+      {
+        "name": "effect/border-width",
+        "type": "FLOAT",
+        "values": {
+          "light": 1,
+          "dark": 1
+        },
+        "scopes": [],
+        "web": "var(--effect-border-width)"
+      },
+      {
+        "name": "effect/chrome-blur",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-blur)"
+      },
+      {
+        "name": "effect/chrome-saturate",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.4,
+          "dark": 1.4
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-saturate)"
+      },
+      {
+        "name": "effect/grain-opacity",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-grain-opacity)"
+      },
+      {
+        "name": "effect/card-hover-lift",
+        "type": "FLOAT",
+        "values": {
+          "light": -2,
+          "dark": -2
+        },
+        "scopes": [],
+        "web": "var(--effect-card-hover-lift)"
+      }
+    ],
+    "frosted": [
+      {
+        "name": "color/brand",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.4276,
+            "b": 0.8853,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3725,
+            "g": 0.6533,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-brand)"
+      },
+      {
+        "name": "color/accent-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.693,
+            "g": 0.2255,
+            "b": 0.6691,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.8741,
+            "g": 0.5239,
+            "b": 0.845,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent-base)"
+      },
+      {
+        "name": "color/bg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9518,
+            "g": 0.9616,
+            "b": 0.9774,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0325,
+            "g": 0.0442,
+            "b": 0.0639,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-bg)"
+      },
+      {
+        "name": "color/surface",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0806,
+            "g": 0.096,
+            "b": 0.121,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface)"
+      },
+      {
+        "name": "color/surface-raised",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1144,
+            "g": 0.1328,
+            "b": 0.1625,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-raised)"
+      },
+      {
+        "name": "color/surface-sunken",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9489,
+            "g": 0.9544,
+            "b": 0.9653,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0246,
+            "g": 0.0286,
+            "b": 0.0374,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-sunken)"
+      },
+      {
+        "name": "color/chrome",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.959,
+            "g": 0.9753,
+            "b": 1,
+            "a": 0.66
+          },
+          "dark": {
+            "r": 0.083,
+            "g": 0.1052,
+            "b": 0.1412,
+            "a": 0.62
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-chrome)"
+      },
+      {
+        "name": "color/fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.074,
+            "g": 0.087,
+            "b": 0.1082,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9402,
+            "g": 0.9483,
+            "b": 0.9615,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg)"
+      },
+      {
+        "name": "color/fg-muted",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3192,
+            "g": 0.3353,
+            "b": 0.3612,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6798,
+            "g": 0.6951,
+            "b": 0.7198,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-muted)"
+      },
+      {
+        "name": "color/fg-subtle",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4652,
+            "g": 0.4799,
+            "b": 0.5085,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5114,
+            "g": 0.5263,
+            "b": 0.5554,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-subtle)"
+      },
+      {
+        "name": "color/border",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8622,
+            "g": 0.8704,
+            "b": 0.8864,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1675,
+            "g": 0.1798,
+            "b": 0.204,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border)"
+      },
+      {
+        "name": "color/border-strong",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4424,
+            "g": 0.457,
+            "b": 0.4853,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4882,
+            "g": 0.503,
+            "b": 0.5318,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border-strong)"
+      },
+      {
+        "name": "color/primary",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.4276,
+            "b": 0.8853,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3725,
+            "g": 0.6533,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary)"
+      },
+      {
+        "name": "color/primary-hover",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.3522,
+            "b": 0.8043,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4459,
+            "g": 0.7293,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-hover)"
+      },
+      {
+        "name": "color/primary-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0144,
+            "g": 0.0448,
+            "b": 0.0922,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-fg)"
+      },
+      {
+        "name": "color/primary-soft",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8668,
+            "g": 0.943,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0927,
+            "g": 0.1824,
+            "b": 0.2951,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-soft)"
+      },
+      {
+        "name": "color/primary-soft-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.2372,
+            "b": 0.6847,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.7072,
+            "g": 0.8575,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-soft-fg)"
+      },
+      {
+        "name": "color/primary-text",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.3143,
+            "b": 0.7642,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4952,
+            "g": 0.7806,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-text)"
+      },
+      {
+        "name": "color/accent",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.693,
+            "g": 0.2255,
+            "b": 0.6691,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.8741,
+            "g": 0.5239,
+            "b": 0.845,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent)"
+      },
+      {
+        "name": "color/accent-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.071,
+            "g": 0.0257,
+            "b": 0.0671,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-accent-fg)"
+      },
+      {
+        "name": "color/ring",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.4276,
+            "b": 0.8853,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3725,
+            "g": 0.6533,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-ring)"
+      },
+      {
+        "name": "color/success",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1135,
+            "g": 0.4896,
+            "b": 0.242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3257,
+            "g": 0.746,
+            "b": 0.4404,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-success)"
+      },
+      {
+        "name": "color/success-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0162,
+            "g": 0.0659,
+            "b": 0.0258,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-success-fg)"
+      },
+      {
+        "name": "color/warning",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8959,
+            "g": 0.6198,
+            "b": 0.1315,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9486,
+            "g": 0.6881,
+            "b": 0.2829,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-warning)"
+      },
+      {
+        "name": "color/warning-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1463,
+            "g": 0.0924,
+            "b": 0.014,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1272,
+            "g": 0.0743,
+            "b": 0.0038,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-warning-fg)"
+      },
+      {
+        "name": "color/danger",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8018,
+            "g": 0.1556,
+            "b": 0.1539,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9644,
+            "g": 0.4289,
+            "b": 0.3852,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-danger)"
+      },
+      {
+        "name": "color/danger-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0953,
+            "g": 0.031,
+            "b": 0.0256,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-danger-fg)"
+      },
+      {
+        "name": "color/overlay",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0353,
+            "g": 0.0438,
+            "b": 0.0607,
+            "a": 0.5
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.6
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-overlay)"
+      },
+      {
+        "name": "font/sans",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-sans)"
+      },
+      {
+        "name": "font/display",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-display)"
+      },
+      {
+        "name": "font/mono",
+        "type": "STRING",
+        "values": {
+          "light": "JetBrains Mono",
+          "dark": "JetBrains Mono"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-mono)"
+      },
+      {
+        "name": "font-weight/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 650,
+          "dark": 650
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-display)"
+      },
+      {
+        "name": "font-weight/heading",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-heading)"
+      },
+      {
+        "name": "font-weight/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-control)"
+      },
+      {
+        "name": "text/xs",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-xs)"
+      },
+      {
+        "name": "text/sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 14,
+          "dark": 14
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-sm)"
+      },
+      {
+        "name": "text/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-base)"
+      },
+      {
+        "name": "text/lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 18,
+          "dark": 18
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lg)"
+      },
+      {
+        "name": "text/lede",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lede)"
+      },
+      {
+        "name": "text/h3",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h3)"
+      },
+      {
+        "name": "text/h2",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h2)"
+      },
+      {
+        "name": "text/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 72,
+          "dark": 72
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-display)"
+      },
+      {
+        "name": "radius/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-base)"
+      },
+      {
+        "name": "radius/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-control)"
+      },
+      {
+        "name": "radius/card",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-card)"
+      },
+      {
+        "name": "radius/panel",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-panel)"
+      },
+      {
+        "name": "radius/pill",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-pill)"
+      },
+      {
+        "name": "ease/out",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-out)"
+      },
+      {
+        "name": "ease/in",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-in)"
+      },
+      {
+        "name": "ease/standard",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-standard)"
+      },
+      {
+        "name": "motion/duration/micro",
+        "type": "TIMING",
+        "values": {
+          "light": 0.1,
+          "dark": 0.1
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-micro)"
+      },
+      {
+        "name": "motion/duration/small",
+        "type": "TIMING",
+        "values": {
+          "light": 0.2,
+          "dark": 0.2
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-small)"
+      },
+      {
+        "name": "motion/duration/large",
+        "type": "TIMING",
+        "values": {
+          "light": 0.3,
+          "dark": 0.3
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-large)"
+      },
+      {
+        "name": "motion/duration/reveal",
+        "type": "TIMING",
+        "values": {
+          "light": 0.4,
+          "dark": 0.4
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-reveal)"
+      },
+      {
+        "name": "motion/distance/reveal",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [],
+        "web": "var(--motion-distance-reveal)"
+      },
+      {
+        "name": "size/control-sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-sm)"
+      },
+      {
+        "name": "size/control-md",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-md)"
+      },
+      {
+        "name": "size/control-lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-lg)"
+      },
+      {
+        "name": "size/touch-min",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-touch-min)"
+      },
+      {
+        "name": "layout/container",
+        "type": "FLOAT",
+        "values": {
+          "light": 1280,
+          "dark": 1280
+        },
+        "scopes": [],
+        "web": "var(--layout-container)"
+      },
+      {
+        "name": "layout/gutter",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [],
+        "web": "var(--layout-gutter)"
+      },
+      {
+        "name": "layout/section-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 128,
+          "dark": 128
+        },
+        "scopes": [],
+        "web": "var(--layout-section-y)"
+      },
+      {
+        "name": "layout/nav-h",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [],
+        "web": "var(--layout-nav-h)"
+      },
+      {
+        "name": "effect/border-width",
+        "type": "FLOAT",
+        "values": {
+          "light": 1,
+          "dark": 1
+        },
+        "scopes": [],
+        "web": "var(--effect-border-width)"
+      },
+      {
+        "name": "effect/chrome-blur",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-blur)"
+      },
+      {
+        "name": "effect/chrome-saturate",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.7,
+          "dark": 1.7
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-saturate)"
+      },
+      {
+        "name": "effect/grain-opacity",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-grain-opacity)"
+      },
+      {
+        "name": "effect/card-hover-lift",
+        "type": "FLOAT",
+        "values": {
+          "light": -3,
+          "dark": -3
+        },
+        "scopes": [],
+        "web": "var(--effect-card-hover-lift)"
+      }
+    ],
+    "kinetic-studio": [
+      {
+        "name": "color/brand",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9068,
+            "g": 0.2743,
+            "b": 0,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.4293,
+            "b": 0.1907,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-brand)"
+      },
+      {
+        "name": "color/accent-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9068,
+            "g": 0.2743,
+            "b": 0,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.4293,
+            "b": 0.1907,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent-base)"
+      },
+      {
+        "name": "color/bg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9606,
+            "g": 0.9606,
+            "b": 0.9606,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-bg)"
+      },
+      {
+        "name": "color/surface",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9934,
+            "g": 0.9934,
+            "b": 0.9934,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0602,
+            "g": 0.0602,
+            "b": 0.0602,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface)"
+      },
+      {
+        "name": "color/surface-raised",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0861,
+            "g": 0.0861,
+            "b": 0.0861,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-raised)"
+      },
+      {
+        "name": "color/surface-sunken",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9085,
+            "g": 0.9085,
+            "b": 0.9085,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0129,
+            "g": 0.0129,
+            "b": 0.0129,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-sunken)"
+      },
+      {
+        "name": "color/chrome",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9606,
+            "g": 0.9606,
+            "b": 0.9606,
+            "a": 0.82
+          },
+          "dark": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 0.82
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-chrome)"
+      },
+      {
+        "name": "color/fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9606,
+            "g": 0.9606,
+            "b": 0.9606,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg)"
+      },
+      {
+        "name": "color/fg-muted",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3017,
+            "g": 0.3017,
+            "b": 0.3017,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6691,
+            "g": 0.6691,
+            "b": 0.6691,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-muted)"
+      },
+      {
+        "name": "color/fg-subtle",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4652,
+            "g": 0.4799,
+            "b": 0.5085,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5114,
+            "g": 0.5263,
+            "b": 0.5554,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-subtle)"
+      },
+      {
+        "name": "color/border",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 0.12
+          },
+          "dark": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 0.12
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border)"
+      },
+      {
+        "name": "color/border-strong",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3886,
+            "g": 0.3886,
+            "b": 0.3886,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5021,
+            "g": 0.5021,
+            "b": 0.5021,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border-strong)"
+      },
+      {
+        "name": "color/primary",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9068,
+            "g": 0.2743,
+            "b": 0,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.4293,
+            "b": 0.1907,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary)"
+      },
+      {
+        "name": "color/primary-hover",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8219,
+            "g": 0.1821,
+            "b": 0,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.5077,
+            "b": 0.2786,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-hover)"
+      },
+      {
+        "name": "color/primary-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-fg)"
+      },
+      {
+        "name": "color/primary-soft",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.9029,
+            "b": 0.8578,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2772,
+            "g": 0.1342,
+            "b": 0.0836,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-soft)"
+      },
+      {
+        "name": "color/primary-soft-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.5985,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.7778,
+            "b": 0.6903,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-soft-fg)"
+      },
+      {
+        "name": "color/primary-text",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.6818,
+            "g": 0,
+            "b": 0,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.5599,
+            "b": 0.3332,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-text)"
+      },
+      {
+        "name": "color/accent",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9068,
+            "g": 0.2743,
+            "b": 0,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.4293,
+            "b": 0.1907,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent)"
+      },
+      {
+        "name": "color/accent-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-accent-fg)"
+      },
+      {
+        "name": "color/ring",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9068,
+            "g": 0.2743,
+            "b": 0,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.4293,
+            "b": 0.1907,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-ring)"
+      },
+      {
+        "name": "color/success",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1135,
+            "g": 0.4896,
+            "b": 0.242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3257,
+            "g": 0.746,
+            "b": 0.4404,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-success)"
+      },
+      {
+        "name": "color/success-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0162,
+            "g": 0.0659,
+            "b": 0.0258,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-success-fg)"
+      },
+      {
+        "name": "color/warning",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8959,
+            "g": 0.6198,
+            "b": 0.1315,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9486,
+            "g": 0.6881,
+            "b": 0.2829,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-warning)"
+      },
+      {
+        "name": "color/warning-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1463,
+            "g": 0.0924,
+            "b": 0.014,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1272,
+            "g": 0.0743,
+            "b": 0.0038,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-warning-fg)"
+      },
+      {
+        "name": "color/danger",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8018,
+            "g": 0.1556,
+            "b": 0.1539,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9644,
+            "g": 0.4289,
+            "b": 0.3852,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-danger)"
+      },
+      {
+        "name": "color/danger-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0953,
+            "g": 0.031,
+            "b": 0.0256,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-danger-fg)"
+      },
+      {
+        "name": "color/overlay",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0353,
+            "g": 0.0438,
+            "b": 0.0607,
+            "a": 0.5
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.6
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-overlay)"
+      },
+      {
+        "name": "font/sans",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-sans)"
+      },
+      {
+        "name": "font/display",
+        "type": "STRING",
+        "values": {
+          "light": "Inter Tight",
+          "dark": "Inter Tight"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-display)"
+      },
+      {
+        "name": "font/mono",
+        "type": "STRING",
+        "values": {
+          "light": "JetBrains Mono",
+          "dark": "JetBrains Mono"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-mono)"
+      },
+      {
+        "name": "font-weight/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-display)"
+      },
+      {
+        "name": "font-weight/heading",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-heading)"
+      },
+      {
+        "name": "font-weight/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-control)"
+      },
+      {
+        "name": "text/xs",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-xs)"
+      },
+      {
+        "name": "text/sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 14,
+          "dark": 14
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-sm)"
+      },
+      {
+        "name": "text/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-base)"
+      },
+      {
+        "name": "text/lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 18,
+          "dark": 18
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lg)"
+      },
+      {
+        "name": "text/lede",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lede)"
+      },
+      {
+        "name": "text/h3",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h3)"
+      },
+      {
+        "name": "text/h2",
+        "type": "FLOAT",
+        "values": {
+          "light": 72,
+          "dark": 72
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h2)"
+      },
+      {
+        "name": "text/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 144,
+          "dark": 144
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-display)"
+      },
+      {
+        "name": "radius/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-base)"
+      },
+      {
+        "name": "radius/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 2,
+          "dark": 2
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-control)"
+      },
+      {
+        "name": "radius/card",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-card)"
+      },
+      {
+        "name": "radius/panel",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-panel)"
+      },
+      {
+        "name": "radius/pill",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-pill)"
+      },
+      {
+        "name": "ease/out",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.16,
+              "y1": 1,
+              "x2": 0.3,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.16,
+              "y1": 1,
+              "x2": 0.3,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-out)"
+      },
+      {
+        "name": "ease/in",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-in)"
+      },
+      {
+        "name": "ease/standard",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-standard)"
+      },
+      {
+        "name": "motion/duration/micro",
+        "type": "TIMING",
+        "values": {
+          "light": 0.1,
+          "dark": 0.1
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-micro)"
+      },
+      {
+        "name": "motion/duration/small",
+        "type": "TIMING",
+        "values": {
+          "light": 0.2,
+          "dark": 0.2
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-small)"
+      },
+      {
+        "name": "motion/duration/large",
+        "type": "TIMING",
+        "values": {
+          "light": 0.3,
+          "dark": 0.3
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-large)"
+      },
+      {
+        "name": "motion/duration/reveal",
+        "type": "TIMING",
+        "values": {
+          "light": 0.5,
+          "dark": 0.5
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-reveal)"
+      },
+      {
+        "name": "motion/distance/reveal",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [],
+        "web": "var(--motion-distance-reveal)"
+      },
+      {
+        "name": "size/control-sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-sm)"
+      },
+      {
+        "name": "size/control-md",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-md)"
+      },
+      {
+        "name": "size/control-lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-lg)"
+      },
+      {
+        "name": "size/touch-min",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-touch-min)"
+      },
+      {
+        "name": "layout/container",
+        "type": "FLOAT",
+        "values": {
+          "light": 1280,
+          "dark": 1280
+        },
+        "scopes": [],
+        "web": "var(--layout-container)"
+      },
+      {
+        "name": "layout/gutter",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [],
+        "web": "var(--layout-gutter)"
+      },
+      {
+        "name": "layout/section-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 128,
+          "dark": 128
+        },
+        "scopes": [],
+        "web": "var(--layout-section-y)"
+      },
+      {
+        "name": "layout/nav-h",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [],
+        "web": "var(--layout-nav-h)"
+      },
+      {
+        "name": "effect/border-width",
+        "type": "FLOAT",
+        "values": {
+          "light": 1,
+          "dark": 1
+        },
+        "scopes": [],
+        "web": "var(--effect-border-width)"
+      },
+      {
+        "name": "effect/chrome-blur",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-blur)"
+      },
+      {
+        "name": "effect/chrome-saturate",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.4,
+          "dark": 1.4
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-saturate)"
+      },
+      {
+        "name": "effect/grain-opacity",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-grain-opacity)"
+      },
+      {
+        "name": "effect/card-hover-lift",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-card-hover-lift)"
+      }
+    ],
+    "loud": [
+      {
+        "name": "color/brand",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8857,
+            "g": 0.184,
+            "b": 0.6008,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9647,
+            "g": 0.4544,
+            "b": 0.8153,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-brand)"
+      },
+      {
+        "name": "color/accent-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9571,
+            "g": 0.8096,
+            "b": 0.1384,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9571,
+            "g": 0.8096,
+            "b": 0.1384,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent-base)"
+      },
+      {
+        "name": "color/bg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9851,
+            "g": 0.9625,
+            "b": 0.8746,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.074,
+            "g": 0.0612,
+            "b": 0.0988,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-bg)"
+      },
+      {
+        "name": "color/surface",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1216,
+            "g": 0.1007,
+            "b": 0.1608,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface)"
+      },
+      {
+        "name": "color/surface-raised",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1591,
+            "g": 0.1378,
+            "b": 0.2003,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-raised)"
+      },
+      {
+        "name": "color/surface-sunken",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9492,
+            "g": 0.9107,
+            "b": 0.7642,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0486,
+            "g": 0.0361,
+            "b": 0.072,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-sunken)"
+      },
+      {
+        "name": "color/chrome",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9851,
+            "g": 0.9625,
+            "b": 0.8746,
+            "a": 0.82
+          },
+          "dark": {
+            "r": 0.074,
+            "g": 0.0612,
+            "b": 0.0988,
+            "a": 0.82
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-chrome)"
+      },
+      {
+        "name": "color/fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9769,
+            "g": 0.962,
+            "b": 0.9037,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg)"
+      },
+      {
+        "name": "color/fg-muted",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.2456,
+            "g": 0.2397,
+            "b": 0.2169,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.7588,
+            "g": 0.7445,
+            "b": 0.6888,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-muted)"
+      },
+      {
+        "name": "color/fg-subtle",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3955,
+            "g": 0.3892,
+            "b": 0.3645,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5755,
+            "g": 0.5619,
+            "b": 0.5089,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-subtle)"
+      },
+      {
+        "name": "color/border",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9769,
+            "g": 0.962,
+            "b": 0.9037,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border)"
+      },
+      {
+        "name": "color/border-strong",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9769,
+            "g": 0.962,
+            "b": 0.9037,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border-strong)"
+      },
+      {
+        "name": "color/primary",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8857,
+            "g": 0.184,
+            "b": 0.6008,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9647,
+            "g": 0.4544,
+            "b": 0.8153,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary)"
+      },
+      {
+        "name": "color/primary-hover",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8009,
+            "g": 0.0383,
+            "b": 0.5291,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.5302,
+            "b": 0.8928,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-hover)"
+      },
+      {
+        "name": "color/primary-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-fg)"
+      },
+      {
+        "name": "color/primary-soft",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.8947,
+            "b": 0.9498,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2563,
+            "g": 0.1291,
+            "b": 0.2165,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-soft)"
+      },
+      {
+        "name": "color/primary-soft-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.5777,
+            "g": 0,
+            "b": 0.3464,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9898,
+            "g": 0.7664,
+            "b": 0.9106,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-soft-fg)"
+      },
+      {
+        "name": "color/primary-text",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.6609,
+            "g": 0,
+            "b": 0.4134,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.5556,
+            "b": 0.9189,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-text)"
+      },
+      {
+        "name": "color/accent",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9571,
+            "g": 0.8096,
+            "b": 0.1384,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9571,
+            "g": 0.8096,
+            "b": 0.1384,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent)"
+      },
+      {
+        "name": "color/accent-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-accent-fg)"
+      },
+      {
+        "name": "color/ring",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9769,
+            "g": 0.962,
+            "b": 0.9037,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-ring)"
+      },
+      {
+        "name": "color/success",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1135,
+            "g": 0.4896,
+            "b": 0.242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3257,
+            "g": 0.746,
+            "b": 0.4404,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-success)"
+      },
+      {
+        "name": "color/success-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0162,
+            "g": 0.0659,
+            "b": 0.0258,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-success-fg)"
+      },
+      {
+        "name": "color/warning",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8959,
+            "g": 0.6198,
+            "b": 0.1315,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9486,
+            "g": 0.6881,
+            "b": 0.2829,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-warning)"
+      },
+      {
+        "name": "color/warning-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1463,
+            "g": 0.0924,
+            "b": 0.014,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1272,
+            "g": 0.0743,
+            "b": 0.0038,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-warning-fg)"
+      },
+      {
+        "name": "color/danger",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8018,
+            "g": 0.1556,
+            "b": 0.1539,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9644,
+            "g": 0.4289,
+            "b": 0.3852,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-danger)"
+      },
+      {
+        "name": "color/danger-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0953,
+            "g": 0.031,
+            "b": 0.0256,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-danger-fg)"
+      },
+      {
+        "name": "color/overlay",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0353,
+            "g": 0.0438,
+            "b": 0.0607,
+            "a": 0.5
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.6
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-overlay)"
+      },
+      {
+        "name": "font/sans",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-sans)"
+      },
+      {
+        "name": "font/display",
+        "type": "STRING",
+        "values": {
+          "light": "Unbounded",
+          "dark": "Unbounded"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-display)"
+      },
+      {
+        "name": "font/mono",
+        "type": "STRING",
+        "values": {
+          "light": "JetBrains Mono",
+          "dark": "JetBrains Mono"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-mono)"
+      },
+      {
+        "name": "font-weight/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 800,
+          "dark": 800
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-display)"
+      },
+      {
+        "name": "font-weight/heading",
+        "type": "FLOAT",
+        "values": {
+          "light": 800,
+          "dark": 800
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-heading)"
+      },
+      {
+        "name": "font-weight/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-control)"
+      },
+      {
+        "name": "text/xs",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-xs)"
+      },
+      {
+        "name": "text/sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 14,
+          "dark": 14
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-sm)"
+      },
+      {
+        "name": "text/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-base)"
+      },
+      {
+        "name": "text/lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 18,
+          "dark": 18
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lg)"
+      },
+      {
+        "name": "text/lede",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lede)"
+      },
+      {
+        "name": "text/h3",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h3)"
+      },
+      {
+        "name": "text/h2",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h2)"
+      },
+      {
+        "name": "text/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 88,
+          "dark": 88
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-display)"
+      },
+      {
+        "name": "radius/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-base)"
+      },
+      {
+        "name": "radius/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 10,
+          "dark": 10
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-control)"
+      },
+      {
+        "name": "radius/card",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-card)"
+      },
+      {
+        "name": "radius/panel",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-panel)"
+      },
+      {
+        "name": "radius/pill",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-pill)"
+      },
+      {
+        "name": "ease/out",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-out)"
+      },
+      {
+        "name": "ease/in",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-in)"
+      },
+      {
+        "name": "ease/standard",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-standard)"
+      },
+      {
+        "name": "motion/duration/micro",
+        "type": "TIMING",
+        "values": {
+          "light": 0.1,
+          "dark": 0.1
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-micro)"
+      },
+      {
+        "name": "motion/duration/small",
+        "type": "TIMING",
+        "values": {
+          "light": 0.2,
+          "dark": 0.2
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-small)"
+      },
+      {
+        "name": "motion/duration/large",
+        "type": "TIMING",
+        "values": {
+          "light": 0.3,
+          "dark": 0.3
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-large)"
+      },
+      {
+        "name": "motion/duration/reveal",
+        "type": "TIMING",
+        "values": {
+          "light": 0.4,
+          "dark": 0.4
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-reveal)"
+      },
+      {
+        "name": "motion/distance/reveal",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [],
+        "web": "var(--motion-distance-reveal)"
+      },
+      {
+        "name": "size/control-sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-sm)"
+      },
+      {
+        "name": "size/control-md",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-md)"
+      },
+      {
+        "name": "size/control-lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-lg)"
+      },
+      {
+        "name": "size/touch-min",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-touch-min)"
+      },
+      {
+        "name": "layout/container",
+        "type": "FLOAT",
+        "values": {
+          "light": 1280,
+          "dark": 1280
+        },
+        "scopes": [],
+        "web": "var(--layout-container)"
+      },
+      {
+        "name": "layout/gutter",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [],
+        "web": "var(--layout-gutter)"
+      },
+      {
+        "name": "layout/section-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 128,
+          "dark": 128
+        },
+        "scopes": [],
+        "web": "var(--layout-section-y)"
+      },
+      {
+        "name": "layout/nav-h",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [],
+        "web": "var(--layout-nav-h)"
+      },
+      {
+        "name": "effect/border-width",
+        "type": "FLOAT",
+        "values": {
+          "light": 2,
+          "dark": 2
+        },
+        "scopes": [],
+        "web": "var(--effect-border-width)"
+      },
+      {
+        "name": "effect/chrome-blur",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-blur)"
+      },
+      {
+        "name": "effect/chrome-saturate",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.4,
+          "dark": 1.4
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-saturate)"
+      },
+      {
+        "name": "effect/grain-opacity",
+        "type": "FLOAT",
+        "values": {
+          "light": 0.08,
+          "dark": 0.08
+        },
+        "scopes": [],
+        "web": "var(--effect-grain-opacity)"
+      },
+      {
+        "name": "effect/card-hover-lift",
+        "type": "FLOAT",
+        "values": {
+          "light": -2,
+          "dark": -2
+        },
+        "scopes": [],
+        "web": "var(--effect-card-hover-lift)"
+      }
+    ],
+    "quiet-editorial": [
+      {
+        "name": "color/brand",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1184,
+            "g": 0.1003,
+            "b": 0.0863,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9445,
+            "g": 0.9337,
+            "b": 0.9119,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-brand)"
+      },
+      {
+        "name": "color/accent-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.5741,
+            "g": 0.3034,
+            "b": 0.2075,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.8786,
+            "g": 0.6294,
+            "b": 0.4908,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent-base)"
+      },
+      {
+        "name": "color/bg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9772,
+            "g": 0.9664,
+            "b": 0.9444,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0683,
+            "g": 0.0581,
+            "b": 0.0503,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-bg)"
+      },
+      {
+        "name": "color/surface",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9878,
+            "g": 0.9797,
+            "b": 0.9632,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0947,
+            "g": 0.084,
+            "b": 0.0758,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface)"
+      },
+      {
+        "name": "color/surface-raised",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9919,
+            "g": 0.9865,
+            "b": 0.9754,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1219,
+            "g": 0.1109,
+            "b": 0.1024,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-raised)"
+      },
+      {
+        "name": "color/surface-sunken",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9469,
+            "g": 0.9335,
+            "b": 0.9062,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0514,
+            "g": 0.0415,
+            "b": 0.0341,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-sunken)"
+      },
+      {
+        "name": "color/chrome",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9772,
+            "g": 0.9664,
+            "b": 0.9444,
+            "a": 0.82
+          },
+          "dark": {
+            "r": 0.0683,
+            "g": 0.0581,
+            "b": 0.0503,
+            "a": 0.82
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-chrome)"
+      },
+      {
+        "name": "color/fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1001,
+            "g": 0.0825,
+            "b": 0.0688,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9445,
+            "g": 0.9337,
+            "b": 0.9119,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg)"
+      },
+      {
+        "name": "color/fg-muted",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3623,
+            "g": 0.3404,
+            "b": 0.3237,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6862,
+            "g": 0.6658,
+            "b": 0.6437,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-muted)"
+      },
+      {
+        "name": "color/fg-subtle",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.5211,
+            "g": 0.4976,
+            "b": 0.4797,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5183,
+            "g": 0.499,
+            "b": 0.478,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-subtle)"
+      },
+      {
+        "name": "color/border",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1001,
+            "g": 0.0825,
+            "b": 0.0688,
+            "a": 0.14
+          },
+          "dark": {
+            "r": 0.9445,
+            "g": 0.9337,
+            "b": 0.9119,
+            "a": 0.14
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border)"
+      },
+      {
+        "name": "color/border-strong",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4066,
+            "g": 0.3843,
+            "b": 0.3672,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5417,
+            "g": 0.5223,
+            "b": 0.5011,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border-strong)"
+      },
+      {
+        "name": "color/primary",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1184,
+            "g": 0.1003,
+            "b": 0.0863,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9445,
+            "g": 0.9337,
+            "b": 0.9119,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary)"
+      },
+      {
+        "name": "color/primary-hover",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0649,
+            "g": 0.0482,
+            "b": 0.0353,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 1,
+            "b": 0.9903,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-hover)"
+      },
+      {
+        "name": "color/primary-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9837,
+            "g": 0.973,
+            "b": 0.9509,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0683,
+            "g": 0.0581,
+            "b": 0.0503,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-fg)"
+      },
+      {
+        "name": "color/primary-soft",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.9134,
+            "b": 0.8326,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2333,
+            "g": 0.1682,
+            "b": 0.006,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-soft)"
+      },
+      {
+        "name": "color/primary-soft-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.2976,
+            "g": 0.2765,
+            "b": 0.2603,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9405,
+            "g": 0.8317,
+            "b": 0.6067,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-soft-fg)"
+      },
+      {
+        "name": "color/primary-text",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3623,
+            "g": 0.3404,
+            "b": 0.3237,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.7778,
+            "g": 0.7675,
+            "b": 0.7464,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-text)"
+      },
+      {
+        "name": "color/accent",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.5741,
+            "g": 0.3034,
+            "b": 0.2075,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.8786,
+            "g": 0.6294,
+            "b": 0.4908,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent)"
+      },
+      {
+        "name": "color/accent-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9837,
+            "g": 0.973,
+            "b": 0.9509,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0683,
+            "g": 0.0581,
+            "b": 0.0503,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-accent-fg)"
+      },
+      {
+        "name": "color/ring",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1184,
+            "g": 0.1003,
+            "b": 0.0863,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9445,
+            "g": 0.9337,
+            "b": 0.9119,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-ring)"
+      },
+      {
+        "name": "color/success",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1135,
+            "g": 0.4896,
+            "b": 0.242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3257,
+            "g": 0.746,
+            "b": 0.4404,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-success)"
+      },
+      {
+        "name": "color/success-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0162,
+            "g": 0.0659,
+            "b": 0.0258,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-success-fg)"
+      },
+      {
+        "name": "color/warning",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8959,
+            "g": 0.6198,
+            "b": 0.1315,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9486,
+            "g": 0.6881,
+            "b": 0.2829,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-warning)"
+      },
+      {
+        "name": "color/warning-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1463,
+            "g": 0.0924,
+            "b": 0.014,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1272,
+            "g": 0.0743,
+            "b": 0.0038,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-warning-fg)"
+      },
+      {
+        "name": "color/danger",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8018,
+            "g": 0.1556,
+            "b": 0.1539,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9644,
+            "g": 0.4289,
+            "b": 0.3852,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-danger)"
+      },
+      {
+        "name": "color/danger-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0953,
+            "g": 0.031,
+            "b": 0.0256,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-danger-fg)"
+      },
+      {
+        "name": "color/overlay",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0353,
+            "g": 0.0438,
+            "b": 0.0607,
+            "a": 0.5
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.6
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-overlay)"
+      },
+      {
+        "name": "font/sans",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-sans)"
+      },
+      {
+        "name": "font/display",
+        "type": "STRING",
+        "values": {
+          "light": "Newsreader",
+          "dark": "Newsreader"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-display)"
+      },
+      {
+        "name": "font/mono",
+        "type": "STRING",
+        "values": {
+          "light": "Geist Mono",
+          "dark": "Geist Mono"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-mono)"
+      },
+      {
+        "name": "font-weight/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-display)"
+      },
+      {
+        "name": "font-weight/heading",
+        "type": "FLOAT",
+        "values": {
+          "light": 450,
+          "dark": 450
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-heading)"
+      },
+      {
+        "name": "font-weight/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-control)"
+      },
+      {
+        "name": "text/xs",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-xs)"
+      },
+      {
+        "name": "text/sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 14,
+          "dark": 14
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-sm)"
+      },
+      {
+        "name": "text/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-base)"
+      },
+      {
+        "name": "text/lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 18,
+          "dark": 18
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lg)"
+      },
+      {
+        "name": "text/lede",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lede)"
+      },
+      {
+        "name": "text/h3",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h3)"
+      },
+      {
+        "name": "text/h2",
+        "type": "FLOAT",
+        "values": {
+          "light": 52,
+          "dark": 52
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h2)"
+      },
+      {
+        "name": "text/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 104,
+          "dark": 104
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-display)"
+      },
+      {
+        "name": "radius/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-base)"
+      },
+      {
+        "name": "radius/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-control)"
+      },
+      {
+        "name": "radius/card",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-card)"
+      },
+      {
+        "name": "radius/panel",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-panel)"
+      },
+      {
+        "name": "radius/pill",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-pill)"
+      },
+      {
+        "name": "ease/out",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.23,
+              "y1": 1,
+              "x2": 0.32,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.23,
+              "y1": 1,
+              "x2": 0.32,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-out)"
+      },
+      {
+        "name": "ease/in",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-in)"
+      },
+      {
+        "name": "ease/standard",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-standard)"
+      },
+      {
+        "name": "motion/duration/micro",
+        "type": "TIMING",
+        "values": {
+          "light": 0.1,
+          "dark": 0.1
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-micro)"
+      },
+      {
+        "name": "motion/duration/small",
+        "type": "TIMING",
+        "values": {
+          "light": 0.2,
+          "dark": 0.2
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-small)"
+      },
+      {
+        "name": "motion/duration/large",
+        "type": "TIMING",
+        "values": {
+          "light": 0.3,
+          "dark": 0.3
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-large)"
+      },
+      {
+        "name": "motion/duration/reveal",
+        "type": "TIMING",
+        "values": {
+          "light": 0.45,
+          "dark": 0.45
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-reveal)"
+      },
+      {
+        "name": "motion/distance/reveal",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [],
+        "web": "var(--motion-distance-reveal)"
+      },
+      {
+        "name": "size/control-sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-sm)"
+      },
+      {
+        "name": "size/control-md",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-md)"
+      },
+      {
+        "name": "size/control-lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-lg)"
+      },
+      {
+        "name": "size/touch-min",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-touch-min)"
+      },
+      {
+        "name": "layout/container",
+        "type": "FLOAT",
+        "values": {
+          "light": 1280,
+          "dark": 1280
+        },
+        "scopes": [],
+        "web": "var(--layout-container)"
+      },
+      {
+        "name": "layout/gutter",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [],
+        "web": "var(--layout-gutter)"
+      },
+      {
+        "name": "layout/section-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 192,
+          "dark": 192
+        },
+        "scopes": [],
+        "web": "var(--layout-section-y)"
+      },
+      {
+        "name": "layout/nav-h",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [],
+        "web": "var(--layout-nav-h)"
+      },
+      {
+        "name": "effect/border-width",
+        "type": "FLOAT",
+        "values": {
+          "light": 1,
+          "dark": 1
+        },
+        "scopes": [],
+        "web": "var(--effect-border-width)"
+      },
+      {
+        "name": "effect/chrome-blur",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-blur)"
+      },
+      {
+        "name": "effect/chrome-saturate",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.4,
+          "dark": 1.4
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-saturate)"
+      },
+      {
+        "name": "effect/grain-opacity",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-grain-opacity)"
+      },
+      {
+        "name": "effect/card-hover-lift",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-card-hover-lift)"
+      }
+    ],
+    "signal-dark": [
+      {
+        "name": "color/brand",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.4758,
+            "b": 0.1853,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4328,
+            "g": 0.9493,
+            "b": 0.4723,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-brand)"
+      },
+      {
+        "name": "color/accent-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3506,
+            "g": 0.3307,
+            "b": 0.8009,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.656,
+            "g": 0.68,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent-base)"
+      },
+      {
+        "name": "color/bg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9765,
+            "g": 0.9805,
+            "b": 0.9888,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.042,
+            "g": 0.0519,
+            "b": 0.0727,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-bg)"
+      },
+      {
+        "name": "color/surface",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0758,
+            "g": 0.0864,
+            "b": 0.1083,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface)"
+      },
+      {
+        "name": "color/surface-raised",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1115,
+            "g": 0.1226,
+            "b": 0.1456,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-raised)"
+      },
+      {
+        "name": "color/surface-sunken",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9425,
+            "g": 0.9478,
+            "b": 0.9588,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0224,
+            "g": 0.0285,
+            "b": 0.0439,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-sunken)"
+      },
+      {
+        "name": "color/chrome",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9765,
+            "g": 0.9805,
+            "b": 0.9888,
+            "a": 0.82
+          },
+          "dark": {
+            "r": 0.042,
+            "g": 0.0519,
+            "b": 0.0727,
+            "a": 0.82
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-chrome)"
+      },
+      {
+        "name": "color/fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0604,
+            "g": 0.0689,
+            "b": 0.0868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9475,
+            "g": 0.9475,
+            "b": 0.9475,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg)"
+      },
+      {
+        "name": "color/fg-muted",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3234,
+            "g": 0.3344,
+            "b": 0.3569,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6452,
+            "g": 0.6576,
+            "b": 0.683,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-muted)"
+      },
+      {
+        "name": "color/fg-subtle",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4909,
+            "g": 0.5027,
+            "b": 0.527,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4338,
+            "g": 0.4453,
+            "b": 0.469,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-subtle)"
+      },
+      {
+        "name": "color/border",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0604,
+            "g": 0.0689,
+            "b": 0.0868,
+            "a": 0.1
+          },
+          "dark": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 0.09
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border)"
+      },
+      {
+        "name": "color/border-strong",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4338,
+            "g": 0.4453,
+            "b": 0.469,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4451,
+            "g": 0.4567,
+            "b": 0.4805,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border-strong)"
+      },
+      {
+        "name": "color/primary",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.4758,
+            "b": 0.1853,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4328,
+            "g": 0.9493,
+            "b": 0.4723,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary)"
+      },
+      {
+        "name": "color/primary-hover",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.4056,
+            "b": 0.1139,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5154,
+            "g": 1,
+            "b": 0.549,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-hover)"
+      },
+      {
+        "name": "color/primary-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0205,
+            "g": 0.065,
+            "b": 0.022,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-fg)"
+      },
+      {
+        "name": "color/primary-soft",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8646,
+            "g": 0.9671,
+            "b": 0.881,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0958,
+            "g": 0.21,
+            "b": 0.102,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-soft)"
+      },
+      {
+        "name": "color/primary-soft-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.3596,
+            "b": 0.0605,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.7182,
+            "g": 0.9024,
+            "b": 0.7192,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-soft-fg)"
+      },
+      {
+        "name": "color/primary-text",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.4288,
+            "b": 0.1383,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3764,
+            "g": 0.8963,
+            "b": 0.4214,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-text)"
+      },
+      {
+        "name": "color/accent",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3506,
+            "g": 0.3307,
+            "b": 0.8009,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.656,
+            "g": 0.68,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent)"
+      },
+      {
+        "name": "color/accent-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0423,
+            "g": 0.0454,
+            "b": 0.1013,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-accent-fg)"
+      },
+      {
+        "name": "color/ring",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.4758,
+            "b": 0.1853,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4328,
+            "g": 0.9493,
+            "b": 0.4723,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-ring)"
+      },
+      {
+        "name": "color/success",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1135,
+            "g": 0.4896,
+            "b": 0.242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3257,
+            "g": 0.746,
+            "b": 0.4404,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-success)"
+      },
+      {
+        "name": "color/success-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0162,
+            "g": 0.0659,
+            "b": 0.0258,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-success-fg)"
+      },
+      {
+        "name": "color/warning",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8959,
+            "g": 0.6198,
+            "b": 0.1315,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9486,
+            "g": 0.6881,
+            "b": 0.2829,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-warning)"
+      },
+      {
+        "name": "color/warning-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1463,
+            "g": 0.0924,
+            "b": 0.014,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1272,
+            "g": 0.0743,
+            "b": 0.0038,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-warning-fg)"
+      },
+      {
+        "name": "color/danger",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8018,
+            "g": 0.1556,
+            "b": 0.1539,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9644,
+            "g": 0.4289,
+            "b": 0.3852,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-danger)"
+      },
+      {
+        "name": "color/danger-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0953,
+            "g": 0.031,
+            "b": 0.0256,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-danger-fg)"
+      },
+      {
+        "name": "color/overlay",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0353,
+            "g": 0.0438,
+            "b": 0.0607,
+            "a": 0.5
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.6
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-overlay)"
+      },
+      {
+        "name": "font/sans",
+        "type": "STRING",
+        "values": {
+          "light": "Geist",
+          "dark": "Geist"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-sans)"
+      },
+      {
+        "name": "font/display",
+        "type": "STRING",
+        "values": {
+          "light": "Geist",
+          "dark": "Geist"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-display)"
+      },
+      {
+        "name": "font/mono",
+        "type": "STRING",
+        "values": {
+          "light": "Geist Mono",
+          "dark": "Geist Mono"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-mono)"
+      },
+      {
+        "name": "font-weight/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-display)"
+      },
+      {
+        "name": "font-weight/heading",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-heading)"
+      },
+      {
+        "name": "font-weight/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-control)"
+      },
+      {
+        "name": "text/xs",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-xs)"
+      },
+      {
+        "name": "text/sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 14,
+          "dark": 14
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-sm)"
+      },
+      {
+        "name": "text/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-base)"
+      },
+      {
+        "name": "text/lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 18,
+          "dark": 18
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lg)"
+      },
+      {
+        "name": "text/lede",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lede)"
+      },
+      {
+        "name": "text/h3",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h3)"
+      },
+      {
+        "name": "text/h2",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h2)"
+      },
+      {
+        "name": "text/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 76,
+          "dark": 76
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-display)"
+      },
+      {
+        "name": "radius/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-base)"
+      },
+      {
+        "name": "radius/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-control)"
+      },
+      {
+        "name": "radius/card",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-card)"
+      },
+      {
+        "name": "radius/panel",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-panel)"
+      },
+      {
+        "name": "radius/pill",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-pill)"
+      },
+      {
+        "name": "ease/out",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-out)"
+      },
+      {
+        "name": "ease/in",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-in)"
+      },
+      {
+        "name": "ease/standard",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-standard)"
+      },
+      {
+        "name": "motion/duration/micro",
+        "type": "TIMING",
+        "values": {
+          "light": 0.12,
+          "dark": 0.12
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-micro)"
+      },
+      {
+        "name": "motion/duration/small",
+        "type": "TIMING",
+        "values": {
+          "light": 0.2,
+          "dark": 0.2
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-small)"
+      },
+      {
+        "name": "motion/duration/large",
+        "type": "TIMING",
+        "values": {
+          "light": 0.3,
+          "dark": 0.3
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-large)"
+      },
+      {
+        "name": "motion/duration/reveal",
+        "type": "TIMING",
+        "values": {
+          "light": 0.4,
+          "dark": 0.4
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-reveal)"
+      },
+      {
+        "name": "motion/distance/reveal",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [],
+        "web": "var(--motion-distance-reveal)"
+      },
+      {
+        "name": "size/control-sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-sm)"
+      },
+      {
+        "name": "size/control-md",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-md)"
+      },
+      {
+        "name": "size/control-lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-lg)"
+      },
+      {
+        "name": "size/touch-min",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-touch-min)"
+      },
+      {
+        "name": "layout/container",
+        "type": "FLOAT",
+        "values": {
+          "light": 1280,
+          "dark": 1280
+        },
+        "scopes": [],
+        "web": "var(--layout-container)"
+      },
+      {
+        "name": "layout/gutter",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [],
+        "web": "var(--layout-gutter)"
+      },
+      {
+        "name": "layout/section-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 128,
+          "dark": 128
+        },
+        "scopes": [],
+        "web": "var(--layout-section-y)"
+      },
+      {
+        "name": "layout/nav-h",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [],
+        "web": "var(--layout-nav-h)"
+      },
+      {
+        "name": "effect/border-width",
+        "type": "FLOAT",
+        "values": {
+          "light": 1,
+          "dark": 1
+        },
+        "scopes": [],
+        "web": "var(--effect-border-width)"
+      },
+      {
+        "name": "effect/chrome-blur",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-blur)"
+      },
+      {
+        "name": "effect/chrome-saturate",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.4,
+          "dark": 1.4
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-saturate)"
+      },
+      {
+        "name": "effect/grain-opacity",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-grain-opacity)"
+      },
+      {
+        "name": "effect/card-hover-lift",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-card-hover-lift)"
+      }
+    ],
+    "warm-natural": [
+      {
+        "name": "color/brand",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.6107,
+            "g": 0.3205,
+            "b": 0.1813,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.8708,
+            "g": 0.5962,
+            "b": 0.4419,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-brand)"
+      },
+      {
+        "name": "color/accent-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.353,
+            "g": 0.417,
+            "b": 0.239,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6539,
+            "g": 0.7269,
+            "b": 0.5357,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent-base)"
+      },
+      {
+        "name": "color/bg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9758,
+            "g": 0.9513,
+            "b": 0.9117,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1028,
+            "g": 0.0817,
+            "b": 0.0652,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-bg)"
+      },
+      {
+        "name": "color/surface",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9949,
+            "g": 0.9785,
+            "b": 0.9519,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1426,
+            "g": 0.1168,
+            "b": 0.0967,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface)"
+      },
+      {
+        "name": "color/surface-raised",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9986,
+            "g": 0.9854,
+            "b": 0.9642,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1715,
+            "g": 0.1448,
+            "b": 0.1241,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-raised)"
+      },
+      {
+        "name": "color/surface-sunken",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9541,
+            "g": 0.9161,
+            "b": 0.866,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0735,
+            "g": 0.0566,
+            "b": 0.0434,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-sunken)"
+      },
+      {
+        "name": "color/chrome",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9758,
+            "g": 0.9513,
+            "b": 0.9117,
+            "a": 0.82
+          },
+          "dark": {
+            "r": 0.1028,
+            "g": 0.0817,
+            "b": 0.0652,
+            "a": 0.82
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-chrome)"
+      },
+      {
+        "name": "color/fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1605,
+            "g": 0.1234,
+            "b": 0.0941,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9431,
+            "g": 0.9188,
+            "b": 0.8794,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg)"
+      },
+      {
+        "name": "color/fg-muted",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3683,
+            "g": 0.325,
+            "b": 0.2915,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.7278,
+            "g": 0.6869,
+            "b": 0.6422,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-muted)"
+      },
+      {
+        "name": "color/fg-subtle",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.5161,
+            "g": 0.4698,
+            "b": 0.4342,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5577,
+            "g": 0.5189,
+            "b": 0.4763,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-subtle)"
+      },
+      {
+        "name": "color/border",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1605,
+            "g": 0.1234,
+            "b": 0.0941,
+            "a": 0.12
+          },
+          "dark": {
+            "r": 0.9431,
+            "g": 0.9188,
+            "b": 0.8794,
+            "a": 0.12
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border)"
+      },
+      {
+        "name": "color/border-strong",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4812,
+            "g": 0.4356,
+            "b": 0.4004,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5577,
+            "g": 0.5189,
+            "b": 0.4763,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border-strong)"
+      },
+      {
+        "name": "color/primary",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.6107,
+            "g": 0.3205,
+            "b": 0.1813,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.8708,
+            "g": 0.5962,
+            "b": 0.4419,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary)"
+      },
+      {
+        "name": "color/primary-hover",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.5354,
+            "g": 0.2526,
+            "b": 0.1094,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9504,
+            "g": 0.6701,
+            "b": 0.5137,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-hover)"
+      },
+      {
+        "name": "color/primary-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9942,
+            "g": 0.986,
+            "b": 0.9727,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.116,
+            "g": 0.0762,
+            "b": 0.0543,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-fg)"
+      },
+      {
+        "name": "color/primary-soft",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.9052,
+            "b": 0.8505,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2719,
+            "g": 0.1403,
+            "b": 0.0605,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-soft)"
+      },
+      {
+        "name": "color/primary-soft-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4613,
+            "g": 0.1854,
+            "b": 0.0217,
+            "a": 1
+          },
+          "dark": {
+            "r": 1,
+            "g": 0.7875,
+            "b": 0.6611,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-soft-fg)"
+      },
+      {
+        "name": "color/primary-text",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.5354,
+            "g": 0.2526,
+            "b": 0.1094,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9772,
+            "g": 0.695,
+            "b": 0.5379,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-text)"
+      },
+      {
+        "name": "color/accent",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.353,
+            "g": 0.417,
+            "b": 0.239,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6539,
+            "g": 0.7269,
+            "b": 0.5357,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent)"
+      },
+      {
+        "name": "color/accent-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9942,
+            "g": 0.986,
+            "b": 0.9727,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.078,
+            "g": 0.0929,
+            "b": 0.0535,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-accent-fg)"
+      },
+      {
+        "name": "color/ring",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.6107,
+            "g": 0.3205,
+            "b": 0.1813,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.8708,
+            "g": 0.5962,
+            "b": 0.4419,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-ring)"
+      },
+      {
+        "name": "color/success",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1135,
+            "g": 0.4896,
+            "b": 0.242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3257,
+            "g": 0.746,
+            "b": 0.4404,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-success)"
+      },
+      {
+        "name": "color/success-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0162,
+            "g": 0.0659,
+            "b": 0.0258,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-success-fg)"
+      },
+      {
+        "name": "color/warning",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8959,
+            "g": 0.6198,
+            "b": 0.1315,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9486,
+            "g": 0.6881,
+            "b": 0.2829,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-warning)"
+      },
+      {
+        "name": "color/warning-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1463,
+            "g": 0.0924,
+            "b": 0.014,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1272,
+            "g": 0.0743,
+            "b": 0.0038,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-warning-fg)"
+      },
+      {
+        "name": "color/danger",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8018,
+            "g": 0.1556,
+            "b": 0.1539,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9644,
+            "g": 0.4289,
+            "b": 0.3852,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-danger)"
+      },
+      {
+        "name": "color/danger-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0953,
+            "g": 0.031,
+            "b": 0.0256,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-danger-fg)"
+      },
+      {
+        "name": "color/overlay",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0353,
+            "g": 0.0438,
+            "b": 0.0607,
+            "a": 0.5
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.6
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-overlay)"
+      },
+      {
+        "name": "font/sans",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-sans)"
+      },
+      {
+        "name": "font/display",
+        "type": "STRING",
+        "values": {
+          "light": "Fraunces",
+          "dark": "Fraunces"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-display)"
+      },
+      {
+        "name": "font/mono",
+        "type": "STRING",
+        "values": {
+          "light": "JetBrains Mono",
+          "dark": "JetBrains Mono"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-mono)"
+      },
+      {
+        "name": "font-weight/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-display)"
+      },
+      {
+        "name": "font-weight/heading",
+        "type": "FLOAT",
+        "values": {
+          "light": 450,
+          "dark": 450
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-heading)"
+      },
+      {
+        "name": "font-weight/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-control)"
+      },
+      {
+        "name": "text/xs",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-xs)"
+      },
+      {
+        "name": "text/sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 14,
+          "dark": 14
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-sm)"
+      },
+      {
+        "name": "text/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-base)"
+      },
+      {
+        "name": "text/lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 18,
+          "dark": 18
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lg)"
+      },
+      {
+        "name": "text/lede",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lede)"
+      },
+      {
+        "name": "text/h3",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h3)"
+      },
+      {
+        "name": "text/h2",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h2)"
+      },
+      {
+        "name": "text/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 96,
+          "dark": 96
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-display)"
+      },
+      {
+        "name": "radius/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-base)"
+      },
+      {
+        "name": "radius/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-control)"
+      },
+      {
+        "name": "radius/card",
+        "type": "FLOAT",
+        "values": {
+          "light": 28,
+          "dark": 28
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-card)"
+      },
+      {
+        "name": "radius/panel",
+        "type": "FLOAT",
+        "values": {
+          "light": 36,
+          "dark": 36
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-panel)"
+      },
+      {
+        "name": "radius/pill",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-pill)"
+      },
+      {
+        "name": "ease/out",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.25,
+              "y1": 0.1,
+              "x2": 0.25,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.25,
+              "y1": 0.1,
+              "x2": 0.25,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-out)"
+      },
+      {
+        "name": "ease/in",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-in)"
+      },
+      {
+        "name": "ease/standard",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.45,
+              "y1": 0,
+              "x2": 0.55,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.45,
+              "y1": 0,
+              "x2": 0.55,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-standard)"
+      },
+      {
+        "name": "motion/duration/micro",
+        "type": "TIMING",
+        "values": {
+          "light": 0.1,
+          "dark": 0.1
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-micro)"
+      },
+      {
+        "name": "motion/duration/small",
+        "type": "TIMING",
+        "values": {
+          "light": 0.2,
+          "dark": 0.2
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-small)"
+      },
+      {
+        "name": "motion/duration/large",
+        "type": "TIMING",
+        "values": {
+          "light": 0.4,
+          "dark": 0.4
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-large)"
+      },
+      {
+        "name": "motion/duration/reveal",
+        "type": "TIMING",
+        "values": {
+          "light": 0.5,
+          "dark": 0.5
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-reveal)"
+      },
+      {
+        "name": "motion/distance/reveal",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [],
+        "web": "var(--motion-distance-reveal)"
+      },
+      {
+        "name": "size/control-sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-sm)"
+      },
+      {
+        "name": "size/control-md",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-md)"
+      },
+      {
+        "name": "size/control-lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-lg)"
+      },
+      {
+        "name": "size/touch-min",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-touch-min)"
+      },
+      {
+        "name": "layout/container",
+        "type": "FLOAT",
+        "values": {
+          "light": 1280,
+          "dark": 1280
+        },
+        "scopes": [],
+        "web": "var(--layout-container)"
+      },
+      {
+        "name": "layout/gutter",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [],
+        "web": "var(--layout-gutter)"
+      },
+      {
+        "name": "layout/section-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 128,
+          "dark": 128
+        },
+        "scopes": [],
+        "web": "var(--layout-section-y)"
+      },
+      {
+        "name": "layout/nav-h",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [],
+        "web": "var(--layout-nav-h)"
+      },
+      {
+        "name": "effect/border-width",
+        "type": "FLOAT",
+        "values": {
+          "light": 1,
+          "dark": 1
+        },
+        "scopes": [],
+        "web": "var(--effect-border-width)"
+      },
+      {
+        "name": "effect/chrome-blur",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-blur)"
+      },
+      {
+        "name": "effect/chrome-saturate",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.4,
+          "dark": 1.4
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-saturate)"
+      },
+      {
+        "name": "effect/grain-opacity",
+        "type": "FLOAT",
+        "values": {
+          "light": 0.05,
+          "dark": 0.05
+        },
+        "scopes": [],
+        "web": "var(--effect-grain-opacity)"
+      },
+      {
+        "name": "effect/card-hover-lift",
+        "type": "FLOAT",
+        "values": {
+          "light": -2,
+          "dark": -2
+        },
+        "scopes": [],
+        "web": "var(--effect-card-hover-lift)"
+      }
+    ]
+  }
+}

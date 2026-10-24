@@ -1,0 +1,23 @@
+/* Press-down buttons with hard shadows; bento tiles cycle pop colors with fixed dark text. */
+[data-trend="loud"] [data-slot="button"]:not([data-variant="link"]):not([data-variant="ghost"]) {
+  border-color: var(--color-fg);
+  box-shadow: 3px 3px 0 var(--color-fg);
+}
+[data-trend="loud"] [data-slot="button"]:not([data-variant="link"]):not([data-variant="ghost"]):hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--color-fg);
+}
+[data-trend="loud"] [data-slot="button"]:not([data-variant="link"]):not([data-variant="ghost"]):active {
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--color-fg);
+}
+[data-trend="loud"] [data-slot="bento"] > :nth-child(4n + 1) [data-slot="card"] { background: var(--color-pop-1); }
+[data-trend="loud"] [data-slot="bento"] > :nth-child(4n + 2) [data-slot="card"] { background: var(--color-pop-2); }
+[data-trend="loud"] [data-slot="bento"] > :nth-child(4n + 3) [data-slot="card"] { background: var(--color-pop-3); }
+[data-trend="loud"] [data-slot="bento"] > :nth-child(4n + 4) [data-slot="card"] { background: var(--color-pop-4); }
+[data-trend="loud"] [data-slot="bento"] [data-slot="card"] { color: var(--color-on-pop); }
+[data-trend="loud"] [data-slot="bento"] [data-slot="card-text"] { color: var(--color-on-pop-muted); }
+[data-trend="loud"] [data-slot="badge"] {
+  border: 2px solid var(--color-fg);
+  rotate: -3deg;
+}
