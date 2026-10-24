@@ -42,6 +42,8 @@ Write `design/brief.md` before any pixels:
 - **Content inventory.** The real copy, or the true shape of the data.
 - **Brand constraints.** Fixed colors, fonts, logo.
 - **Trust needs.** Proof, compliance, reassurance.
+- **Language and market.** `lang`; for Korean, Japanese or Chinese, follow `references/korean.md` (line breaking, measure, forms, KWCAG, payment and address conventions).
+- **Page type.** Marketing (`patterns.md`), product UI (`app-patterns.md`), or commerce and checkout (`conversion.md`).
 - **Signature move.** The single "wow" element (hero treatment, type, motion or texture). Everything else stays calm.
 - **Category leaders.** Name 3–5 to check prototypicality against (TR-02). Study their structure; never copy their assets or copy text.
 
@@ -63,7 +65,9 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
 - **No Figma file** and the user wants one: create it (`figma-create-new-file`), then use Flow B.
 
 ### 4. BUILD (React)
-- Compose pages from `references/patterns.md`: section anatomy, measurements, the "why", and when not to use.
+- Compose pages from the catalogs: `references/patterns.md` (marketing sections), `references/app-patterns.md` (shells, tables, forms, feedback, overlays), `references/conversion.md` (pricing, product list and detail, cart, checkout, signup, and the dark-pattern rules that are law in Korea and the EU). Each gives anatomy, measurements, the "why", and when not to use it.
+- Write real copy with `references/content.md` (English and Korean microcopy rules). Never leave lorem ipsum in a review.
+- Motion follows `references/motion.md`: per-component enter and exit specs, springs, modern CSS recipes, reduced-motion substitutes and performance budgets.
 - Use and extend `src/components/ui/*`:
   - **Variants:** `variant` (solid/soft/outline/ghost/link) × `tone` (brand/neutral/danger, …) × `size`.
   - Emit `data-slot`, `data-variant` and `data-tone` on the root element.
@@ -79,14 +83,15 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
 
 ### 5. QA
 1. `npm run build`. Generated tokens must be fresh (`tokens --check` is part of the build).
-2. `node scripts/audit.mjs --trends active` (or `all` after touching the tokens). Fix every **MUST**. Fix each **SHOULD** or write down why it is acceptable.
+2. `node scripts/audit.mjs --trends active` (or `all` after touching the tokens). Pages come from `audit.pages` in the config (the template audits `/` and `/#/app`). Fix every **MUST**. Fix each **SHOULD** or write down why it is acceptable. `trend.mjs check` also prints APCA advisories; fix them for body and muted text.
 3. **Look at the result.** Open `design/audit/contact-sheet.html` and read the screenshots for mobile, tablet and desktop in light and dark. Judge them against the brief:
    - Does a 5-second look reveal what this is and what to do next (TR-01)?
    - Is there exactly one focal point above the fold?
    - Does the signature move land, without competing with the CTA?
    - Is spacing rhythmic: groups twice as far apart as their items (LA-02)?
    - Is dark mode designed, not inverted?
-4. For Figma work, compare the `get_screenshot` result with the audit screenshot at the same viewport.
+4. Score the work with `references/review.md` (8 criteria, 0–10; ship at ≥7, award-level at ≥8; R6 = 0 blocks shipping). Report the scores and the top 3 fixes.
+5. For Figma work, compare the `get_screenshot` result with the audit screenshot at the same viewport.
 
 ### 6. SYNC and HANDOFF
 - Tokens changed in code: `figma-sync push`. Changed in Figma: `figma-sync pull --write`, then `tokens`.
@@ -106,7 +111,14 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
 
 ## References
 - `references/principles.md`: human factors (eyes → understanding → decision → hands → feedback → trust) and rule IDs
-- `references/patterns.md`: section and component catalog with measurements and rationale
-- `references/trends.md`: how trend packs work, choosing one, and the quarterly refresh procedure
+- `references/patterns.md`: marketing sections and the component inventory
+- `references/app-patterns.md`: product UI (navigation, tables, forms, feedback, empty states, search, settings, dashboards, overlays)
+- `references/conversion.md`: landing and pricing evidence, commerce blueprints, signup, and dark-pattern law
+- `references/visual-craft.md`: OKLCH color ramps, dark mode, type craft, layout, layered shadows
+- `references/motion.md`: choreography, per-component motion, modern CSS support and recipes, performance, reduced motion
+- `references/content.md`: microcopy rules (English and Korean)
+- `references/korean.md`: Korean-first and CJK typography, forms, KWCAG, local conventions
+- `references/review.md`: the design review scorecard and procedure
+- `references/trends.md`: how trend packs work, choosing one, and the quarterly refresh procedure (`trend.mjs radar`)
 - `references/tokens.md`: token contract, naming, modes, and how to add tokens
 - `references/figma.md`: the two-way Figma workflow, naming contract, and Figma QA

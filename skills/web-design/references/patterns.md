@@ -128,49 +128,7 @@ nav → hero → logos/proof → features (bento or chapters) → stats → test
 
 ## App grammar (product UI)
 
-Marketing and product UI share the tokens but not the density:
-
-| | Marketing | App |
-|---|---|---|
-| Body text | 16–18 px | 13–14 px (≥16 px in inputs on mobile, to avoid iOS zoom) |
-| Controls | 44–56 px | 32–36 px (with a 44 px hit area on touch) |
-| Rows | | 32–36 px |
-| Radius | 8–12 | 6–8 |
-
-### App shell ☐
-- **Anatomy:**
-  - Left sidebar 240–300 px: groups with 11–12 px muted labels, rows 32–36 px, its own scroll, collapsible groups.
-  - Top bar 48–64 px: search with a visible shortcut hint (⌘K or `/`), an optional assistant entry, and the account menu.
-  - Content prose ≤70 ch.
-- **Mobile:** the sidebar becomes a drawer (Radix Dialog), and the top bar keeps search.
-- **Don't:** use a sidebar for fewer than ~10 destinations. Use top tabs.
-
-### Command palette ☐
-- **Problem:** many actions, expert users.
-- **Mechanism:** recognition (type to filter) over recall of menu locations.
-- **Anatomy:** a modal (Radix Dialog) with an input, then grouped results with keyboard hints. Arrow keys, Enter and Esc work (FK-04). Show recent items first.
-
-### Three-pane work surface ☐
-- **Anatomy:** nav 220–280 | list (flex) | detail or inspector 320–400 (collapsible).
-- **Measurements:** 13 px text, 28–32 px rows, 1 px separators at low alpha.
-- **Don't:** use it for sequential or wizard tasks.
-
-### Data table ☐
-- **Anatomy:**
-  - Header: title, search, filters, primary action, and a bulk-action bar on selection.
-  - Body: sticky header row, sortable columns with `aria-sort`, and an expandable row as an option.
-  - Footer: pagination with a "rows per page" control.
-- **Recipes:** create, read and update each come as a modal, drawer or page. Delete gets a confirm dialog that names the object (FE-03).
-
-### Loading, empty and error states ☐
-- **Skeletons** match the final geometry (RE-05) and appear only after about 300 ms.
-- **Empty states** say what this is, why it's empty, and give one primary action.
-- **Errors** say what happened, what to do, and offer a retry.
-
-### Forms ✅ `components/ui/field.tsx`
-- Single column, label above, hint below.
-- The error replaces the hint, as an icon plus text with `aria-describedby`, and appears on blur (FE-01).
-- Submit sits under the last field (MO-07). Group the fields when there are more than 6.
+Product screens have their own catalog: shell and navigation, data tables, forms, feedback, empty states, search, settings, dashboards and overlays. It lives in **`app-patterns.md`** and comes with density rules and the places where the reference systems disagree. The template's `#/app` page (`src/pages/app-demo.tsx`) puts it together: a 256 px sidebar that becomes a drawer on mobile, a top bar with ⌘K, KPI cards, a sortable table with bulk actions and undo, dialog, menu, tooltips, skeletons, empty states, and a sticky bottom CTA on phones.
 
 ## Component inventory
 
@@ -182,10 +140,10 @@ Build these on the same variant API: `variant` × `tone` × `size`, plus `shape`
 |---|---|---|
 | Actions | Button (`solid/soft/outline/ghost/link` × `brand/neutral/danger` × `sm/md/lg/icon`), icon button, button group, link | Button ✅ |
 | Forms | Field (input), Textarea, Select (Radix), Checkbox, Radio group, Switch, Fieldset | Field ✅ |
-| Overlays | Dialog, Drawer/Sheet, Dropdown menu, Popover, Tooltip (all Radix) | ☐ |
-| Disclosure | Tabs (Radix), Accordion (`<details>` or Radix) | FAQ uses `<details>` ✅ |
-| Display | Card ✅, Badge ✅, Avatar, Alert, Toast, Table, Separator, Progress, Skeleton, Kbd | partial |
-| Navigation | Navbar ✅, Sidebar, Breadcrumb, Pagination, Stepper | partial |
+| Overlays | Dialog and Drawer ✅ (`dialog.tsx`, `side` left or right), Dropdown menu ✅, Tooltip ✅, Command palette ✅; Popover ☐ | mostly built |
+| Disclosure | Tabs ✅ (Radix + spring indicator), Accordion (`<details>`) ✅ | built |
+| Display | Card ✅, Badge ✅, Toast ✅ (with undo), Data table ✅, Skeleton ✅, Empty state ✅; Avatar, Alert, Progress, Kbd ☐ | mostly built |
+| Navigation | Navbar ✅, App sidebar ✅ (in `app-demo.tsx`); Breadcrumb, Pagination, Stepper ☐ | partial |
 | Motion | Reveal (IntersectionObserver plus tokens) ✅, layout spring (`motion` `layoutId`) ✅ in pricing | |
 
 ## Measurement defaults (already the base tokens)

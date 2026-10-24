@@ -1,0 +1,9 @@
+/* Public-service clarity: thick, always-visible focus and underlined links in prose. */
+[data-trend="civic-clear"] :focus-visible {
+  outline-width: 3px;
+  outline-offset: 3px;
+}
+[data-trend="civic-clear"] main p a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}

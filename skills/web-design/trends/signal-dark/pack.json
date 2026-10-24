@@ -95,7 +95,7 @@
         "$value": "oklch(0.45 0.01 265)",
         "$extensions": {
           "mode": {
-            "dark": "oklch(0.73 0.01 265)"
+            "dark": "oklch(0.78 0.01 265)"
           }
         }
       },

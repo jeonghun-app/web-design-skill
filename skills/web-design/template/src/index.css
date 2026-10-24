@@ -68,6 +68,22 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     mix-blend-mode: overlay;
   }
+  /* Korean and CJK (korean.md): never split a Hangul word mid-syllable-cluster, but let
+     long URLs/IDs wrap; Hangul gets its own measure; no faux italics on CJK glyphs. */
+  :lang(ko) {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    line-break: strict;
+    --layout-prose: var(--layout-prose-ko);
+  }
+  :lang(ja), :lang(zh) {
+    line-break: strict;
+    --layout-prose: 40em;
+  }
+  :is(:lang(ko), :lang(ja), :lang(zh)) :is(em, i, cite) {
+    font-style: normal;
+    font-weight: var(--font-weight-heading);
+  }
   h1, h2, h3 {
     font-family: var(--font-display);
     font-weight: var(--font-weight-heading);
@@ -93,3 +109,15 @@
     }
   }
 }
+
+/* Entry/exit keyframes driven by Radix data-state. Durations and easing come from
+   tokens at the call site; the global reduced-motion rule collapses them (MT-03). */
+@keyframes wd-fade-in { from { opacity: 0; } }
+@keyframes wd-fade-out { to { opacity: 0; } }
+@keyframes wd-pop-in { from { opacity: 0; transform: translateY(4px) scale(0.98); } }
+@keyframes wd-pop-out { to { opacity: 0; transform: translateY(4px) scale(0.98); } }
+@keyframes wd-slide-in-right { from { transform: translateX(100%); } }
+@keyframes wd-slide-out-right { to { transform: translateX(100%); } }
+@keyframes wd-slide-in-left { from { transform: translateX(-100%); } }
+@keyframes wd-slide-out-left { to { transform: translateX(-100%); } }
+@keyframes wd-shimmer { from { background-position: 150% 0; } to { background-position: -50% 0; } }

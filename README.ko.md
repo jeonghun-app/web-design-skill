@@ -9,7 +9,7 @@ Figma와 React 웹 프론트엔드를 **하나의 디자인 시스템**으로 �
 
 ![하나의 코드, 일곱 가지 스타일: 기본과 트렌드 팩 6개 (라이트)](docs/trends-light.jpg)
 
-위 7개 화면은 모두 같은 React 코드이고, 활성 트렌드 팩만 다릅니다. 모든 화면이 라이트·다크 모드와 320/375/768/1440px에서 같은 휴먼 팩터 감사를 통과합니다(MUST 0, SHOULD 0).
+위 7개 화면은 모두 같은 React 코드이고, 활성 트렌드 팩만 다릅니다. 모든 화면이 라이트·다크 모드와 320/375/768/1440px에서 같은 휴먼 팩터 감사를 통과합니다(MUST 0, SHOULD 0). 템플릿에는 제품 UI 페이지(`#/app`)도 있고, 감사 도구가 이 페이지도 모든 트렌드에서 검사합니다. 사이드바 셸, ⌘K 명령 팔레트, 일괄 작업과 실행 취소를 지원하는 데이터 표, 다이얼로그, 메뉴, 토스트, 스켈레톤, 빈 상태 화면을 담았습니다.
 
 ## 구성
 
@@ -18,14 +18,21 @@ skills/web-design/
   SKILL.md                 워크플로: BRIEF → FOUNDATION → DESIGN(Figma) → BUILD(React) → QA → SYNC
   references/
     principles.md          시선 → 이해 → 결정 → 손 → 피드백 → 신뢰, 규칙 ID
-    patterns.md            섹션·컴포넌트 카탈로그 (치수, 이유, 쓰지 말아야 할 때)
+    patterns.md            마케팅 섹션과 컴포넌트 목록
+    app-patterns.md        제품 UI: 내비게이션, 표, 폼, 피드백, 검색, 설정, 대시보드, 오버레이
+    conversion.md          랜딩·가격 페이지 근거, 커머스 페이지 구성안, 가입, 다크패턴 법규(한·EU·미)
+    visual-craft.md        OKLCH 색 단계, 다크 모드, 타이포그래피, 레이아웃, 다층 그림자
+    motion.md              모션 연출, 컴포넌트별 모션, 최신 CSS 지원 현황, 성능 예산, 모션 줄이기
+    content.md             UX 문구 규칙 (영어·한국어)
+    korean.md              한국어 우선·CJK 타이포그래피, 폼, KWCAG 2.2, 국내 관례
+    review.md              디자인 리뷰 평가표(0–10)와 절차
     trends.md              트렌드 팩 구조, 고르는 법, 분기별 갱신 절차
     tokens.md              토큰 계약 (DTCG → CSS 변수 → Tailwind v4 → Figma 변수)
     figma.md               공식 Figma MCP를 이용한 양방향 워크플로
   trends/<id>/             pack.json(메타데이터 + 토큰 덮어쓰기) + pack.css(시그니처 디테일)
   scripts/
     build-tokens.mjs       토큰과 팩을 tokens.css, fonts.css, figma-variables.json으로 빌드
-    trend.mjs              list | apply | add | new | check (두 모드에서 대비와 모션 상한 검사)
+    trend.mjs              list | apply | add | new | check | radar (대비, APCA 권고, 모션, 재검토 기한)
     figma-sync.mjs         push(코드 → Figma 변수) | pull-script | pull(Figma → 코드 비교, --write로 반영)
     audit.mjs              Playwright + axe 휴먼 팩터 감사, 트렌드 × 테마 × 화면 크기별 스크린샷 모음
     new-project.mjs        템플릿으로 독립 실행 가능한 새 프로젝트 생성
@@ -42,8 +49,9 @@ skills/web-design/
 | `kinetic-studio` | 정점 | 런칭, 에이전시, 포트폴리오 | 포스터 크기 헤드라인이 단어별로 떠오름(한 번만, 500ms 이하, 모션 줄이기 설정 시 꺼짐) |
 | `loud` | 상승 | 젊은 소비자, 식음료, 한정 드롭, 크리에이터 | 굵은 외곽선, 오프셋 그림자, 눌리는 버튼, 팝 컬러 타일 |
 | `warm-natural` | 상승 | 웰니스, 숙박, 홈, 비영리 | 부드러운 세리프, 따뜻한 종이 톤, 둥근 형태, 느긋한 모션, 그레인 |
+| `civic-clear` | 정점(상시) | 공공 서비스, 금융, 의료, 한국어 우선 서비스 | 본문 17px, 버튼 48px, 적당한 모서리, 높은 대비, 화면마다 파란 주요 버튼 하나 |
 
-각 팩에는 수명 주기 단계(`stage`)와 재검토 기한(`reviewBy`)이 있습니다. 기한이 지나면 `trend list`가 **STALE**로 표시하므로, 낡은 팩이 모르는 새 계속 쓰이지 않고 최신 근거로 다시 검증됩니다. 갱신 절차는 `references/trends.md`에 있습니다.
+각 팩에는 수명 주기 단계(`stage`)와 재검토 기한(`reviewBy`)이 있습니다. 기한이 지나면 `trend list`가 **STALE**로 표시하므로, 낡은 팩이 모르는 새 계속 쓰이지 않고 최신 근거로 다시 검증됩니다. `trend radar`는 재검토가 필요한 팩과, 지난 검토 이후 Baseline 지원 상태가 바뀐 브라우저 기능을 보여줍니다. 갱신 절차는 `references/trends.md`에 있습니다.
 
 ## 설치
 
@@ -69,7 +77,7 @@ Claude Code에 이렇게 요청하면 됩니다.
 도구를 직접 실행할 수도 있습니다.
 
 ```bash
-node skills/web-design/scripts/new-project.mjs ../my-site --install --trend signal-dark
+node skills/web-design/scripts/new-project.mjs ../my-site --install --trend signal-dark   # 한국어 사이트는 --lang ko 추가
 cd ../my-site
 npm run dev                          # 오른쪽 아래 개발 패널에서 트렌드와 테마를 바로 전환
 npm run trend -- list

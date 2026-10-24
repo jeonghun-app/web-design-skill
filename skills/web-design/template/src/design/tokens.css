@@ -85,6 +85,7 @@
   --layout-gutter: clamp(1rem, 0.5rem + 2.5vw, 2rem);
   --layout-section-y: clamp(4rem, 2.5rem + 6vw, 8rem);
   --layout-nav-h: 4rem;
+  --layout-prose-ko: 32em;
   --effect-border-width: 1px;
   --effect-chrome-blur: 12px;
   --effect-chrome-saturate: 1.4;
@@ -92,6 +93,12 @@
   --effect-hero-bg: none;
   --effect-display-transform: none;
   --effect-card-hover-lift: -2px;
+  --layer-sticky: 100;
+  --layer-drawer: 200;
+  --layer-modal: 300;
+  --layer-popover: 400;
+  --layer-toast: 500;
+  --layer-tooltip: 600;
   color-scheme: light;
 }
 
@@ -187,12 +194,129 @@
   color-scheme: dark;
 }
 
+@custom-variant trend-civic-clear (&:where([data-trend="civic-clear"], [data-trend="civic-clear"] *));
 @custom-variant trend-frosted (&:where([data-trend="frosted"], [data-trend="frosted"] *));
 @custom-variant trend-kinetic-studio (&:where([data-trend="kinetic-studio"], [data-trend="kinetic-studio"] *));
 @custom-variant trend-loud (&:where([data-trend="loud"], [data-trend="loud"] *));
 @custom-variant trend-quiet-editorial (&:where([data-trend="quiet-editorial"], [data-trend="quiet-editorial"] *));
 @custom-variant trend-signal-dark (&:where([data-trend="signal-dark"], [data-trend="signal-dark"] *));
 @custom-variant trend-warm-natural (&:where([data-trend="warm-natural"], [data-trend="warm-natural"] *));
+
+/* trend: civic-clear (peak, reviewed 2026-10) */
+[data-trend="civic-clear"] {
+  --color-brand: oklch(0.56 0.2 262);
+  --color-accent-base: oklch(0.52 0.15 160);
+  --color-bg: oklch(1 0 0);
+  --color-surface: oklch(1 0 0);
+  --color-surface-raised: oklch(1 0 0);
+  --color-surface-sunken: oklch(0.965 0.003 250);
+  --color-fg: oklch(0.23 0.006 250);
+  --color-fg-muted: oklch(0.4 0.008 250);
+  --color-fg-subtle: oklch(0.55 0.008 250);
+  --color-border: oklch(0.88 0.004 250);
+  --color-border-strong: oklch(0.5 0.008 250);
+  --color-primary-fg: oklch(1 0 0);
+  --color-accent-fg: oklch(1 0 0);
+  --font-weight-display: 700;
+  --font-weight-heading: 700;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-display: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  --text-display--line-height: 1.2;
+  --text-h2: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  --text-h2--line-height: 1.3;
+  --tracking-display: -0.01em;
+  --tracking-heading: -0.005em;
+  --radius-control: 6px;
+  --radius-card: 8px;
+  --radius-panel: 12px;
+  --size-control-sm: 2.5rem;
+  --size-control-md: 3rem;
+  --size-control-lg: 3.5rem;
+  --shadow-card: none;
+  --shadow-raised: 0 2px 8px oklch(0.23 0.006 250 / 0.08);
+  --effect-card-hover-lift: 0px;
+}
+[data-theme="light"][data-trend="civic-clear"],
+[data-trend="civic-clear"] [data-theme="light"] {
+  --color-brand: oklch(0.56 0.2 262);
+  --color-accent-base: oklch(0.52 0.15 160);
+  --color-bg: oklch(1 0 0);
+  --color-surface: oklch(1 0 0);
+  --color-surface-raised: oklch(1 0 0);
+  --color-surface-sunken: oklch(0.965 0.003 250);
+  --color-fg: oklch(0.23 0.006 250);
+  --color-fg-muted: oklch(0.4 0.008 250);
+  --color-fg-subtle: oklch(0.55 0.008 250);
+  --color-border: oklch(0.88 0.004 250);
+  --color-border-strong: oklch(0.5 0.008 250);
+  --color-primary-fg: oklch(1 0 0);
+  --color-accent-fg: oklch(1 0 0);
+  --font-weight-display: 700;
+  --font-weight-heading: 700;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-display: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  --text-display--line-height: 1.2;
+  --text-h2: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  --text-h2--line-height: 1.3;
+  --tracking-display: -0.01em;
+  --tracking-heading: -0.005em;
+  --radius-control: 6px;
+  --radius-card: 8px;
+  --radius-panel: 12px;
+  --size-control-sm: 2.5rem;
+  --size-control-md: 3rem;
+  --size-control-lg: 3.5rem;
+  --shadow-card: none;
+  --shadow-raised: 0 2px 8px oklch(0.23 0.006 250 / 0.08);
+  --effect-card-hover-lift: 0px;
+}
+[data-theme="dark"][data-trend="civic-clear"],
+[data-theme="dark"] [data-trend="civic-clear"]:not([data-theme="light"]),
+[data-trend="civic-clear"] [data-theme="dark"] {
+  --color-brand: oklch(0.72 0.14 262);
+  --color-accent-base: oklch(0.74 0.12 160);
+  --color-bg: oklch(0.18 0.006 250);
+  --color-surface: oklch(0.22 0.008 250);
+  --color-surface-raised: oklch(0.25 0.008 250);
+  --color-surface-sunken: oklch(0.15 0.006 250);
+  --color-fg: oklch(0.96 0.003 250);
+  --color-fg-muted: oklch(0.8 0.006 250);
+  --color-fg-subtle: oklch(0.64 0.006 250);
+  --color-border: oklch(0.32 0.008 250);
+  --color-border-strong: oklch(0.62 0.008 250);
+  --color-primary-fg: oklch(0.18 0.03 262);
+  --color-accent-fg: oklch(0.18 0.03 160);
+  --font-weight-display: 700;
+  --font-weight-heading: 700;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-display: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  --text-display--line-height: 1.2;
+  --text-h2: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  --text-h2--line-height: 1.3;
+  --tracking-display: -0.01em;
+  --tracking-heading: -0.005em;
+  --radius-control: 6px;
+  --radius-card: 8px;
+  --radius-panel: 12px;
+  --size-control-sm: 2.5rem;
+  --size-control-md: 3rem;
+  --size-control-lg: 3.5rem;
+  --shadow-card: none;
+  --shadow-raised: 0 2px 8px oklch(0 0 0 / 0.4);
+  --effect-card-hover-lift: 0px;
+}
+/* Public-service clarity: thick, always-visible focus and underlined links in prose. */
+[data-trend="civic-clear"] :focus-visible {
+  outline-width: 3px;
+  outline-offset: 3px;
+}
+[data-trend="civic-clear"] main p a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
 
 /* trend: frosted (peak, reviewed 2026-10) */
 [data-trend="frosted"] {
@@ -252,7 +376,7 @@
   --color-surface-raised: oklch(0.25 0.016 260);
   --color-chrome: oklch(0.22 0.02 260 / 0.62);
   --color-fg: oklch(0.96 0.005 260);
-  --color-fg-muted: oklch(0.76 0.01 260);
+  --color-fg-muted: oklch(0.79 0.01 260);
   --color-primary-fg: oklch(0.15 0.03 255);
   --color-accent-fg: oklch(0.15 0.03 330);
   --font-weight-display: 650;
@@ -368,7 +492,7 @@
   --color-surface-raised: oklch(0.2 0 0);
   --color-surface-sunken: oklch(0.1 0 0);
   --color-fg: oklch(0.97 0 0);
-  --color-fg-muted: oklch(0.74 0 0);
+  --color-fg-muted: oklch(0.78 0 0);
   --color-border: oklch(1 0 0 / 0.12);
   --color-border-strong: oklch(0.6 0 0);
   --color-primary-fg: oklch(0.13 0 0);
@@ -642,7 +766,7 @@
   --color-surface-raised: oklch(0.23 0.006 60);
   --color-surface-sunken: oklch(0.15 0.006 60);
   --color-fg: oklch(0.95 0.008 85);
-  --color-fg-muted: oklch(0.74 0.01 70);
+  --color-fg-muted: oklch(0.79 0.01 70);
   --color-fg-subtle: oklch(0.6 0.01 70);
   --color-border: oklch(0.95 0.008 85 / 0.14);
   --color-border-strong: oklch(0.62 0.01 70);
@@ -761,7 +885,7 @@
   --color-surface-raised: oklch(0.24 0.012 265);
   --color-surface-sunken: oklch(0.13 0.01 265);
   --color-fg: oklch(0.96 0 0);
-  --color-fg-muted: oklch(0.73 0.01 265);
+  --color-fg-muted: oklch(0.78 0.01 265);
   --color-fg-subtle: oklch(0.55 0.01 265);
   --color-border: oklch(1 0 0 / 0.09);
   --color-border-strong: oklch(0.56 0.01 265);
@@ -884,7 +1008,7 @@
   --color-surface-raised: oklch(0.27 0.014 60);
   --color-surface-sunken: oklch(0.17 0.01 60);
   --color-fg: oklch(0.94 0.015 80);
-  --color-fg-muted: oklch(0.76 0.02 70);
+  --color-fg-muted: oklch(0.8 0.02 70);
   --color-fg-subtle: oklch(0.62 0.02 70);
   --color-border: oklch(0.94 0.015 80 / 0.12);
   --color-border-strong: oklch(0.62 0.02 70);

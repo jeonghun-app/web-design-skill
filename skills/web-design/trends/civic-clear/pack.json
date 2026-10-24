@@ -1,0 +1,210 @@
+{
+  "id": "civic-clear",
+  "name": "Civic clear",
+  "reviewed": "2026-10",
+  "reviewBy": "2027-04",
+  "stage": "peak",
+  "summary": "Evergreen public-service clarity: larger body text, 48px controls, modest corners, high-contrast neutrals and a trustworthy blue",
+  "fits": [
+    "government and public services",
+    "healthcare and insurance",
+    "banking and finance",
+    "education",
+    "Korean-first services (lang=ko)"
+  ],
+  "avoid": [
+    "fashion or lifestyle brands seeking novelty",
+    "campaign and launch pages"
+  ],
+  "why": "When trust and task completion matter more than novelty, prototypicality and low visual complexity win (strong first-impression effects); larger body text and 48px controls reduce reading and motor errors for the widest age range.",
+  "risks": [
+    "Can read as bland: keep one strong focal point per page and real imagery",
+    "Dense legal copy tempts long lines: keep the measure tokens"
+  ],
+  "signature": "Calm, unmistakable hierarchy: big clear headings, one blue action per screen",
+  "fonts": [],
+  "tokens": {
+    "color": {
+      "brand": {
+        "$value": "oklch(0.56 0.2 262)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.72 0.14 262)"
+          }
+        }
+      },
+      "accent-base": {
+        "$value": "oklch(0.52 0.15 160)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.74 0.12 160)"
+          }
+        }
+      },
+      "bg": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.18 0.006 250)"
+          }
+        }
+      },
+      "surface": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.22 0.008 250)"
+          }
+        }
+      },
+      "surface-raised": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.25 0.008 250)"
+          }
+        }
+      },
+      "surface-sunken": {
+        "$value": "oklch(0.965 0.003 250)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.15 0.006 250)"
+          }
+        }
+      },
+      "fg": {
+        "$value": "oklch(0.23 0.006 250)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.96 0.003 250)"
+          }
+        }
+      },
+      "fg-muted": {
+        "$value": "oklch(0.4 0.008 250)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.8 0.006 250)"
+          }
+        }
+      },
+      "fg-subtle": {
+        "$value": "oklch(0.55 0.008 250)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.64 0.006 250)"
+          }
+        }
+      },
+      "border": {
+        "$value": "oklch(0.88 0.004 250)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.32 0.008 250)"
+          }
+        }
+      },
+      "border-strong": {
+        "$value": "oklch(0.5 0.008 250)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.62 0.008 250)"
+          }
+        }
+      },
+      "primary-fg": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.18 0.03 262)"
+          }
+        }
+      },
+      "accent-fg": {
+        "$value": "oklch(1 0 0)",
+        "$extensions": {
+          "mode": {
+            "dark": "oklch(0.18 0.03 160)"
+          }
+        }
+      }
+    },
+    "font-weight": {
+      "display": {
+        "$value": 700
+      },
+      "heading": {
+        "$value": 700
+      }
+    },
+    "text": {
+      "base": {
+        "$value": "1.0625rem"
+      },
+      "base--line-height": {
+        "$value": "1.6"
+      },
+      "display": {
+        "$value": "clamp(2.25rem, 1.5rem + 3vw, 3.75rem)"
+      },
+      "display--line-height": {
+        "$value": "1.2"
+      },
+      "h2": {
+        "$value": "clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem)"
+      },
+      "h2--line-height": {
+        "$value": "1.3"
+      }
+    },
+    "tracking": {
+      "display": {
+        "$value": "-0.01em"
+      },
+      "heading": {
+        "$value": "-0.005em"
+      }
+    },
+    "radius": {
+      "control": {
+        "$value": "6px"
+      },
+      "card": {
+        "$value": "8px"
+      },
+      "panel": {
+        "$value": "12px"
+      }
+    },
+    "size": {
+      "control-sm": {
+        "$value": "2.5rem"
+      },
+      "control-md": {
+        "$value": "3rem"
+      },
+      "control-lg": {
+        "$value": "3.5rem"
+      }
+    },
+    "shadow": {
+      "card": {
+        "$value": "none"
+      },
+      "raised": {
+        "$value": "0 2px 8px oklch(0.23 0.006 250 / 0.08)",
+        "$extensions": {
+          "mode": {
+            "dark": "0 2px 8px oklch(0 0 0 / 0.4)"
+          }
+        }
+      }
+    },
+    "effect": {
+      "card-hover-lift": {
+        "$value": "0px"
+      }
+    }
+  }
+}
