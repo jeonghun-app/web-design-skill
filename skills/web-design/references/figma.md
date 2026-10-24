@@ -53,7 +53,12 @@ What Figma variables cannot hold:
 1. **Read the frame.** Call `get_design_context` (with the screenshot) on the frame, then `get_variable_defs` on the same node. If the design uses raw hex or px values instead of variables, list them; they must map to existing tokens or become new ones.
 2. **Reconcile tokens.**
    - Run `figma-sync.mjs pull-script`. Run the printed code with `use_figma` and save the returned JSON to `design/build/figma-dump.json`.
-   - Run `figma-sync.mjs pull design/build/figma-dump.json`. Review the diff, then re-run with `--write` to apply it to the active trend pack (or to `tokens.json` when no trend is active).
+   - Run `figma-sync.mjs pull design/build/figma-dump.json`. Review the diff.
+     - Values are compared the way push sends them, with a tolerance, so an untouched round trip reports nothing.
+     - Lines marked `!` are derived or fluid tokens (aliases, relative colors, `clamp()`). Edit those in code.
+   - Re-run with `--write` to apply the `~` changes to the active trend pack, or to `tokens.json` when no trend is active.
+     - Both modes are written explicitly, so a light-only edit never resets dark.
+     - Font edits keep the fallback stack.
    - Rebuild with `build-tokens.mjs`.
 3. **Map to components.** Match each Figma component to the code component through Code Connect (`get_code_connect_map`). For unmapped ones, find the matching component in `src/components/ui` and add a mapping (`add_code_connect_map`). Build missing components with the variant API (variant × tone × size). Never copy one-off utility soup from the reference code.
 4. **Compose sections** from `references/patterns.md`. The reference code from `get_design_context` is a layout hint and must be rewritten with project tokens and components.

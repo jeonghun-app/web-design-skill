@@ -12,8 +12,10 @@
         var theme = localStorage.getItem('wd-theme');
         if (theme !== 'light' && theme !== 'dark') theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         d.dataset.theme = theme;
+        // ?trend= or the dev switcher override the default set by `trend apply`; "none" removes it.
         var trend = new URLSearchParams(location.search).get('trend') || localStorage.getItem('wd-trend');
-        if (trend) d.dataset.trend = trend;
+        if (trend === 'none') delete d.dataset.trend;
+        else if (trend) d.dataset.trend = trend;
       })();
     </script>
   </head>

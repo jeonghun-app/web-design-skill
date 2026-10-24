@@ -33,3 +33,10 @@ test('figma rgba stays in 0..1', () => {
   const c = toFigmaRGBA('oklch(0.7 0.3 140)');
   for (const k of ['r', 'g', 'b', 'a']) assert.ok(c[k] >= 0 && c[k] <= 1);
 });
+
+test('near-grey origins and alpha keyword parse; malformed colors throw', () => {
+  assert.equal(toHex('oklch(from #ffffff l c h / 0.5)').length, 9);
+  assert.equal(parseColor('oklch(from #808080 l c h / alpha)').a, 1);
+  assert.throws(() => parseColor('#12345'));
+  assert.throws(() => parseColor('rgba(0, 0, 0, x)'));
+});

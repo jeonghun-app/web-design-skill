@@ -11,7 +11,7 @@ export function TrendSwitcher() {
   useEffect(() => {
     if (trend === 'none') delete root.dataset.trend
     else root.dataset.trend = trend
-    localStorage.setItem('wd-trend', trend === 'none' ? '' : trend)
+    localStorage.setItem('wd-trend', trend)
   }, [trend, root])
   useEffect(() => {
     root.dataset.theme = theme

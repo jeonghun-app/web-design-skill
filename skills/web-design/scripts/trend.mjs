@@ -66,10 +66,12 @@ export function checkPack(t, base) {
     try { r = resolveMode(merged, mode); } catch (e) { errors.push(`${mode}: ${e.message}`); continue; }
     for (const [fg, bg, min] of CONTRAST_PAIRS) {
       if (!(fg in r) || !(bg in r)) continue;
+      // Fail closed: a pair we can't measure is an error, not a pass.
       try {
         const ratio = contrast(r[fg], r[bg], r['color.bg']);
-        if (ratio < min) errors.push(`${mode}: ${fg} on ${bg} = ${ratio.toFixed(2)}:1 (< ${min}:1)`);
-      } catch (e) { warnings.push(`${mode}: cannot measure ${fg}/${bg}: ${e.message}`); }
+        if (!Number.isFinite(ratio)) errors.push(`${mode}: cannot measure ${fg} on ${bg}`);
+        else if (ratio < min) errors.push(`${mode}: ${fg} on ${bg} = ${ratio.toFixed(2)}:1 (< ${min}:1)`);
+      } catch (e) { errors.push(`${mode}: cannot measure ${fg} on ${bg}: ${e.message}`); }
     }
     for (const [k, v] of Object.entries(r)) {
       if (!k.startsWith('motion.duration.')) continue;
@@ -131,7 +133,11 @@ async function main() {
     case 'apply': {
       if (!id) throw new Error('usage: trend.mjs apply <id|none> [--lock]');
       if (id !== 'none') find(id);
-      setConfig({ trend: id, include: args.lock ? 'active' : readConfig(root).include === 'active' ? 'all' : readConfig(root).include });
+      const prev = readConfig(root).include;
+      let include = prev === 'active' ? 'all' : prev;
+      if (Array.isArray(include) && id !== 'none' && !include.includes(id)) include = [...include, id];
+      if (args.lock) include = 'active';
+      setConfig({ trend: id, include });
       setHtmlTrend(id);
       process.argv = [process.argv[0], 'build-tokens.mjs', '--root', root];
       await rebuild();

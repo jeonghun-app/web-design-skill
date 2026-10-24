@@ -8,6 +8,7 @@ export function parseColor(input) {
   if (s.startsWith('oklch(from ')) return parseRelativeOklch(s);
   if (s.startsWith('#')) {
     let h = s.slice(1);
+    if (!/^([0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})$/.test(h)) throw new Error(`Bad hex color: ${input}`);
     if (h.length === 3 || h.length === 4) h = [...h].map((c) => c + c).join('');
     const n = (i) => parseInt(h.slice(i, i + 2), 16) / 255;
     return { r: n(0), g: n(2), b: n(4), a: h.length === 8 ? n(6) : 1 };
@@ -38,17 +39,18 @@ function parseRelativeOklch(s) {
   const origin = originStr.startsWith('oklch(') && !originStr.startsWith('oklch(from')
     ? originStr.match(/^oklch\(\s*([\d.]+%?)\s+([\d.]+)\s+([\d.]+)/).slice(1).map((x, j) => (j === 0 && x.endsWith('%') ? parseFloat(x) / 100 : +x))
     : srgbToOklch(parseColor(originStr));
-  const env = { l: origin[0], c: origin[1], h: origin[2] };
+  const env = { l: origin[0], c: origin[1], h: origin[2], alpha: 1 };
   const rest = inner.slice(i).trim();
   const [chan, alpha] = rest.split('/').map((x) => x.trim());
   const parts = chan.match(/calc\([^)]*\)|\S+/g);
   const evalPart = (p) => {
-    const expr = p.replace(/^calc\(|\)$/g, '').replace(/\b([lch])\b/g, (_, k) => String(env[k]));
+    const expr = p.replace(/^calc\(|\)$/g, '').replace(/\b(alpha|[lch])\b/g, (_, k) => env[k].toFixed(8));
     if (!/^[\d.\s+\-*/()]+$/.test(expr)) throw new Error(`Unsupported relative channel: ${p}`);
     return Function(`return (${expr})`)();
   };
   const [L, C, H] = parts.map(evalPart);
-  return { ...oklchToSrgb(L, C, H), a: alpha ? parseAlpha(alpha) : 1 };
+  const a = alpha ? (alpha === 'alpha' ? 1 : /[lch(]/.test(alpha) ? evalPart(alpha) : parseAlpha(alpha)) : 1;
+  return { ...oklchToSrgb(L, C, H), a };
 }
 
 export function srgbToOklch({ r, g, b }) {
@@ -66,7 +68,9 @@ export function srgbToOklch({ r, g, b }) {
 
 function parseAlpha(a) {
   if (a === undefined) return 1;
-  return a.endsWith('%') ? parseFloat(a) / 100 : +a;
+  const v = a.endsWith('%') ? parseFloat(a) / 100 : +a;
+  if (!Number.isFinite(v)) throw new Error(`Bad alpha: ${a}`);
+  return v;
 }
 
 export function oklchToSrgb(L, C, H) {

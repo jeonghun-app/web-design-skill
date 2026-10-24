@@ -30,7 +30,12 @@ const config = readConfig(root);
 const trendIds = (() => {
   const t = args.trends ?? 'active';
   if (t === 'active') return [config.trend];
-  if (t === 'all') return ['none', ...listTrends(root).map((x) => x.id)];
+  if (t === 'all') {
+    // Only trends whose CSS actually ships in this build.
+    const ids = listTrends(root).map((x) => x.id);
+    if (config.include === 'active') return [config.trend];
+    return ['none', ...(Array.isArray(config.include) ? ids.filter((id) => config.include.includes(id)) : ids)];
+  }
   return String(t).split(',');
 })();
 const themes = String(args.themes ?? 'light,dark').split(',');
@@ -202,8 +207,18 @@ async function focusCheck(page, ctx) {
     const info = await page.evaluate(() => {
       const el = document.activeElement;
       if (!el || el === document.body) return null;
+      // Compare focused vs unfocused styles: a resting box-shadow is not a focus indicator.
+      const look = () => {
+        const s = getComputedStyle(el);
+        return [s.outlineStyle, s.outlineWidth, s.outlineColor, s.boxShadow, s.borderColor, s.backgroundColor].join('|');
+      };
+      const focused = look();
       const s = getComputedStyle(el);
-      const visible = (s.outlineStyle !== 'none' && parseFloat(s.outlineWidth) > 0) || (s.boxShadow && s.boxShadow !== 'none');
+      const outline = s.outlineStyle !== 'none' && parseFloat(s.outlineWidth) > 0;
+      el.blur();
+      const rest = look();
+      el.focus({ focusVisible: true });
+      const visible = outline || focused !== rest;
       const r = el.getBoundingClientRect();
       const cx = r.left + r.width / 2;
       const cy = r.top + Math.min(r.height / 2, 8);
@@ -230,7 +245,7 @@ try {
       for (const vp of VIEWPORTS) {
         const ctx = { trend, theme, viewport: vp.id };
         const context = await browser.newContext({ viewport: { width: vp.width, height: vp.height }, hasTouch: vp.touch, isMobile: vp.touch && vp.width < 600 });
-        await context.addInitScript(([th, tr]) => { localStorage.setItem('wd-theme', th); localStorage.setItem('wd-trend', tr === 'none' ? '' : tr); }, [theme, trend]);
+        await context.addInitScript(([th, tr]) => { localStorage.setItem('wd-theme', th); localStorage.setItem('wd-trend', tr); }, [theme, trend]);
         const page = await context.newPage();
         await page.goto(url, { waitUntil: 'networkidle' });
         await page.evaluate(async () => {
@@ -255,7 +270,7 @@ try {
       // LA-08 reflow at 320px and MT-03 reduced motion, once per trend/theme.
       const ctx = { trend, theme, viewport: 'mobile' };
       const narrow = await browser.newContext({ viewport: { width: 320, height: 640 }, reducedMotion: 'reduce' });
-      await narrow.addInitScript(([th, tr]) => { localStorage.setItem('wd-theme', th); localStorage.setItem('wd-trend', tr === 'none' ? '' : tr); }, [theme, trend]);
+      await narrow.addInitScript(([th, tr]) => { localStorage.setItem('wd-theme', th); localStorage.setItem('wd-trend', tr); }, [theme, trend]);
       const p = await narrow.newPage();
       await p.goto(url, { waitUntil: 'networkidle' });
       const m = await p.evaluate(probe, { reduced: true });

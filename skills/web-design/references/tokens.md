@@ -54,7 +54,7 @@ Other groups become plain custom properties, used with Tailwind's `(--var)` shor
 
 ## Modes
 - Dark values live in `$extensions.mode.dark`. `index.html` sets `data-theme` before paint (from `localStorage['wd-theme']` or the OS).
-- Derived tokens are re-declared on every `[data-theme]` / `[data-trend]` element. That lets a subtree preview another trend or theme: wrap it in `<div data-trend="x" data-theme="dark">`.
+- Derived tokens are re-declared on every `[data-theme]` / `[data-trend]` element, so a subtree can preview another trend, another theme, or both: `<div data-trend="x">`, `<div data-theme="dark">` or `<div data-trend="x" data-theme="dark">`. One level of nesting is supported per attribute. For deeper mixes, set both attributes on the same element.
 
 ## Adding a token
 1. Add it to `tokens.json` under the right group with `$type` and `$description`.

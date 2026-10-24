@@ -61,3 +61,10 @@ test('figma conversion covers the main token types', () => {
   const types = new Set(Object.entries(base).map(([k, t]) => toVariable(k, t, res)).filter(Boolean).map((v) => v.type));
   for (const t of ['COLOR', 'FLOAT', 'STRING', 'TIMING', 'EASING']) assert.ok(types.has(t), t);
 });
+
+test('unmeasurable contrast pairs fail the check', () => {
+  const bad = { id: 'bad', pack: { id: 'bad', name: 'b', summary: '-', stage: 'peak', reviewed: '2026-10', reviewBy: '9999-12', fits: [], avoid: [], tokens: {
+    color: { fg: { $value: 'var(--nope)' } },
+  } }, css: '' };
+  assert.ok(checkPack(bad, base).errors.some((e) => e.includes('cannot measure')));
+});
