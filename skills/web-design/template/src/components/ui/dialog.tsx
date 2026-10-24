@@ -14,7 +14,7 @@ const contentVariants = cva(
     'fixed z-(--layer-modal) surface shadow-overlay focus-visible:outline-none',
     'data-[state=open]:animate-[wd-pop-in_var(--motion-duration-large)_var(--ease-out)]',
     'data-[state=closed]:animate-[wd-pop-out_var(--motion-duration-small)_var(--ease-in)]',
-    'data-[state=closed]:pointer-events-none', // MC-03: an exiting dialog never swallows clicks
+    'data-[state=closed]:pointer-events-none!', // MC-03: an exiting dialog never swallows clicks
   ],
   {
     variants: {
@@ -35,7 +35,7 @@ export function DialogContent({
 }: ComponentProps<typeof DialogPrimitive.Content> & VariantProps<typeof contentVariants> & { title: ReactNode; description?: ReactNode }) {
   return (
     <DialogPrimitive.Portal>
-      <DialogPrimitive.Overlay className="fixed inset-0 z-(--layer-modal) bg-overlay data-[state=closed]:pointer-events-none data-[state=open]:animate-[wd-fade-in_var(--motion-duration-large)_var(--ease-out)] data-[state=closed]:animate-[wd-fade-out_var(--motion-duration-small)_var(--ease-in)]" />
+      <DialogPrimitive.Overlay className="fixed inset-0 z-(--layer-modal) bg-overlay data-[state=closed]:pointer-events-none! data-[state=open]:animate-[wd-fade-in_var(--motion-duration-large)_var(--ease-out)] data-[state=closed]:animate-[wd-fade-out_var(--motion-duration-small)_var(--ease-in)]" />
       <DialogPrimitive.Content
         data-slot="dialog"
         {...(description ? {} : { 'aria-describedby': undefined })}

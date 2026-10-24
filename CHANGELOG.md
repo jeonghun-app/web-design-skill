@@ -31,7 +31,7 @@
 - Browser end-to-end tests for the app demo cover selection, undo scope, palette focus return, Korean line breaking and toast timers. They run in CI after the build.
 
 ### Changed
-- `:lang(ko)` base CSS: `word-break: keep-all`, `overflow-wrap: anywhere`, the Hangul measure, and no faux italics in CJK.
+- `:lang(ko)` base CSS: `word-break: keep-all`, `overflow-wrap: break-word`, the Hangul measure, and no faux italics in CJK.
 - Dark-mode muted text is lighter in 5 packs (APCA advisory). Projects that copied a pack keep their old values until they re-add the pack.
 - Tooltip open delay changed from 400 to 300 ms. Toasts with an action now stay 10 s.
 - Dialog widths are 400/600/800. The compact table row is 32 px with a mouse; on touch, rows stay at least 44 px so the checkbox targets stay large enough.

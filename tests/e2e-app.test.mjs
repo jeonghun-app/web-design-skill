@@ -104,3 +104,15 @@ test('toast timers do not restart when another toast arrives', { skip }, async (
   assert.equal(await page.getByRole('listitem').filter({ hasText: '1 request archived' }).count(), 1, 'only the second toast should remain');
   await page.close();
 });
+
+test('a closing dialog never swallows the next click (MC-03)', { skip }, async () => {
+  const page = await appPage();
+  const box = await page.getByRole('button', { name: 'Points' }).boundingBox();
+  await page.getByRole('button', { name: 'New request' }).first().click();
+  await page.getByRole('dialog').waitFor();
+  await page.keyboard.press('Escape');
+  // Raw mouse click at once (no actionability wait), while the exit animation runs.
+  await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+  assert.equal(await page.getByRole('columnheader', { name: /Points/ }).getAttribute('aria-sort'), 'ascending');
+  await page.close();
+});

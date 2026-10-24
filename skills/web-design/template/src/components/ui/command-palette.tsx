@@ -44,7 +44,7 @@ export function CommandPalette({ commands, open, onOpenChange }: { commands: Com
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-(--layer-modal) bg-overlay data-[state=closed]:pointer-events-none data-[state=open]:animate-[wd-fade-in_var(--motion-duration-small)_var(--ease-out)]" />
+        <DialogPrimitive.Overlay className="fixed inset-0 z-(--layer-modal) bg-overlay data-[state=closed]:pointer-events-none! data-[state=open]:animate-[wd-fade-in_var(--motion-duration-small)_var(--ease-out)]" />
         <DialogPrimitive.Content
           onCloseAutoFocus={(e) => {
             e.preventDefault()
