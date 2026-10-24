@@ -11,7 +11,7 @@ Use this file whenever the audience reads Korean, or Japanese or Chinese. Settin
 
 | ID | Rule | Value or code |
 |---|---|---|
-| KO-01 | **Break lines between words (어절), never inside one**, but let long URLs and IDs wrap | `:lang(ko) { word-break: keep-all; overflow-wrap: anywhere; line-break: strict }` (in the template's base CSS). Use `.break-all` for codes and URLs. Check: no word splits at 320 px and no horizontal overflow (LA-08). |
+| KO-01 | **Break lines between words (어절), never inside one**, but let long URLs and IDs wrap | `:lang(ko) { word-break: keep-all; overflow-wrap: break-word; line-break: strict }` (in the template's base CSS). Use `break-word`, **not** `anywhere`: `anywhere` lowers the min-content width, so flex items and table cells shrink and split words syllable by syllable. Use `.break-all` for codes and URLs. Check: no word splits at 320 px and no horizontal overflow (LA-08). |
 | KO-02 | Headings use `text-wrap: balance`, which works fine for Korean. `pretty` is progressive enhancement only. | in the template's base CSS |
 | KO-03 | **Body ≥16 px.** 17 px is common with narrower Hangul faces such as Pretendard, and is the public-service default. | `text.base` 1rem, or 1.0625rem in `civic-clear` |
 | KO-04 | **Line-height:** body ≥1.5; long reading 1.6–1.7; compact UI labels 1.35–1.4; headings 1.25–1.35 | `text.*--line-height` |
@@ -79,4 +79,4 @@ Write in the 해요체, in the active voice, phrased positively, with [닫기] (
 - **"Korean UI always needs strong negative tracking."** Only headings ≥20 px need it. Body text sits at about 0.
 - **"Hangul needs line-height 1.7+."** 1.5 is the standard for UI. 1.6–1.7 is for long-form reading.
 - **"45–75 characters per line."** That is the Latin rule. Hangul needs 30–45.
-- **"`keep-all` is enough."** Without `overflow-wrap`, long Latin strings and URLs overflow.
+- **"`keep-all` is enough."** Without `overflow-wrap: break-word`, long Latin strings and URLs overflow. `overflow-wrap: anywhere` overcorrects and splits Korean words in tight flex and table boxes.

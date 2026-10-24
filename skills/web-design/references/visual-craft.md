@@ -102,7 +102,7 @@ WCAG 2 contrast is the **legal floor** (`trend.mjs check` enforces it). APCA is 
 
 | ID | Rule | Value |
 |---|---|---|
-| TC-01 | Body size | 16–18 px in product UI and marketing. Long-form reading may go to 20. Use `text.base` / `text.lede`. |
+| TC-01 | Body size | 16–18 px for marketing and any reading; long-form may go to 20 (`text.base` / `text.lede`). Dense product UI may use 14 px for tables and secondary text (`app-patterns.md` density), never for paragraphs people must read. |
 | TC-02 | Measure | aim for 60–75 characters (`layout.prose` = 34em). Hangul: 35–45 (see `korean.md`). |
 | TC-03 | Line-height by size | 12–14 px: 1.5–1.6; 16–18: 1.5–1.65; 20–24: 1.35–1.45; 32–40: 1.15–1.25; 48–72: 1.0–1.1; 96+: 0.9–1.0. Snap to 4 px. |
 | TC-04 | Tracking by size (grotesks) | `t_em ≈ −0.0223 + 0.185 × e^(−0.1745 × px)`, so about −0.011em at 16 px, −0.02em at 24 px and −0.022em at 48 px and above. Display text in packs goes to −0.03 to −0.05em. Labels and caps at 11–12 px get +0.04 to +0.08em. |

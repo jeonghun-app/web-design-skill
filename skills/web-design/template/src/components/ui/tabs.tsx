@@ -22,7 +22,7 @@ export function Tabs({ items, defaultValue, className }: {
           >
             {it.label}
             {value === it.value && (
-              <motion.span layoutId={layoutId} transition={{ type: 'spring', bounce: 0.15, duration: 0.3 }} className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-primary" />
+              <motion.span layoutId={layoutId} transition={{ type: 'spring', visualDuration: 0.2, bounce: 0 }} className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-primary" />
             )}
           </TabsPrimitive.Trigger>
         ))}

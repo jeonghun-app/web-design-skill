@@ -41,8 +41,11 @@ const trendIds = (() => {
   return String(t).split(',');
 })();
 const themes = String(args.themes ?? 'light,dark').split(',');
-const pages = args.pages ? String(args.pages).split(',') : config.audit?.pages ?? ['/'];
-const pageId = (p) => (p === '/' ? 'home' : p.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, ''));
+// With --url and no --pages, audit exactly that URL. Page paths resolve against the
+// URL's own path (so --url http://host/docs/ --pages /,/#/app stays under /docs/).
+const pages = args.pages ? String(args.pages).split(',') : args.url ? [''] : config.audit?.pages ?? ['/'];
+const pageId = (p) => (p === '/' || p === '' ? 'home' : p.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, ''));
+const resolvePage = (p, base) => (p === '' ? base : new URL(p.replace(/^\//, ''), base.endsWith('/') ? base : `${base}/`).href);
 
 let server;
 async function ensureServer() {
@@ -224,24 +227,33 @@ function judge(m, ctx) {
 
 // TY-04: WCAG 1.4.12 text-spacing override must not clip or hide text.
 async function textSpacingCheck(page, ctx) {
-  await page.addStyleTag({ content: '* { line-height: 1.5 !important; letter-spacing: .12em !important; word-spacing: .16em !important; } p { margin-bottom: 2em !important; }' });
-  await page.waitForTimeout(100);
-  const clipped = await page.evaluate(() => {
-    const out = [];
+  // Only report boxes that start clipping *because of* the override: anything already
+  // overflowing, deliberately clamped (line-clamp) or truncated is not a TY-04 failure.
+  const scan = () => page.evaluate(() => {
+    const out = {};
+    let i = 0;
     for (const el of document.querySelectorAll('body *')) {
+      i++;
       if (el.closest('[data-wd-dev]')) continue;
       const s = getComputedStyle(el);
       const clips = ['hidden', 'clip'].includes(s.overflowY) || ['hidden', 'clip'].includes(s.overflowX);
       if (!clips || !el.textContent.trim() || el.children.length > 3) continue;
       const r = el.getBoundingClientRect();
-      if (r.width <= 2 || r.height <= 2 || s.clip === 'rect(0px, 0px, 0px, 0px)' || s.clipPath === 'inset(50%)') continue; // visually hidden (sr-only)
+      if (r.width <= 2 || r.height <= 2 || s.clip === 'rect(0px, 0px, 0px, 0px)' || s.clipPath === 'inset(50%)') continue; // sr-only
+      if (s.webkitLineClamp !== 'none' && s.webkitLineClamp !== '') continue;
+      if (s.textOverflow === 'ellipsis') continue;
       if (el.scrollHeight > el.clientHeight + 2 || el.scrollWidth > el.clientWidth + 2) {
-        if (s.textOverflow === 'ellipsis' && s.whiteSpace === 'nowrap') continue; // truncation is a deliberate, titled pattern
-        out.push(`${el.tagName.toLowerCase()} "${el.textContent.trim().slice(0, 30)}"`);
+        el.dataset.wdTy04 ??= String(i);
+        out[el.dataset.wdTy04] = `${el.tagName.toLowerCase()} "${el.textContent.trim().slice(0, 30)}"`;
       }
     }
-    return out.slice(0, 10);
+    return out;
   });
+  const before = await scan();
+  await page.addStyleTag({ content: '* { line-height: 1.5 !important; letter-spacing: .12em !important; word-spacing: .16em !important; } p { margin-bottom: 2em !important; }' });
+  await page.waitForTimeout(100);
+  const after = await scan();
+  const clipped = Object.entries(after).filter(([k]) => !(k in before)).map(([, v]) => v).slice(0, 10);
   if (clipped.length) add('TY-04', 'MUST', ctx, 'text clipped when text spacing is increased (WCAG 1.4.12)', clipped);
 }
 
@@ -289,7 +301,7 @@ const shots = [];
 fs.mkdirSync(path.join(out, 'shots'), { recursive: true });
 try {
   for (const pagePath of pages) {
-  const target = new URL(pagePath, url).href;
+  const target = resolvePage(pagePath, url);
   for (const trend of trendIds) {
     for (const theme of themes) {
       for (const vp of VIEWPORTS) {

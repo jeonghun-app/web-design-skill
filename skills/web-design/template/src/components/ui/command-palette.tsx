@@ -1,5 +1,5 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog'
-import { useEffect, useId, useMemo, useState } from 'react'
+import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { cn } from '@/lib/cn'
 
 export type Command = { id: string; label: string; group: string; hint?: string; run: () => void }
@@ -10,6 +10,11 @@ export function CommandPalette({ commands, open, onOpenChange }: { commands: Com
   const [query, setQuery] = useState('')
   const [active, setActive] = useState(0)
   const listId = useId()
+  // Opened by shortcut or a plain button, so remember where focus was and return it (OVL-02).
+  const returnFocus = useRef<HTMLElement | null>(null)
+  useEffect(() => {
+    if (open) returnFocus.current = document.activeElement as HTMLElement | null
+  }, [open])
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -39,8 +44,12 @@ export function CommandPalette({ commands, open, onOpenChange }: { commands: Com
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-(--layer-modal) bg-overlay data-[state=open]:animate-[wd-fade-in_var(--motion-duration-small)_var(--ease-out)]" />
+        <DialogPrimitive.Overlay className="fixed inset-0 z-(--layer-modal) bg-overlay data-[state=closed]:pointer-events-none data-[state=open]:animate-[wd-fade-in_var(--motion-duration-small)_var(--ease-out)]" />
         <DialogPrimitive.Content
+          onCloseAutoFocus={(e) => {
+            e.preventDefault()
+            returnFocus.current?.focus?.()
+          }}
           aria-label="Command palette"
           className="fixed left-1/2 top-[12dvh] z-(--layer-modal) w-[calc(100%-2rem)] max-w-xl -translate-x-1/2 overflow-hidden surface rounded-panel shadow-overlay data-[state=open]:animate-[wd-pop-in_var(--motion-duration-small)_var(--ease-out)]"
         >

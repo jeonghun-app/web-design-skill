@@ -72,7 +72,7 @@
      long URLs/IDs wrap; Hangul gets its own measure; no faux italics on CJK glyphs. */
   :lang(ko) {
     word-break: keep-all;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word; /* not "anywhere": that shrinks min-content and splits words in tight flex/table boxes */
     line-break: strict;
     --layout-prose: var(--layout-prose-ko);
   }
@@ -99,7 +99,8 @@
     background: var(--color-primary-soft);
     color: var(--color-primary-soft-fg);
   }
-  /* MT-03: honor reduced motion everywhere; components may opt back into opacity fades. */
+  /* MT-03: honor reduced motion everywhere. This collapses every duration (opacity fades
+     included); design reduced-motion substitutes as instant state changes (motion.md). */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;

@@ -50,13 +50,13 @@ A CSS `linear()` spring is fine for fire-and-forget motion. A CSS spring can't c
 
 | Component | Enter | Exit | Properties | Reduced motion |
 |---|---|---|---|---|
-| Dialog | 250 ms. Opacity 0→1, scale 0.96→1, translateY 8→0 px, `ease.out`. Backdrop fades over 200 ms at the same time and leaves last. | 150–180 ms, to opacity 0 and scale 0.98, `ease.in` | opacity, transform | opacity only, 150 ms |
+| Dialog | `motion.duration.large` (250–400 ms). Opacity 0→1, scale 0.96–0.98→1, rise 4–8 px, `ease.out` (template: `wd-pop-in`). Backdrop fades in at the same time and leaves last. | `motion.duration.small`, toward opacity 0 / scale 0.98, `ease.in`; pointer events off from the first frame (MC-03) | opacity, transform | instant (global rule) |
 | Drawer / sheet | 300–350 ms from its edge, `ease.out` or the `surface` spring. Gestures keep their release speed. | 200–250 ms back to the same edge, `ease.standard` | transform | 150 ms crossfade in place |
 | Popover / menu | 150–200 ms. Opacity, scale 0.95→1 from the anchor side (`transform-origin`), and a 4 px shift away from the anchor. | 100–120 ms, opacity only | opacity, transform | opacity 100 ms |
 | Tooltip | 100–150 ms after a 300–500 ms hover delay. No delay if another tooltip was just shown. | 75–100 ms | opacity (plus a 2–4 px shift) | opacity only |
 | Toast | 200–250 ms slide from its edge plus a fade. The stack reflows on the `ui` spring. | 150 ms toward the edge. Swipe-to-dismiss keeps its speed. | transform, opacity | fade 150 ms |
 | Accordion | 200–300 ms height (`interpolate-size` or a grid transition), content fades in over 150 ms | 150–200 ms | grid rows / height, opacity | instant, or a 100 ms fade |
-| Tabs indicator | `snappy` spring, moved with transform (FLIP / `layoutId`) | n/a | transform | jumps instantly |
+| Tabs indicator | `snappy` spring (`visualDuration: 0.2, bounce: 0`), moved with transform (FLIP / `layoutId`) | n/a | transform | jumps instantly |
 | Tab panel | 150 ms crossfade, with an optional 8–16 px slide in the direction of the tab | 100 ms | opacity, transform | crossfade only |
 | List insert / remove / reorder | `layout` with the `ui` spring. Insert grows, then fades in. Remove fades over 120 ms, then neighbors close the gap. | n/a | transform (FLIP) | instant reflow, keep the fade |
 | Page transition | View transition: root crossfade 200–250 ms, forward/back slide of 24–40 px (not full width), shared hero by name | old page out 150 ms | snapshots | root crossfade 150 ms, or none |
@@ -179,7 +179,7 @@ Keep motion that explains a change of state. Remove motion that travels, zooms, 
 | Hover lift | color, shadow or outline change only |
 
 **How to implement it**
-- The template's global rule collapses durations under `prefers-reduced-motion: reduce`.
+- The template's global rule collapses *all* durations under `prefers-reduced-motion: reduce`, opacity fades included, so the substitutes above become instant state changes. To keep short fades, scope that rule to transforms in your project.
 - `motion` users wrap the app in `<MotionConfig reducedMotion="user">`.
 - Add a site-wide "Reduce motion" toggle that writes `data-motion="reduce"` on `<html>` and applies the same CSS.
 - Auto-moving content longer than 5 s needs a visible pause control (MT-04).

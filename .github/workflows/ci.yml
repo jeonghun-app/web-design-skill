@@ -24,12 +24,12 @@ jobs:
       - run: npm ci
       - name: Install Chromium (cascade test and audit)
         run: npx playwright install --with-deps chromium
-      - name: Unit tests
+      - name: Build (fails if generated tokens are stale)
+        run: npm run build
+      - name: Unit and browser tests
         run: node --test ../../../tests/*.test.mjs
       - name: Trend packs (contrast, motion, schema)
         run: npm run trend -- check
-      - name: Build (fails if generated tokens are stale)
-        run: npm run build
       - name: Human-factors audit (all trends)
         if: matrix.node == 24
         run: npm run audit -- --trends all --no-shots

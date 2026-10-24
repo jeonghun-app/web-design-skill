@@ -35,7 +35,7 @@ Touch targets stay ≥44 px on touch devices at every density (MO-02). The templ
 |---|---|
 | TBL-01 | Offer three row densities: **32** compact, **44** default, **56** relaxed (for two-line rows). The header row matches the body rows, and so do the toolbar, bulk bar and pagination. |
 | TBL-02 | **Numbers are right-aligned** (header included) and set in `tabular-nums`. Text is left-aligned. Never center text columns. Units stay consistent within a column. |
-| TBL-03 | Sorting has three states (none → ascending → descending). A `<button>` sits inside each `<th>`. `aria-sort` goes on the sorted column only. Only that column shows its icon; the others show it on hover or focus. |
+| TBL-03 | Sorting has three states, cycled by clicking: none → ascending → descending → none. A `<button>` sits inside each `<th>`. `aria-sort` goes on the sorted column only. Only that column shows its icon; the others show it on hover or focus. |
 | TBL-04 | **Pagination** when people look for or compare specific items, or on long result sets (above about 50 rows). **"Load more" with "Showing X of Y"** for browsing. **Infinite scroll only for goal-less feeds.** It breaks the footer, keyboard use and finding your place again. |
 | TBL-05 | **Bulk actions.** A checkbox column comes first, with a select-all box in the header that shows a mixed state when some rows are selected. Selecting rows swaps the toolbar for a bar showing "N selected" and verb+noun actions. Row-level actions are disabled while bulk mode is on. |
 | TBL-06 | Make the header sticky. When the table scrolls sideways, also make the first column sticky (`<th scope="row">`) and add edge shadows. |
@@ -71,7 +71,7 @@ Use a plain `<table>` with tabbable controls for most tables. Reserve `role="gri
 | FB-04 | **Confirm only irreversible or expensive actions.** Common reversible ones get Undo instead (FE-03). Title the dialog with the consequence ("Delete customer?") and give the buttons the action's name ("Delete customer" / "Keep"). Initial focus goes to the least destructive button. For catastrophic actions, make people type the name. |
 | FB-05 | **Progress by wait time.** Under 1 s: nothing. 1–3 s: indeterminate. 3–10 s: determinate. Over 10 s: percentage plus Cancel, or a background task (RE-04). |
 | FB-06 | **Skeletons** only for containers and data (cards, tables, tiles), never for buttons, inputs or menus. Never show one under ~300 ms, and never as an empty frame. Items load progressively, with one screen-reader announcement per group. |
-| FB-07 | **Optimistic UI** only for fast, reversible, likely-to-succeed actions (like, toggle, reorder). Roll back on failure with an inline or toast error offering Retry. Never for payments or destructive actions. |
+| FB-07 | **Optimistic UI** only for fast, reversible, likely-to-succeed actions (like, toggle, reorder). On failure, roll back and show an **inline** error with Retry next to the item (FB-01: errors never go in a toast). Never for payments or destructive actions. |
 
 ## 5. Empty states and onboarding
 

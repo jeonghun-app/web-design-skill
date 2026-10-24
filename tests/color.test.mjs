@@ -40,3 +40,10 @@ test('near-grey origins and alpha keyword parse; malformed colors throw', () => 
   assert.throws(() => parseColor('#12345'));
   assert.throws(() => parseColor('rgba(0, 0, 0, x)'));
 });
+
+test('APCA matches reference values', async () => {
+  const { apca } = await import('../skills/web-design/scripts/lib/color.mjs');
+  assert.equal(Math.round(apca('#000', '#fff')), 106);
+  assert.equal(Math.round(apca('#fff', '#000')), -108);
+  assert.equal(Math.round(apca('#888', '#fff')), 63);
+});

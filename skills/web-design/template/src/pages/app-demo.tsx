@@ -45,10 +45,17 @@ export function AppDemoPage() {
     setLoading(true)
     setTimeout(() => setLoading(false), 1200)
   }
+  // Undo puts back exactly what this action removed, in the original order, without
+  // reviving rows that later actions removed.
+  const order = (r: Request[]) => [...r].sort((a, b) => ROWS.findIndex((x) => x.id === a.id) - ROWS.findIndex((x) => x.id === b.id))
   const archive = (ids: string[]) => {
-    const before = rows
+    const removed = rows.filter((x) => ids.includes(x.id))
+    if (!removed.length) return
     setRows((r) => r.filter((x) => !ids.includes(x.id)))
-    toast({ title: `${ids.length} request${ids.length > 1 ? 's' : ''} archived`, action: { label: 'Undo', onClick: () => setRows(before) } })
+    toast({
+      title: `${removed.length} request${removed.length > 1 ? 's' : ''} archived`,
+      action: { label: 'Undo', onClick: () => setRows((r) => order([...r, ...removed.filter((x) => !r.some((y) => y.id === x.id))])) },
+    })
   }
 
   const commands: Command[] = [
@@ -82,6 +89,7 @@ export function AppDemoPage() {
         <a
           key={n.label}
           href="#/app"
+          onClick={() => setNavOpen(false)}
           aria-current={i === 0 ? 'page' : undefined}
           className="flex min-h-11 items-center justify-between rounded-control px-2 text-sm text-fg-muted hover:bg-surface-sunken hover:text-fg aria-[current=page]:bg-primary-soft aria-[current=page]:font-medium aria-[current=page]:text-primary-soft-fg pointer-fine:min-h-9"
         >

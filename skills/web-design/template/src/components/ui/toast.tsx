@@ -4,7 +4,8 @@ import { cn } from '@/lib/cn'
 // Toasts confirm an outcome without blocking. Polite live region; at most 3 visible;
 // auto-dismiss pauses while hovered or focused; actionable toasts (Undo) stay longer
 // so there is time to reach the button (WCAG 2.2.1 timing, FE-03 undo pattern).
-type Toast = { id: number; title: string; description?: string; tone?: 'neutral' | 'success' | 'danger'; action?: { label: string; onClick: () => void } }
+// No error tone on purpose: errors belong inline, next to their cause (FB-01).
+type Toast = { id: number; title: string; description?: string; tone?: 'neutral' | 'success'; action?: { label: string; onClick: () => void } }
 const Ctx = createContext<(t: Omit<Toast, 'id'>) => void>(() => {})
 export const useToast = () => useContext(Ctx)
 
@@ -22,19 +23,20 @@ export function ToastProvider({ children }: { children: ReactNode }) {
     <Ctx.Provider value={push}>
       {children}
       <ol aria-live="polite" aria-label="Notifications" className="pointer-events-none fixed inset-x-4 bottom-4 z-(--layer-toast) flex flex-col items-end gap-2 sm:left-auto sm:w-96">
-        {toasts.map((t) => <ToastItem key={t.id} toast={t} onDismiss={() => dismiss(t.id)} />)}
+        {toasts.map((t) => <ToastItem key={t.id} toast={t} onDismiss={dismiss} />)}
       </ol>
     </Ctx.Provider>
   )
 }
 
-function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: () => void }) {
+function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: (id: number) => void }) {
   const [paused, setPaused] = useState(false)
+  const hasAction = !!toast.action
   useEffect(() => {
     if (paused) return
-    const t = setTimeout(onDismiss, toast.action ? ACTION_MS : BASE_MS)
+    const t = setTimeout(() => onDismiss(toast.id), hasAction ? ACTION_MS : BASE_MS)
     return () => clearTimeout(t)
-  }, [paused, onDismiss, toast.action])
+  }, [paused, onDismiss, toast.id, hasAction])
   return (
     <li
       onMouseEnter={() => setPaused(true)}
@@ -47,7 +49,7 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: () => void }
       )}
     >
       {toast.tone && toast.tone !== 'neutral' && (
-        <span aria-hidden className={cn('mt-1.5 size-2 shrink-0 rounded-full', toast.tone === 'success' ? 'bg-success' : 'bg-danger')} />
+        <span aria-hidden className="mt-1.5 size-2 shrink-0 rounded-full bg-success" />
       )}
       <div className="min-w-0 flex-1">
         <p className="text-sm font-medium">{toast.title}</p>
@@ -55,13 +57,13 @@ function ToastItem({ toast, onDismiss }: { toast: Toast; onDismiss: () => void }
       </div>
       {toast.action && (
         <button
-          onClick={() => { toast.action!.onClick(); onDismiss() }}
+          onClick={() => { toast.action!.onClick(); onDismiss(toast.id) }}
           className="-my-1 min-h-11 shrink-0 rounded-control px-3 text-sm font-semibold text-primary-text hover:bg-primary-soft"
         >
           {toast.action.label}
         </button>
       )}
-      <button onClick={onDismiss} aria-label="Dismiss notification" className="-m-2 grid size-11 shrink-0 place-items-center rounded-control text-fg-muted hover:text-fg">
+      <button onClick={() => onDismiss(toast.id)} aria-label="Dismiss notification" className="-m-2 grid size-11 shrink-0 place-items-center rounded-control text-fg-muted hover:text-fg">
         <svg viewBox="0 0 16 16" aria-hidden className="size-4 fill-current"><path d="M3.7 2.6 8 6.9l4.3-4.3 1.1 1.1L9.1 8l4.3 4.3-1.1 1.1L8 9.1l-4.3 4.3-1.1-1.1L6.9 8 2.6 3.7z" /></svg>
       </button>
     </li>
