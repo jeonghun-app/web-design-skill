@@ -50,7 +50,7 @@
 }
 @media (forced-colors: active) {
   [data-slot="illustration"] * { fill: Canvas !important; stroke: CanvasText !important; }
-  [data-slot="illustration"] .illus-shadow * { fill: none !important; }
+  [data-slot="illustration"] .illus-shadow * { fill: none !important; stroke: none !important; }
 }
 
 @layer base {

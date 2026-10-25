@@ -47,6 +47,12 @@ export function convert(type, v) {
     return m && m.length === 4 ? ['EASING', { type: 'CUSTOM_CUBIC_BEZIER', easingFunctionCubicBezier: { x1: m[0], y1: m[1], x2: m[2], y2: m[3] } }] : null;
   }
   if (type === 'dimension') {
+    // calc(<len> * <n>) or calc(<len> / <n>) after alias resolution, e.g. radius.card.
+    const calc = s.match(/^calc\(\s*(-?[\d.]+)(px|rem)\s*([*/])\s*([\d.]+)\s*\)$/);
+    if (calc) {
+      const base = calc[2] === 'rem' ? +calc[1] * 16 : +calc[1];
+      return ['FLOAT', Math.round((calc[3] === '*' ? base * +calc[4] : base / +calc[4]) * 100) / 100];
+    }
     const d = (s.match(/^clamp\([^,]+,[^,]+,\s*([^)]+)\)$/)?.[1] ?? s).trim();
     // em is relative to the element's own font size (tracking), which a Figma FLOAT
     // variable can't express; those values go into text styles as percentages instead.

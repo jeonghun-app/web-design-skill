@@ -1005,6 +1005,42 @@
         "web": "var(--radius-base)"
       },
       {
+        "name": "radius/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-control)"
+      },
+      {
+        "name": "radius/card",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-card)"
+      },
+      {
+        "name": "radius/panel",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-panel)"
+      },
+      {
         "name": "radius/pill",
         "type": "FLOAT",
         "values": {

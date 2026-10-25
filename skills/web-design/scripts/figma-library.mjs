@@ -4,8 +4,12 @@
 //   figma-library.mjs list                       steps in order
 //   figma-library.mjs step <n|name> [--trend <id>] [--font Inter]
 //       Print Plugin API code for one step. Run steps in order, one use_figma call each,
-//       after `figma-sync push` has created the variables. Every step is idempotent:
-//       pages, styles and components are found by name and updated in place.
+//       after `figma-sync push` has created the variables.
+//       pages/styles/foundations/review are safe to re-run (found by name, updated or
+//       regenerated). Component steps REBUILD their component: they refuse when instances
+//       exist outside the generated review frames (they would lose their main component),
+//       unless --force. To restyle a library that is in use, re-run `figma-sync push`
+//       (values flow through the bound variables); structural changes need a manual edit.
 //
 // Steps: pages → styles → button → badge → field → card → foundations → review
 
@@ -36,18 +40,20 @@ const px = (v) => {
 const firstFamily = (v) => (Array.isArray(v) ? v[0] : String(v).split(',')[0]).replace(/["']/g, '').trim();
 
 // Text styles: name → size/line-height/weight/tracking (tracking em → percent).
+// Display and headings use font.display (as the site's h1–h3 do); body and controls font.sans.
 const TEXT_STYLES = [
-  ['Display', 'display', light['font-weight.display'] ?? 650, light['tracking.display']],
-  ['Heading/H2', 'h2', light['font-weight.heading'] ?? 600, light['tracking.heading']],
-  ['Heading/H3', 'h3', light['font-weight.heading'] ?? 600, light['tracking.heading']],
+  ['Display', 'display', light['font-weight.display'] ?? 650, light['tracking.display'], 'display'],
+  ['Heading/H2', 'h2', light['font-weight.heading'] ?? 600, light['tracking.heading'], 'display'],
+  ['Heading/H3', 'h3', light['font-weight.heading'] ?? 600, light['tracking.heading'], 'display'],
   ['Body/Lede', 'lede', 400, null],
   ['Body/Base', 'base', 400, null],
   ['Body/Small', 'sm', 400, null],
   ['Body/XSmall', 'xs', 400, null],
   ['Control/MD', 'sm', light['font-weight.control'] ?? 500, null],
   ['Control/LG', 'base', light['font-weight.control'] ?? 500, null],
-].map(([name, key, weight, tracking]) => ({
+].map(([name, key, weight, tracking, role]) => ({
   name,
+  role: role ?? 'sans',
   size: px(light[`text.${key}`]) ?? 16,
   lineHeight: Math.round(((px(light[`text.${key}`]) ?? 16) * (+light[`text.${key}--line-height`] || 1.5)) / 4) * 4, // TC-03: snap to 4px
   weight: +weight,
@@ -77,6 +83,7 @@ function shadowEffects(css) {
 const EFFECTS = ['card', 'raised', 'overlay'].map((k) => ({ name: `Shadow/${k[0].toUpperCase()}${k.slice(1)}`, effects: shadowEffects(light[`shadow.${k}`]) }));
 
 const font = args.font ?? firstFamily(light['font.sans'] ?? 'Inter');
+const displayFont = args['display-font'] ?? firstFamily(light['font.display'] ?? font);
 
 // Shared prelude: variable lookup by name, binding helpers, font loading with fallback.
 const PRELUDE = `
@@ -89,14 +96,30 @@ const need = (n) => { if (!V[n]) throw new Error('missing variable ' + n); retur
 const paint = (n) => figma.variables.setBoundVariableForPaint({ type: 'SOLID', color: { r: 0, g: 0, b: 0 } }, 'color', need(n));
 const bindRadius = (node, n) => ['topLeftRadius', 'topRightRadius', 'bottomLeftRadius', 'bottomRightRadius'].forEach((k) => node.setBoundVariable(k, need(n)));
 const bindPad = (node, x, y) => { node.setBoundVariable('paddingLeft', need(x)); node.setBoundVariable('paddingRight', need(x)); if (y) { node.setBoundVariable('paddingTop', need(y)); node.setBoundVariable('paddingBottom', need(y)); } };
-const WANT = ${JSON.stringify(font)};
 const available = await figma.listAvailableFontsAsync();
 const families = new Set(available.map((f) => f.fontName.family));
-const FAMILY = families.has(WANT) ? WANT : 'Inter';
-const styleFor = (w) => { const s = available.filter((f) => f.fontName.family === FAMILY).map((f) => f.fontName.style);
-  const order = w >= 700 ? ['Bold', 'Semi Bold', 'SemiBold'] : w >= 600 ? ['Semi Bold', 'SemiBold', 'Bold'] : w >= 500 ? ['Medium', 'Regular'] : ['Regular', 'Book'];
-  return order.find((x) => s.includes(x)) || s[0]; };
-const loadW = async (w) => { const f = { family: FAMILY, style: styleFor(w) }; await figma.loadFontAsync(f); return f; };
+const pick = (want) => (families.has(want) ? want : 'Inter');
+const FAMILY = pick(${JSON.stringify(font)});
+const DISPLAY = pick(${JSON.stringify(displayFont)});
+const styleFor = (family, w) => { const s = available.filter((f) => f.fontName.family === family).map((f) => f.fontName.style);
+  const order = w >= 800 ? ['Extra Bold', 'ExtraBold', 'Black', 'Bold'] : w >= 700 ? ['Bold', 'Semi Bold', 'SemiBold'] : w >= 600 ? ['Semi Bold', 'SemiBold', 'Bold'] : w >= 500 ? ['Medium', 'Regular'] : ['Regular', 'Book'];
+  return order.find((x) => s.includes(x)) || s.find((x) => x === 'Regular') || s[0]; };
+const loadW = async (w, family = FAMILY) => { const f = { family, style: styleFor(family, w) }; await figma.loadFontAsync(f); return f; };
+// Instances and appended text need their fonts loaded first (figma-use rule 8).
+for (const st of await figma.getLocalTextStylesAsync()) { try { await figma.loadFontAsync(st.fontName); } catch (e) {} }
+// Component rebuilds must not orphan instances placed in real screens.
+const FORCE = ${JSON.stringify(!!args.force)};
+const guardRebuild = async (node) => {
+  if (!node || FORCE) return;
+  const comps = node.type === 'COMPONENT_SET' ? node.children : [node];
+  let used = 0;
+  for (const c of comps) for (const i of await c.getInstancesAsync()) {
+    let inReview = false;
+    for (let a = i.parent; a; a = a.parent) if (a.name && a.name.startsWith('Review / ')) { inReview = true; break; }
+    if (!inReview) used++;
+  }
+  if (used) throw new Error(node.name + ' has ' + used + ' instance(s) outside the review frames; rebuilding would detach them. Re-run figma-sync push to restyle, or pass --force.');
+};
 const textStyle = async (name) => (await figma.getLocalTextStylesAsync()).find((s) => s.name === name);
 const effectStyle = async (name) => (await figma.getLocalEffectStylesAsync()).find((s) => s.name === name);
 const page = async (name) => { const p = figma.root.children.find((x) => x.name === name); if (!p) throw new Error('Run the pages step first: missing page ' + name); await figma.setCurrentPageAsync(p); return p; };
@@ -150,11 +173,11 @@ return { pages: figma.root.children.map((p) => p.name), created: made, ids, manu
 // Text styles (typography composites) and effect styles (shadows) — the parts variables can't hold.
 const TS = ${JSON.stringify(TEXT_STYLES)};
 const ES = ${JSON.stringify(EFFECTS)};
-const out = { text: [], effect: [], family: FAMILY };
+const out = { text: [], effect: [], family: FAMILY, display: DISPLAY };
 for (const d of TS) {
   let s = await textStyle(d.name);
   if (!s) { s = figma.createTextStyle(); s.name = d.name; }
-  s.fontName = await loadW(d.weight);
+  s.fontName = await loadW(d.weight, d.role === 'display' ? DISPLAY : FAMILY);
   s.fontSize = d.size;
   s.lineHeight = { unit: 'PIXELS', value: d.lineHeight };
   s.letterSpacing = { unit: 'PERCENT', value: d.trackingPct };
@@ -172,7 +195,7 @@ return out;
   button: `${PRELUDE}
 // Button: Variant (Solid/Outline/Ghost) × Size (MD/LG) × State (Default/Hover/Focus/Disabled) = 24 ≤ 30.
 const pg = await page('2 Components');
-const old = upsertSet(pg, 'Button'); if (old) old.remove();
+const old = upsertSet(pg, 'Button'); await guardRebuild(old); if (old) old.remove();
 const VARIANTS = ['Solid', 'Outline', 'Ghost'], SIZES = ['MD', 'LG'], STATES = ['Default', 'Hover', 'Focus', 'Disabled'];
 const comps = [];
 for (const v of VARIANTS) for (const sz of SIZES) for (const st of STATES) {
@@ -216,7 +239,7 @@ return { setId: set.id, variants: set.children.length, props: Object.keys(set.co
 
   badge: `${PRELUDE}
 const pg = await page('2 Components');
-const old = upsertSet(pg, 'Badge'); if (old) old.remove();
+const old = upsertSet(pg, 'Badge'); await guardRebuild(old); if (old) old.remove();
 const TONES = { Brand: ['color/primary-soft', 'color/primary-soft-fg'], Neutral: ['color/surface-sunken', 'color/fg-muted'], Success: ['color/surface-sunken', 'color/fg'], Danger: ['color/surface-sunken', 'color/fg'] };
 const DOTS = { Success: 'color/success', Danger: 'color/danger' };
 const comps = [];
@@ -244,7 +267,7 @@ return { setId: set.id, variants: set.children.length };
 
   field: `${PRELUDE}
 const pg = await page('2 Components');
-const old = upsertSet(pg, 'Field'); if (old) old.remove();
+const old = upsertSet(pg, 'Field'); await guardRebuild(old); if (old) old.remove();
 const STATES = ['Default', 'Focus', 'Error', 'Disabled'];
 const comps = [];
 for (const st of STATES) {
@@ -280,7 +303,7 @@ return { setId: set.id, variants: set.children.length };
 
   card: `${PRELUDE}
 const pg = await page('2 Components');
-const prevCard = pg.findChild((n) => n.type === 'COMPONENT' && n.name === 'Card'); if (prevCard) prevCard.remove();
+const prevCard = pg.findChild((n) => n.type === 'COMPONENT' && n.name === 'Card'); await guardRebuild(prevCard); if (prevCard) prevCard.remove();
 const c = figma.createComponent(); c.name = 'Card';
 c.layoutMode = 'VERTICAL'; c.resize(360, 10); c.primaryAxisSizingMode = 'AUTO'; c.counterAxisSizingMode = 'FIXED';
 bindPad(c, 'space/6', 'space/6'); c.setBoundVariable('itemSpacing', need('space/2')); bindRadius(c, 'radius/card');
@@ -309,7 +332,7 @@ for (const name of ['bg', 'surface', 'surface-sunken', 'fg', 'fg-muted', 'border
   if (!V['color/' + name]) continue;
   const sw = figma.createAutoLayout('VERTICAL', { name: 'Swatch / ' + name }); sw.setBoundVariable('itemSpacing', need('space/2')); sw.fills = [];
   const chip = figma.createRectangle(); chip.name = 'Chip'; chip.resize(136, 72); chip.fills = [paint('color/' + name)]; chip.strokes = [paint('color/border')]; chip.strokeWeight = 1;
-  ['topLeftRadius', 'topRightRadius', 'bottomLeftRadius', 'bottomRightRadius'].forEach((k) => chip.setBoundVariable(k, need('radius/control')));
+  ['topLeftRadius', 'topRightRadius', 'bottomLeftRadius', 'bottomRightRadius'].forEach((k) => chip.setBoundVariable(k, need('radius/card')));
   sw.appendChild(chip); sw.appendChild(await text(name, 'Body/Small', 'color/fg')); sw.appendChild(await text('var(--color-' + name + ')', 'Body/XSmall', 'color/fg-muted'));
   row.appendChild(sw);
 }
@@ -369,12 +392,12 @@ const ORDER = ['pages', 'styles', 'button', 'badge', 'field', 'card', 'foundatio
 
 if (cmd === 'list') {
   ORDER.forEach((s, i) => console.log(`${i + 1}. ${s}`));
-  console.log(`\nfont: ${font} (falls back to Inter if Figma lacks it) · trend: ${args.trend ?? config.trend}`);
+  console.log(`\nfonts: ${font} / display ${displayFont} (fall back to Inter if Figma lacks them) · trend: ${args.trend ?? config.trend}`);
 } else if (cmd === 'step') {
   const name = /^\d+$/.test(which ?? '') ? ORDER[+which - 1] : which;
   if (!STEPS[name]) throw new Error(`unknown step ${which}; run: figma-library.mjs list`);
   process.stdout.write(`// web-design figma-library step: ${name}\n${STEPS[name]}`);
 } else {
-  console.log('usage: figma-library.mjs <list|step <n|name>> [--trend <id>] [--font <family>] [--title <cover title>]');
+  console.log('usage: figma-library.mjs <list|step <n|name>> [--trend <id>] [--font <family>] [--display-font <family>] [--title <cover title>] [--force]');
   process.exit(cmd ? 1 : 0);
 }

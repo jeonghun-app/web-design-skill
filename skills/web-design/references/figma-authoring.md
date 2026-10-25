@@ -176,6 +176,8 @@ Library pages show up **alphabetically** in the assets panel. That's why the nam
 node scripts/figma-sync.mjs push > design/build/figma-push.js            # → use_figma
 # 2) starter library, one step per use_figma call, in order (each is idempotent)
 node scripts/figma-library.mjs list
+# pages/styles/foundations/review re-run safely; component steps rebuild and refuse when
+# instances exist outside the review frames (restyle in-use libraries with figma-sync push)
 node scripts/figma-library.mjs step pages        # Cover, Ready, Explorations, Foundations, Components, _Base, Archive
 node scripts/figma-library.mjs step styles       # text styles from text.* and effect styles from shadow.*
 node scripts/figma-library.mjs step button       # 24 variants, every fill/stroke/radius/padding/height bound
@@ -184,7 +186,7 @@ node scripts/figma-library.mjs step foundations  # bound color swatches, type ra
 node scripts/figma-library.mjs step review       # Light and Dark review frames of every component
 # 3) lint any page (read-only); save the returned JSON and format it
 node scripts/figma-lint.mjs script --page "2 Components" > /tmp/lint.js # → use_figma
-node scripts/figma-lint.mjs report design/build/lint.json               # exits 1 on any E
+node scripts/figma-lint.mjs report design/build/lint.json               # exits 1 on any E (counts are complete; examples capped per rule)
 ```
 
 **Lint rules (severity)**
@@ -193,6 +195,7 @@ node scripts/figma-lint.mjs report design/build/lint.json               # exits 
 |---|---|
 | **E**: blocks Ready for dev | L01 unbound fill/stroke · L02 unbound radius · L03 unbound padding/gap · L05 text without a text style · L06 unbound text color · L09 detached instance · L14 inconsistent variants · L19 text <12 px · L20 touch target <44 on mobile frames · L21 text contrast |
 | **W**: fix before merge | L04 off-scale value · L07 effect without a style · L08 should be auto layout · L10 default layer name · L11 hidden layer · L12 empty frame · L13 missing description · L16 variant explosion · L18 fixed text box · L22 primitive bound · L23 variable hygiene · L24 Ready frame without status · L29 missing Focus/Disabled |
-| **I**: advisory | L25 frame outside a section · L30 no cover page |
+| **W**: fix before merge (slots) | L27 slot limit violated |
+| **I**: advisory | L25 frame outside a section · L28 group used for layout · L30 no cover page |
 
 **Verified in practice:** when the builder's own output (196 nodes) was linted, the only finding was the variant container's default 5 px radius. The builder now binds that radius, and the lint ignores the container's default.

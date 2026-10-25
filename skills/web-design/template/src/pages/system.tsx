@@ -53,10 +53,13 @@ function useResolvedColors(names: string[], deps: unknown[]) {
       const probe = document.createElement('span')
       document.body.appendChild(probe)
       const out: Record<string, [number, number, number]> = {}
+      // Translucent tokens are shown as they render: composited over the page background.
+      probe.style.color = 'var(--color-bg)'
+      const bgCss = getComputedStyle(probe).color
       for (const n of names) {
         probe.style.color = `var(--color-${n})`
         ctx.clearRect(0, 0, 1, 1)
-        ctx.fillStyle = '#fff'
+        ctx.fillStyle = bgCss
         ctx.fillRect(0, 0, 1, 1)
         ctx.fillStyle = getComputedStyle(probe).color
         ctx.fillRect(0, 0, 1, 1)
@@ -123,10 +126,12 @@ export function SystemPage() {
   const [active, setActive] = useState('overview')
   const mainRef = useRef<HTMLElement>(null)
 
-  // Deep links: #/system/<section> scrolls to that section on load.
+  // Deep links: #/system/<section> scrolls there on load, on in-page links and on back/forward.
   useEffect(() => {
-    const id = location.hash.split('/')[2]
-    if (id) document.getElementById(id)?.scrollIntoView()
+    const go = () => { const id = location.hash.split('/')[2]; if (id) document.getElementById(id)?.scrollIntoView() }
+    go()
+    window.addEventListener('hashchange', go)
+    return () => window.removeEventListener('hashchange', go)
   }, [])
   // Scroll-spy for the side navigation (aria-current on the visible section).
   useEffect(() => {

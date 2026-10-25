@@ -71,7 +71,10 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
 - **Figma → code (Flow A):** run `get_design_context` and `get_variable_defs`, reconcile with `figma-sync pull`, then map components through Code Connect.
 - **Code → Figma (Flow B):** run `figma-sync push` with `use_figma`, then build styles, then components with state variants, then Code Connect. Capture pages with `generate_figma_design` as references.
 - **No Figma file** and the user wants one: create it (`figma-create-new-file`), then use Flow B.
-- **Building a library:** run `figma-library.mjs` steps in order (pages → styles → button → badge → field → card → foundations → review). Each step is one sequential `use_figma` call, and each is idempotent.
+- **Building a library:** run `figma-library.mjs` steps in order (pages → styles → button → badge → field → card → foundations → review). Each step is one sequential `use_figma` call.
+  - The pages, styles, foundations and review steps can be re-run safely.
+  - The component steps rebuild their component, and they refuse to run if instances exist outside the review frames (pass `--force` only on a scratch file).
+  - To restyle a library that is already in use, re-run `figma-sync push`. The values flow through the bound variables.
 - **Before marking anything Ready for dev:** run `figma-lint.mjs script --page "<page>"` via `use_figma`, then `figma-lint.mjs report`. There must be zero **E** findings. Authoring rules are in `references/figma-authoring.md`.
 - **Explorations** (EXPLORE-01) go on the "💭 Explorations" page. Only signed-off sections go on "🟢 Ready for dev".
 

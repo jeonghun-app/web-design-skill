@@ -1,6 +1,6 @@
 # Design process: how a strong designer works
 
-Design curricula, professional career frameworks and design-critique practice agree on a small set of skills and habits. The tools differ between teams; these habits don't. This file turns them into an operating procedure for this skill. Each rule has an ID and a way to check it, and `review.md` and `SKILL.md` refer to these IDs.
+Design curricula, professional career frameworks and design-critique practice agree on a small set of skills and habits. The tools differ between teams; these habits don't. This file turns them into an operating procedure for this skill. Each rule has an ID and a way to check it. `SKILL.md` refers to these IDs, and the definition of done below is the last QA step after the `review.md` scorecard.
 
 ## The skills that matter most
 

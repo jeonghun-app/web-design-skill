@@ -129,3 +129,22 @@ test('style guide: trend select restyles the page and contrast badges render', {
   assert.ok(texts.every((t) => /^(AA|AAA) /.test(t)), texts.join(' | '));
   await page.close();
 });
+
+test('style guide: in-page links scroll to their section', { skip }, async () => {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await page.goto(url + '#/system');
+  await page.getByRole('link', { name: /Build/ }).first().click();
+  await page.waitForTimeout(400);
+  const top = await page.evaluate(() => document.getElementById('components').getBoundingClientRect().top);
+  assert.ok(top < 300 && top > -50, `components section top at ${top}`);
+  await page.close();
+});
+
+test('illustration shadow copy is hidden in forced-colors mode', { skip }, async () => {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await page.emulateMedia({ forcedColors: 'active' });
+  await page.goto(url + '#/system/illustration');
+  const stroke = await page.locator('.illus-shadow path, .illus-shadow rect, .illus-shadow circle').first().evaluate((el) => getComputedStyle(el).stroke);
+  assert.equal(stroke, 'none');
+  await page.close();
+});
