@@ -100,7 +100,7 @@ const available = await figma.listAvailableFontsAsync();
 const families = new Set(available.map((f) => f.fontName.family));
 const pick = (want) => (families.has(want) ? want : 'Inter');
 const FAMILY = pick(${JSON.stringify(font)});
-const DISPLAY = pick(${JSON.stringify(displayFont)});
+const DISPLAY = families.has(${JSON.stringify(displayFont)}) ? ${JSON.stringify(displayFont)} : FAMILY; // fall back to the project's sans, not Inter
 const styleFor = (family, w) => { const s = available.filter((f) => f.fontName.family === family).map((f) => f.fontName.style);
   const order = w >= 800 ? ['Extra Bold', 'ExtraBold', 'Black', 'Bold'] : w >= 700 ? ['Bold', 'Semi Bold', 'SemiBold'] : w >= 600 ? ['Semi Bold', 'SemiBold', 'Bold'] : w >= 500 ? ['Medium', 'Regular'] : ['Regular', 'Book'];
   return order.find((x) => s.includes(x)) || s.find((x) => x === 'Regular') || s[0]; };
@@ -118,7 +118,7 @@ const guardRebuild = async (node) => {
     for (let a = i.parent; a; a = a.parent) if (a.name && a.name.startsWith('Review / ')) { inReview = true; break; }
     if (!inReview) used++;
   }
-  if (used) throw new Error(node.name + ' has ' + used + ' instance(s) outside the review frames; rebuilding would detach them. Re-run figma-sync push to restyle, or pass --force.');
+  if (used) throw new Error(node.name + ' has ' + used + ' instance(s) in this file outside the review frames; rebuilding would detach them. Re-run figma-sync push to restyle, or pass --force.');
 };
 const textStyle = async (name) => (await figma.getLocalTextStylesAsync()).find((s) => s.name === name);
 const effectStyle = async (name) => (await figma.getLocalEffectStylesAsync()).find((s) => s.name === name);

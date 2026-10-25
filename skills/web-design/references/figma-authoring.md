@@ -195,7 +195,7 @@ node scripts/figma-lint.mjs report design/build/lint.json               # exits 
 |---|---|
 | **E**: blocks Ready for dev | L01 unbound fill/stroke · L02 unbound radius · L03 unbound padding/gap · L05 text without a text style · L06 unbound text color · L09 detached instance · L14 inconsistent variants · L19 text <12 px · L20 touch target <44 on mobile frames · L21 text contrast |
 | **W**: fix before merge | L04 off-scale value · L07 effect without a style · L08 should be auto layout · L10 default layer name · L11 hidden layer · L12 empty frame · L13 missing description · L16 variant explosion · L18 fixed text box · L22 primitive bound · L23 variable hygiene · L24 Ready frame without status · L29 missing Focus/Disabled |
-| **W**: fix before merge (slots) | L27 slot limit violated |
+| **W**: fix before merge (slots) | L27 slot limit violated (runs only where the Plugin API exposes slot nodes and `limitViolations`; otherwise it never fires) |
 | **I**: advisory | L25 frame outside a section · L28 group used for layout · L30 no cover page |
 
 **Verified in practice:** when the builder's own output (196 nodes) was linted, the only finding was the variant container's default 5 px radius. The builder now binds that radius, and the lint ignores the container's default.

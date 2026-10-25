@@ -39,6 +39,8 @@ Push and pull options and pitfalls:
 - TIMING and EASING variables don't accept scopes. The push script skips scopes for them and collects any per-variable error into `report.errors`. Check that it is empty.
 - `em` tracking values are not exported, because a Figma FLOAT is absolute. Put display tracking on text styles as a percentage instead: `-0.03em` becomes `-3%`.
 
+Derived dimensions such as `radius.control`, `radius.card` and `radius.panel` (`calc({radius.base} × k)`) are pushed as plain numbers, because Figma variables can't do math. Change `radius.base` in code and push again. Editing `radius/base` in Figma doesn't move the others until the next push, and `pull` reports them as `!` (edit by hand).
+
 What Figma variables cannot hold:
 
 | Value | How it is handled |

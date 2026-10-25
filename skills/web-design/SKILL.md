@@ -73,7 +73,7 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
 - **No Figma file** and the user wants one: create it (`figma-create-new-file`), then use Flow B.
 - **Building a library:** run `figma-library.mjs` steps in order (pages → styles → button → badge → field → card → foundations → review). Each step is one sequential `use_figma` call.
   - The pages, styles, foundations and review steps can be re-run safely.
-  - The component steps rebuild their component, and they refuse to run if instances exist outside the review frames (pass `--force` only on a scratch file).
+  - The component steps rebuild their component, and they refuse to run if instances exist *in this file* outside the review frames (pass `--force` only on a scratch file). Other files that use a published library aren't visible to the guard, so never rebuild a published library's components. Restyle it with `figma-sync push` instead.
   - To restyle a library that is already in use, re-run `figma-sync push`. The values flow through the bound variables.
 - **Before marking anything Ready for dev:** run `figma-lint.mjs script --page "<page>"` via `use_figma`, then `figma-lint.mjs report`. There must be zero **E** findings. Authoring rules are in `references/figma-authoring.md`.
 - **Explorations** (EXPLORE-01) go on the "💭 Explorations" page. Only signed-off sections go on "🟢 Ready for dev".
