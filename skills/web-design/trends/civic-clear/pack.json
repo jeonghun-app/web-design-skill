@@ -205,6 +205,14 @@
       "card-hover-lift": {
         "$value": "0px"
       }
+    },
+    "illus": {
+      "radius": {
+        "$value": 4
+      },
+      "shadow-y": {
+        "$value": "0px"
+      }
     }
   }
 }

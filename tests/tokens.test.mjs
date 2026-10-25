@@ -69,3 +69,14 @@ test('unmeasurable contrast pairs fail the check', () => {
   } }, css: '' };
   assert.ok(checkPack(bad, base).errors.some((e) => e.includes('cannot measure')));
 });
+
+test('figma-lint report groups findings and counts errors', async () => {
+  const { report, lintCode } = await import('../skills/web-design/scripts/figma-lint.mjs');
+  const r = report(JSON.parse(fs.readFileSync(new URL('./fixtures/figma-lint-result.json', import.meta.url), 'utf8')));
+  assert.equal(r.errors, 6);
+  assert.match(r.text, /E L03/);
+  assert.match(r.text, /I L30/);
+  const code = lintCode({ page: 'Ready for dev', max: 50 });
+  assert.doesNotThrow(() => new Function('figma', `return (async () => {${code}})`));
+  assert.match(code, /"Ready for dev"/);
+});

@@ -116,3 +116,16 @@ test('a closing dialog never swallows the next click (MC-03)', { skip }, async (
   assert.equal(await page.getByRole('columnheader', { name: /Points/ }).getAttribute('aria-sort'), 'ascending');
   await page.close();
 });
+
+test('style guide: trend select restyles the page and contrast badges render', { skip }, async () => {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await page.goto(url + '#/system/color');
+  await page.getByRole('combobox', { name: 'Trend' }).selectOption('loud');
+  assert.equal(await page.evaluate(() => document.documentElement.dataset.trend), 'loud');
+  const badges = page.getByRole('region', { name: 'Contrast pairs' }).locator('td.text-right span');
+  await badges.first().waitFor();
+  const texts = await badges.allTextContents();
+  assert.equal(texts.length, 8);
+  assert.ok(texts.every((t) => /^(AA|AAA) /.test(t)), texts.join(' | '));
+  await page.close();
+});

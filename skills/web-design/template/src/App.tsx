@@ -5,10 +5,12 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { LandingPage } from '@/pages/landing'
 
 // Two showcase pages on hash routes so the static build needs no server config:
-//   #/      marketing grammar (sections)    #/app   product grammar (shell, table, overlays)
+//   #/        marketing grammar (sections)    #/app   product grammar (shell, table, overlays)
+//   #/system  living style guide: the design introduction page for this system
 // Every element reads semantic tokens only, so a trend switch restyles both.
 // The product demo is its own chunk so the landing page doesn't pay for it (motion.md budget).
 const AppDemoPage = lazy(() => import('@/pages/app-demo').then((m) => ({ default: m.AppDemoPage })))
+const SystemPage = lazy(() => import('@/pages/system').then((m) => ({ default: m.SystemPage })))
 
 function useHashRoute() {
   const [route, setRoute] = useState(() => location.hash.replace(/^#/, ''))
@@ -17,7 +19,7 @@ function useHashRoute() {
     window.addEventListener('hashchange', on)
     return () => window.removeEventListener('hashchange', on)
   }, [])
-  return route.startsWith('/app') ? 'app' : 'landing'
+  return route.startsWith('/app') ? 'app' : route.startsWith('/system') ? 'system' : 'landing'
 }
 
 export default function App() {
@@ -25,12 +27,12 @@ export default function App() {
   return (
     <TooltipProvider>
       <ToastProvider>
-        {route === 'app' ? (
-          <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
-            <AppDemoPage />
-          </Suspense>
-        ) : (
+        {route === 'landing' ? (
           <LandingPage />
+        ) : (
+          <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
+            {route === 'app' ? <AppDemoPage /> : <SystemPage />}
+          </Suspense>
         )}
         {import.meta.env.DEV && <TrendSwitcher />}
       </ToastProvider>

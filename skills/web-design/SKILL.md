@@ -35,8 +35,16 @@ For an existing project, adopt the token contract (names in `references/tokens.m
 
 ## Workflow
 
+Work the way a strong designer does (`references/design-process.md`):
+- frame the problem before pixels
+- use real content first
+- explore 3–5 directions, then present one
+- get the hierarchy right in grayscale before color
+- design every state
+- critique against goals, never taste
+
 ### 1. BRIEF
-Write `design/brief.md` before any pixels:
+Write `design/brief.md` before any pixels (FRAME-01 to FRAME-04):
 - **Audience and sector.** Who, which devices, and how expert they are.
 - **The one job of the page or screen.** One primary action.
 - **Content inventory.** The real copy, or the true shape of the data.
@@ -63,10 +71,15 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
 - **Figma → code (Flow A):** run `get_design_context` and `get_variable_defs`, reconcile with `figma-sync pull`, then map components through Code Connect.
 - **Code → Figma (Flow B):** run `figma-sync push` with `use_figma`, then build styles, then components with state variants, then Code Connect. Capture pages with `generate_figma_design` as references.
 - **No Figma file** and the user wants one: create it (`figma-create-new-file`), then use Flow B.
+- **Building a library:** run `figma-library.mjs` steps in order (pages → styles → button → badge → field → card → foundations → review). Each step is one sequential `use_figma` call, and each is idempotent.
+- **Before marking anything Ready for dev:** run `figma-lint.mjs script --page "<page>"` via `use_figma`, then `figma-lint.mjs report`. There must be zero **E** findings. Authoring rules are in `references/figma-authoring.md`.
+- **Explorations** (EXPLORE-01) go on the "💭 Explorations" page. Only signed-off sections go on "🟢 Ready for dev".
 
 ### 4. BUILD (React)
 - Compose pages from the catalogs: `references/patterns.md` (marketing sections), `references/app-patterns.md` (shells, tables, forms, feedback, overlays), `references/conversion.md` (pricing, product list and detail, cart, checkout, signup, and the dark-pattern rules that are law in Korea and the EU). Each gives anatomy, measurements, the "why", and when not to use it.
 - Write real copy with `references/content.md` (English and Korean microcopy rules). Never leave lorem ipsum in a review.
+- **Illustrations:** use `<Illustration name size label?>` from `src/illustrations` only where art carries meaning (first-use empty states, onboarding, errors). It is token-driven, so it follows the trend and dark mode. New art follows the style family and checklist in `references/illustration.md`.
+- **Living style guide:** the template's `#/system` page documents the system with the same tokens and components. It includes live contrast badges, a trend/theme switcher, and Do/Don't cards (`components/ui/do-dont.tsx`). Keep it in sync when you add components or foundations, because it doubles as the client-facing design introduction.
 - Motion follows `references/motion.md`: per-component enter and exit specs, springs, modern CSS recipes, reduced-motion substitutes and performance budgets.
 - Use and extend `src/components/ui/*`:
   - **Variants:** `variant` (solid/soft/outline/ghost/link) × `tone` (brand/neutral/danger, …) × `size`.
@@ -90,7 +103,9 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
    - Does the signature move land, without competing with the CTA?
    - Is spacing rhythmic: groups twice as far apart as their items (LA-02)?
    - Is dark mode designed, not inverted?
-4. Score the work with `references/review.md` (8 criteria, 0–10; ship at ≥7, award-level at ≥8; R6 = 0 blocks shipping). Report the scores and the top 3 fixes.
+4. Score the work with `references/review.md` (8 criteria, 0–10; ship at ≥7, award-level at ≥8; R6 = 0 blocks shipping). Report the scores and the top 3 fixes. Then check the definition of done in `references/design-process.md`.
+   - SHOULD findings you accept go in `audit.accept` in the config as `{ page, rule, reason }`. They are then reported as accepted and no longer counted.
+   - Style-guide specimens (examples shown on purpose) sit inside `data-audit-specimen`. The page budgets (LA-01, LA-06) skip them.
 5. For Figma work, compare the `get_screenshot` result with the audit screenshot at the same viewport.
 
 ### 6. SYNC and HANDOFF
@@ -122,3 +137,6 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
 - `references/trends.md`: how trend packs work, choosing one, and the quarterly refresh procedure (`trend.mjs radar`)
 - `references/tokens.md`: token contract, naming, modes, and how to add tokens
 - `references/figma.md`: the two-way Figma workflow, naming contract, and Figma QA
+- `references/figma-authoring.md`: file structure, layout, components, variables, handoff; library builder and lint (L01–L30)
+- `references/illustration.md`: roles and sizes, style-family tokens, theming, accessibility, production, IL-01 to IL-22
+- `references/design-process.md`: core designer skills, the process loop, critique, and the definition of done

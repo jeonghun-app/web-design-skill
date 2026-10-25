@@ -17,7 +17,7 @@ export function LandingPage() {
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-(--layer-tooltip) focus:rounded-control focus:bg-surface focus:p-3">
         Skip to content
       </a>
-      <Nav links={[{ href: '#features', label: 'Product' }, { href: '#pricing', label: 'Pricing' }, { href: '#faq', label: 'FAQ' }, { href: '#/app', label: 'App demo' }]} />
+      <Nav links={[{ href: '#features', label: 'Product' }, { href: '#pricing', label: 'Pricing' }, { href: '#faq', label: 'FAQ' }, { href: '#/app', label: 'App demo' }, { href: '#/system', label: 'Design system' }]} />
       <main id="main">
         <Hero />
         <Logos names={['Northwind', 'Contoso', 'Globex', 'Initech', 'Umbrella', 'Hooli']} />

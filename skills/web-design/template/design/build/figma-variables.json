@@ -657,6 +657,174 @@
         "web": "var(--color-overlay)"
       },
       {
+        "name": "color/illus-ink",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0728,
+            "g": 0.0865,
+            "b": 0.1137,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.941,
+            "g": 0.948,
+            "b": 0.9616,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-ink)"
+      },
+      {
+        "name": "color/illus-paper",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1111,
+            "g": 0.1227,
+            "b": 0.1456,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-paper)"
+      },
+      {
+        "name": "color/illus-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8955,
+            "g": 0.9367,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1393,
+            "g": 0.1788,
+            "b": 0.2592,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-base)"
+      },
+      {
+        "name": "color/illus-accent-1",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4678,
+            "g": 0.6351,
+            "b": 0.9885,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4098,
+            "g": 0.5224,
+            "b": 0.7544,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-1)"
+      },
+      {
+        "name": "color/illus-accent-2",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.6164,
+            "b": 0.6292,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6691,
+            "g": 0.3864,
+            "b": 0.3968,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-2)"
+      },
+      {
+        "name": "color/illus-accent-3",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.7407,
+            "g": 0.846,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2227,
+            "g": 0.2987,
+            "b": 0.4569,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-3)"
+      },
+      {
+        "name": "color/illus-shadow",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0728,
+            "g": 0.0865,
+            "b": 0.1137,
+            "a": 0.12
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.35
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-shadow)"
+      },
+      {
         "name": "font/sans",
         "type": "STRING",
         "values": {
@@ -1025,6 +1193,138 @@
         "web": "var(--size-touch-min)"
       },
       {
+        "name": "space/1",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-1)"
+      },
+      {
+        "name": "space/2",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-2)"
+      },
+      {
+        "name": "space/3",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-3)"
+      },
+      {
+        "name": "space/4",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-4)"
+      },
+      {
+        "name": "space/5",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-5)"
+      },
+      {
+        "name": "space/6",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-6)"
+      },
+      {
+        "name": "space/8",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-8)"
+      },
+      {
+        "name": "space/10",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-10)"
+      },
+      {
+        "name": "space/12",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-12)"
+      },
+      {
+        "name": "space/16",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-16)"
+      },
+      {
+        "name": "space/24",
+        "type": "FLOAT",
+        "values": {
+          "light": 96,
+          "dark": 96
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-24)"
+      },
+      {
         "name": "layout/container",
         "type": "FLOAT",
         "values": {
@@ -1173,6 +1473,46 @@
         },
         "scopes": [],
         "web": "var(--layer-tooltip)"
+      },
+      {
+        "name": "illus/stroke",
+        "type": "FLOAT",
+        "values": {
+          "light": 2,
+          "dark": 1.75
+        },
+        "scopes": [],
+        "web": "var(--illus-stroke)"
+      },
+      {
+        "name": "illus/radius",
+        "type": "FLOAT",
+        "values": {
+          "light": 6,
+          "dark": 6
+        },
+        "scopes": [],
+        "web": "var(--illus-radius)"
+      },
+      {
+        "name": "illus/shadow-x",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-x)"
+      },
+      {
+        "name": "illus/shadow-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-y)"
       }
     ],
     "civic-clear": [
@@ -1826,6 +2166,174 @@
         "web": "var(--color-overlay)"
       },
       {
+        "name": "color/illus-ink",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1052,
+            "g": 0.1143,
+            "b": 0.1242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.942,
+            "g": 0.9485,
+            "b": 0.9556,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-ink)"
+      },
+      {
+        "name": "color/illus-paper",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1207,
+            "g": 0.1332,
+            "b": 0.1466,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-paper)"
+      },
+      {
+        "name": "color/illus-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8929,
+            "g": 0.9377,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1362,
+            "g": 0.1798,
+            "b": 0.259,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-base)"
+      },
+      {
+        "name": "color/illus-accent-1",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4523,
+            "g": 0.6395,
+            "b": 0.9877,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4168,
+            "g": 0.5266,
+            "b": 0.7262,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-1)"
+      },
+      {
+        "name": "color/illus-accent-2",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.5374,
+            "g": 0.8157,
+            "b": 0.6662,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3394,
+            "g": 0.528,
+            "b": 0.4269,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-2)"
+      },
+      {
+        "name": "color/illus-accent-3",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.7331,
+            "g": 0.8486,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2274,
+            "g": 0.3018,
+            "b": 0.4378,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-3)"
+      },
+      {
+        "name": "color/illus-shadow",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1052,
+            "g": 0.1143,
+            "b": 0.1242,
+            "a": 0.12
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.35
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-shadow)"
+      },
+      {
         "name": "font/sans",
         "type": "STRING",
         "values": {
@@ -2230,6 +2738,138 @@
         "web": "var(--size-touch-min)"
       },
       {
+        "name": "space/1",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-1)"
+      },
+      {
+        "name": "space/2",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-2)"
+      },
+      {
+        "name": "space/3",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-3)"
+      },
+      {
+        "name": "space/4",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-4)"
+      },
+      {
+        "name": "space/5",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-5)"
+      },
+      {
+        "name": "space/6",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-6)"
+      },
+      {
+        "name": "space/8",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-8)"
+      },
+      {
+        "name": "space/10",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-10)"
+      },
+      {
+        "name": "space/12",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-12)"
+      },
+      {
+        "name": "space/16",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-16)"
+      },
+      {
+        "name": "space/24",
+        "type": "FLOAT",
+        "values": {
+          "light": 96,
+          "dark": 96
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-24)"
+      },
+      {
         "name": "layout/container",
         "type": "FLOAT",
         "values": {
@@ -2378,6 +3018,46 @@
         },
         "scopes": [],
         "web": "var(--layer-tooltip)"
+      },
+      {
+        "name": "illus/stroke",
+        "type": "FLOAT",
+        "values": {
+          "light": 2,
+          "dark": 1.75
+        },
+        "scopes": [],
+        "web": "var(--illus-stroke)"
+      },
+      {
+        "name": "illus/radius",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [],
+        "web": "var(--illus-radius)"
+      },
+      {
+        "name": "illus/shadow-x",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-x)"
+      },
+      {
+        "name": "illus/shadow-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-y)"
       }
     ],
     "frosted": [
@@ -3031,6 +3711,174 @@
         "web": "var(--color-overlay)"
       },
       {
+        "name": "color/illus-ink",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.074,
+            "g": 0.087,
+            "b": 0.1082,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9402,
+            "g": 0.9483,
+            "b": 0.9615,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-ink)"
+      },
+      {
+        "name": "color/illus-paper",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1144,
+            "g": 0.1328,
+            "b": 0.1625,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-paper)"
+      },
+      {
+        "name": "color/illus-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8841,
+            "g": 0.9412,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1252,
+            "g": 0.1832,
+            "b": 0.2576,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-base)"
+      },
+      {
+        "name": "color/illus-accent-1",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3949,
+            "g": 0.6544,
+            "b": 0.9815,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3781,
+            "g": 0.5352,
+            "b": 0.7361,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-1)"
+      },
+      {
+        "name": "color/illus-accent-2",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9157,
+            "g": 0.6316,
+            "b": 0.8883,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5889,
+            "g": 0.4088,
+            "b": 0.5712,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-2)"
+      },
+      {
+        "name": "color/illus-accent-3",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.7072,
+            "g": 0.8575,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2001,
+            "g": 0.3076,
+            "b": 0.4446,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-3)"
+      },
+      {
+        "name": "color/illus-shadow",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.074,
+            "g": 0.087,
+            "b": 0.1082,
+            "a": 0.12
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.35
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-shadow)"
+      },
+      {
         "name": "font/sans",
         "type": "STRING",
         "values": {
@@ -3435,6 +4283,138 @@
         "web": "var(--size-touch-min)"
       },
       {
+        "name": "space/1",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-1)"
+      },
+      {
+        "name": "space/2",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-2)"
+      },
+      {
+        "name": "space/3",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-3)"
+      },
+      {
+        "name": "space/4",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-4)"
+      },
+      {
+        "name": "space/5",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-5)"
+      },
+      {
+        "name": "space/6",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-6)"
+      },
+      {
+        "name": "space/8",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-8)"
+      },
+      {
+        "name": "space/10",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-10)"
+      },
+      {
+        "name": "space/12",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-12)"
+      },
+      {
+        "name": "space/16",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-16)"
+      },
+      {
+        "name": "space/24",
+        "type": "FLOAT",
+        "values": {
+          "light": 96,
+          "dark": 96
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-24)"
+      },
+      {
         "name": "layout/container",
         "type": "FLOAT",
         "values": {
@@ -3583,6 +4563,46 @@
         },
         "scopes": [],
         "web": "var(--layer-tooltip)"
+      },
+      {
+        "name": "illus/stroke",
+        "type": "FLOAT",
+        "values": {
+          "light": 2,
+          "dark": 1.75
+        },
+        "scopes": [],
+        "web": "var(--illus-stroke)"
+      },
+      {
+        "name": "illus/radius",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [],
+        "web": "var(--illus-radius)"
+      },
+      {
+        "name": "illus/shadow-x",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-x)"
+      },
+      {
+        "name": "illus/shadow-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 6,
+          "dark": 6
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-y)"
       }
     ],
     "kinetic-studio": [
@@ -4236,6 +5256,174 @@
         "web": "var(--color-overlay)"
       },
       {
+        "name": "color/illus-ink",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9606,
+            "g": 0.9606,
+            "b": 0.9606,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-ink)"
+      },
+      {
+        "name": "color/illus-paper",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9934,
+            "g": 0.9934,
+            "b": 0.9934,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0861,
+            "g": 0.0861,
+            "b": 0.0861,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-paper)"
+      },
+      {
+        "name": "color/illus-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.9111,
+            "b": 0.8772,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2477,
+            "g": 0.1523,
+            "b": 0.119,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-base)"
+      },
+      {
+        "name": "color/illus-accent-1",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9427,
+            "g": 0.5066,
+            "b": 0.3517,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.7613,
+            "g": 0.4187,
+            "b": 0.2976,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-1)"
+      },
+      {
+        "name": "color/illus-accent-2",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.6305,
+            "b": 0.4964,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6922,
+            "g": 0.3834,
+            "b": 0.2744,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-2)"
+      },
+      {
+        "name": "color/illus-accent-3",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.7741,
+            "b": 0.6822,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4601,
+            "g": 0.2265,
+            "b": 0.1431,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-3)"
+      },
+      {
+        "name": "color/illus-shadow",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0284,
+            "g": 0.0284,
+            "b": 0.0284,
+            "a": 0.12
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.35
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-shadow)"
+      },
+      {
         "name": "font/sans",
         "type": "STRING",
         "values": {
@@ -4640,6 +5828,138 @@
         "web": "var(--size-touch-min)"
       },
       {
+        "name": "space/1",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-1)"
+      },
+      {
+        "name": "space/2",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-2)"
+      },
+      {
+        "name": "space/3",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-3)"
+      },
+      {
+        "name": "space/4",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-4)"
+      },
+      {
+        "name": "space/5",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-5)"
+      },
+      {
+        "name": "space/6",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-6)"
+      },
+      {
+        "name": "space/8",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-8)"
+      },
+      {
+        "name": "space/10",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-10)"
+      },
+      {
+        "name": "space/12",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-12)"
+      },
+      {
+        "name": "space/16",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-16)"
+      },
+      {
+        "name": "space/24",
+        "type": "FLOAT",
+        "values": {
+          "light": 96,
+          "dark": 96
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-24)"
+      },
+      {
         "name": "layout/container",
         "type": "FLOAT",
         "values": {
@@ -4788,6 +6108,46 @@
         },
         "scopes": [],
         "web": "var(--layer-tooltip)"
+      },
+      {
+        "name": "illus/stroke",
+        "type": "FLOAT",
+        "values": {
+          "light": 2.5,
+          "dark": 2.25
+        },
+        "scopes": [],
+        "web": "var(--illus-stroke)"
+      },
+      {
+        "name": "illus/radius",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-radius)"
+      },
+      {
+        "name": "illus/shadow-x",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-x)"
+      },
+      {
+        "name": "illus/shadow-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-y)"
       }
     ],
     "loud": [
@@ -5441,6 +6801,174 @@
         "web": "var(--color-overlay)"
       },
       {
+        "name": "color/illus-ink",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9769,
+            "g": 0.962,
+            "b": 0.9037,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-ink)"
+      },
+      {
+        "name": "color/illus-paper",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1591,
+            "g": 0.1378,
+            "b": 0.2003,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-paper)"
+      },
+      {
+        "name": "color/illus-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.9049,
+            "b": 0.946,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.233,
+            "g": 0.1482,
+            "b": 0.2044,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-base)"
+      },
+      {
+        "name": "color/illus-accent-1",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.962,
+            "g": 0.6104,
+            "b": 0.847,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.962,
+            "g": 0.6104,
+            "b": 0.847,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-1)"
+      },
+      {
+        "name": "color/illus-accent-2",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9571,
+            "g": 0.8096,
+            "b": 0.1384,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9571,
+            "g": 0.8096,
+            "b": 0.1384,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-2)"
+      },
+      {
+        "name": "color/illus-accent-3",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3753,
+            "g": 0.8451,
+            "b": 0.923,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3753,
+            "g": 0.8451,
+            "b": 0.923,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-3)"
+      },
+      {
+        "name": "color/illus-shadow",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0435,
+            "g": 0.0435,
+            "b": 0.0435,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9769,
+            "g": 0.962,
+            "b": 0.9037,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-shadow)"
+      },
+      {
         "name": "font/sans",
         "type": "STRING",
         "values": {
@@ -5845,6 +7373,138 @@
         "web": "var(--size-touch-min)"
       },
       {
+        "name": "space/1",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-1)"
+      },
+      {
+        "name": "space/2",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-2)"
+      },
+      {
+        "name": "space/3",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-3)"
+      },
+      {
+        "name": "space/4",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-4)"
+      },
+      {
+        "name": "space/5",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-5)"
+      },
+      {
+        "name": "space/6",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-6)"
+      },
+      {
+        "name": "space/8",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-8)"
+      },
+      {
+        "name": "space/10",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-10)"
+      },
+      {
+        "name": "space/12",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-12)"
+      },
+      {
+        "name": "space/16",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-16)"
+      },
+      {
+        "name": "space/24",
+        "type": "FLOAT",
+        "values": {
+          "light": 96,
+          "dark": 96
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-24)"
+      },
+      {
         "name": "layout/container",
         "type": "FLOAT",
         "values": {
@@ -5993,6 +7653,46 @@
         },
         "scopes": [],
         "web": "var(--layer-tooltip)"
+      },
+      {
+        "name": "illus/stroke",
+        "type": "FLOAT",
+        "values": {
+          "light": 3,
+          "dark": 3
+        },
+        "scopes": [],
+        "web": "var(--illus-stroke)"
+      },
+      {
+        "name": "illus/radius",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [],
+        "web": "var(--illus-radius)"
+      },
+      {
+        "name": "illus/shadow-x",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-x)"
+      },
+      {
+        "name": "illus/shadow-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-y)"
       }
     ],
     "quiet-editorial": [
@@ -6646,6 +8346,174 @@
         "web": "var(--color-overlay)"
       },
       {
+        "name": "color/illus-ink",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1001,
+            "g": 0.0825,
+            "b": 0.0688,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9445,
+            "g": 0.9337,
+            "b": 0.9119,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-ink)"
+      },
+      {
+        "name": "color/illus-paper",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9878,
+            "g": 0.9797,
+            "b": 0.9632,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1219,
+            "g": 0.1109,
+            "b": 0.1024,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-paper)"
+      },
+      {
+        "name": "color/illus-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9975,
+            "g": 0.919,
+            "b": 0.8586,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2158,
+            "g": 0.1735,
+            "b": 0.0827,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-base)"
+      },
+      {
+        "name": "color/illus-accent-1",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.7637,
+            "g": 0.7384,
+            "b": 0.7192,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.319,
+            "g": 0.2976,
+            "b": 0.2812,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-1)"
+      },
+      {
+        "name": "color/illus-accent-2",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8914,
+            "g": 0.8657,
+            "b": 0.8379,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2352,
+            "g": 0.2149,
+            "b": 0.1994,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-2)"
+      },
+      {
+        "name": "color/illus-accent-3",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9359,
+            "g": 0.9197,
+            "b": 0.8935,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1723,
+            "g": 0.1569,
+            "b": 0.145,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-3)"
+      },
+      {
+        "name": "color/illus-shadow",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1001,
+            "g": 0.0825,
+            "b": 0.0688,
+            "a": 0.12
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.35
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-shadow)"
+      },
+      {
         "name": "font/sans",
         "type": "STRING",
         "values": {
@@ -7050,6 +8918,138 @@
         "web": "var(--size-touch-min)"
       },
       {
+        "name": "space/1",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-1)"
+      },
+      {
+        "name": "space/2",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-2)"
+      },
+      {
+        "name": "space/3",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-3)"
+      },
+      {
+        "name": "space/4",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-4)"
+      },
+      {
+        "name": "space/5",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-5)"
+      },
+      {
+        "name": "space/6",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-6)"
+      },
+      {
+        "name": "space/8",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-8)"
+      },
+      {
+        "name": "space/10",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-10)"
+      },
+      {
+        "name": "space/12",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-12)"
+      },
+      {
+        "name": "space/16",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-16)"
+      },
+      {
+        "name": "space/24",
+        "type": "FLOAT",
+        "values": {
+          "light": 96,
+          "dark": 96
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-24)"
+      },
+      {
         "name": "layout/container",
         "type": "FLOAT",
         "values": {
@@ -7198,6 +9198,46 @@
         },
         "scopes": [],
         "web": "var(--layer-tooltip)"
+      },
+      {
+        "name": "illus/stroke",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.5,
+          "dark": 1.25
+        },
+        "scopes": [],
+        "web": "var(--illus-stroke)"
+      },
+      {
+        "name": "illus/radius",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-radius)"
+      },
+      {
+        "name": "illus/shadow-x",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-x)"
+      },
+      {
+        "name": "illus/shadow-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-y)"
       }
     ],
     "signal-dark": [
@@ -7851,6 +9891,174 @@
         "web": "var(--color-overlay)"
       },
       {
+        "name": "color/illus-ink",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0604,
+            "g": 0.0689,
+            "b": 0.0868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9475,
+            "g": 0.9475,
+            "b": 0.9475,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-ink)"
+      },
+      {
+        "name": "color/illus-paper",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1115,
+            "g": 0.1226,
+            "b": 0.1456,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-paper)"
+      },
+      {
+        "name": "color/illus-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8827,
+            "g": 0.9591,
+            "b": 0.8945,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1287,
+            "g": 0.2008,
+            "b": 0.1303,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-base)"
+      },
+      {
+        "name": "color/illus-accent-1",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4489,
+            "g": 0.7187,
+            "b": 0.5073,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3275,
+            "g": 0.5996,
+            "b": 0.3412,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-1)"
+      },
+      {
+        "name": "color/illus-accent-2",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.6894,
+            "g": 0.7142,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4458,
+            "g": 0.4619,
+            "b": 0.6444,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-2)"
+      },
+      {
+        "name": "color/illus-accent-3",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.7385,
+            "g": 0.8912,
+            "b": 0.7647,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1619,
+            "g": 0.3514,
+            "b": 0.1739,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-3)"
+      },
+      {
+        "name": "color/illus-shadow",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0604,
+            "g": 0.0689,
+            "b": 0.0868,
+            "a": 0.12
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.35
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-shadow)"
+      },
+      {
         "name": "font/sans",
         "type": "STRING",
         "values": {
@@ -8255,6 +10463,138 @@
         "web": "var(--size-touch-min)"
       },
       {
+        "name": "space/1",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-1)"
+      },
+      {
+        "name": "space/2",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-2)"
+      },
+      {
+        "name": "space/3",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-3)"
+      },
+      {
+        "name": "space/4",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-4)"
+      },
+      {
+        "name": "space/5",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-5)"
+      },
+      {
+        "name": "space/6",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-6)"
+      },
+      {
+        "name": "space/8",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-8)"
+      },
+      {
+        "name": "space/10",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-10)"
+      },
+      {
+        "name": "space/12",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-12)"
+      },
+      {
+        "name": "space/16",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-16)"
+      },
+      {
+        "name": "space/24",
+        "type": "FLOAT",
+        "values": {
+          "light": 96,
+          "dark": 96
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-24)"
+      },
+      {
         "name": "layout/container",
         "type": "FLOAT",
         "values": {
@@ -8403,6 +10743,46 @@
         },
         "scopes": [],
         "web": "var(--layer-tooltip)"
+      },
+      {
+        "name": "illus/stroke",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.5,
+          "dark": 1.5
+        },
+        "scopes": [],
+        "web": "var(--illus-stroke)"
+      },
+      {
+        "name": "illus/radius",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [],
+        "web": "var(--illus-radius)"
+      },
+      {
+        "name": "illus/shadow-x",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-x)"
+      },
+      {
+        "name": "illus/shadow-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-y)"
       }
     ],
     "warm-natural": [
@@ -9056,6 +11436,174 @@
         "web": "var(--color-overlay)"
       },
       {
+        "name": "color/illus-ink",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1605,
+            "g": 0.1234,
+            "b": 0.0941,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9431,
+            "g": 0.9188,
+            "b": 0.8794,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-ink)"
+      },
+      {
+        "name": "color/illus-paper",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9949,
+            "g": 0.9785,
+            "b": 0.9519,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1715,
+            "g": 0.1448,
+            "b": 0.1241,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-paper)"
+      },
+      {
+        "name": "color/illus-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 0.9129,
+            "b": 0.8718,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.2437,
+            "g": 0.156,
+            "b": 0.1068,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-base)"
+      },
+      {
+        "name": "color/illus-accent-1",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8078,
+            "g": 0.5868,
+            "b": 0.4884,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.6445,
+            "g": 0.4861,
+            "b": 0.3991,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-1)"
+      },
+      {
+        "name": "color/illus-accent-2",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.719,
+            "g": 0.7644,
+            "b": 0.6501,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4585,
+            "g": 0.4966,
+            "b": 0.3994,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-2)"
+      },
+      {
+        "name": "color/illus-accent-3",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9472,
+            "g": 0.8122,
+            "b": 0.7532,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3821,
+            "g": 0.2745,
+            "b": 0.2151,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-accent-3)"
+      },
+      {
+        "name": "color/illus-shadow",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1605,
+            "g": 0.1234,
+            "b": 0.0941,
+            "a": 0.12
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.35
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-illus-shadow)"
+      },
+      {
         "name": "font/sans",
         "type": "STRING",
         "values": {
@@ -9460,6 +12008,138 @@
         "web": "var(--size-touch-min)"
       },
       {
+        "name": "space/1",
+        "type": "FLOAT",
+        "values": {
+          "light": 4,
+          "dark": 4
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-1)"
+      },
+      {
+        "name": "space/2",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-2)"
+      },
+      {
+        "name": "space/3",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-3)"
+      },
+      {
+        "name": "space/4",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-4)"
+      },
+      {
+        "name": "space/5",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-5)"
+      },
+      {
+        "name": "space/6",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-6)"
+      },
+      {
+        "name": "space/8",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-8)"
+      },
+      {
+        "name": "space/10",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-10)"
+      },
+      {
+        "name": "space/12",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-12)"
+      },
+      {
+        "name": "space/16",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-16)"
+      },
+      {
+        "name": "space/24",
+        "type": "FLOAT",
+        "values": {
+          "light": 96,
+          "dark": 96
+        },
+        "scopes": [
+          "GAP"
+        ],
+        "web": "var(--space-24)"
+      },
+      {
         "name": "layout/container",
         "type": "FLOAT",
         "values": {
@@ -9608,6 +12288,46 @@
         },
         "scopes": [],
         "web": "var(--layer-tooltip)"
+      },
+      {
+        "name": "illus/stroke",
+        "type": "FLOAT",
+        "values": {
+          "light": 2,
+          "dark": 1.75
+        },
+        "scopes": [],
+        "web": "var(--illus-stroke)"
+      },
+      {
+        "name": "illus/radius",
+        "type": "FLOAT",
+        "values": {
+          "light": 14,
+          "dark": 14
+        },
+        "scopes": [],
+        "web": "var(--illus-radius)"
+      },
+      {
+        "name": "illus/shadow-x",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-x)"
+      },
+      {
+        "name": "illus/shadow-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 3,
+          "dark": 3
+        },
+        "scopes": [],
+        "web": "var(--illus-shadow-y)"
       }
     ]
   }

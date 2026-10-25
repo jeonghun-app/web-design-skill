@@ -43,6 +43,16 @@
   }
 }
 
+/* Flat illustration shadow: recolor the duplicated shape (illustration.md, no blur). */
+.illus-shadow * {
+  fill: var(--color-illus-shadow) !important;
+  stroke: none !important;
+}
+@media (forced-colors: active) {
+  [data-slot="illustration"] * { fill: Canvas !important; stroke: CanvasText !important; }
+  [data-slot="illustration"] .illus-shadow * { fill: none !important; }
+}
+
 @layer base {
   html {
     scroll-padding-top: calc(var(--layout-nav-h) + 1rem); /* FK-03: focus never hides under the sticky nav */
