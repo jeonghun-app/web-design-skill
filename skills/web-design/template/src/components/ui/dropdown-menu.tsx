@@ -1,3 +1,5 @@
+'use client'
+
 import * as Menu from '@radix-ui/react-dropdown-menu'
 import type { ComponentProps, ReactNode } from 'react'
 import { cn } from '@/lib/cn'
@@ -27,6 +29,7 @@ export function DropdownMenuContent({ className, ...props }: ComponentProps<type
 export function DropdownMenuItem({ className, tone, icon, children, ...props }: ComponentProps<typeof Menu.Item> & { tone?: 'danger'; icon?: ReactNode }) {
   return (
     <Menu.Item
+      // design-lint-allow CL-04 Radix moves real focus onto the item and marks it data-highlighted (filled row), which is the indicator
       className={cn(
         'flex min-h-9 cursor-pointer select-none items-center gap-2 rounded-control px-2.5 text-sm outline-none',
         'data-[highlighted]:bg-surface-sunken data-[disabled]:pointer-events-none data-[disabled]:opacity-50',

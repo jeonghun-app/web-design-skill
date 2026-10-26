@@ -1,5 +1,7 @@
+'use client'
+
 import * as TabsPrimitive from '@radix-ui/react-tabs'
-import { motion } from 'motion/react'
+import * as m from 'motion/react-m'
 import { useId, useState, type ComponentProps } from 'react'
 
 // Arrow keys move between tabs (Radix, FK-04). The indicator slides with a short spring
@@ -22,7 +24,7 @@ export function Tabs({ items, defaultValue, className }: {
           >
             {it.label}
             {value === it.value && (
-              <motion.span layoutId={layoutId} transition={{ type: 'spring', visualDuration: 0.2, bounce: 0 }} className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-primary" />
+              <m.span layoutId={layoutId} transition={{ type: 'spring', visualDuration: 0.2, bounce: 0 }} className="absolute inset-x-2 -bottom-px h-0.5 rounded-full bg-primary" />
             )}
           </TabsPrimitive.Trigger>
         ))}

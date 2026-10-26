@@ -17,8 +17,9 @@ export function Card({ className, interactive, ...props }: ComponentProps<'div'>
   )
 }
 
-export function CardTitle({ className, ...props }: ComponentProps<'h3'>) {
-  return <h3 data-slot="card-title" className={cn('text-h3 font-[number:var(--font-weight-heading)]', className)} {...props} />
+/** Heading level follows the outline, not the look: pass `as` so levels never skip (SE-06). */
+export function CardTitle({ className, as: H = 'h3', ...props }: ComponentProps<'h3'> & { as?: 'h2' | 'h3' | 'h4' }) {
+  return <H data-slot="card-title" className={cn('text-h3 font-[number:var(--font-weight-heading)]', className)} {...props} />
 }
 
 export function CardText({ className, ...props }: ComponentProps<'p'>) {

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Build design tokens + trend packs into:
 //   src/design/tokens.css            Tailwind v4 @theme + mode/trend overrides
-//   src/design/fonts.css             font imports required by the included trends
+//   src/design/fonts.json            font stylesheets: base (+ default trend) eager, other trends on demand
+//   src/design/fonts.ts              (framework "next" only) next/font/google faces for every included trend
 //   src/design/trends.json           included trend list (for the dev switcher)
 //   design/build/figma-variables.json  variables for Figma (per trend, light/dark)
 //   design/build/tokens.resolved.json  resolved values (used by check/audit)
@@ -105,8 +106,74 @@ for (const t of included) {
   figma.trends[t.id] = toFigma(merged);
 }
 
-const fontImports = [...new Set([...(config.fonts ?? []), ...included.flatMap((t) => t.pack.fonts ?? [])].map((f) => f.href).filter(Boolean))];
-const fontsCss = HEADER + fontImports.map((h) => `@import url("${h}");`).join('\n') + '\n';
+// Fonts are not @imported from CSS: that chains main CSS -> font CSS -> font files and blocks
+// first paint on fonts of trends that aren't even active. The Vite plugin links `eager` from
+// the HTML head (parallel with the main CSS); src/lib/trend-fonts.ts loads a trend's extra
+// fonts only when that trend is switched on (web-quality.md PF-16).
+const hrefs = (fonts) => (fonts ?? []).map((f) => f.href).filter(Boolean);
+const active = included.find((t) => t.id === config.trend);
+const eagerFonts = [...(config.fonts ?? []), ...(active?.pack.fonts ?? [])];
+const allFonts = [...eagerFonts, ...included.flatMap((t) => t.pack.fonts ?? [])];
+
+// Next.js: Google fonts go through next/font (self-hosted at build time, size-adjusted
+// fallbacks). next/font renames the family, so token font stacks reference it as
+// var(--nf-<slug>, "<Family>"), which falls back to the literal name if the face is absent.
+const isNext = config.framework === 'next';
+const isGoogle = (f) => /^https:\/\/fonts\.googleapis\.com\/css2\?/.test(f.href ?? '');
+const nextFaces = isNext ? [...new Map(allFonts.filter(isGoogle).map((f) => [f.family, f])).values()] : [];
+const slug = (family) => family.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+if (nextFaces.length) {
+  const families = nextFaces.map((f) => f.family).sort((a, b) => b.length - a.length);
+  css = css.split('\n').map((line) => {
+    if (!/^\s*--font-[\w-]+:/.test(line)) return line;
+    const [prop, value] = [line.slice(0, line.indexOf(':') + 1), line.slice(line.indexOf(':') + 1)];
+    return prop + value.split(',').map((part) => {
+      const name = part.trim().replace(/;$/, '').replace(/^"|"$/g, '');
+      const fam = families.find((f) => f === name);
+      return fam ? part.replace(part.trim().replace(/;$/, ''), `var(--nf-${slug(fam)}, "${fam}")`) : part;
+    }).join(',');
+  }).join('\n');
+}
+
+// Fonts are not @imported from CSS: that chains main CSS -> font CSS -> font files and blocks
+// first paint on fonts of trends that aren't even active. The Vite plugin links `eager` from
+// the HTML head (parallel with the main CSS); src/lib/trend-fonts.ts loads a trend's extra
+// fonts only when that trend is switched on (web-quality.md PF-16). Under Next, next/font
+// faces are excluded here: their CSS ships with the app and files load only when used.
+const linked = (fonts) => hrefs((fonts ?? []).filter((f) => !(isNext && isGoogle(f))));
+const eager = [...new Set(linked(eagerFonts))];
+const fontsJson = {
+  eager,
+  trends: Object.fromEntries(included.map((t) => [t.id, linked(t.pack.fonts).filter((h) => !eager.includes(h))]).filter(([, h]) => h.length)),
+};
+
+// next/font options from the css2 URL: family=Name:ital,opsz,wght@<values>
+function nextFontCall(f) {
+  const spec = decodeURIComponent(new URL(f.href).searchParams.get('family') ?? f.family);
+  const [, axesPart = '', values = ''] = spec.match(/^[^:]+(?::([^@]+)@(.+))?$/) ?? [];
+  const axes = axesPart ? axesPart.split(',') : [];
+  const tuples = values ? values.split(';').map((v) => v.split(',')) : [];
+  const col = (name) => tuples.map((t) => t[axes.indexOf(name)]);
+  const opts = { subsets: ['latin'], display: 'swap', variable: `--nf-${slug(f.family)}`, preload: eagerFonts.some((e) => e.family === f.family) };
+  const wght = axes.includes('wght') ? [...new Set(col('wght'))] : [];
+  if (wght.length && !wght.some((w) => w.includes('..'))) opts.weight = wght;
+  if (axes.includes('ital')) opts.style = ['normal', 'italic'];
+  const extra = axes.filter((a) => !['wght', 'ital'].includes(a));
+  if (extra.length) opts.axes = extra;
+  const id = f.family.replace(/\s+/g, '_');
+  return { id, name: id.charAt(0).toLowerCase() + id.slice(1).replace(/_(\w)/g, (_, c) => c.toUpperCase()), opts };
+}
+const tsValue = (v) => (Array.isArray(v) ? `[${v.map(tsValue).join(', ')}]` : typeof v === 'string' ? `'${v}'` : String(v));
+const tsObject = (o) => `{ ${Object.entries(o).map(([k, v]) => `${k}: ${tsValue(v)}`).join(', ')} }`;
+const fontsTs = isNext
+  ? (() => {
+      const calls = nextFaces.map(nextFontCall);
+      return `// GENERATED by web-design/scripts/build-tokens.mjs. Do not edit.\n// next/font faces for the included trends; only the base and default-trend faces preload.\n`
+        + (calls.length ? `import { ${calls.map((c) => c.id).join(', ')} } from 'next/font/google'\n\n` : '\n')
+        + calls.map((c) => `export const ${c.name} = ${c.id}(${tsObject(c.opts)})`).join('\n')
+        + `\n\n/** Class names that define the --nf-* variables; put them on <html>. */\nexport const fontVariables = [${calls.map((c) => `${c.name}.variable`).join(', ')}].join(' ')\n`;
+    })()
+  : null;
 
 function toFigma(flat) {
   const res = Object.fromEntries(MODES.map((m) => [m, resolveMode(flat, m)]));
@@ -115,7 +182,8 @@ function toFigma(flat) {
 
 const outputs = [
   [P.cssOut, css],
-  [path.join(path.dirname(P.cssOut), 'fonts.css'), fontsCss],
+  [path.join(path.dirname(P.cssOut), 'fonts.json'), JSON.stringify(fontsJson, null, 2) + '\n'],
+  ...(fontsTs ? [[path.join(path.dirname(P.cssOut), 'fonts.ts'), fontsTs]] : []),
   [path.join(path.dirname(P.cssOut), 'trends.json'), JSON.stringify(included.map((t) => ({ id: t.id, name: t.pack.name, stage: t.pack.stage, summary: t.pack.summary, preferTheme: t.pack.preferTheme })), null, 2) + '\n'],
   [P.figmaOut, JSON.stringify(figma, null, 2) + '\n'],
   [P.resolvedOut, JSON.stringify(resolved, null, 2) + '\n'],

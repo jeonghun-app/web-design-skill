@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useMemo, useRef, useState } from 'react'
 import trends from '@/design/trends.json'
 import { Badge } from '@/components/ui/badge'
@@ -12,6 +14,7 @@ import { useToast } from '@/components/ui/toast'
 import { Illustration, ILLUSTRATIONS } from '@/illustrations'
 import { useAppearance } from '@/lib/appearance'
 import { cn } from '@/lib/cn'
+import { routes } from '@/lib/routes'
 
 // Living style guide (#/system): the design introduction page, built from the same
 // tokens and components it documents. Section order follows what most published design
@@ -106,11 +109,11 @@ function Copy({ text }: { text: string }) {
   )
 }
 
-function Section({ id, eyebrow, title, lede, children }: { id: string; eyebrow?: string; title: string; lede?: string; children: React.ReactNode }) {
+function Section({ id, eyebrow, title, lede, children, as: H = 'h2' }: { id: string; eyebrow?: string; title: string; lede?: string; children: React.ReactNode; as?: 'h1' | 'h2' }) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="scroll-mt-24 border-t border-border py-16 first:border-t-0 first:pt-0">
       {eyebrow && <p data-slot="eyebrow" className="text-sm font-semibold uppercase tracking-caps text-primary-text">{eyebrow}</p>}
-      <h2 id={`${id}-title`} className="mt-2 text-h2">{title}</h2>
+      <H id={`${id}-title`} className="mt-2 text-h2">{title}</H>
       {lede && <p className="prose-measure mt-3 text-lede text-fg-muted">{lede}</p>}
       <div className="mt-8">{children}</div>
     </section>
@@ -126,9 +129,9 @@ export function SystemPage() {
   const [active, setActive] = useState('overview')
   const mainRef = useRef<HTMLElement>(null)
 
-  // Deep links: #/system/<section> scrolls there on load, on in-page links and on back/forward.
+  // Deep links (routes.section) scroll there on load, on in-page links and on back/forward.
   useEffect(() => {
-    const go = () => { const id = location.hash.split('/')[2]; if (id) document.getElementById(id)?.scrollIntoView() }
+    const go = () => { const id = routes.currentSection(); if (id) document.getElementById(id)?.scrollIntoView() }
     go()
     window.addEventListener('hashchange', go)
     return () => window.removeEventListener('hashchange', go)
@@ -155,7 +158,7 @@ export function SystemPage() {
     <div className="min-h-dvh">
       <header className="chrome sticky top-0 z-(--layer-sticky) border-b border-border">
         <div className="flex h-(--layout-nav-h) items-center gap-3 px-4 sm:px-6">
-          <a href="#/" className="flex min-h-11 min-w-0 items-center gap-2 font-semibold">
+          <a href={routes.home} className="flex min-h-11 min-w-0 items-center gap-2 font-semibold">
             <span aria-hidden className="grid size-7 shrink-0 place-items-center rounded-control bg-primary text-primary-fg">◆</span>
             <span className="truncate">Lumen <span className="hidden font-normal text-fg-muted sm:inline">Design</span></span>
           </a>
@@ -187,8 +190,8 @@ export function SystemPage() {
               {items.map((s) => (
                 <a
                   key={s.id}
-                  href={`#/system/${s.id}`}
-                  onClick={(e) => { e.preventDefault(); document.getElementById(s.id)?.scrollIntoView(); history.replaceState(null, '', `#/system/${s.id}`) }}
+                  href={routes.section(s.id)}
+                  onClick={(e) => { e.preventDefault(); document.getElementById(s.id)?.scrollIntoView(); history.replaceState(null, '', routes.section(s.id)) }}
                   aria-current={active === s.id ? 'location' : undefined}
                   className="flex min-h-9 items-center rounded-control px-2 text-sm text-fg-muted hover:bg-surface-sunken hover:text-fg aria-[current=location]:bg-primary-soft aria-[current=location]:font-medium aria-[current=location]:text-primary-soft-fg pointer-coarse:min-h-11"
                 >
@@ -201,16 +204,17 @@ export function SystemPage() {
 
         <main id="main" ref={mainRef} className="min-w-0 flex-1 px-4 py-12 sm:px-8 lg:px-12">
           <div className="mx-auto max-w-4xl">
-            <Section id="overview" title="Lumen Design" lede="The tokens, components and patterns behind Lumen. One system for Figma and React: switch the trend or theme above and every example on this page restyles live.">
+            <Section id="overview" as="h1" title="Lumen Design" lede="The tokens, components and patterns behind Lumen. One system for Figma and React: switch the trend or theme above and every example on this page restyles live.">
               <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  { t: 'Design', d: 'Figma library generated from the same tokens, with Light and Dark modes.', a: '#/system/get-started' },
-                  { t: 'Build', d: 'React components that read semantic tokens only.', a: '#/system/components' },
-                  { t: 'Get started', d: 'Scaffold a project, pick a trend, audit it.', a: '#/system/get-started' },
+                  { t: 'Design', d: 'Figma library generated from the same tokens, with Light and Dark modes.', a: routes.section('get-started') },
+                  { t: 'Build', d: 'React components that read semantic tokens only.', a: routes.section('components') },
+                  { t: 'Get started', d: 'Scaffold a project, pick a trend, audit it.', a: routes.section('get-started') },
                 ].map((c) => (
                   <a key={c.t} href={c.a} className="group block rounded-card focus-visible:outline-offset-4">
                     <Card interactive className="h-full">
-                      <CardTitle>{c.t}</CardTitle>
+                      {/* Directly under the page h1, so h2 (SE-06). */}
+                      <CardTitle as="h2">{c.t}</CardTitle>
                       <CardText>{c.d}</CardText>
                     </Card>
                   </a>
@@ -415,7 +419,8 @@ npm run figma-sync -- push > design/build/figma-push.js   # run with use_figma`}
                   <li key={t.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-border pb-3 last:border-0">
                     <span className="font-[number:var(--font-weight-heading)]">{t.name}</span>
                     <Badge tone={t.stage === 'rising' ? 'brand' : 'neutral'}>{t.stage}</Badge>
-                    <span className="prose-measure basis-full text-fg-muted">{t.summary}</span>
+                    {/* Full-width row, measure capped inside: a capped flex item would fit beside the name. */}
+                    <span className="basis-full"><span className="prose-measure block text-fg-muted">{t.summary}</span></span>
                   </li>
                 ))}
               </ul>

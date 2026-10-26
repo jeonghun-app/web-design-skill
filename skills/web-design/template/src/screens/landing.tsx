@@ -8,6 +8,7 @@ import { Nav } from '@/sections/nav'
 import { Pricing } from '@/sections/pricing'
 import { Stats } from '@/sections/stats'
 import { Testimonial } from '@/sections/testimonial'
+import { routes } from '@/lib/routes'
 
 // Showcase page: every section reads only semantic tokens, so switching the trend
 // (dev panel, ?trend=<id>, or `trend.mjs apply <id>`) restyles the whole page.
@@ -17,7 +18,7 @@ export function LandingPage() {
       <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-(--layer-tooltip) focus:rounded-control focus:bg-surface focus:p-3">
         Skip to content
       </a>
-      <Nav links={[{ href: '#features', label: 'Product' }, { href: '#pricing', label: 'Pricing' }, { href: '#faq', label: 'FAQ' }, { href: '#/app', label: 'App demo' }, { href: '#/system', label: 'Design system' }]} />
+      <Nav links={[{ href: '#features', label: 'Product' }, { href: '#pricing', label: 'Pricing' }, { href: '#faq', label: 'FAQ' }, { href: routes.app, label: 'App demo' }, { href: routes.system, label: 'Design system' }]} />
       <main id="main">
         <Hero />
         <Logos names={['Northwind', 'Contoso', 'Globex', 'Initech', 'Umbrella', 'Hooli']} />
@@ -51,7 +52,14 @@ export function LandingPage() {
         />
         <Cta title="Give your team one calm place to work" text="Set up in five minutes. Bring your requests with you." />
       </main>
-      <Footer columns={[{ title: 'Product', links: ['Features', 'Pricing', 'Changelog'] }, { title: 'Company', links: ['About', 'Careers', 'Contact'] }, { title: 'Resources', links: ['Docs', 'Guides', 'Status'] }]} />
+      {/* Every link needs a real href so crawlers and new tabs work (SE-21). Replace the placeholder paths. */}
+      <Footer
+        columns={[
+          { title: 'Product', links: [{ label: 'Features', href: '#features' }, { label: 'Pricing', href: '#pricing' }, { label: 'Changelog', href: '/changelog' }] },
+          { title: 'Company', links: [{ label: 'About', href: '/about' }, { label: 'Careers', href: '/careers' }, { label: 'Contact', href: '/contact' }] },
+          { title: 'Resources', links: [{ label: 'Docs', href: routes.system }, { label: 'Guides', href: '/guides' }, { label: 'Status', href: '/status' }] },
+        ]}
+      />
     </>
   )
 }

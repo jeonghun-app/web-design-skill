@@ -22,6 +22,16 @@
         "page": "/#/system",
         "rule": "LA-04",
         "reason": "Documentation page: there is no primary conversion action to place above the fold."
+      },
+      {
+        "page": "/#/app",
+        "rule": "PF-01",
+        "reason": "Client-rendered SPA floor on slow 4G (HTML, then JS, then paint; about 2.6 s). Pages that must load faster use the Next.js template, which prerenders every route (web-quality.md)."
+      },
+      {
+        "page": "/#/system",
+        "rule": "PF-01",
+        "reason": "Client-rendered SPA floor on slow 4G (HTML, then JS, then paint; about 2.6 s). Pages that must load faster use the Next.js template, which prerenders every route (web-quality.md)."
       }
     ]
   }

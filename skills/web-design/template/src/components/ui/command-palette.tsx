@@ -1,3 +1,5 @@
+'use client'
+
 import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
 import { cn } from '@/lib/cn'
@@ -70,7 +72,7 @@ export function CommandPalette({ commands, open, onOpenChange }: { commands: Com
             }}
             placeholder="Search commands…"
             aria-label="Search commands"
-            className="h-14 w-full border-b border-border bg-transparent px-5 text-base outline-none placeholder:text-fg-subtle"
+            className="h-14 w-full border-b border-border bg-transparent px-5 text-base outline-none placeholder:text-fg-subtle focus-visible:shadow-[inset_0_-2px_0_var(--color-ring)]"
           />
           <ul id={listId} role="listbox" aria-label="Commands" className="max-h-80 overflow-y-auto p-2">
             {results.length === 0 && <li className="px-3 py-8 text-center text-sm text-fg-muted">No commands match “{query}”.</li>}

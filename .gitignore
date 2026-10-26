@@ -3,3 +3,5 @@ dist/
 *.tsbuildinfo
 design/audit/
 .DS_Store
+# VR baselines are machine-specific; projects commit their own (web-quality.md VR-01).
+skills/web-design/template/design/baseline/

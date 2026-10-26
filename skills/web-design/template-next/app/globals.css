@@ -1,0 +1,2 @@
+/* The Vite template's stylesheet is the single source: Tailwind, tokens and utilities. */
+@import "../src/index.css";
