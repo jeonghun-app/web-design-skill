@@ -86,6 +86,9 @@ test('review regressions: letter-only hex, handler-only drag exemption, multi-li
   assert.ok(ids(`<rect fill="#fade" />`).includes('CL-01'));
   assert.ok(ids(`const c = '#1a2b3c'`).includes('CL-01'));
   assert.ok(!ids(`<div role="application" onPointerDown={handlePanStart} />`).includes('CL-05'));
+  assert.ok(!ids(`<div role="application" onPointerDown={startPanning} />`).includes('CL-05'));
+  assert.ok(ids(`const theme = { bg: '#fff' }`).includes('CL-01'));
+  assert.ok(ids(`const BG = '#fafafa'`).includes('CL-01'));
 });
 
 test('the CLI runs from paths with spaces and Hangul, and lints app/', () => {

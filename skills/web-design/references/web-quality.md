@@ -102,7 +102,7 @@ The SEO pass runs twice. It runs once with JavaScript, as search engines render 
 
 | ID | Sev | Catches | Fix |
 |---|---|---|---|
-| CL-01 | E | Raw color literals (`#hex`, `rgb()`, `oklch()`…) outside token files | A semantic token |
+| CL-01 | E | Raw color literals (`#hex`, `rgb()`, `oklch()`…) outside token files. Hex containing a digit is always flagged. Letter-only hex (`#fff`, which looks like an id such as `#add`) is flagged in CSS or next to a color-ish name (fill, stroke, color, bg, fg, border, shadow, brand…). A bare `'#fff'` assigned to an unrelated name can slip through. | A semantic token |
 | CL-02 | E | Tailwind default palette classes (`text-gray-500`). The palette is removed, so they silently do nothing. | A semantic utility |
 | CL-03 | E | Arbitrary px, color or z values (`text-[13px]`, `bg-[#…]`, `z-[999]`) | The scale or a token |
 | CL-04 | E | `outline-none` / `outline: none` without a focus-visible replacement | Keep the global ring |

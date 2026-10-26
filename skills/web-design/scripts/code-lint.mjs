@@ -87,7 +87,7 @@ export function lintSource(file, src) {
     // Only valid hex lengths, and not a fragment link (href="#fade" is an id, not a color).
     // Hex with a digit is a color. Letter-only hex (#fff, but also #feed, #add) is a color only
     // in a color context, so ids in selectors and hashes aren't flagged.
-    const colorContext = isCss || /\b(fill|stroke|colou?r|background|border|shadow|stop-?color|theme-?color|outline|accent|caret|tint)\w*["']?\s*[:=]/i.test(noData);
+    const colorContext = isCss || /\b(fill|stroke|colou?r|background|bg|fg|border|shadow|stop-?color|theme-?color|outline|accent|caret|tint|palette|brand)\w*["']?\s*[:=]/i.test(noData);
     for (const hex of noData.replace(/\bhref=(["'`{]+)#[\w-]*/g, '').matchAll(/(?<![\w&#-])#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})(?![\w-])/gi)) {
       if ((/\d/.test(hex[0]) || colorContext) && /['"`:\s(,]$/.test(noData.slice(0, hex.index) || ' ')) { add('CL-01', i, line); break; }
     }
@@ -101,7 +101,7 @@ export function lintSource(file, src) {
       if (/(?<![\w:-])(?:focus:)?outline-none\b/.test(code) && !/focus-visible:/.test(code)) add('CL-04', i, line);
       // Drag, resize and pan legitimately start on pointer down; judge by the handler, not the whole line.
       for (const h of code.matchAll(/\bon(?:MouseDown|PointerDown|TouchStart)=\{([^}]*)\}?/g)) {
-        if (!(/drag|resize/i.test(h[1]) || /(?:^|[^a-zA-Z])pan(?![a-z])|Pan(?![a-z])/.test(h[1]))) { add('CL-05', i, line); break; }
+        if (!(/drag|resize/i.test(h[1]) || /(?:^|[^a-zA-Z])pan(?:ning)?(?![a-z])|Pan(?:ning)?(?![a-z])/.test(h[1]))) { add('CL-05', i, line); break; }
       }
       if (/tabIndex=\{?["']?([1-9]\d*)/.test(code)) add('CL-06', i, line);
       // Every opening tag on the line: <div><img /></div> has two.
