@@ -7,7 +7,7 @@ import path from 'node:path';
 import { createRequire } from 'node:module';
 import { after, before, test } from 'node:test';
 import { fileURLToPath } from 'node:url';
-import { perfPass, seoPass } from '../skills/web-design/scripts/lib/perf-seo.mjs';
+import { blocksAll, perfPass, seoPass } from '../skills/web-design/scripts/lib/perf-seo.mjs';
 
 const TEMPLATE = fileURLToPath(new URL('../skills/web-design/template', import.meta.url));
 const require = createRequire(path.join(TEMPLATE, 'package.json'));
@@ -35,13 +35,20 @@ const PAGES = {
   '/perf.html': `<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width"><script src="/block.js"></script>
 <style>@font-face{font-family:X;src:url(/x.woff2);font-display:block}</style></head>
 <body><h1>Perf</h1><img src="/pixel.svg"></body></html>`,
+  // JSON-LD as a top-level array is valid (SE-15); a CSS-sized image doesn't shift (PF-09).
+  '/array-ld.html': `<!doctype html><html lang="en"><head>${GOOD_HEAD.replace(/<script type="application\/ld\+json">.*<\/script>/s, '')}
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Organization","name":"L"},{"@context":"https://schema.org","@type":"WebSite","name":"L"}]</script>
+</head><body><main><h1>Lumen</h1></main></body></html>`,
+  '/css-sized.html': `<!doctype html><html lang="en"><head><meta name="viewport" content="width=device-width"><style>.av{width:40px;height:40px}</style></head>
+<body><h1>Avatars</h1><img class="av" src="/pixel.svg" alt=""></body></html>`,
+  '/xfont.html': 'XFONT',
   '/block.js': '/* render-blocking */',
   '/pixel.svg': '<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"/>',
   '/robots.txt': 'User-agent: *\nAllow: /\n',
 };
 const TYPES = { html: 'text/html', js: 'text/javascript', svg: 'image/svg+xml', txt: 'text/plain' };
 
-let server, origin, browser;
+let server, origin, browser, other, otherOrigin;
 before(async () => {
   if (skip) return;
   server = http.createServer((req, res) => {
@@ -52,9 +59,14 @@ before(async () => {
   });
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
   origin = `http://127.0.0.1:${server.address().port}`;
+  // A second origin serving a font stylesheet: its rules are unreadable through the CSSOM.
+  other = http.createServer((req, res) => { res.writeHead(200, { 'Content-Type': 'text/css', 'Access-Control-Allow-Origin': '*' }); res.end('@font-face{font-family:Blocky;src:url(/b.woff2);font-display:block}'); });
+  await new Promise((r) => other.listen(0, 'localhost', r));
+  otherOrigin = `http://localhost:${other.address().port}`;
+  PAGES['/xfont.html'] = `<!doctype html><html lang="en"><head><link rel="stylesheet" href="${otherOrigin}/f.css"></head><body><h1 style="font-family:Blocky">X</h1></body></html>`;
   browser = await chromium.launch();
 });
-after(async () => { await browser?.close(); server?.close(); });
+after(async () => { await browser?.close(); server?.close(); other?.close(); });
 
 const run = async (fn, url, opts) => {
   const found = [];
@@ -79,4 +91,21 @@ test('perf: blocking script, bad font-display and unsized image are caught', { s
   assert.match(f, /MUST PF-18/);
   assert.match(f, /MUST PF-14/);
   assert.match(f, /MUST PF-09/);
+});
+
+test('SE-20: only the * group decides whether the whole site is blocked', () => {
+  assert.equal(blocksAll('User-agent: *\nAllow: /\n\nUser-agent: GPTBot\nDisallow: /\n'), false);
+  assert.equal(blocksAll('User-agent: GPTBot\nUser-agent: *\nDisallow: /\n'), true);
+  assert.equal(blocksAll('User-agent: *\nDisallow: /admin\n'), false);
+  assert.equal(blocksAll('User-agent: *\nDisallow: / # everything\n'), true);
+});
+
+test('SEO: JSON-LD as a top-level array is valid', { skip }, async () => {
+  const f = (await run(seoPass, '/array-ld.html', { checkRobots: false })).join('\n');
+  assert.doesNotMatch(f, /SE-15|SE-16/, f);
+});
+
+test('perf: CSS-sized images pass PF-09; cross-origin font-display:block fails PF-14', { skip, timeout: 120000 }, async () => {
+  assert.doesNotMatch((await run(perfPass, '/css-sized.html')).join('\n'), /PF-09/);
+  assert.match((await run(perfPass, '/xfont.html')).join('\n'), /MUST PF-14.*/);
 });

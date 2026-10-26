@@ -38,7 +38,7 @@
   --color-illus-accent-2: oklch(from var(--color-accent-base) 0.8 calc(c * 0.6) h);
   --color-illus-accent-3: oklch(from var(--color-brand) 0.88 calc(c * 0.4) h);
   --color-illus-shadow: oklch(from var(--color-fg) l c h / 0.12);
-  --font-sans: Inter, "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
+  --font-sans: Inter, "Inter Fallback", "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
   --font-display: var(--font-sans);
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   --font-weight-display: 650;

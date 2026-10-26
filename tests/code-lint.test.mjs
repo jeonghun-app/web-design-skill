@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { test } from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { RULES, lintProject, lintSource } from '../skills/web-design/scripts/code-lint.mjs';
@@ -64,6 +65,31 @@ test('allow comment on the line or up to 3 lines above suppresses one rule', () 
 test('hash links and data URIs are not raw colors', () => {
   assert.deepEqual(ids(`<a href="#features">x</a> <a href="#/app">y</a>`), []);
   assert.deepEqual(ids(`const bg = "url(data:image/svg+xml,%23fff)"`), []);
+});
+
+test('review regressions: letter-only hex, handler-only drag exemption, multi-line tags', () => {
+  assert.ok(ids(`<path fill="#ccc" />`).includes('CL-01'));
+  assert.ok(ids(`const c = '#fff'`).includes('CL-01'));
+  assert.ok(!ids(`<a href="#fade">x</a>`).includes('CL-01'));
+  assert.ok(ids(`<span className="panel" onMouseDown={save}>x</span>`).includes('CL-05'));
+  assert.ok(!ids(`<div role="separator" onPointerDown={startResize} />`).includes('CL-05'));
+  assert.ok(ids(`<div\n  className="card"\n  onClick={open}\n>`).includes('CL-09'));
+  const img = ids(`<img\n  src={u}\n  onLoad={() => setReady(true)}\n  alt=""\n  width={10}\n  height={10}\n/>`);
+  assert.ok(!img.includes('CL-07') && !img.includes('CL-08'), JSON.stringify(img));
+  assert.ok(ids(`export const viewport = { maximumScale: 1 }`, 'app/layout.tsx').includes('CL-10'));
+});
+
+test('the CLI runs from paths with spaces and Hangul, and lints app/', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), '내 사이트 '));
+  fs.mkdirSync(path.join(dir, 'app', 'bad'), { recursive: true });
+  fs.writeFileSync(path.join(dir, 'app', 'bad', 'page.tsx'), 'export default () => <div onClick={go} className="text-gray-500" />\n');
+  const script = fileURLToPath(new URL('../skills/web-design/scripts/code-lint.mjs', import.meta.url));
+  fs.cpSync(path.dirname(script), path.join(dir, 'scripts'), { recursive: true });
+  const r = spawnSync(process.execPath, [path.join(dir, 'scripts', 'code-lint.mjs'), '--root', dir], { encoding: 'utf8' });
+  assert.equal(r.status, 1, r.stdout + r.stderr);
+  assert.match(r.stdout, /CL-09/);
+  assert.match(r.stdout, /CL-02/);
+  fs.rmSync(dir, { recursive: true });
 });
 
 test('the template has no errors', () => {

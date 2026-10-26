@@ -7,7 +7,8 @@ export const MOBILE_SLOW_4G = { latency: 562.5, download: (1474.56 * 1024) / 8, 
 export const DEFAULT_BUDGETS = { jsKb: 170, cssKb: 50, fontKb: 150, fontFiles: 4, totalKb: 1500, lcpMs: 2500, tbtMs: 200, cls: 0.1 };
 
 const VITALS_INIT = () => {
-  const V = (window.__vitals = { lcp: null, lcpEl: null, cls: 0, fcp: null, longtasks: [] });
+  const V = (window.__vitals = { lcp: null, lcpEl: null, cls: 0, fcp: null, longtasks: [], shifts: [] });
+  const describe = (n) => (n && n.nodeType === 1 ? n.tagName.toLowerCase() + (n.id ? '#' + n.id : '') + (n.className && typeof n.className === 'string' ? '.' + n.className.trim().split(/\s+/).slice(0, 2).join('.') : '') : '?');
   const po = (type, cb) => { try { new PerformanceObserver((l) => l.getEntries().forEach(cb)).observe({ type, buffered: true }); } catch { /* unsupported */ } };
   po('paint', (e) => { if (e.name === 'first-contentful-paint') V.fcp = e.startTime; });
   po('largest-contentful-paint', (e) => { V.lcp = e.startTime; V.lcpEl = e.element ? e.element.tagName.toLowerCase() + (e.element.id ? '#' + e.element.id : '') : null; window.__lcpNode = e.element; });
@@ -15,6 +16,8 @@ const VITALS_INIT = () => {
   let win = 0, first = 0, last = 0;
   po('layout-shift', (e) => {
     if (e.hadRecentInput) return;
+    // Keep what moved, so a CLS failure names its cause.
+    if (e.value > 0.01) V.shifts.push({ t: Math.round(e.startTime), v: +e.value.toFixed(3), src: (e.sources ?? []).slice(0, 2).map((x) => describe(x.node)).join(' + ') });
     if (win && e.startTime - last < 1000 && e.startTime - first < 5000) win += e.value;
     else { win = e.value; first = e.startTime; }
     last = e.startTime;
@@ -37,7 +40,9 @@ export async function perfPass(browser, target, ctx, add, budgets = {}) {
   page.on('requestfinished', async (r) => {
     const s = await r.sizes().catch(() => null);
     const res = await r.response().catch(() => null);
-    rows.push({ url: r.url(), type: r.resourceType(), start: r.timing().startTime, bytes: s ? s.responseBodySize + s.responseHeadersSize : 0, enc: res?.headers()['content-encoding'] ?? null, ct: res?.headers()['content-type'] ?? '' });
+    // Cross-origin stylesheets can't be read through the CSSOM, so keep their text for PF-14.
+    const css = r.resourceType() === 'stylesheet' && res ? await res.text().catch(() => '') : '';
+    rows.push({ url: r.url(), css, type: r.resourceType(), start: r.timing().startTime, bytes: s ? s.responseBodySize + s.responseHeadersSize : 0, enc: res?.headers()['content-encoding'] ?? null, ct: res?.headers()['content-type'] ?? '' });
   });
   const response = await page.goto(target, { waitUntil: 'load', timeout: 120000 });
   const loadAt = Date.now();
@@ -53,12 +58,23 @@ export async function perfPass(browser, target, ctx, add, budgets = {}) {
     const fcp = V.fcp ?? 0;
     const tbt = V.longtasks.filter((t) => t.start >= fcp).reduce((s, t) => s + Math.max(0, t.dur - 50), 0);
     const lcpNode = window.__lcpNode;
+    // An image whose box CSS fixes (size-10, w-full h-48) doesn't shift when it loads. Test it by
+    // laying out a copy with no source: without CSS sizing it collapses to 0×0.
+    const cssSized = (el) => {
+      const c = el.cloneNode(false);
+      c.removeAttribute('src'); c.removeAttribute('srcset'); c.alt = '';
+      c.style.visibility = 'hidden';
+      el.after(c);
+      const r = c.getBoundingClientRect();
+      c.remove();
+      return r.width > 0 && r.height > 0;
+    };
     const imgs = [...document.images].map((el) => {
       const r = el.getBoundingClientRect();
       const need = r.width * devicePixelRatio;
       return {
         src: (el.currentSrc || el.src).slice(0, 100), natural: el.naturalWidth, need: Math.round(need), rendered: r.width > 0,
-        noDims: !(el.getAttribute('width') && el.getAttribute('height')) && !/\d/.test(getComputedStyle(el).aspectRatio),
+        noDims: !(el.getAttribute('width') && el.getAttribute('height')) && !/\d/.test(getComputedStyle(el).aspectRatio) && !cssSized(el),
         lazy: el.loading === 'lazy', fp: el.fetchPriority, isLcp: el === lcpNode, aboveFold: r.top + scrollY < innerHeight,
       };
     });
@@ -70,7 +86,7 @@ export async function perfPass(browser, target, ctx, add, budgets = {}) {
     // The async *property* is true for script-inserted scripts (force-async) even without the
     // attribute, so only parser-inserted classic scripts count as render-blocking.
     const blocking = [...document.querySelectorAll('head script[src]')].filter((s) => !s.async && !s.defer && s.type !== 'module' && !s.noModule).map((s) => s.src);
-    return { fcp: V.fcp, lcp: V.lcp, lcpEl: V.lcpEl, cls: V.cls, tbt, imgs, faces, blocking, lcpIsImg: lcpNode?.tagName === 'IMG' };
+    return { fcp: V.fcp, lcp: V.lcp, lcpEl: V.lcpEl, cls: V.cls, shifts: V.shifts.sort((a, b) => b.v - a.v).slice(0, 5), tbt, imgs, faces, blocking, lcpIsImg: lcpNode?.tagName === 'IMG' };
   });
   await context.close();
 
@@ -85,7 +101,7 @@ export async function perfPass(browser, target, ctx, add, budgets = {}) {
   if (m.lcp == null) add('PF-01', 'SHOULD', ctx, 'LCP was not reported');
   else if (m.lcp > 4000) add('PF-01', 'MUST', ctx, `LCP ${Math.round(m.lcp)} ms on slow 4G (> 4000 ms)`, [m.lcpEl ?? '?']);
   else if (m.lcp > B.lcpMs) add('PF-01', 'SHOULD', ctx, `LCP ${Math.round(m.lcp)} ms on slow 4G (> ${B.lcpMs} ms)`, [m.lcpEl ?? '?']);
-  if (m.cls > B.cls) add('PF-02', 'MUST', ctx, `CLS ${m.cls.toFixed(3)} (> ${B.cls})`);
+  if (m.cls > B.cls) add('PF-02', 'MUST', ctx, `CLS ${m.cls.toFixed(3)} (> ${B.cls})`, m.shifts.map((x) => `${x.v} at ${x.t} ms: ${x.src}`));
   if (m.tbt > 600) add('PF-03', 'MUST', ctx, `TBT ${Math.round(m.tbt)} ms at 4× CPU (> 600 ms)`);
   else if (m.tbt > B.tbtMs) add('PF-03', 'SHOULD', ctx, `TBT ${Math.round(m.tbt)} ms at 4× CPU (> ${B.tbtMs} ms)`);
   if (kb(bytes.js) > B.jsKb) add('PF-07', 'MUST', ctx, `JavaScript ${kb(bytes.js)} KB over the wire before load (budget ${B.jsKb} KB)`);
@@ -103,7 +119,13 @@ export async function perfPass(browser, target, ctx, add, budgets = {}) {
   if (eager.length) add('PF-13', 'SHOULD', ctx, 'below-the-fold images are not lazy-loaded', eager.map((i) => i.src));
   // Faces that only point at local() fonts (metric-adjusted fallbacks) never wait on the network.
   const localOnly = (f) => f.src && !/url\(/.test(f.src) && /local\(/.test(f.src);
-  const badDisplay = m.faces.filter((f) => f.display && !/swap|optional|fallback/.test(f.display) && !localOnly(f));
+  const fromCss = rows.filter((r) => r.css).flatMap((r) => [...r.css.matchAll(/@font-face\s*\{([^}]*)\}/g)].map((f) => ({
+    family: (f[1].match(/font-family\s*:\s*([^;]+)/)?.[1] ?? '?').trim(),
+    display: (f[1].match(/font-display\s*:\s*([^;]+)/)?.[1] ?? 'auto').trim(),
+    src: f[1].match(/src\s*:\s*([^;]+)/)?.[1] ?? '',
+  })));
+  const faces = [...m.faces.filter((f) => f.family), ...fromCss];
+  const badDisplay = [...new Map(faces.filter((f) => !/swap|optional|fallback/.test(f.display) && !localOnly(f)).map((f) => [f.family, f])).values()];
   if (badDisplay.length) add('PF-14', 'MUST', ctx, 'font faces without font-display swap/optional/fallback', badDisplay.map((f) => f.family));
   if (fontFiles > B.fontFiles) add('PF-15', 'SHOULD', ctx, `${fontFiles} font files on first load (budget ${B.fontFiles})`);
   if (m.blocking.length) add('PF-18', 'MUST', ctx, 'render-blocking scripts in <head>', m.blocking);
@@ -128,7 +150,13 @@ const SEO_PROBE = () => {
   const lang = document.documentElement.lang;
   let langOk = false; try { langOk = !!(lang && Intl.getCanonicalLocales(lang)[0]); } catch { langOk = false; }
   const ld = $$('script[type="application/ld+json"]').map((s) => {
-    try { const j = JSON.parse(s.textContent); const items = [].concat(j['@graph'] ?? j); return { ok: true, types: items.map((i) => i['@type']), ctx: /schema\.org/.test(JSON.stringify(j['@context'] ?? '')) }; }
+    // A block may be one object, an @graph, or a top-level array of either; each node needs a schema.org context.
+    try {
+      const j = JSON.parse(s.textContent);
+      const roots = [].concat(j);
+      const items = roots.flatMap((r) => [].concat(r?.['@graph'] ?? r));
+      return { ok: true, types: items.map((i) => i?.['@type']), ctx: roots.every((r) => /schema\.org/.test(JSON.stringify(r?.['@context'] ?? ''))) };
+    }
     catch (e) { return { ok: false, err: String(e.message).slice(0, 60) }; }
   });
   const c = document.createElement('canvas').getContext('2d');
@@ -152,6 +180,29 @@ const SEO_PROBE = () => {
     imgNoAlt: $$('img').filter((i) => !i.hasAttribute('alt') || /\.(jpe?g|png|webp|avif)$|^(img|image|photo)\d*$/i.test(i.alt)).map((i) => i.currentSrc || i.src),
   };
 };
+
+// True if the group that applies to every crawler (User-agent: *) disallows "/" without allowing it
+// back. Groups for other agents (e.g. blocking one AI crawler) don't count.
+export function blocksAll(txt) {
+  const groups = [];
+  let cur = null, lastWasAgent = false;
+  for (const raw of txt.split(/\r?\n/)) {
+    const line = raw.replace(/#.*/, '').trim();
+    const m = line.match(/^([a-z-]+)\s*:\s*(.*)$/i);
+    if (!m) continue;
+    const [key, val] = [m[1].toLowerCase(), m[2].trim()];
+    if (key === 'user-agent') {
+      if (!lastWasAgent) groups.push((cur = { agents: [], rules: [] }));
+      cur.agents.push(val.toLowerCase());
+      lastWasAgent = true;
+    } else {
+      lastWasAgent = false;
+      if (cur && (key === 'allow' || key === 'disallow')) cur.rules.push([key, val]);
+    }
+  }
+  return groups.filter((g) => g.agents.includes('*')).some((g) =>
+    g.rules.some(([k, v]) => k === 'disallow' && v === '/') && !g.rules.some(([k, v]) => k === 'allow' && (v === '/' || v === '/*')));
+}
 
 export async function seoPass(browser, target, ctx, add, { checkRobots = true } = {}) {
   // JS pass (what search engines render) and no-JS pass (what share crawlers read).
@@ -203,7 +254,7 @@ export async function seoPass(browser, target, ctx, add, { checkRobots = true } 
   if (types.some((t) => t === 'FAQPage' || t === 'HowTo')) add('SE-18', 'SHOULD', ctx, 'FAQPage/HowTo markup no longer earns rich results; do not promise them');
   if (checkRobots) {
     if (!robotsTxt) add('SE-20', 'MUST', ctx, '/robots.txt missing or not text/plain');
-    else if (/User-agent:\s*\*[\s\S]*?^Disallow:\s*\/\s*$/im.test(robotsTxt)) add('SE-20', 'MUST', ctx, 'robots.txt disallows the whole site');
+    else if (blocksAll(robotsTxt)) add('SE-20', 'MUST', ctx, 'robots.txt disallows the whole site');
     if (!sitemapOk) add('SE-20', 'SHOULD', ctx, 'no sitemap.xml');
   }
   if (s.jsLinks.length) add('SE-21', 'MUST', ctx, 'links without a real href (not crawlable)', s.jsLinks);

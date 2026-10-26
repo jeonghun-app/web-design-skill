@@ -30,6 +30,7 @@ export const metadata: Metadata = {
 
 // theme-color = color.bg (light/dark) from tokens.resolved.json, as hex for browser support.
 export const viewport: Viewport = {
+  // design-lint-allow CL-01 theme-color must be a literal the browser chrome understands
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#fbfcfd' },
     { media: '(prefers-color-scheme: dark)', color: '#0b0d11' },

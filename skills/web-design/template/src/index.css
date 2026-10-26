@@ -53,6 +53,17 @@
   [data-slot="illustration"] .illus-shadow * { fill: none !important; stroke: none !important; }
 }
 
+/* Metric-matched stand-in while Inter downloads, so the swap doesn't reflow the page (PF-02).
+   Same overrides next/font computes for Inter; Liberation Sans and Arimo share Arial's metrics. */
+@font-face {
+  font-family: "Inter Fallback";
+  src: local("Arial"), local("ArialMT"), local("Liberation Sans"), local("Arimo"), local("Helvetica");
+  ascent-override: 90.44%;
+  descent-override: 22.52%;
+  line-gap-override: 0%;
+  size-adjust: 107.12%;
+}
+
 @layer base {
   html {
     scroll-padding-top: calc(var(--layout-nav-h) + 1rem); /* FK-03: focus never hides under the sticky nav */

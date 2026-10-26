@@ -40,16 +40,16 @@ Defaults are below. Override per project in `design/web-design.config.json` → 
 | ID | Level | Rule | How the template meets it |
 |---|---|---|---|
 | PF-01 | MUST > 4 s, SHOULD > budget | LCP within budget on slow 4G | Fonts linked from the head; route chunks preloaded (PF-05); hero text needs no JS beyond the entry |
-| PF-02 | MUST | CLS ≤ 0.1 | Sized media, skeletons that reserve the final size, `font-display: swap` |
+| PF-02 | MUST | CLS ≤ 0.1. The finding names the elements that moved. | Sized media, skeletons that reserve the final size, `font-display: swap` with a metric-matched fallback (`Inter Fallback` in `index.css`; `next/font` makes its own) |
 | PF-03 | MUST > 600 ms, SHOULD > budget | TBT within budget | No heavy work at startup. Split work with `scheduler.yield()` or `setTimeout` if a task runs past 50 ms. |
 | PF-05 | practice | **No request waterfalls on the critical path.** A lazy route's chunk must not wait for the entry to run. | The `route-preload` Vite plugin writes a tiny inline script that modulepreloads the current hash route's chunks in parallel with the entry. |
 | PF-07 | MUST (JS), SHOULD (others) | Stay inside the byte budgets | Lazy routes; the motion engine loads after `load` (`src/lib/motion.tsx`, `LazyMotion strict`); providers live on the page that needs them (tooltip on `#/app`) |
 | PF-08 | SHOULD | No image more than 2× its rendered pixel width | `srcset`/`sizes`, or export at 2× the largest rendered size |
-| PF-09 | MUST | Every image has width and height, or an aspect ratio | `width`/`height` attributes or an `aspect-*` class (also CL-08) |
+| PF-09 | MUST | Every image has width and height, an aspect ratio, or a box fixed by CSS (`size-10`) | `width`/`height` attributes or an `aspect-*` class (also CL-08) |
 | PF-10 | MUST | Never lazy-load the LCP image | `loading="lazy"` only below the fold |
 | PF-11 | SHOULD | The LCP image has `fetchpriority="high"` | |
 | PF-13 | SHOULD | Below-the-fold images are lazy-loaded | |
-| PF-14 | MUST | Every `@font-face` uses `font-display: swap`, `optional` or `fallback` | Font URLs carry `display=swap` |
+| PF-14 | MUST | Every `@font-face` uses `font-display: swap`, `optional` or `fallback`. Cross-origin stylesheets (Google Fonts, CDNs) are read from the responses. Faces that only use `local()` (metric fallbacks) are exempt. | Font URLs carry `display=swap` |
 | PF-15 | SHOULD | ≤ 4 font files on first load | Variable fonts; one family for text, at most one for display |
 | PF-16 | practice | **Fonts never chain behind CSS.** Link font stylesheets from the HTML head with `preconnect`. Don't `@import` them from the bundle. Load a trend's extra fonts only when that trend is on. | `build-tokens` writes `src/design/fonts.json`. The `design-fonts` plugin links the eager set, and `src/lib/trend-fonts.ts` loads the rest on demand. |
 | PF-18 | MUST | No render-blocking scripts in `<head>` | Module scripts are deferred by default. Inline scripts stay tiny (theme, route preload). |
@@ -88,7 +88,7 @@ The SEO pass runs twice. It runs once with JavaScript, as search engines render 
 | SE-15 | MUST | Every JSON-LD block parses and uses the schema.org context |
 | SE-16 | SHOULD | The home page has `Organization` + `WebSite` structured data |
 | SE-18 | SHOULD | Don't add `FAQPage`/`HowTo` markup to earn rich results; those results have been withdrawn for most sites. |
-| SE-20 | MUST: `/robots.txt` exists as text/plain and doesn't block the whole site. SHOULD: a sitemap |
+| SE-20 | MUST: `/robots.txt` exists as text/plain, and its `User-agent: *` group doesn't disallow `/`. Blocking a single crawler is fine. SHOULD: a sitemap |
 | SE-21 | MUST | Every `<a>` has a real `href`. `href="#"` and `javascript:` links are not crawlable and break open-in-new-tab. |
 | SE-23 | MUST | Every image has `alt`. A filename is not an alt. |
 
@@ -98,7 +98,7 @@ The SEO pass runs twice. It runs once with JavaScript, as search engines render 
 
 ## Code discipline rules (CL)
 
-`code-lint.mjs` catches in seconds what would otherwise surface late in the browser audit or in review. It scans `src/**` (except generated `src/design/`, tests and `.figma.tsx`) and `index.html`. The build fails on any **E**.
+`code-lint.mjs` catches in seconds what would otherwise surface late in the browser audit or in review. It scans `src/**` and, in Next projects, `app/**` (except generated `src/design/`, tests and Code Connect templates), plus `index.html`. The build fails on any **E**.
 
 | ID | Sev | Catches | Fix |
 |---|---|---|---|
@@ -111,7 +111,7 @@ The SEO pass runs twice. It runs once with JavaScript, as search engines render 
 | CL-07 | E | `<img>` without `alt` | `alt=""` or a description |
 | CL-08 | W | `<img>` without size or aspect ratio | `width`/`height` |
 | CL-09 | E | `onClick` on a div, span, li, etc. without a role | `<button>` or `<a href>` |
-| CL-10 | E | Zoom disabled in the viewport meta | Remove `maximum-scale`/`user-scalable` |
+| CL-10 | E | Zoom disabled: the viewport meta, or a Next `viewport` export with `maximumScale: 1` / `userScalable: false` | Remove them |
 | CL-11 | W | Transition on width, height, top, left, margin or padding | `transform`/`opacity` |
 | CL-12 | W | `dangerouslySetInnerHTML` | Structured content, or sanitize and explain |
 | CL-13 | W | Raw `z-20`+ | `z-(--layer-*)` |

@@ -74,6 +74,8 @@ cd web-design-skill
 cd skills/web-design/template && npm install && npx playwright install chromium
 ```
 
+macOS와 Linux, Node 22 또는 24에서 동작합니다. Windows에서는 WSL을 쓰세요. 감사 스크립트가 미리보기 서버를 `npx`로 띄우고 POSIX 프로세스 그룹으로 종료하기 때문입니다.
+
 Figma 작업을 하려면 공식 Figma MCP 서버를 Claude Code에 등록하고 `/mcp`로 인증하세요.
 
 ## 사용

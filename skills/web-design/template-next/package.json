@@ -7,7 +7,7 @@
     "dev": "next dev",
     "build": "npm run tokens -- --check && npm run lint:design && next build",
     "start": "next start",
-    "build:static": "NEXT_OUTPUT=export next build",
+    "build:static": "npm run tokens -- --check && npm run lint:design && next build",
     "tokens": "node design/scripts/build-tokens.mjs",
     "trend": "node design/scripts/trend.mjs",
     "audit": "node design/scripts/audit.mjs",

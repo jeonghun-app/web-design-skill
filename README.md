@@ -74,6 +74,8 @@ cd web-design-skill
 cd skills/web-design/template && npm install && npx playwright install chromium
 ```
 
+Runs on macOS and Linux with Node 22 or 24. On Windows, use WSL: the audit starts its preview server through `npx` and stops it as a POSIX process group.
+
 For Figma work, add the official Figma MCP server to Claude Code and authenticate it with `/mcp`.
 
 ## Use

@@ -5,12 +5,14 @@
 //
 //   code-lint.mjs [--root <project>] [--json]
 //
-// Scans src/**/*.{tsx,ts,jsx,js,css} and index.html. Generated token files are skipped.
+// Scans src/** and app/** (Next.js routes) for .tsx/.ts/.jsx/.js/.css, plus index.html.
+// Generated token files are skipped.
 // Suppress a deliberate case on that line with: // design-lint-allow CL-xx <reason>
 // Exit 1 when any error (E) is found.
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { parseArgs } from './lib/tokens.mjs';
 
 const args = parseArgs(process.argv.slice(2));
@@ -48,6 +50,26 @@ function walk(dir, out = []) {
 const PALETTE = 'slate|gray|zinc|neutral|stone|mauve|olive|mist|taupe|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose|white|black';
 const COLOR_UTIL = 'bg|text|border|ring|outline|fill|stroke|from|via|to|decoration|divide|placeholder|caret|accent|shadow';
 
+// The text of a JSX opening tag starting at lines[i][col], across lines. Skips {…} expressions
+// and quoted strings, so `onLoad={() => x}` doesn't end the tag at its `>`.
+function tagText(lines, i, col) {
+  let out = '', depth = 0, quote = null;
+  for (let j = i; j < lines.length && j < i + 40; j++) {
+    const l = j === i ? lines[j].slice(col) : lines[j];
+    for (let k = 0; k < l.length; k++) {
+      const c = l[k];
+      out += c;
+      if (quote) { if (c === quote) quote = null; continue; }
+      if (c === '"' || c === "'" || c === '`') quote = c;
+      else if (c === '{') depth++;
+      else if (c === '}') depth--;
+      else if (c === '>' && depth === 0 && k > 0) return out;
+    }
+    out += ' ';
+  }
+  return out;
+}
+
 export function lintSource(file, src) {
   const findings = [];
   const isCss = file.endsWith('.css');
@@ -62,7 +84,9 @@ export function lintSource(file, src) {
     const code = line.replace(/\/\/.*$/, '').replace(/\/\*.*?\*\//g, '');
     // CL-01 raw colors (data: URIs and url-encoded SVG are allowed)
     const noData = code.replace(/url\(["']?data:[^)]*\)/g, '');
-    if (/(?<![\w&-])#[0-9a-f]{3,8}\b(?![\w-])/i.test(noData) && !/href=|#\/|#main|#[a-z-]+['"`]/i.test(noData) && /['"`:\s(]#[0-9a-f]{3,8}\b/i.test(noData)) add('CL-01', i, line);
+    // Only valid hex lengths, and not a fragment link (href="#fade" is an id, not a color).
+    const hex = noData.replace(/\bhref=(["'`{]+)#[\w-]*/g, '').match(/(?<![\w&#-])#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})(?![\w-])/i);
+    if (hex && /['"`:\s(,]$/.test(noData.slice(0, hex.index) || ' ')) add('CL-01', i, line);
     if (/\b(rgba?|hsla?|oklch|oklab|lab|lch)\(\s*[\d.]/i.test(noData)) add('CL-01', i, line);
     if (!isCss) {
       if (new RegExp(`(?<![\\w-])(?:[a-z-]+:)*(?:${COLOR_UTIL})-(?:${PALETTE})(?:-\\d{2,3})?(?:/\\d+)?(?![\\w-])`).test(code)) add('CL-02', i, line);
@@ -71,16 +95,22 @@ export function lintSource(file, src) {
       if (/(?<![\w-])(?:[a-z-]+:)*z-\[\d+\]/.test(code)) add('CL-03', i, line);
       if (/(?<![\w-])(?:[a-z-]+:)*z-([2-9]\d|\d{3,})(?![\w-])/.test(code)) add('CL-13', i, line);
       if (/(?<![\w:-])(?:focus:)?outline-none\b/.test(code) && !/focus-visible:/.test(code)) add('CL-04', i, line);
-      if (/\bon(?:MouseDown|PointerDown|TouchStart)=\{/.test(code) && !/drag|resize|pan/i.test(code)) add('CL-05', i, line);
-      if (/tabIndex=\{?["']?([1-9]\d*)/.test(code)) add('CL-06', i, line);
-      if (/<img\b/.test(code)) {
-        // look ahead to the end of the tag
-        let tag = code, j = i;
-        while (!/\/?>/.test(tag) && j < lines.length - 1) tag += ' ' + lines[++j];
-        if (!/\balt=/.test(tag)) add('CL-07', i, line);
-        if (!(/\bwidth=/.test(tag) && /\bheight=/.test(tag)) && !/aspect-|size-|\bfill\b/.test(tag)) add('CL-08', i, line);
+      // Drag, resize and pan legitimately start on pointer down; judge by the handler, not the whole line.
+      for (const h of code.matchAll(/\bon(?:MouseDown|PointerDown|TouchStart)=\{([^}]*)\}?/g)) {
+        if (!/drag|resize|pan(?![a-z])/i.test(h[1])) { add('CL-05', i, line); break; }
       }
-      if (/<(div|span|li|p|section|article|img|svg)\b[^>]*\bonClick=/.test(code) && !/\brole=/.test(code)) add('CL-09', i, line);
+      if (/tabIndex=\{?["']?([1-9]\d*)/.test(code)) add('CL-06', i, line);
+      const open = code.match(/<(img|div|span|li|p|section|article|svg)\b/);
+      if (open) {
+        const tag = tagText(lines, i, code.indexOf(open[0]));
+        if (open[1] === 'img') {
+          if (!/\balt=/.test(tag)) add('CL-07', i, line);
+          if (!(/\bwidth=/.test(tag) && /\bheight=/.test(tag)) && !/aspect-|size-|\bfill\b/.test(tag)) add('CL-08', i, line);
+        }
+        if (/\bonClick=/.test(tag) && !/\brole=/.test(tag)) add('CL-09', i, line);
+      }
+      // CL-10 for Next.js: the viewport export instead of a meta tag.
+      if (/\bmaximumScale\s*:\s*(0?\.\d+|1(\.0+)?)\b|\buserScalable\s*:\s*false\b/.test(code)) add('CL-10', i, line);
       if (/transition-\[[^\]]*\b(width|height|top|left|right|bottom|margin|padding)\b/.test(code) || /transition-(?:all|\[all\])/.test(code) && /hover:(?:w|h|p|m)-/.test(code)) add('CL-11', i, line);
       if (/dangerouslySetInnerHTML/.test(code)) add('CL-12', i, line);
     } else {
@@ -95,7 +125,7 @@ export function lintSource(file, src) {
 }
 
 export function lintProject(dir) {
-  const files = walk(path.join(dir, 'src'));
+  const files = [...walk(path.join(dir, 'src')), ...walk(path.join(dir, 'app'))];
   const findings = files.flatMap((f) => lintSource(path.relative(dir, f), fs.readFileSync(f, 'utf8')));
   const html = path.join(dir, 'index.html');
   if (fs.existsSync(html)) {
@@ -117,7 +147,8 @@ function report(findings) {
   return { text: lines.join('\n'), errors };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+// pathToFileURL: a plain file:// string differs on Windows and for paths with spaces or Hangul.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const findings = lintProject(root);
   if (args.json) console.log(JSON.stringify(findings, null, 2));
   else console.log(report(findings).text);

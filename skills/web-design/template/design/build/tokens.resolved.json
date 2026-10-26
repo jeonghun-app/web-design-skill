@@ -38,6 +38,7 @@
       "color.illus-shadow": "oklch(from oklch(0.2 0.015 264) l c h / 0.12)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -47,7 +48,7 @@
         "Apple SD Gothic Neo",
         "sans-serif"
       ],
-      "font.display": "Inter,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
+      "font.display": "Inter,Inter Fallback,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
       "font.mono": [
         "JetBrains Mono",
         "ui-monospace",
@@ -173,6 +174,7 @@
       "color.illus-shadow": "oklch(0 0 0 / 0.35)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -182,7 +184,7 @@
         "Apple SD Gothic Neo",
         "sans-serif"
       ],
-      "font.display": "Inter,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
+      "font.display": "Inter,Inter Fallback,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
       "font.mono": [
         "JetBrains Mono",
         "ui-monospace",
@@ -310,6 +312,7 @@
       "color.illus-shadow": "oklch(from oklch(0.23 0.006 250) l c h / 0.12)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -319,7 +322,7 @@
         "Apple SD Gothic Neo",
         "sans-serif"
       ],
-      "font.display": "Inter,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
+      "font.display": "Inter,Inter Fallback,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
       "font.mono": [
         "JetBrains Mono",
         "ui-monospace",
@@ -445,6 +448,7 @@
       "color.illus-shadow": "oklch(0 0 0 / 0.35)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -454,7 +458,7 @@
         "Apple SD Gothic Neo",
         "sans-serif"
       ],
-      "font.display": "Inter,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
+      "font.display": "Inter,Inter Fallback,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
       "font.mono": [
         "JetBrains Mono",
         "ui-monospace",
@@ -582,6 +586,7 @@
       "color.illus-shadow": "oklch(from oklch(0.2 0.012 260) l c h / 0.12)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -591,7 +596,7 @@
         "Apple SD Gothic Neo",
         "sans-serif"
       ],
-      "font.display": "Inter,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
+      "font.display": "Inter,Inter Fallback,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
       "font.mono": [
         "JetBrains Mono",
         "ui-monospace",
@@ -717,6 +722,7 @@
       "color.illus-shadow": "oklch(0 0 0 / 0.35)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -726,7 +732,7 @@
         "Apple SD Gothic Neo",
         "sans-serif"
       ],
-      "font.display": "Inter,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
+      "font.display": "Inter,Inter Fallback,Pretendard Variable,Pretendard,ui-sans-serif,system-ui,-apple-system,Segoe UI,Apple SD Gothic Neo,sans-serif",
       "font.mono": [
         "JetBrains Mono",
         "ui-monospace",
@@ -854,6 +860,7 @@
       "color.illus-shadow": "oklch(from oklch(0.13 0 0) l c h / 0.12)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -995,6 +1002,7 @@
       "color.illus-shadow": "oklch(0 0 0 / 0.35)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -1138,6 +1146,7 @@
       "color.illus-shadow": "oklch(0.15 0 0)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -1285,6 +1294,7 @@
       "color.illus-shadow": "oklch(0.97 0.02 95)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -1434,6 +1444,7 @@
       "color.illus-shadow": "oklch(from oklch(0.2 0.01 60) l c h / 0.12)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -1573,6 +1584,7 @@
       "color.illus-shadow": "oklch(0 0 0 / 0.35)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -1978,6 +1990,7 @@
       "color.illus-shadow": "oklch(from oklch(0.25 0.02 60) l c h / 0.12)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
@@ -2117,6 +2130,7 @@
       "color.illus-shadow": "oklch(0 0 0 / 0.35)",
       "font.sans": [
         "Inter",
+        "Inter Fallback",
         "Pretendard Variable",
         "Pretendard",
         "ui-sans-serif",
