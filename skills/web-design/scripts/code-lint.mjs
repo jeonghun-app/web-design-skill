@@ -85,8 +85,12 @@ export function lintSource(file, src) {
     // CL-01 raw colors (data: URIs and url-encoded SVG are allowed)
     const noData = code.replace(/url\(["']?data:[^)]*\)/g, '');
     // Only valid hex lengths, and not a fragment link (href="#fade" is an id, not a color).
-    const hex = noData.replace(/\bhref=(["'`{]+)#[\w-]*/g, '').match(/(?<![\w&#-])#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})(?![\w-])/i);
-    if (hex && /['"`:\s(,]$/.test(noData.slice(0, hex.index) || ' ')) add('CL-01', i, line);
+    // Hex with a digit is a color. Letter-only hex (#fff, but also #feed, #add) is a color only
+    // in a color context, so ids in selectors and hashes aren't flagged.
+    const colorContext = isCss || /\b(fill|stroke|colou?r|background|border|shadow|stop-?color|theme-?color|outline|accent|caret|tint)\w*["']?\s*[:=]/i.test(noData);
+    for (const hex of noData.replace(/\bhref=(["'`{]+)#[\w-]*/g, '').matchAll(/(?<![\w&#-])#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})(?![\w-])/gi)) {
+      if ((/\d/.test(hex[0]) || colorContext) && /['"`:\s(,]$/.test(noData.slice(0, hex.index) || ' ')) { add('CL-01', i, line); break; }
+    }
     if (/\b(rgba?|hsla?|oklch|oklab|lab|lch)\(\s*[\d.]/i.test(noData)) add('CL-01', i, line);
     if (!isCss) {
       if (new RegExp(`(?<![\\w-])(?:[a-z-]+:)*(?:${COLOR_UTIL})-(?:${PALETTE})(?:-\\d{2,3})?(?:/\\d+)?(?![\\w-])`).test(code)) add('CL-02', i, line);
@@ -97,12 +101,12 @@ export function lintSource(file, src) {
       if (/(?<![\w:-])(?:focus:)?outline-none\b/.test(code) && !/focus-visible:/.test(code)) add('CL-04', i, line);
       // Drag, resize and pan legitimately start on pointer down; judge by the handler, not the whole line.
       for (const h of code.matchAll(/\bon(?:MouseDown|PointerDown|TouchStart)=\{([^}]*)\}?/g)) {
-        if (!/drag|resize|pan(?![a-z])/i.test(h[1])) { add('CL-05', i, line); break; }
+        if (!(/drag|resize/i.test(h[1]) || /(?:^|[^a-zA-Z])pan(?![a-z])|Pan(?![a-z])/.test(h[1]))) { add('CL-05', i, line); break; }
       }
       if (/tabIndex=\{?["']?([1-9]\d*)/.test(code)) add('CL-06', i, line);
-      const open = code.match(/<(img|div|span|li|p|section|article|svg)\b/);
-      if (open) {
-        const tag = tagText(lines, i, code.indexOf(open[0]));
+      // Every opening tag on the line: <div><img /></div> has two.
+      for (const open of code.matchAll(/<(img|div|span|li|p|section|article|svg)\b/g)) {
+        const tag = tagText(lines, i, open.index);
         if (open[1] === 'img') {
           if (!/\balt=/.test(tag)) add('CL-07', i, line);
           if (!(/\bwidth=/.test(tag) && /\bheight=/.test(tag)) && !/aspect-|size-|\bfill\b/.test(tag)) add('CL-08', i, line);

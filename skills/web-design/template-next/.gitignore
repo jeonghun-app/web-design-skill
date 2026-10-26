@@ -6,6 +6,6 @@ next-env.d.ts
 design/audit/
 .DS_Store
 .vitest/
-# Generated from SITE_URL by `npm run seo` (design/scripts/seo-files.mjs).
+# Generated from SITE_URL by next.config.ts (design/scripts/seo-files.mjs).
 public/robots.txt
 public/sitemap.xml

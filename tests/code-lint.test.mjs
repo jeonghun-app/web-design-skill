@@ -69,7 +69,8 @@ test('hash links and data URIs are not raw colors', () => {
 
 test('review regressions: letter-only hex, handler-only drag exemption, multi-line tags', () => {
   assert.ok(ids(`<path fill="#ccc" />`).includes('CL-01'));
-  assert.ok(ids(`const c = '#fff'`).includes('CL-01'));
+  // Letter-only hex needs a color context (#add could be an id); hex with a digit is always a color.
+  assert.ok(ids(`const brand = { color: '#fff' }`).includes('CL-01'));
   assert.ok(!ids(`<a href="#fade">x</a>`).includes('CL-01'));
   assert.ok(ids(`<span className="panel" onMouseDown={save}>x</span>`).includes('CL-05'));
   assert.ok(!ids(`<div role="separator" onPointerDown={startResize} />`).includes('CL-05'));
@@ -77,6 +78,14 @@ test('review regressions: letter-only hex, handler-only drag exemption, multi-li
   const img = ids(`<img\n  src={u}\n  onLoad={() => setReady(true)}\n  alt=""\n  width={10}\n  height={10}\n/>`);
   assert.ok(!img.includes('CL-07') && !img.includes('CL-08'), JSON.stringify(img));
   assert.ok(ids(`export const viewport = { maximumScale: 1 }`, 'app/layout.tsx').includes('CL-10'));
+  // Re-review: every tag on a line, ids aren't colors, camelCase pan handlers stay exempt.
+  assert.ok(ids(`<div className="avatar"><img src={url} /></div>`).includes('CL-07'));
+  assert.ok(ids(`<p>Hi <span onClick={go}>x</span></p>`).includes('CL-09'));
+  assert.ok(!ids(`document.querySelector('#feed')`).includes('CL-01'));
+  assert.ok(!ids(`if (location.hash === '#add') open()`).includes('CL-01'));
+  assert.ok(ids(`<rect fill="#fade" />`).includes('CL-01'));
+  assert.ok(ids(`const c = '#1a2b3c'`).includes('CL-01'));
+  assert.ok(!ids(`<div role="application" onPointerDown={handlePanStart} />`).includes('CL-05'));
 });
 
 test('the CLI runs from paths with spaces and Hangul, and lints app/', () => {

@@ -4,17 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run seo && next dev",
-    "build": "npm run tokens -- --check && npm run lint:design && npm run seo && next build",
+    "dev": "next dev",
+    "build": "npm run tokens -- --check && npm run lint:design && next build",
     "start": "next start",
-    "build:static": "npm run tokens -- --check && npm run lint:design && npm run seo && next build",
+    "build:static": "npm run tokens -- --check && npm run lint:design && next build",
     "tokens": "node design/scripts/build-tokens.mjs",
     "trend": "node design/scripts/trend.mjs",
     "audit": "node design/scripts/audit.mjs",
     "figma-sync": "node design/scripts/figma-sync.mjs",
     "lint:design": "node design/scripts/code-lint.mjs",
-    "test": "vitest run",
-    "seo": "node design/scripts/seo-files.mjs"
+    "test": "vitest run"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.3.1",

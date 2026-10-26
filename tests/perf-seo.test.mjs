@@ -98,6 +98,7 @@ test('SE-20: only the * group decides whether the whole site is blocked', () => 
   assert.equal(blocksAll('User-agent: GPTBot\nUser-agent: *\nDisallow: /\n'), true);
   assert.equal(blocksAll('User-agent: *\nDisallow: /admin\n'), false);
   assert.equal(blocksAll('User-agent: *\nDisallow: / # everything\n'), true);
+  assert.equal(blocksAll('User-agent: *\nDisallow: /*\n'), true);
 });
 
 test('SEO: JSON-LD as a top-level array is valid', { skip }, async () => {

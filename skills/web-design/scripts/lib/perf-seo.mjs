@@ -201,7 +201,7 @@ export function blocksAll(txt) {
     }
   }
   return groups.filter((g) => g.agents.includes('*')).some((g) =>
-    g.rules.some(([k, v]) => k === 'disallow' && v === '/') && !g.rules.some(([k, v]) => k === 'allow' && (v === '/' || v === '/*')));
+    g.rules.some(([k, v]) => k === 'disallow' && (v === '/' || v === '/*')) && !g.rules.some(([k, v]) => k === 'allow' && (v === '/' || v === '/*')));
 }
 
 export async function seoPass(browser, target, ctx, add, { checkRobots = true } = {}) {
