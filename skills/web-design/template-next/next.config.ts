@@ -8,7 +8,7 @@ const isExport = process.env.npm_lifecycle_event === 'build:static' || process.e
 const nextConfig: NextConfig = {
   // Partial prerendering: the static shell of every route is prerendered; anything dynamic
   // streams in behind <Suspense>. Default in create-next-app since 16.4.
-  cacheComponents: !isExport,
+  cacheComponents: !isExport, // Next can't prerender partially in export mode
   partialPrefetching: !isExport,
   reactStrictMode: true,
   ...(isExport && { output: 'export' as const, trailingSlash: true, images: { unoptimized: true } }),

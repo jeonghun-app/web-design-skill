@@ -46,6 +46,7 @@ skills/web-design/
     figma-lint.mjs         lint a Figma page against the authoring rules (L01–L30)
     audit.mjs              human-factors audit (Playwright + axe), slow-4G perf pass, SEO/share pass, visual regression
     code-lint.mjs          static design-discipline lint (CL-01 to CL-13), part of the build
+    seo-files.mjs          robots.txt + sitemap.xml from the site origin (Next projects)
     new-project.mjs        scaffold a self-contained Vite or Next.js project
   template/                Vite + React 19 + TypeScript + Tailwind v4 + Radix + cva + motion; Vitest browser tests; Code Connect
   template-next/           Next.js 16 App Router overlay: same src/, real routes, next/font, metadata, sitemap, robots

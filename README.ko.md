@@ -46,6 +46,7 @@ skills/web-design/
     figma-lint.mjs         Figma 페이지를 작성 규칙(L01–L30)에 맞춰 검사
     audit.mjs              휴먼 팩터 감사(Playwright + axe), 느린 4G 성능 측정, SEO와 공유 점검, 시각 회귀
     code-lint.mjs          디자인 규율 정적 린트(CL-01~CL-13), 빌드에 포함
+    seo-files.mjs          사이트 주소로 robots.txt와 sitemap.xml 생성(Next 프로젝트)
     new-project.mjs        독립 실행 가능한 Vite 또는 Next.js 프로젝트 생성
   template/                Vite + React 19 + TypeScript + Tailwind v4 + Radix + cva + motion, Vitest 브라우저 테스트, Code Connect
   template-next/           Next.js 16 App Router 오버레이: 같은 src/, 실제 경로, next/font, 메타데이터, sitemap, robots

@@ -54,6 +54,8 @@ if (framework === 'next') {
     accept: (cfg.audit?.accept ?? []).filter((a) => a.rule !== 'PF-01').map((a) => ({ ...a, page: toPath(a.page) })),
     budgets: { ...cfg.audit?.budgets, jsKb: 220 },
   };
+  // Indexable paths for sitemap.xml (npm run seo). The app demo stands in for a logged-in screen.
+  cfg.site = { ...cfg.site, sitemap: cfg.site?.sitemap ?? ['/', '/system'] };
   fs.writeFileSync(cfgFile, JSON.stringify(cfg, null, 2) + '\n');
 }
 fs.cpSync(path.join(SKILL_DIR, 'scripts'), path.join(dir, 'design', 'scripts'), { recursive: true, filter: (src) => path.basename(src) !== 'new-project.mjs' });
