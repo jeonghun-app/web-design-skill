@@ -1113,6 +1113,1271 @@
         },
         "scopes": [],
         "web": "var(--effect-card-hover-lift)"
+      },
+      {
+        "name": "layer/sticky",
+        "type": "FLOAT",
+        "values": {
+          "light": 100,
+          "dark": 100
+        },
+        "scopes": [],
+        "web": "var(--layer-sticky)"
+      },
+      {
+        "name": "layer/drawer",
+        "type": "FLOAT",
+        "values": {
+          "light": 200,
+          "dark": 200
+        },
+        "scopes": [],
+        "web": "var(--layer-drawer)"
+      },
+      {
+        "name": "layer/modal",
+        "type": "FLOAT",
+        "values": {
+          "light": 300,
+          "dark": 300
+        },
+        "scopes": [],
+        "web": "var(--layer-modal)"
+      },
+      {
+        "name": "layer/popover",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [],
+        "web": "var(--layer-popover)"
+      },
+      {
+        "name": "layer/toast",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [],
+        "web": "var(--layer-toast)"
+      },
+      {
+        "name": "layer/tooltip",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [],
+        "web": "var(--layer-tooltip)"
+      }
+    ],
+    "civic-clear": [
+      {
+        "name": "color/brand",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1706,
+            "g": 0.4184,
+            "b": 0.9068,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4523,
+            "g": 0.6395,
+            "b": 0.9877,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-brand)"
+      },
+      {
+        "name": "color/accent-base",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.5078,
+            "b": 0.2872,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3659,
+            "g": 0.7607,
+            "b": 0.5667,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent-base)"
+      },
+      {
+        "name": "color/bg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0613,
+            "g": 0.0699,
+            "b": 0.0791,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-bg)"
+      },
+      {
+        "name": "color/surface",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0935,
+            "g": 0.1056,
+            "b": 0.1186,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface)"
+      },
+      {
+        "name": "color/surface-raised",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1207,
+            "g": 0.1332,
+            "b": 0.1466,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-raised)"
+      },
+      {
+        "name": "color/surface-sunken",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9485,
+            "g": 0.955,
+            "b": 0.9621,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0364,
+            "g": 0.0446,
+            "b": 0.0534,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-surface-sunken)"
+      },
+      {
+        "name": "color/chrome",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 0.82
+          },
+          "dark": {
+            "r": 0.0613,
+            "g": 0.0699,
+            "b": 0.0791,
+            "a": 0.82
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-chrome)"
+      },
+      {
+        "name": "color/fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1052,
+            "g": 0.1143,
+            "b": 0.1242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.942,
+            "g": 0.9485,
+            "b": 0.9556,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg)"
+      },
+      {
+        "name": "color/fg-muted",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.2686,
+            "g": 0.2826,
+            "b": 0.2977,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.7326,
+            "g": 0.7451,
+            "b": 0.7586,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-muted)"
+      },
+      {
+        "name": "color/fg-subtle",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.4318,
+            "g": 0.4469,
+            "b": 0.4633,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5389,
+            "g": 0.5507,
+            "b": 0.5634,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-fg-subtle)"
+      },
+      {
+        "name": "color/border",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.837,
+            "g": 0.8455,
+            "b": 0.8547,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1875,
+            "g": 0.2008,
+            "b": 0.2151,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border)"
+      },
+      {
+        "name": "color/border-strong",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.3759,
+            "g": 0.3907,
+            "b": 0.4067,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5121,
+            "g": 0.5277,
+            "b": 0.5446,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-border-strong)"
+      },
+      {
+        "name": "color/primary",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1706,
+            "g": 0.4184,
+            "b": 0.9068,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4523,
+            "g": 0.6395,
+            "b": 0.9877,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary)"
+      },
+      {
+        "name": "color/primary-hover",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0971,
+            "g": 0.3427,
+            "b": 0.8254,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5233,
+            "g": 0.7149,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-hover)"
+      },
+      {
+        "name": "color/primary-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0399,
+            "g": 0.0684,
+            "b": 0.1209,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-fg)"
+      },
+      {
+        "name": "color/primary-soft",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8788,
+            "g": 0.9384,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1128,
+            "g": 0.1772,
+            "b": 0.2972,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-primary-soft)"
+      },
+      {
+        "name": "color/primary-soft-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.213,
+            "b": 0.6918,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.7331,
+            "g": 0.8486,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-soft-fg)"
+      },
+      {
+        "name": "color/primary-text",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0397,
+            "g": 0.2917,
+            "b": 0.7716,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.5714,
+            "g": 0.7659,
+            "b": 1,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-primary-text)"
+      },
+      {
+        "name": "color/accent",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0,
+            "g": 0.5078,
+            "b": 0.2872,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3659,
+            "g": 0.7607,
+            "b": 0.5667,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-accent)"
+      },
+      {
+        "name": "color/accent-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.019,
+            "g": 0.0847,
+            "b": 0.0507,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-accent-fg)"
+      },
+      {
+        "name": "color/ring",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1706,
+            "g": 0.4184,
+            "b": 0.9068,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.4523,
+            "g": 0.6395,
+            "b": 0.9877,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "STROKE_COLOR",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-ring)"
+      },
+      {
+        "name": "color/success",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1135,
+            "g": 0.4896,
+            "b": 0.242,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.3257,
+            "g": 0.746,
+            "b": 0.4404,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-success)"
+      },
+      {
+        "name": "color/success-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0162,
+            "g": 0.0659,
+            "b": 0.0258,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-success-fg)"
+      },
+      {
+        "name": "color/warning",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8959,
+            "g": 0.6198,
+            "b": 0.1315,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9486,
+            "g": 0.6881,
+            "b": 0.2829,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-warning)"
+      },
+      {
+        "name": "color/warning-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.1463,
+            "g": 0.0924,
+            "b": 0.014,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.1272,
+            "g": 0.0743,
+            "b": 0.0038,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-warning-fg)"
+      },
+      {
+        "name": "color/danger",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.8018,
+            "g": 0.1556,
+            "b": 0.1539,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.9644,
+            "g": 0.4289,
+            "b": 0.3852,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-danger)"
+      },
+      {
+        "name": "color/danger-fg",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.9868,
+            "g": 0.9868,
+            "b": 0.9868,
+            "a": 1
+          },
+          "dark": {
+            "r": 0.0953,
+            "g": 0.031,
+            "b": 0.0256,
+            "a": 1
+          }
+        },
+        "scopes": [
+          "TEXT_FILL"
+        ],
+        "web": "var(--color-danger-fg)"
+      },
+      {
+        "name": "color/overlay",
+        "type": "COLOR",
+        "values": {
+          "light": {
+            "r": 0.0353,
+            "g": 0.0438,
+            "b": 0.0607,
+            "a": 0.5
+          },
+          "dark": {
+            "r": 0,
+            "g": 0,
+            "b": 0,
+            "a": 0.6
+          }
+        },
+        "scopes": [
+          "FRAME_FILL",
+          "SHAPE_FILL",
+          "EFFECT_COLOR"
+        ],
+        "web": "var(--color-overlay)"
+      },
+      {
+        "name": "font/sans",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-sans)"
+      },
+      {
+        "name": "font/display",
+        "type": "STRING",
+        "values": {
+          "light": "Inter",
+          "dark": "Inter"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-display)"
+      },
+      {
+        "name": "font/mono",
+        "type": "STRING",
+        "values": {
+          "light": "JetBrains Mono",
+          "dark": "JetBrains Mono"
+        },
+        "scopes": [
+          "FONT_FAMILY"
+        ],
+        "web": "var(--font-mono)"
+      },
+      {
+        "name": "font-weight/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 700,
+          "dark": 700
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-display)"
+      },
+      {
+        "name": "font-weight/heading",
+        "type": "FLOAT",
+        "values": {
+          "light": 700,
+          "dark": 700
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-heading)"
+      },
+      {
+        "name": "font-weight/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [
+          "FONT_WEIGHT"
+        ],
+        "web": "var(--font-weight-control)"
+      },
+      {
+        "name": "text/xs",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-xs)"
+      },
+      {
+        "name": "text/sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 14,
+          "dark": 14
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-sm)"
+      },
+      {
+        "name": "text/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 17,
+          "dark": 17
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-base)"
+      },
+      {
+        "name": "text/lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 18,
+          "dark": 18
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lg)"
+      },
+      {
+        "name": "text/lede",
+        "type": "FLOAT",
+        "values": {
+          "light": 20,
+          "dark": 20
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-lede)"
+      },
+      {
+        "name": "text/h3",
+        "type": "FLOAT",
+        "values": {
+          "light": 24,
+          "dark": 24
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h3)"
+      },
+      {
+        "name": "text/h2",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-h2)"
+      },
+      {
+        "name": "text/display",
+        "type": "FLOAT",
+        "values": {
+          "light": 60,
+          "dark": 60
+        },
+        "scopes": [
+          "FONT_SIZE"
+        ],
+        "web": "var(--text-display)"
+      },
+      {
+        "name": "radius/base",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-base)"
+      },
+      {
+        "name": "radius/control",
+        "type": "FLOAT",
+        "values": {
+          "light": 6,
+          "dark": 6
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-control)"
+      },
+      {
+        "name": "radius/card",
+        "type": "FLOAT",
+        "values": {
+          "light": 8,
+          "dark": 8
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-card)"
+      },
+      {
+        "name": "radius/panel",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-panel)"
+      },
+      {
+        "name": "radius/pill",
+        "type": "FLOAT",
+        "values": {
+          "light": 9999,
+          "dark": 9999
+        },
+        "scopes": [
+          "CORNER_RADIUS"
+        ],
+        "web": "var(--radius-pill)"
+      },
+      {
+        "name": "ease/out",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0,
+              "y1": 0,
+              "x2": 0.2,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-out)"
+      },
+      {
+        "name": "ease/in",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.4,
+              "y1": 0,
+              "x2": 1,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-in)"
+      },
+      {
+        "name": "ease/standard",
+        "type": "EASING",
+        "values": {
+          "light": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          },
+          "dark": {
+            "type": "CUSTOM_CUBIC_BEZIER",
+            "easingFunctionCubicBezier": {
+              "x1": 0.2,
+              "y1": 0,
+              "x2": 0,
+              "y2": 1
+            }
+          }
+        },
+        "scopes": [],
+        "web": "var(--ease-standard)"
+      },
+      {
+        "name": "motion/duration/micro",
+        "type": "TIMING",
+        "values": {
+          "light": 0.1,
+          "dark": 0.1
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-micro)"
+      },
+      {
+        "name": "motion/duration/small",
+        "type": "TIMING",
+        "values": {
+          "light": 0.2,
+          "dark": 0.2
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-small)"
+      },
+      {
+        "name": "motion/duration/large",
+        "type": "TIMING",
+        "values": {
+          "light": 0.3,
+          "dark": 0.3
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-large)"
+      },
+      {
+        "name": "motion/duration/reveal",
+        "type": "TIMING",
+        "values": {
+          "light": 0.4,
+          "dark": 0.4
+        },
+        "scopes": [],
+        "web": "var(--motion-duration-reveal)"
+      },
+      {
+        "name": "motion/distance/reveal",
+        "type": "FLOAT",
+        "values": {
+          "light": 16,
+          "dark": 16
+        },
+        "scopes": [],
+        "web": "var(--motion-distance-reveal)"
+      },
+      {
+        "name": "size/control-sm",
+        "type": "FLOAT",
+        "values": {
+          "light": 40,
+          "dark": 40
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-sm)"
+      },
+      {
+        "name": "size/control-md",
+        "type": "FLOAT",
+        "values": {
+          "light": 48,
+          "dark": 48
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-md)"
+      },
+      {
+        "name": "size/control-lg",
+        "type": "FLOAT",
+        "values": {
+          "light": 56,
+          "dark": 56
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-control-lg)"
+      },
+      {
+        "name": "size/touch-min",
+        "type": "FLOAT",
+        "values": {
+          "light": 44,
+          "dark": 44
+        },
+        "scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "web": "var(--size-touch-min)"
+      },
+      {
+        "name": "layout/container",
+        "type": "FLOAT",
+        "values": {
+          "light": 1280,
+          "dark": 1280
+        },
+        "scopes": [],
+        "web": "var(--layout-container)"
+      },
+      {
+        "name": "layout/gutter",
+        "type": "FLOAT",
+        "values": {
+          "light": 32,
+          "dark": 32
+        },
+        "scopes": [],
+        "web": "var(--layout-gutter)"
+      },
+      {
+        "name": "layout/section-y",
+        "type": "FLOAT",
+        "values": {
+          "light": 128,
+          "dark": 128
+        },
+        "scopes": [],
+        "web": "var(--layout-section-y)"
+      },
+      {
+        "name": "layout/nav-h",
+        "type": "FLOAT",
+        "values": {
+          "light": 64,
+          "dark": 64
+        },
+        "scopes": [],
+        "web": "var(--layout-nav-h)"
+      },
+      {
+        "name": "effect/border-width",
+        "type": "FLOAT",
+        "values": {
+          "light": 1,
+          "dark": 1
+        },
+        "scopes": [],
+        "web": "var(--effect-border-width)"
+      },
+      {
+        "name": "effect/chrome-blur",
+        "type": "FLOAT",
+        "values": {
+          "light": 12,
+          "dark": 12
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-blur)"
+      },
+      {
+        "name": "effect/chrome-saturate",
+        "type": "FLOAT",
+        "values": {
+          "light": 1.4,
+          "dark": 1.4
+        },
+        "scopes": [],
+        "web": "var(--effect-chrome-saturate)"
+      },
+      {
+        "name": "effect/grain-opacity",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-grain-opacity)"
+      },
+      {
+        "name": "effect/card-hover-lift",
+        "type": "FLOAT",
+        "values": {
+          "light": 0,
+          "dark": 0
+        },
+        "scopes": [],
+        "web": "var(--effect-card-hover-lift)"
+      },
+      {
+        "name": "layer/sticky",
+        "type": "FLOAT",
+        "values": {
+          "light": 100,
+          "dark": 100
+        },
+        "scopes": [],
+        "web": "var(--layer-sticky)"
+      },
+      {
+        "name": "layer/drawer",
+        "type": "FLOAT",
+        "values": {
+          "light": 200,
+          "dark": 200
+        },
+        "scopes": [],
+        "web": "var(--layer-drawer)"
+      },
+      {
+        "name": "layer/modal",
+        "type": "FLOAT",
+        "values": {
+          "light": 300,
+          "dark": 300
+        },
+        "scopes": [],
+        "web": "var(--layer-modal)"
+      },
+      {
+        "name": "layer/popover",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [],
+        "web": "var(--layer-popover)"
+      },
+      {
+        "name": "layer/toast",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [],
+        "web": "var(--layer-toast)"
+      },
+      {
+        "name": "layer/tooltip",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [],
+        "web": "var(--layer-tooltip)"
       }
     ],
     "frosted": [
@@ -1317,9 +2582,9 @@
             "a": 1
           },
           "dark": {
-            "r": 0.6798,
-            "g": 0.6951,
-            "b": 0.7198,
+            "r": 0.7168,
+            "g": 0.7323,
+            "b": 0.7572,
             "a": 1
           }
         },
@@ -2258,6 +3523,66 @@
         },
         "scopes": [],
         "web": "var(--effect-card-hover-lift)"
+      },
+      {
+        "name": "layer/sticky",
+        "type": "FLOAT",
+        "values": {
+          "light": 100,
+          "dark": 100
+        },
+        "scopes": [],
+        "web": "var(--layer-sticky)"
+      },
+      {
+        "name": "layer/drawer",
+        "type": "FLOAT",
+        "values": {
+          "light": 200,
+          "dark": 200
+        },
+        "scopes": [],
+        "web": "var(--layer-drawer)"
+      },
+      {
+        "name": "layer/modal",
+        "type": "FLOAT",
+        "values": {
+          "light": 300,
+          "dark": 300
+        },
+        "scopes": [],
+        "web": "var(--layer-modal)"
+      },
+      {
+        "name": "layer/popover",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [],
+        "web": "var(--layer-popover)"
+      },
+      {
+        "name": "layer/toast",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [],
+        "web": "var(--layer-toast)"
+      },
+      {
+        "name": "layer/tooltip",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [],
+        "web": "var(--layer-tooltip)"
       }
     ],
     "kinetic-studio": [
@@ -2462,9 +3787,9 @@
             "a": 1
           },
           "dark": {
-            "r": 0.6691,
-            "g": 0.6691,
-            "b": 0.6691,
+            "r": 0.7183,
+            "g": 0.7183,
+            "b": 0.7183,
             "a": 1
           }
         },
@@ -3403,6 +4728,66 @@
         },
         "scopes": [],
         "web": "var(--effect-card-hover-lift)"
+      },
+      {
+        "name": "layer/sticky",
+        "type": "FLOAT",
+        "values": {
+          "light": 100,
+          "dark": 100
+        },
+        "scopes": [],
+        "web": "var(--layer-sticky)"
+      },
+      {
+        "name": "layer/drawer",
+        "type": "FLOAT",
+        "values": {
+          "light": 200,
+          "dark": 200
+        },
+        "scopes": [],
+        "web": "var(--layer-drawer)"
+      },
+      {
+        "name": "layer/modal",
+        "type": "FLOAT",
+        "values": {
+          "light": 300,
+          "dark": 300
+        },
+        "scopes": [],
+        "web": "var(--layer-modal)"
+      },
+      {
+        "name": "layer/popover",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [],
+        "web": "var(--layer-popover)"
+      },
+      {
+        "name": "layer/toast",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [],
+        "web": "var(--layer-toast)"
+      },
+      {
+        "name": "layer/tooltip",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [],
+        "web": "var(--layer-tooltip)"
       }
     ],
     "loud": [
@@ -4548,6 +5933,66 @@
         },
         "scopes": [],
         "web": "var(--effect-card-hover-lift)"
+      },
+      {
+        "name": "layer/sticky",
+        "type": "FLOAT",
+        "values": {
+          "light": 100,
+          "dark": 100
+        },
+        "scopes": [],
+        "web": "var(--layer-sticky)"
+      },
+      {
+        "name": "layer/drawer",
+        "type": "FLOAT",
+        "values": {
+          "light": 200,
+          "dark": 200
+        },
+        "scopes": [],
+        "web": "var(--layer-drawer)"
+      },
+      {
+        "name": "layer/modal",
+        "type": "FLOAT",
+        "values": {
+          "light": 300,
+          "dark": 300
+        },
+        "scopes": [],
+        "web": "var(--layer-modal)"
+      },
+      {
+        "name": "layer/popover",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [],
+        "web": "var(--layer-popover)"
+      },
+      {
+        "name": "layer/toast",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [],
+        "web": "var(--layer-toast)"
+      },
+      {
+        "name": "layer/tooltip",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [],
+        "web": "var(--layer-tooltip)"
       }
     ],
     "quiet-editorial": [
@@ -4752,9 +6197,9 @@
             "a": 1
           },
           "dark": {
-            "r": 0.6862,
-            "g": 0.6658,
-            "b": 0.6437,
+            "r": 0.7481,
+            "g": 0.7275,
+            "b": 0.705,
             "a": 1
           }
         },
@@ -5693,6 +7138,66 @@
         },
         "scopes": [],
         "web": "var(--effect-card-hover-lift)"
+      },
+      {
+        "name": "layer/sticky",
+        "type": "FLOAT",
+        "values": {
+          "light": 100,
+          "dark": 100
+        },
+        "scopes": [],
+        "web": "var(--layer-sticky)"
+      },
+      {
+        "name": "layer/drawer",
+        "type": "FLOAT",
+        "values": {
+          "light": 200,
+          "dark": 200
+        },
+        "scopes": [],
+        "web": "var(--layer-drawer)"
+      },
+      {
+        "name": "layer/modal",
+        "type": "FLOAT",
+        "values": {
+          "light": 300,
+          "dark": 300
+        },
+        "scopes": [],
+        "web": "var(--layer-modal)"
+      },
+      {
+        "name": "layer/popover",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [],
+        "web": "var(--layer-popover)"
+      },
+      {
+        "name": "layer/toast",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [],
+        "web": "var(--layer-toast)"
+      },
+      {
+        "name": "layer/tooltip",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [],
+        "web": "var(--layer-tooltip)"
       }
     ],
     "signal-dark": [
@@ -5897,9 +7402,9 @@
             "a": 1
           },
           "dark": {
-            "r": 0.6452,
-            "g": 0.6576,
-            "b": 0.683,
+            "r": 0.7064,
+            "g": 0.719,
+            "b": 0.7449,
             "a": 1
           }
         },
@@ -6838,6 +8343,66 @@
         },
         "scopes": [],
         "web": "var(--effect-card-hover-lift)"
+      },
+      {
+        "name": "layer/sticky",
+        "type": "FLOAT",
+        "values": {
+          "light": 100,
+          "dark": 100
+        },
+        "scopes": [],
+        "web": "var(--layer-sticky)"
+      },
+      {
+        "name": "layer/drawer",
+        "type": "FLOAT",
+        "values": {
+          "light": 200,
+          "dark": 200
+        },
+        "scopes": [],
+        "web": "var(--layer-drawer)"
+      },
+      {
+        "name": "layer/modal",
+        "type": "FLOAT",
+        "values": {
+          "light": 300,
+          "dark": 300
+        },
+        "scopes": [],
+        "web": "var(--layer-modal)"
+      },
+      {
+        "name": "layer/popover",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [],
+        "web": "var(--layer-popover)"
+      },
+      {
+        "name": "layer/toast",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [],
+        "web": "var(--layer-toast)"
+      },
+      {
+        "name": "layer/tooltip",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [],
+        "web": "var(--layer-tooltip)"
       }
     ],
     "warm-natural": [
@@ -7042,9 +8607,9 @@
             "a": 1
           },
           "dark": {
-            "r": 0.7278,
-            "g": 0.6869,
-            "b": 0.6422,
+            "r": 0.7778,
+            "g": 0.7364,
+            "b": 0.6911,
             "a": 1
           }
         },
@@ -7983,6 +9548,66 @@
         },
         "scopes": [],
         "web": "var(--effect-card-hover-lift)"
+      },
+      {
+        "name": "layer/sticky",
+        "type": "FLOAT",
+        "values": {
+          "light": 100,
+          "dark": 100
+        },
+        "scopes": [],
+        "web": "var(--layer-sticky)"
+      },
+      {
+        "name": "layer/drawer",
+        "type": "FLOAT",
+        "values": {
+          "light": 200,
+          "dark": 200
+        },
+        "scopes": [],
+        "web": "var(--layer-drawer)"
+      },
+      {
+        "name": "layer/modal",
+        "type": "FLOAT",
+        "values": {
+          "light": 300,
+          "dark": 300
+        },
+        "scopes": [],
+        "web": "var(--layer-modal)"
+      },
+      {
+        "name": "layer/popover",
+        "type": "FLOAT",
+        "values": {
+          "light": 400,
+          "dark": 400
+        },
+        "scopes": [],
+        "web": "var(--layer-popover)"
+      },
+      {
+        "name": "layer/toast",
+        "type": "FLOAT",
+        "values": {
+          "light": 500,
+          "dark": 500
+        },
+        "scopes": [],
+        "web": "var(--layer-toast)"
+      },
+      {
+        "name": "layer/tooltip",
+        "type": "FLOAT",
+        "values": {
+          "light": 600,
+          "dark": 600
+        },
+        "scopes": [],
+        "web": "var(--layer-tooltip)"
       }
     ]
   }

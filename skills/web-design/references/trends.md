@@ -79,6 +79,7 @@ These are the levers a trend has. Keep a pack to the levers that define it.
 
 The goal is to update `stage`, `reviewed` and `reviewBy` from current evidence, add new packs and retire old ones. Never write a pack from intuition.
 
+0. **Run the radar.** `trend.mjs radar` lists packs that are STALE or due within two months. It also lists platform features whose Baseline status changed since the last snapshot (`trends/radar.json`), such as scroll-driven animations or anchor positioning reaching all engines, which unlocks or simplifies trend mechanics. Re-run it with `--write` after the review to store the new snapshot.
 1. **Collect signals.** Use at least three independent signal types and record them privately, outside this repo:
    - award galleries (site of the day/year)
    - curated galleries of real production sites

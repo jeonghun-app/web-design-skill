@@ -6,6 +6,9 @@
 //   trend.mjs add <id>                 copy a library pack into design/trends to own it
 //   trend.mjs new <id> [--from <id>]   scaffold a new pack (optionally forked)
 //   trend.mjs check [<id>]             validate packs: schema, freshness, contrast, motion
+//   trend.mjs radar [--write] [--data <file|url>]
+//                                      quarterly refresh helper: packs due for review, and browser
+//                                      features whose Baseline status changed since the last snapshot
 //
 // Common flag: --root <project> (default: cwd)
 
@@ -16,9 +19,20 @@ import {
   LIBRARY_TRENDS, MODES, flatten, listTrends, loadTrend, overlay, parseArgs, projectPaths,
   readConfig, readJSON, resolveMode,
 } from './lib/tokens.mjs';
-import { contrast } from './lib/color.mjs';
+import { apca, contrast } from './lib/color.mjs';
 
 const STAGES = ['emerging', 'rising', 'peak', 'declining', 'fading'];
+
+// Platform features that enable or retire trend mechanics. Status comes from the
+// web-features dataset (the source behind Baseline).
+export const RADAR_FEATURES = [
+  'view-transitions', 'cross-document-view-transitions', 'view-transition-class', 'active-view-transition',
+  'scroll-driven-animations', 'anchor-positioning', 'starting-style', 'popover', 'invoker-commands',
+  'interpolate-size', 'calc-size', 'container-style-queries', 'field-sizing', 'text-wrap-balance',
+  'text-wrap-pretty', 'text-autospace', 'word-break-auto-phrase', 'prefers-reduced-transparency',
+  'backdrop-filter', 'relative-color', 'light-dark', 'content-visibility', 'linear-easing', 'has',
+];
+const RADAR_URL = 'https://unpkg.com/web-features/data.json';
 const REQUIRED = ['id', 'name', 'summary', 'stage', 'reviewed', 'reviewBy', 'fits', 'avoid', 'tokens'];
 
 // [foreground, background, minimum ratio]. Backgrounds may be translucent, so each
@@ -43,6 +57,13 @@ export const CONTRAST_PAIRS = [
 
 const today = new Date().toISOString().slice(0, 7);
 const fresh = (pack) => (pack.reviewBy && pack.reviewBy < today ? 'STALE' : 'ok');
+
+export const APCA_ADVISORY = [
+  ['color.fg', 'color.bg', 75],
+  ['color.fg', 'color.surface', 75],
+  ['color.fg-muted', 'color.bg', 60],
+  ['color.fg-muted', 'color.surface', 60],
+];
 
 export function checkPack(t, base) {
   const errors = [];
@@ -72,6 +93,14 @@ export function checkPack(t, base) {
         if (!Number.isFinite(ratio)) errors.push(`${mode}: cannot measure ${fg} on ${bg}`);
         else if (ratio < min) errors.push(`${mode}: ${fg} on ${bg} = ${ratio.toFixed(2)}:1 (< ${min}:1)`);
       } catch (e) { errors.push(`${mode}: cannot measure ${fg} on ${bg}: ${e.message}`); }
+    }
+    // APCA advisory (visual-craft.md): body text Lc 75+, muted text Lc 60+.
+    for (const [fg, bg, min] of APCA_ADVISORY) {
+      if (!(fg in r) || !(bg in r)) continue;
+      try {
+        const lc = Math.abs(apca(r[fg], r[bg], r['color.bg']));
+        if (lc < min) warnings.push(`${mode}: APCA ${fg} on ${bg} = Lc ${lc.toFixed(0)} (advisory target ${min})`);
+      } catch { /* measured above */ }
     }
     for (const [k, v] of Object.entries(r)) {
       if (!k.startsWith('motion.duration.')) continue;
@@ -190,8 +219,49 @@ async function main() {
       if (failed || baseCheck.errors.length) process.exit(1);
       break;
     }
+    case 'radar': {
+      const snapFile = path.join(LIBRARY_TRENDS, 'radar.json');
+      const snap = fs.existsSync(snapFile) ? readJSON(snapFile) : { checked: null, features: {} };
+      const month = (d) => d.slice(0, 7);
+      const soon = new Date(); soon.setMonth(soon.getMonth() + 2);
+      console.log('# Trend radar\n\n## Packs due for review');
+      for (const t of trends.map(loadTrend)) {
+        const by = t.pack.reviewBy;
+        const flag = by < today ? 'STALE' : by <= month(soon.toISOString()) ? 'due soon' : null;
+        if (flag) console.log(`- ${t.id}: reviewBy ${by} (${flag}), stage ${t.pack.stage}`);
+      }
+      let data;
+      try {
+        const src = args.data ?? RADAR_URL;
+        data = src.startsWith('http') ? await (await fetch(src)).json() : readJSON(src);
+      } catch (e) {
+        console.log(`\n(could not load web-features data: ${e.message})`);
+        break;
+      }
+      const now = {};
+      for (const id of RADAR_FEATURES) {
+        const st = data.features?.[id]?.status;
+        if (st) now[id] = { baseline: st.baseline || false, low: st.baseline_low_date ?? null, high: st.baseline_high_date ?? null };
+      }
+      console.log(`\n## Platform changes since ${snap.checked ?? 'the first run'}`);
+      let changed = 0;
+      for (const [id, v] of Object.entries(now)) {
+        const was = snap.features[id];
+        if (!was || was.baseline !== v.baseline) {
+          changed++;
+          console.log(`- ${id}: ${was ? String(was.baseline) : 'untracked'} -> ${String(v.baseline)}${v.low ? ` (low ${v.low})` : ''}`);
+        }
+      }
+      if (!changed) console.log('- no Baseline changes');
+      console.log('\nNext: follow references/trends.md "Refreshing trends" (collect signals, count, extract mechanics, update stage/reviewed/reviewBy, run check and audit).');
+      if (args.write) {
+        fs.writeFileSync(snapFile, JSON.stringify({ checked: new Date().toISOString().slice(0, 10), features: now }, null, 2) + '\n');
+        console.log(`wrote ${path.relative(root, snapFile)}`);
+      }
+      break;
+    }
     default:
-      console.log('usage: trend.mjs <list|apply|add|new|check> [id] [--root <project>]');
+      console.log('usage: trend.mjs <list|apply|add|new|check|radar> [id] [--root <project>]');
       process.exit(cmd ? 1 : 0);
   }
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Scaffold a new React project from the skill template.
 //
-//   new-project.mjs <dir> [--name <pkg-name>] [--trend <id>] [--install]
+//   new-project.mjs <dir> [--name <pkg-name>] [--trend <id>] [--lang ko] [--install]
 //
 // Copies template/ (without node_modules, dist and generated output), vendors the
 // scripts and every library trend pack into design/ so the project is self-contained
@@ -33,6 +33,11 @@ const pkgFile = path.join(dir, 'package.json');
 const pkg = JSON.parse(fs.readFileSync(pkgFile, 'utf8'));
 pkg.name = args.name ?? path.basename(dir).toLowerCase().replace(/[^a-z0-9-]/g, '-');
 for (const [k, v] of Object.entries(pkg.scripts)) pkg.scripts[k] = v.replaceAll('../scripts/', 'design/scripts/');
+if (args.lang) {
+  // Sets the document language, which switches Korean/CJK line breaking and measure (korean.md).
+  const html = path.join(dir, 'index.html');
+  fs.writeFileSync(html, fs.readFileSync(html, 'utf8').replace(/<html lang="[^"]*"/, `<html lang="${args.lang}"`));
+}
 fs.writeFileSync(pkgFile, JSON.stringify(pkg, null, 2) + '\n');
 
 const run = (cmd, a) => {

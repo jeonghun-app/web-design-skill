@@ -122,3 +122,24 @@ export function toHex(input) {
   const h = (x) => Math.round(x * 255).toString(16).padStart(2, '0');
   return `#${h(r)}${h(g)}${h(b)}${a < 1 ? h(a) : ''}`;
 }
+
+/** APCA lightness contrast (0.0.98G-4g constants). Returns signed Lc: positive for
+ *  dark text on light, negative for light text on dark. Advisory only (not WCAG 2). */
+export function apca(fgInput, bgInput, backdropInput = '#ffffff') {
+  const backdrop = parseColor(backdropInput);
+  const bg = over(parseColor(bgInput), backdrop);
+  const fg = over(parseColor(fgInput), bg);
+  const Y = ({ r, g, b }) => {
+    let y = 0.2126729 * r ** 2.4 + 0.7151522 * g ** 2.4 + 0.072175 * b ** 2.4;
+    if (y < 0.022) y += (0.022 - y) ** 1.414;
+    return y;
+  };
+  const yt = Y(fg), yb = Y(bg);
+  if (Math.abs(yb - yt) < 0.0005) return 0;
+  if (yb > yt) {
+    const s = (yb ** 0.56 - yt ** 0.57) * 1.14;
+    return s < 0.1 ? 0 : (s - 0.027) * 100;
+  }
+  const s = (yb ** 0.65 - yt ** 0.62) * 1.14;
+  return s > -0.1 ? 0 : (s + 0.027) * 100;
+}

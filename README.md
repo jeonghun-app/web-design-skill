@@ -9,7 +9,7 @@ A Claude Code skill that designs and builds web UIs as **one Figma + React syste
 
 ![Seven looks, one codebase: base and six trend packs (light)](docs/trends-light.jpg)
 
-The page above is the same React code in all seven panels. Only the active trend pack differs. Every panel passes the same human-factors audit (0 MUST, 0 SHOULD findings) in light and dark mode, at 320, 375, 768 and 1440 px.
+The page above is the same React code in all seven panels. Only the active trend pack differs. Every panel passes the same human-factors audit (0 MUST, 0 SHOULD findings) in light and dark mode, at 320, 375, 768 and 1440 px. The template also has a product-UI page (`#/app`) that the audit checks on every trend: a sidebar shell, a ⌘K palette, a data table with bulk actions and undo, dialogs, menus, toasts, skeletons and empty states.
 
 ## What's inside
 
@@ -18,14 +18,21 @@ skills/web-design/
   SKILL.md                 workflow: BRIEF → FOUNDATION → DESIGN (Figma) → BUILD (React) → QA → SYNC
   references/
     principles.md          eyes → understanding → decision → hands → feedback → trust, plus rule IDs
-    patterns.md            sections and components with measurements, the why, and when not to use them
-    trends.md              how trend packs work, how to choose one, and the quarterly refresh procedure
+    patterns.md            marketing sections and the component inventory
+    app-patterns.md        product UI: navigation, tables, forms, feedback, search, settings, dashboards, overlays
+    conversion.md          landing/pricing evidence, commerce blueprints, signup, dark-pattern law (KR/EU/US)
+    visual-craft.md        OKLCH ramps, dark mode, type craft, layout, layered shadows
+    motion.md              choreography, per-component motion, modern CSS support, budgets, reduced motion
+    content.md             microcopy rules in English and Korean
+    korean.md              Korean-first / CJK typography, forms, KWCAG 2.2, local conventions
+    review.md              design review scorecard (0–10) and procedure
+    trends.md              how trend packs work, how to choose one, the quarterly refresh procedure
     tokens.md              token contract (DTCG → CSS variables → Tailwind v4 → Figma variables)
     figma.md               two-way Figma workflow through the official Figma MCP server
   trends/<id>/             pack.json (metadata + token overrides) + pack.css (signature details)
   scripts/
     build-tokens.mjs       tokens + packs → tokens.css, fonts.css, figma-variables.json
-    trend.mjs              list | apply | add | new | check (contrast and motion limits in both modes)
+    trend.mjs              list | apply | add | new | check | radar (contrast, APCA advisory, motion, freshness)
     figma-sync.mjs         push (code → Figma variables) | pull-script | pull (Figma → code diff/--write)
     audit.mjs              Playwright + axe human-factors audit, plus a contact sheet per trend × theme × viewport
     new-project.mjs        scaffold a self-contained project from the template
@@ -42,8 +49,9 @@ skills/web-design/
 | `kinetic-studio` | peak | launches, agencies, portfolios | poster-scale grotesk that rises word by word (once, ≤500 ms, off under reduced motion) |
 | `loud` | rising | youth consumer, F&B, drops, creators | hard outlines, offset shadows, press-down buttons, pop-colored tiles |
 | `warm-natural` | rising | wellness, hospitality, home, nonprofits | soft optical serif, warm paper, rounded shapes, gentle motion, grain |
+| `civic-clear` | peak (evergreen) | public services, finance, health, Korean-first services | 17 px body, 48 px controls, modest corners, high contrast, one blue action |
 
-Each pack records its lifecycle `stage` and a `reviewBy` date. `trend list` marks a pack **STALE** once the date passes, so packs get re-checked against current evidence instead of quietly aging. `references/trends.md` has the refresh procedure.
+Each pack records its lifecycle `stage` and a `reviewBy` date. `trend list` marks a pack **STALE** once the date passes, so packs get re-checked against current evidence instead of quietly aging. `trend radar` lists packs that are due and the browser features whose Baseline status changed since the last review. `references/trends.md` has the refresh procedure.
 
 ## Install
 
@@ -69,7 +77,7 @@ Ask Claude Code things like:
 Or run the tools directly:
 
 ```bash
-node skills/web-design/scripts/new-project.mjs ../my-site --install --trend signal-dark
+node skills/web-design/scripts/new-project.mjs ../my-site --install --trend signal-dark   # add --lang ko for Korean
 cd ../my-site
 npm run dev                          # dev panel (bottom-right) switches trend and theme live
 npm run trend -- list

@@ -1,5 +1,11 @@
 [
   {
+    "id": "civic-clear",
+    "name": "Civic clear",
+    "stage": "peak",
+    "summary": "Evergreen public-service clarity: larger body text, 48px controls, modest corners, high-contrast neutrals and a trustworthy blue"
+  },
+  {
     "id": "frosted",
     "name": "Frosted",
     "stage": "peak",

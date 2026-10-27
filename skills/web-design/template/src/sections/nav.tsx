@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 export function Nav({ links }: { links: { href: string; label: string }[] }) {
   const [open, setOpen] = useState(false)
   return (
-    <header data-slot="nav" className="chrome sticky top-0 z-40 border-b border-border">
+    <header data-slot="nav" className="chrome sticky top-0 z-(--layer-sticky) border-b border-border">
       <nav aria-label="Main" className="container-page flex h-(--layout-nav-h) items-center gap-6">
         <a href="/" className="flex min-h-11 items-center gap-2 font-semibold">
           <span aria-hidden className="grid size-7 place-items-center rounded-control bg-primary text-primary-fg">◆</span>

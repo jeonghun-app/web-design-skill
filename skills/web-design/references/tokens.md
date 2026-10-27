@@ -26,7 +26,8 @@ Other groups become plain custom properties, used with Tailwind's `(--var)` shor
 
 - `motion.duration.*`: `duration-(--motion-duration-small)`
 - `size.*`: `h-(--size-control-md)`, `min-h-(--size-touch-min)`
-- `layout.*`: `container-page`, `section-y` and `prose-measure` utilities, `h-(--layout-nav-h)`
+- `layout.*`: `container-page`, `section-y` and `prose-measure` utilities, `h-(--layout-nav-h)`. Under `:lang(ko)`, `--layout-prose` switches to `layout.prose-ko` (32em, see `korean.md`).
+- `layer.*`: stacking order (`z-(--layer-sticky|drawer|modal|popover|toast|tooltip)`)
 - `effect.*`: read by the `surface` utility, the hero background, the grain overlay and display text
 
 `--color-*: initial` removes Tailwind's default palette, so `bg-blue-600` does not compile. Use semantic names.

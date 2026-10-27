@@ -1,0 +1,125 @@
+{
+  "checked": "2026-10-24",
+  "features": {
+    "view-transitions": {
+      "baseline": "low",
+      "low": "2025-10-14",
+      "high": null
+    },
+    "cross-document-view-transitions": {
+      "baseline": false,
+      "low": null,
+      "high": null
+    },
+    "view-transition-class": {
+      "baseline": "low",
+      "low": "2025-10-14",
+      "high": null
+    },
+    "active-view-transition": {
+      "baseline": "low",
+      "low": "2026-01-13",
+      "high": null
+    },
+    "scroll-driven-animations": {
+      "baseline": false,
+      "low": null,
+      "high": null
+    },
+    "anchor-positioning": {
+      "baseline": false,
+      "low": null,
+      "high": null
+    },
+    "starting-style": {
+      "baseline": "low",
+      "low": "2024-08-06",
+      "high": null
+    },
+    "popover": {
+      "baseline": "low",
+      "low": "2025-01-27",
+      "high": null
+    },
+    "invoker-commands": {
+      "baseline": "low",
+      "low": "2025-12-12",
+      "high": null
+    },
+    "interpolate-size": {
+      "baseline": false,
+      "low": null,
+      "high": null
+    },
+    "calc-size": {
+      "baseline": false,
+      "low": null,
+      "high": null
+    },
+    "container-style-queries": {
+      "baseline": "low",
+      "low": "2026-05-19",
+      "high": null
+    },
+    "field-sizing": {
+      "baseline": "low",
+      "low": "2026-06-16",
+      "high": null
+    },
+    "text-wrap-balance": {
+      "baseline": "low",
+      "low": "2024-05-13",
+      "high": null
+    },
+    "text-wrap-pretty": {
+      "baseline": false,
+      "low": null,
+      "high": null
+    },
+    "text-autospace": {
+      "baseline": false,
+      "low": null,
+      "high": null
+    },
+    "word-break-auto-phrase": {
+      "baseline": false,
+      "low": null,
+      "high": null
+    },
+    "prefers-reduced-transparency": {
+      "baseline": false,
+      "low": null,
+      "high": null
+    },
+    "backdrop-filter": {
+      "baseline": "low",
+      "low": "2024-09-16",
+      "high": null
+    },
+    "relative-color": {
+      "baseline": "low",
+      "low": "2024-09-16",
+      "high": null
+    },
+    "light-dark": {
+      "baseline": "low",
+      "low": "2024-05-13",
+      "high": null
+    },
+    "content-visibility": {
+      "baseline": "low",
+      "low": "2025-09-15",
+      "high": null
+    },
+    "linear-easing": {
+      "baseline": "high",
+      "low": "2023-12-11",
+      "high": "2026-06-11"
+    },
+    "has": {
+      "baseline": "high",
+      "low": "2023-12-19",
+      "high": "2026-06-19"
+    }
+  }
+}
