@@ -53,7 +53,7 @@ Figma와 React 웹 프론트엔드를 **하나의 디자인 시스템**으로 �
 |---|---|---|
 | `code-lint.mjs` (CL-01~13) | 원시 색상값, 기본 팔레트 클래스, 임의 px 값, 제거된 포커스 표시, 누르는 순간 실행되는 동작, 클릭 가능한 `div`, `alt`나 이미지 크기 누락, 확대 금지 | `npm run build` |
 | `trend check` | 두 모드에서 본문 대비 4.5:1, 경계 대비 3:1, 모션 한도, 팩 스키마와 최신성 | CI |
-| `audit.mjs` 휴먼 팩터 | `principles.md` 규칙 중 자동화된 약 20개(터치 영역, 행 길이, 포커스, 대비, 레이아웃, 모션)와 axe. 트렌드 × 테마 × 화면 크기 전체에서 실행 | `npm run audit` |
+| `audit.mjs` 휴먼 팩터 | `principles.md` 규칙 중 자동화된 약 20개(터치 영역, 행 길이, 포커스, 대비, 레이아웃, 모션)와 axe. 기본은 활성 트렌드의 테마 × 화면 크기 전체, `--trends all`(CI)이면 모든 트렌드 | `npm run audit` |
 | `audit.mjs` 성능(PF) | 페이지마다 기본 트렌드로 한 번. 모바일 기준, 느린 4G와 CPU 4배 감속에서 LCP, CLS, TBT, 용량 예산, 이미지, 글꼴, 렌더링을 막는 스크립트 | `npm run audit` |
 | `audit.mjs` SEO·공유(SE) | HTML 문서마다 한 번, JS를 켠 상태와 끈 상태 모두에서 제목, 설명, canonical, Open Graph, 파비콘, JSON-LD, robots·sitemap, 크롤링 가능한 링크 | `npm run audit` |
 | 시각 회귀(VR-01) | 저장한 기준 스크린샷과 픽셀 비교 | `--baseline save` / `compare` |

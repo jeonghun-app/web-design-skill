@@ -53,7 +53,7 @@ Each gate runs at the time shown below. `references/web-quality.md` documents th
 |---|---|---|
 | `code-lint.mjs` (CL-01–13) | raw colors, default palette classes, arbitrary px, removed focus outlines, actions on pointer down, clickable `div`s, missing `alt` or image size, disabled zoom | `npm run build` |
 | `trend check` | text contrast of 4.5:1 and boundary contrast of 3:1 in both modes, motion limits, pack schema and freshness | CI |
-| `audit.mjs`, human factors | about 20 automated rules from `principles.md` (targets, measure, focus, contrast, layout, motion) plus axe, on every trend × theme × viewport | `npm run audit` |
+| `audit.mjs`, human factors | about 20 automated rules from `principles.md` (targets, measure, focus, contrast, layout, motion) plus axe, on each theme × viewport for the active trend; every trend with `--trends all` (CI) | `npm run audit` |
 | `audit.mjs`, performance (PF) | once per page, default trend, on a mobile profile over slow 4G with the CPU slowed 4×: LCP, CLS, TBT, byte budgets, images, fonts, blocking scripts | `npm run audit` |
 | `audit.mjs`, SEO and sharing (SE) | once per HTML document, with and without JS: title, description, canonical, Open Graph, favicons, JSON-LD, robots and sitemap, crawlable links | `npm run audit` |
 | Visual regression (VR-01) | pixel diffs against saved baselines | `--baseline save` / `compare` |
