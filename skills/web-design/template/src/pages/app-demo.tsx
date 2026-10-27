@@ -184,12 +184,12 @@ export function AppDemoPage() {
                     bulkActions={(sel) => (
                       <Button size="sm" variant="outline" tone="neutral" onClick={() => archive(sel.map((s) => s.id))}>Archive</Button>
                     )}
-                    empty={<EmptyState title="Inbox zero" text="Every request has an owner. New ones will appear here." action={<Button size="sm" variant="outline" tone="neutral" onClick={() => setRows(ROWS)}>Restore demo data</Button>} />}
+                    empty={<EmptyState illustration="empty-inbox" title="Inbox zero" text="Every request has an owner. New ones will appear here." action={<Button size="sm" variant="outline" tone="neutral" onClick={() => setRows(ROWS)}>Restore demo data</Button>} />}
                   />
                 ),
               },
-              { value: 'mine', label: 'Assigned to me', content: <EmptyState title="Nothing assigned to you" text="Requests you own show up here." /> },
-              { value: 'done', label: 'Done', content: <EmptyState title="No resolved requests yet" text="Finished requests are kept for 90 days." /> },
+              { value: 'mine', label: 'Assigned to me', content: <EmptyState illustration="getting-started" title="Nothing assigned to you" text="Requests you own show up here." /> },
+              { value: 'done', label: 'Done', content: <EmptyState illustration="success" title="No resolved requests yet" text="Finished requests are kept for 90 days." /> },
             ]}
           />
         </main>

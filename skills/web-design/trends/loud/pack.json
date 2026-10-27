@@ -159,6 +159,18 @@
       },
       "on-pop-muted": {
         "$value": "oklch(0.3 0 0)"
+      },
+      "illus-shadow": {
+        "$value": "{color.fg}"
+      },
+      "illus-accent-1": {
+        "$value": "{color.pop-2}"
+      },
+      "illus-accent-2": {
+        "$value": "{color.pop-1}"
+      },
+      "illus-accent-3": {
+        "$value": "{color.pop-3}"
       }
     },
     "font": {
@@ -240,6 +252,31 @@
       },
       "card-hover-lift": {
         "$value": "-2px"
+      }
+    },
+    "illus": {
+      "stroke": {
+        "$value": 3,
+        "$extensions": {
+          "mode": {
+            "dark": 3
+          }
+        }
+      },
+      "cap": {
+        "$value": "square"
+      },
+      "join": {
+        "$value": "miter"
+      },
+      "radius": {
+        "$value": 8
+      },
+      "shadow-x": {
+        "$value": "4px"
+      },
+      "shadow-y": {
+        "$value": "4px"
       }
     }
   }

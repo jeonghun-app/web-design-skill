@@ -116,3 +116,35 @@ test('a closing dialog never swallows the next click (MC-03)', { skip }, async (
   assert.equal(await page.getByRole('columnheader', { name: /Points/ }).getAttribute('aria-sort'), 'ascending');
   await page.close();
 });
+
+test('style guide: trend select restyles the page and contrast badges render', { skip }, async () => {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await page.goto(url + '#/system/color');
+  await page.getByRole('combobox', { name: 'Trend' }).selectOption('loud');
+  assert.equal(await page.evaluate(() => document.documentElement.dataset.trend), 'loud');
+  const badges = page.getByRole('region', { name: 'Contrast pairs' }).locator('td.text-right span');
+  await badges.first().waitFor();
+  const texts = await badges.allTextContents();
+  assert.equal(texts.length, 8);
+  assert.ok(texts.every((t) => /^(AA|AAA) /.test(t)), texts.join(' | '));
+  await page.close();
+});
+
+test('style guide: in-page links scroll to their section', { skip }, async () => {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await page.goto(url + '#/system');
+  await page.getByRole('link', { name: /Build/ }).first().click();
+  await page.waitForTimeout(400);
+  const top = await page.evaluate(() => document.getElementById('components').getBoundingClientRect().top);
+  assert.ok(top < 300 && top > -50, `components section top at ${top}`);
+  await page.close();
+});
+
+test('illustration shadow copy is hidden in forced-colors mode', { skip }, async () => {
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await page.emulateMedia({ forcedColors: 'active' });
+  await page.goto(url + '#/system/illustration');
+  const stroke = await page.locator('.illus-shadow path, .illus-shadow rect, .illus-shadow circle').first().evaluate((el) => getComputedStyle(el).stroke);
+  assert.equal(stroke, 'none');
+  await page.close();
+});

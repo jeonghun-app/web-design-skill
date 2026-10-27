@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.3.0] - 2026-10-25
+
+### Added
+- **References:**
+  - `design-process.md`: core designer skills ranked by how consistently education and career frameworks cite them; the process loop; FRAME/CONTENT/EXPLORE/FIDELITY/HIER/STATE/EVAL/CRIT/HANDOFF rules; critique procedure; definition of done.
+  - `figma-authoring.md`: 2025–26 platform changes; file and page structure; layout, component, variable and handoff rules; lint rules L01–L30.
+  - `illustration.md`: roles and sizes, a token-driven style family, theming and dark mode, accessibility, production budgets, anti-patterns, IL-01 to IL-22.
+- **Figma scripts:**
+  - `figma-library.mjs`: generates a starter Figma library in 8 idempotent steps (pages, text and effect styles, Button with 24 bound variants, Badge, Field, Card, foundations sheet, Light/Dark review frames). Verified against a live file.
+  - `figma-lint.mjs`: a read-only page linter (unbound values, missing auto layout, default names, detached instances, variant consistency, text size, touch targets, contrast, variable hygiene, Ready status) plus a report formatter that exits non-zero on E findings.
+- **Template:**
+  - Illustration kit (`src/illustrations`): 8 object-based spot illustrations with no hex colors, theming through `color.illus-*` and `illus.*`, and per-pack character (stroke, caps, radius, shadow).
+  - Living style guide `#/system`: overview, principles, get started, foundations with live AA/AAA contrast badges, components, patterns, Do/Don't cards, changelog, and a trend/theme switcher in the header.
+  - `useAppearance` store kept in sync through `<html>` attributes.
+- **Tokens:** `space.*` (also bound in Figma), `illus.*`, `color.illus-*`.
+- **Audit:**
+  - `audit.accept` for documented SHOULD exceptions.
+  - `data-audit-specimen` excludes intentional examples from page budgets.
+  - `/#/system` is audited by default.
+
+### Changed
+- `layout.prose` changed from 34em to 30em: Inter is narrow, and 34em measured about 85 characters per line.
+- Empty states in the app demo now use illustrations, and the Do/Don't captions are 16 px.
+
 ## [0.2.0] - 2026-10-24
 
 ### Added

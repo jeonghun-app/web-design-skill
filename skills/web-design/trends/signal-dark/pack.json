@@ -228,6 +228,28 @@
       "card-hover-lift": {
         "$value": "0px"
       }
+    },
+    "illus": {
+      "stroke": {
+        "$value": 1.5,
+        "$extensions": {
+          "mode": {
+            "dark": 1.5
+          }
+        }
+      },
+      "cap": {
+        "$value": "square"
+      },
+      "join": {
+        "$value": "miter"
+      },
+      "radius": {
+        "$value": 4
+      },
+      "shadow-y": {
+        "$value": "0px"
+      }
     }
   }
 }

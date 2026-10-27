@@ -31,6 +31,13 @@
   --color-danger: oklch(0.55 0.2 27);
   --color-danger-fg: oklch(0.99 0 0);
   --color-overlay: oklch(0.15 0.01 264 / 0.5);
+  --color-illus-ink: var(--color-fg);
+  --color-illus-paper: var(--color-surface);
+  --color-illus-base: oklch(from var(--color-brand) 0.95 0.03 h);
+  --color-illus-accent-1: oklch(from var(--color-brand) 0.72 calc(c * 0.7) h);
+  --color-illus-accent-2: oklch(from var(--color-accent-base) 0.8 calc(c * 0.6) h);
+  --color-illus-accent-3: oklch(from var(--color-brand) 0.88 calc(c * 0.4) h);
+  --color-illus-shadow: oklch(from var(--color-fg) l c h / 0.12);
   --font-sans: Inter, "Pretendard Variable", Pretendard, ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
   --font-display: var(--font-sans);
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -80,8 +87,19 @@
   --size-control-md: 2.5rem;
   --size-control-lg: 3rem;
   --size-touch-min: 2.75rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
   --layout-container: 80rem;
-  --layout-prose: 34em;
+  --layout-prose: 30em;
   --layout-gutter: clamp(1rem, 0.5rem + 2.5vw, 2rem);
   --layout-section-y: clamp(4rem, 2.5rem + 6vw, 8rem);
   --layout-nav-h: 4rem;
@@ -99,6 +117,12 @@
   --layer-popover: 400;
   --layer-toast: 500;
   --layer-tooltip: 600;
+  --illus-stroke: 2;
+  --illus-cap: round;
+  --illus-join: round;
+  --illus-radius: 6;
+  --illus-shadow-x: 0px;
+  --illus-shadow-y: 4px;
   color-scheme: light;
 }
 
@@ -111,6 +135,13 @@
   --color-primary-text: oklch(from var(--color-brand) 0.46 c h);
   --color-accent: var(--color-accent-base);
   --color-ring: var(--color-brand);
+  --color-illus-ink: var(--color-fg);
+  --color-illus-paper: var(--color-surface);
+  --color-illus-base: oklch(from var(--color-brand) 0.95 0.03 h);
+  --color-illus-accent-1: oklch(from var(--color-brand) 0.72 calc(c * 0.7) h);
+  --color-illus-accent-2: oklch(from var(--color-accent-base) 0.8 calc(c * 0.6) h);
+  --color-illus-accent-3: oklch(from var(--color-brand) 0.88 calc(c * 0.4) h);
+  --color-illus-shadow: oklch(from var(--color-fg) l c h / 0.12);
   --font-display: var(--font-sans);
   --radius-control: calc(var(--radius-base) * 1);
   --radius-card: calc(var(--radius-base) * 1.5);
@@ -126,6 +157,12 @@
   --color-primary-text: oklch(from var(--color-brand) 0.82 c h);
   --color-accent: var(--color-accent-base);
   --color-ring: var(--color-brand);
+  --color-illus-ink: var(--color-fg);
+  --color-illus-paper: var(--color-surface-raised);
+  --color-illus-base: oklch(from var(--color-brand) 0.3 0.04 h);
+  --color-illus-accent-1: oklch(from var(--color-brand) 0.62 calc(c * 0.6) h);
+  --color-illus-accent-2: oklch(from var(--color-accent-base) 0.58 calc(c * 0.55) h);
+  --color-illus-accent-3: oklch(from var(--color-brand) 0.42 calc(c * 0.45) h);
   --font-display: var(--font-sans);
   --radius-control: calc(var(--radius-base) * 1);
   --radius-card: calc(var(--radius-base) * 1.5);
@@ -157,9 +194,16 @@
   --color-danger: oklch(0.55 0.2 27);
   --color-danger-fg: oklch(0.99 0 0);
   --color-overlay: oklch(0.15 0.01 264 / 0.5);
+  --color-illus-paper: var(--color-surface);
+  --color-illus-base: oklch(from var(--color-brand) 0.95 0.03 h);
+  --color-illus-accent-1: oklch(from var(--color-brand) 0.72 calc(c * 0.7) h);
+  --color-illus-accent-2: oklch(from var(--color-accent-base) 0.8 calc(c * 0.6) h);
+  --color-illus-accent-3: oklch(from var(--color-brand) 0.88 calc(c * 0.4) h);
+  --color-illus-shadow: oklch(from var(--color-fg) l c h / 0.12);
   --shadow-card: 0 1px 2px oklch(0.2 0.02 264 / 0.06), 0 1px 3px oklch(0.2 0.02 264 / 0.04);
   --shadow-raised: 0 4px 12px -2px oklch(0.2 0.02 264 / 0.1), 0 2px 4px -2px oklch(0.2 0.02 264 / 0.06);
   --shadow-overlay: 0 24px 48px -12px oklch(0.2 0.02 264 / 0.25);
+  --illus-stroke: 2;
   color-scheme: light;
 }
 
@@ -188,9 +232,16 @@
   --color-danger: oklch(0.7 0.17 27);
   --color-danger-fg: oklch(0.16 0.03 27);
   --color-overlay: oklch(0 0 0 / 0.6);
+  --color-illus-paper: var(--color-surface-raised);
+  --color-illus-base: oklch(from var(--color-brand) 0.3 0.04 h);
+  --color-illus-accent-1: oklch(from var(--color-brand) 0.62 calc(c * 0.6) h);
+  --color-illus-accent-2: oklch(from var(--color-accent-base) 0.58 calc(c * 0.55) h);
+  --color-illus-accent-3: oklch(from var(--color-brand) 0.42 calc(c * 0.45) h);
+  --color-illus-shadow: oklch(0 0 0 / 0.35);
   --shadow-card: 0 0 0 1px oklch(1 0 0 / 0.04);
   --shadow-raised: 0 8px 24px -4px oklch(0 0 0 / 0.5);
   --shadow-overlay: 0 24px 48px -12px oklch(0 0 0 / 0.7);
+  --illus-stroke: 1.75;
   color-scheme: dark;
 }
 
@@ -236,6 +287,8 @@
   --shadow-card: none;
   --shadow-raised: 0 2px 8px oklch(0.23 0.006 250 / 0.08);
   --effect-card-hover-lift: 0px;
+  --illus-radius: 4;
+  --illus-shadow-y: 0px;
 }
 [data-theme="light"][data-trend="civic-clear"],
 [data-trend="civic-clear"] [data-theme="light"] {
@@ -271,6 +324,8 @@
   --shadow-card: none;
   --shadow-raised: 0 2px 8px oklch(0.23 0.006 250 / 0.08);
   --effect-card-hover-lift: 0px;
+  --illus-radius: 4;
+  --illus-shadow-y: 0px;
 }
 [data-theme="dark"][data-trend="civic-clear"],
 [data-theme="dark"] [data-trend="civic-clear"]:not([data-theme="light"]),
@@ -307,6 +362,8 @@
   --shadow-card: none;
   --shadow-raised: 0 2px 8px oklch(0 0 0 / 0.4);
   --effect-card-hover-lift: 0px;
+  --illus-radius: 4;
+  --illus-shadow-y: 0px;
 }
 /* Public-service clarity: thick, always-visible focus and underlined links in prose. */
 [data-trend="civic-clear"] :focus-visible {
@@ -341,6 +398,8 @@
   --effect-chrome-saturate: 1.7;
   --effect-card-hover-lift: -3px;
   --effect-hero-bg: radial-gradient(55% 45% at 85% 5%, oklch(from var(--color-brand) 0.85 0.12 h / 0.55), transparent 70%), radial-gradient(45% 40% at 5% 35%, oklch(from var(--color-accent) 0.88 0.09 h / 0.45), transparent 70%);
+  --illus-radius: 12;
+  --illus-shadow-y: 6px;
 }
 [data-theme="light"][data-trend="frosted"],
 [data-trend="frosted"] [data-theme="light"] {
@@ -365,6 +424,8 @@
   --effect-chrome-saturate: 1.7;
   --effect-card-hover-lift: -3px;
   --effect-hero-bg: radial-gradient(55% 45% at 85% 5%, oklch(from var(--color-brand) 0.85 0.12 h / 0.55), transparent 70%), radial-gradient(45% 40% at 5% 35%, oklch(from var(--color-accent) 0.88 0.09 h / 0.45), transparent 70%);
+  --illus-radius: 12;
+  --illus-shadow-y: 6px;
 }
 [data-theme="dark"][data-trend="frosted"],
 [data-theme="dark"] [data-trend="frosted"]:not([data-theme="light"]),
@@ -390,6 +451,8 @@
   --effect-chrome-saturate: 1.7;
   --effect-card-hover-lift: -3px;
   --effect-hero-bg: radial-gradient(55% 45% at 85% 5%, oklch(from var(--color-brand) 0.45 0.14 h / 0.5), transparent 70%), radial-gradient(45% 40% at 5% 35%, oklch(from var(--color-accent) 0.4 0.12 h / 0.4), transparent 70%);
+  --illus-radius: 12;
+  --illus-shadow-y: 6px;
 }
 /* Floating glass capsule nav; press feedback springs. Content cards stay opaque. */
 [data-trend="frosted"] [data-slot="nav"] {
@@ -448,6 +511,11 @@
   --motion-duration-reveal: 500ms;
   --motion-distance-reveal: 32px;
   --effect-card-hover-lift: 0px;
+  --illus-stroke: 2.5;
+  --illus-cap: square;
+  --illus-join: miter;
+  --illus-radius: 0;
+  --illus-shadow-y: 0px;
 }
 [data-theme="light"][data-trend="kinetic-studio"],
 [data-trend="kinetic-studio"] [data-theme="light"] {
@@ -481,6 +549,11 @@
   --motion-duration-reveal: 500ms;
   --motion-distance-reveal: 32px;
   --effect-card-hover-lift: 0px;
+  --illus-stroke: 2.5;
+  --illus-cap: square;
+  --illus-join: miter;
+  --illus-radius: 0;
+  --illus-shadow-y: 0px;
 }
 [data-theme="dark"][data-trend="kinetic-studio"],
 [data-theme="dark"] [data-trend="kinetic-studio"]:not([data-theme="light"]),
@@ -515,6 +588,11 @@
   --motion-duration-reveal: 500ms;
   --motion-distance-reveal: 32px;
   --effect-card-hover-lift: 0px;
+  --illus-stroke: 2.25;
+  --illus-cap: square;
+  --illus-join: miter;
+  --illus-radius: 0;
+  --illus-shadow-y: 0px;
 }
 /* Poster hero: single column, headline words rise once on load (<= 500ms each, staggered). */
 [data-trend="kinetic-studio"] [data-slot="hero-grid"] {
@@ -558,6 +636,10 @@
   --color-pop-4: oklch(0.84 0.16 145);
   --color-on-pop: oklch(0.15 0 0);
   --color-on-pop-muted: oklch(0.3 0 0);
+  --color-illus-shadow: var(--color-fg);
+  --color-illus-accent-1: var(--color-pop-2);
+  --color-illus-accent-2: var(--color-pop-1);
+  --color-illus-accent-3: var(--color-pop-3);
   --font-display: Unbounded, "Archivo Black", ui-sans-serif, system-ui, sans-serif;
   --font-weight-display: 800;
   --font-weight-heading: 800;
@@ -576,6 +658,12 @@
   --effect-border-width: 2px;
   --effect-grain-opacity: 0.08;
   --effect-card-hover-lift: -2px;
+  --illus-stroke: 3;
+  --illus-cap: square;
+  --illus-join: miter;
+  --illus-radius: 8;
+  --illus-shadow-x: 4px;
+  --illus-shadow-y: 4px;
 }
 [data-theme="light"][data-trend="loud"],
 [data-trend="loud"] [data-theme="light"] {
@@ -599,6 +687,10 @@
   --color-pop-4: oklch(0.84 0.16 145);
   --color-on-pop: oklch(0.15 0 0);
   --color-on-pop-muted: oklch(0.3 0 0);
+  --color-illus-shadow: var(--color-fg);
+  --color-illus-accent-1: var(--color-pop-2);
+  --color-illus-accent-2: var(--color-pop-1);
+  --color-illus-accent-3: var(--color-pop-3);
   --font-display: Unbounded, "Archivo Black", ui-sans-serif, system-ui, sans-serif;
   --font-weight-display: 800;
   --font-weight-heading: 800;
@@ -617,6 +709,12 @@
   --effect-border-width: 2px;
   --effect-grain-opacity: 0.08;
   --effect-card-hover-lift: -2px;
+  --illus-stroke: 3;
+  --illus-cap: square;
+  --illus-join: miter;
+  --illus-radius: 8;
+  --illus-shadow-x: 4px;
+  --illus-shadow-y: 4px;
 }
 [data-theme="dark"][data-trend="loud"],
 [data-theme="dark"] [data-trend="loud"]:not([data-theme="light"]),
@@ -641,6 +739,10 @@
   --color-pop-4: oklch(0.84 0.16 145);
   --color-on-pop: oklch(0.15 0 0);
   --color-on-pop-muted: oklch(0.3 0 0);
+  --color-illus-shadow: var(--color-fg);
+  --color-illus-accent-1: var(--color-pop-2);
+  --color-illus-accent-2: var(--color-pop-1);
+  --color-illus-accent-3: var(--color-pop-3);
   --font-display: Unbounded, "Archivo Black", ui-sans-serif, system-ui, sans-serif;
   --font-weight-display: 800;
   --font-weight-heading: 800;
@@ -659,6 +761,12 @@
   --effect-border-width: 2px;
   --effect-grain-opacity: 0.08;
   --effect-card-hover-lift: -2px;
+  --illus-stroke: 3;
+  --illus-cap: square;
+  --illus-join: miter;
+  --illus-radius: 8;
+  --illus-shadow-x: 4px;
+  --illus-shadow-y: 4px;
 }
 /* Press-down buttons with hard shadows; bento tiles cycle pop colors with fixed dark text. */
 [data-trend="loud"] [data-slot="button"]:not([data-variant="link"]):not([data-variant="ghost"]) {
@@ -699,6 +807,9 @@
   --color-border-strong: oklch(0.5 0.01 60);
   --color-primary-fg: oklch(0.98 0.008 85);
   --color-accent-fg: oklch(0.98 0.008 85);
+  --color-illus-accent-1: oklch(0.8 0.01 60);
+  --color-illus-accent-2: oklch(0.9 0.012 70);
+  --color-illus-accent-3: oklch(0.94 0.01 80);
   --font-display: Newsreader, "Iowan Old Style", Georgia, serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
   --font-weight-display: 400;
@@ -719,6 +830,9 @@
   --motion-distance-reveal: 12px;
   --layout-section-y: clamp(6rem, 3rem + 8vw, 12rem);
   --effect-card-hover-lift: 0px;
+  --illus-stroke: 1.5;
+  --illus-radius: 0;
+  --illus-shadow-y: 0px;
 }
 [data-theme="light"][data-trend="quiet-editorial"],
 [data-trend="quiet-editorial"] [data-theme="light"] {
@@ -735,6 +849,9 @@
   --color-border-strong: oklch(0.5 0.01 60);
   --color-primary-fg: oklch(0.98 0.008 85);
   --color-accent-fg: oklch(0.98 0.008 85);
+  --color-illus-accent-1: oklch(0.8 0.01 60);
+  --color-illus-accent-2: oklch(0.9 0.012 70);
+  --color-illus-accent-3: oklch(0.94 0.01 80);
   --font-display: Newsreader, "Iowan Old Style", Georgia, serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
   --font-weight-display: 400;
@@ -755,6 +872,9 @@
   --motion-distance-reveal: 12px;
   --layout-section-y: clamp(6rem, 3rem + 8vw, 12rem);
   --effect-card-hover-lift: 0px;
+  --illus-stroke: 1.5;
+  --illus-radius: 0;
+  --illus-shadow-y: 0px;
 }
 [data-theme="dark"][data-trend="quiet-editorial"],
 [data-theme="dark"] [data-trend="quiet-editorial"]:not([data-theme="light"]),
@@ -772,6 +892,9 @@
   --color-border-strong: oklch(0.62 0.01 70);
   --color-primary-fg: oklch(0.17 0.006 60);
   --color-accent-fg: oklch(0.17 0.006 60);
+  --color-illus-accent-1: oklch(0.42 0.01 60);
+  --color-illus-accent-2: oklch(0.34 0.01 60);
+  --color-illus-accent-3: oklch(0.28 0.008 60);
   --font-display: Newsreader, "Iowan Old Style", Georgia, serif;
   --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
   --font-weight-display: 400;
@@ -792,6 +915,9 @@
   --motion-distance-reveal: 12px;
   --layout-section-y: clamp(6rem, 3rem + 8vw, 12rem);
   --effect-card-hover-lift: 0px;
+  --illus-stroke: 1.25;
+  --illus-radius: 0;
+  --illus-shadow-y: 0px;
 }
 /* Editorial: the last headline word turns italic, labels go mono, cards lose their box. */
 [data-trend="quiet-editorial"] [data-slot="display"] > span:last-child [data-slot="display-word"] {
@@ -842,6 +968,11 @@
   --motion-duration-small: 200ms;
   --effect-hero-bg: radial-gradient(60% 50% at 50% 0%, oklch(from var(--color-brand) l c h / 0.16), transparent 70%), linear-gradient(to right, oklch(from var(--color-fg) l c h / 0.06) 1px, transparent 1px) 0 0 / 48px 48px, linear-gradient(to bottom, oklch(from var(--color-fg) l c h / 0.06) 1px, transparent 1px) 0 0 / 48px 48px;
   --effect-card-hover-lift: 0px;
+  --illus-stroke: 1.5;
+  --illus-cap: square;
+  --illus-join: miter;
+  --illus-radius: 4;
+  --illus-shadow-y: 0px;
 }
 [data-theme="light"][data-trend="signal-dark"],
 [data-trend="signal-dark"] [data-theme="light"] {
@@ -874,6 +1005,11 @@
   --motion-duration-small: 200ms;
   --effect-hero-bg: radial-gradient(60% 50% at 50% 0%, oklch(from var(--color-brand) l c h / 0.16), transparent 70%), linear-gradient(to right, oklch(from var(--color-fg) l c h / 0.06) 1px, transparent 1px) 0 0 / 48px 48px, linear-gradient(to bottom, oklch(from var(--color-fg) l c h / 0.06) 1px, transparent 1px) 0 0 / 48px 48px;
   --effect-card-hover-lift: 0px;
+  --illus-stroke: 1.5;
+  --illus-cap: square;
+  --illus-join: miter;
+  --illus-radius: 4;
+  --illus-shadow-y: 0px;
 }
 [data-theme="dark"][data-trend="signal-dark"],
 [data-theme="dark"] [data-trend="signal-dark"]:not([data-theme="light"]),
@@ -907,6 +1043,11 @@
   --motion-duration-small: 200ms;
   --effect-hero-bg: radial-gradient(60% 50% at 50% 0%, oklch(from var(--color-brand) l c h / 0.16), transparent 70%), linear-gradient(to right, oklch(from var(--color-fg) l c h / 0.06) 1px, transparent 1px) 0 0 / 48px 48px, linear-gradient(to bottom, oklch(from var(--color-fg) l c h / 0.06) 1px, transparent 1px) 0 0 / 48px 48px;
   --effect-card-hover-lift: 0px;
+  --illus-stroke: 1.5;
+  --illus-cap: square;
+  --illus-join: miter;
+  --illus-radius: 4;
+  --illus-shadow-y: 0px;
 }
 /* Technical: the hero grid fades out, labels are mono, cards carry corner ticks, the primary action glows. */
 [data-trend="signal-dark"] [data-slot="hero-bg"] {
@@ -963,6 +1104,8 @@
   --motion-duration-reveal: 500ms;
   --effect-grain-opacity: 0.05;
   --effect-hero-bg: radial-gradient(70% 60% at 85% 0%, oklch(0.9 0.06 70 / 0.8), transparent 70%);
+  --illus-radius: 14;
+  --illus-shadow-y: 3px;
 }
 [data-theme="light"][data-trend="warm-natural"],
 [data-trend="warm-natural"] [data-theme="light"] {
@@ -997,6 +1140,8 @@
   --motion-duration-reveal: 500ms;
   --effect-grain-opacity: 0.05;
   --effect-hero-bg: radial-gradient(70% 60% at 85% 0%, oklch(0.9 0.06 70 / 0.8), transparent 70%);
+  --illus-radius: 14;
+  --illus-shadow-y: 3px;
 }
 [data-theme="dark"][data-trend="warm-natural"],
 [data-theme="dark"] [data-trend="warm-natural"]:not([data-theme="light"]),
@@ -1032,6 +1177,8 @@
   --motion-duration-reveal: 500ms;
   --effect-grain-opacity: 0.05;
   --effect-hero-bg: radial-gradient(70% 60% at 85% 0%, oklch(0.32 0.04 60 / 0.8), transparent 70%);
+  --illus-radius: 14;
+  --illus-shadow-y: 3px;
 }
 /* Soft optical serif: lean on Fraunces' SOFT axis for rounder letterforms. */
 [data-trend="warm-natural"] h1,

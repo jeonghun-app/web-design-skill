@@ -228,6 +228,14 @@
           }
         }
       }
+    },
+    "illus": {
+      "radius": {
+        "$value": 14
+      },
+      "shadow-y": {
+        "$value": "3px"
+      }
     }
   }
 }

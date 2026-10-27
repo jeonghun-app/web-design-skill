@@ -39,6 +39,8 @@ Push and pull options and pitfalls:
 - TIMING and EASING variables don't accept scopes. The push script skips scopes for them and collects any per-variable error into `report.errors`. Check that it is empty.
 - `em` tracking values are not exported, because a Figma FLOAT is absolute. Put display tracking on text styles as a percentage instead: `-0.03em` becomes `-3%`.
 
+Derived dimensions such as `radius.control`, `radius.card` and `radius.panel` (`calc({radius.base} × k)`) are pushed as plain numbers, because Figma variables can't do math. Change `radius.base` in code and push again. Editing `radius/base` in Figma doesn't move the others until the next push, and `pull` reports them as `!` (edit by hand).
+
 What Figma variables cannot hold:
 
 | Value | How it is handled |
@@ -75,7 +77,9 @@ What Figma variables cannot hold:
    - Create text styles for display, h2, h3, lede, base, sm and xs. Bind the font family variable and set size and line-height from the tokens.
    - Follow `figma-generate-library` for order and naming.
 3. **Components.**
-   - Build Button, Badge, Card, Field and the nav, hero and section frames as Figma components.
+   - Generate the starter set with `figma-library.mjs` (Button 24 variants, Badge, Field, Card, a foundations sheet, and Light/Dark review frames). It follows `figma-authoring.md`.
+   - Lint the result with `figma-lint.mjs` before handoff.
+   - Build any further components and the nav, hero and section frames the same way.
    - Give them variants matching the code props, plus states (default, hover, pressed, focus, disabled) per RE-01.
    - Bind every fill, stroke, radius and gap to variables.
    - Connect them to code with Code Connect (`add_code_connect_map`, label React, source `src/components/ui/button.tsx`).

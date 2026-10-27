@@ -118,7 +118,9 @@ function probe(opts) {
   res.minFont = Math.min(...[...document.querySelectorAll('body *')].filter((el) => vis(el) && [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim())).map((el) => parseFloat(getComputedStyle(el).fontSize)));
 
   // LA-01 / LA-04 / MO-05: primary CTAs.
-  const primaries = [...document.querySelectorAll('[data-slot=button][data-variant=solid]')].filter(vis);
+  // Style-guide specimens (examples shown on purpose) don't count toward page budgets.
+  const specimen = (el) => !!el.closest('[data-audit-specimen]');
+  const primaries = [...document.querySelectorAll('[data-slot=button][data-variant=solid]')].filter(vis).filter((el) => !specimen(el));
   res.primaries = primaries.map((el) => {
     const r = el.getBoundingClientRect();
     let fixed = false;
@@ -128,7 +130,7 @@ function probe(opts) {
   res.innerHeight = innerHeight;
 
   // LA-06: complexity budget.
-  const textEls = [...document.querySelectorAll('body *')].filter((el) => vis(el) && [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()));
+  const textEls = [...document.querySelectorAll('body *')].filter((el) => vis(el) && !specimen(el) && [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim()));
   res.families = [...new Set(textEls.map((el) => getComputedStyle(el).fontFamily.split(',')[0].replace(/["']/g, '').trim()))];
   res.weights = [...new Set(textEls.map((el) => getComputedStyle(el).fontWeight))];
 
@@ -350,6 +352,15 @@ try {
   server?.kill();
 }
 
+// Accepted findings: config.audit.accept = [{ page, rule, reason }]. They are reported
+// with their reason but don't count (SKILL.md: "fix each SHOULD or write down why").
+const accepted = (config.audit?.accept ?? []).filter((a) => a.reason);
+const isAccepted = (f) => accepted.find((a) => a.rule === f.rule && (!a.page || pageId(a.page) === f.page));
+for (const f of findings) {
+  const a = isAccepted(f);
+  if (a && f.level === 'SHOULD') { f.level = 'ACCEPTED'; f.msg = `accepted: ${a.reason}`; f.items = []; }
+}
+
 // Collapse identical findings across contexts.
 const grouped = new Map();
 for (const f of findings) {
@@ -359,13 +370,15 @@ for (const f of findings) {
   f.items.forEach((i) => g.items.add(i));
   grouped.set(k, g);
 }
-const list = [...grouped.values()].map((g) => ({ ...g, items: [...g.items].slice(0, 10) })).sort((a, b) => (a.level === b.level ? a.rule.localeCompare(b.rule) : a.level === 'MUST' ? -1 : 1));
+const rank = { MUST: 0, SHOULD: 1, ACCEPTED: 2 };
+const list = [...grouped.values()].map((g) => ({ ...g, items: [...g.items].slice(0, 10) })).sort((a, b) => rank[a.level] - rank[b.level] || a.rule.localeCompare(b.rule));
 const must = list.filter((f) => f.level === 'MUST');
+const should = list.filter((f) => f.level === 'SHOULD');
 
 fs.writeFileSync(path.join(out, 'report.json'), JSON.stringify({ url, trends: trendIds, themes, findings: list }, null, 2));
 const md = [
   `# Audit report`, '', `Pages: ${pages.join(', ')} · Trends: ${trendIds.join(', ')} · Themes: ${themes.join(', ')} · Viewports: 320, 375, 768, 1440`, '',
-  `**${must.length} MUST** · **${list.length - must.length} SHOULD**`, '',
+  `**${must.length} MUST** · **${should.length} SHOULD** · ${list.length - must.length - should.length} accepted`, '',
   ...list.map((f) => `- **${f.level} ${f.rule}**: ${f.msg} _(in ${f.contexts.length} contexts: ${f.contexts.slice(0, 4).join(', ')}${f.contexts.length > 4 ? ', …' : ''})_${f.items.length ? '\n' + f.items.map((i) => `  - \`${i}\``).join('\n') : ''}`),
 ].join('\n');
 fs.writeFileSync(path.join(out, 'report.md'), md + '\n');

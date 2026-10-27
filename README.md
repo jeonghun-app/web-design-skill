@@ -9,7 +9,11 @@ A Claude Code skill that designs and builds web UIs as **one Figma + React syste
 
 ![Seven looks, one codebase: base and six trend packs (light)](docs/trends-light.jpg)
 
-The page above is the same React code in all seven panels. Only the active trend pack differs. Every panel passes the same human-factors audit (0 MUST, 0 SHOULD findings) in light and dark mode, at 320, 375, 768 and 1440 px. The template also has a product-UI page (`#/app`) that the audit checks on every trend: a sidebar shell, a ⌘K palette, a data table with bulk actions and undo, dialogs, menus, toasts, skeletons and empty states.
+The page above is the same React code in all seven panels. Only the active trend pack differs. Every panel passes the same human-factors audit (0 MUST, 0 SHOULD findings) in light and dark mode, at 320, 375, 768 and 1440 px. The template also has a product-UI page (`#/app`) and a **living style guide** (`#/system`), and the audit checks both on every trend.
+- `#/app` has a sidebar shell, a ⌘K palette, a data table with bulk actions and undo, dialogs, menus, toasts, skeletons and empty states.
+- `#/system` covers foundations with live contrast badges, components, Do/Don't cards, and token-driven illustrations that re-theme with every trend.
+
+![Token-driven illustrations: one source, re-themed by every trend and dark mode](docs/illustrations.jpg)
 
 ## What's inside
 
@@ -26,6 +30,9 @@ skills/web-design/
     content.md             microcopy rules in English and Korean
     korean.md              Korean-first / CJK typography, forms, KWCAG 2.2, local conventions
     review.md              design review scorecard (0–10) and procedure
+    design-process.md      how strong designers work: framing, exploration, critique, definition of done
+    figma-authoring.md     Figma file structure, auto layout, components, variables, handoff, lint rules
+    illustration.md        illustration roles, a token-driven style family, theming, a11y, IL checklist
     trends.md              how trend packs work, how to choose one, the quarterly refresh procedure
     tokens.md              token contract (DTCG → CSS variables → Tailwind v4 → Figma variables)
     figma.md               two-way Figma workflow through the official Figma MCP server
@@ -34,6 +41,8 @@ skills/web-design/
     build-tokens.mjs       tokens + packs → tokens.css, fonts.css, figma-variables.json
     trend.mjs              list | apply | add | new | check | radar (contrast, APCA advisory, motion, freshness)
     figma-sync.mjs         push (code → Figma variables) | pull-script | pull (Figma → code diff/--write)
+    figma-library.mjs      generate a starter Figma library step by step (pages, styles, components, review)
+    figma-lint.mjs         lint a Figma page against the authoring rules (L01–L30)
     audit.mjs              Playwright + axe human-factors audit, plus a contact sheet per trend × theme × viewport
     new-project.mjs        scaffold a self-contained project from the template
   template/                Vite + React 19 + TypeScript + Tailwind v4 + Radix + cva + motion

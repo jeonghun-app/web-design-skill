@@ -165,6 +165,14 @@
           }
         }
       }
+    },
+    "illus": {
+      "radius": {
+        "$value": 12
+      },
+      "shadow-y": {
+        "$value": "6px"
+      }
     }
   }
 }

@@ -69,3 +69,31 @@ test('unmeasurable contrast pairs fail the check', () => {
   } }, css: '' };
   assert.ok(checkPack(bad, base).errors.some((e) => e.includes('cannot measure')));
 });
+
+test('figma-lint report groups findings and counts errors', async () => {
+  const { report, lintCode } = await import('../skills/web-design/scripts/figma-lint.mjs');
+  const r = report(JSON.parse(fs.readFileSync(new URL('./fixtures/figma-lint-result.json', import.meta.url), 'utf8')));
+  assert.equal(r.errors, 6);
+  assert.match(r.text, /E L03/);
+  assert.match(r.text, /I L30/);
+  const code = lintCode({ page: 'Ready for dev', max: 50 });
+  assert.doesNotThrow(() => new Function('figma', `return (async () => {${code}})`));
+  assert.match(code, /"Ready for dev"/);
+});
+
+test('figma-lint report counts every finding even when examples are capped', async () => {
+  const { report } = await import('../skills/web-design/scripts/figma-lint.mjs');
+  const many = { page: 'P', findings: [{ id: 'L10', nodeId: '1:1', name: 'Frame 1' }], counts: { L10: 400, L05: 3 }, stats: { nodes: 900 } };
+  many.findings.push({ id: 'L05', nodeId: '1:2', name: 'Text' });
+  const r = report(many);
+  assert.equal(r.errors, 3, 'E findings beyond the example cap must still fail the gate');
+  assert.match(r.text, /L10.*\(400\)/);
+  const legacy = report({ page: 'P', findings: [{ id: 'L10', nodeId: '1', name: 'Frame 1' }], stats: { nodes: 1, truncated: true } });
+  assert.ok(legacy.errors >= 1, 'a truncated legacy dump cannot pass');
+});
+
+test('figma variables include calc() radii for the base trend', () => {
+  const vars = JSON.parse(fs.readFileSync(new URL('../skills/web-design/template/design/build/figma-variables.json', import.meta.url), 'utf8'));
+  const names = vars.trends.none.map((v) => v.name);
+  for (const n of ['radius/control', 'radius/card', 'radius/panel', 'space/4', 'color/primary']) assert.ok(names.includes(n), n);
+});

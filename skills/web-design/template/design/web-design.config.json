@@ -14,7 +14,15 @@
   "audit": {
     "pages": [
       "/",
-      "/#/app"
+      "/#/app",
+      "/#/system"
+    ],
+    "accept": [
+      {
+        "page": "/#/system",
+        "rule": "LA-04",
+        "reason": "Documentation page: there is no primary conversion action to place above the fold."
+      }
     ]
   }
 }

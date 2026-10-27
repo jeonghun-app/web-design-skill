@@ -1,22 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import trends from '@/design/trends.json'
+import { useAppearance } from '@/lib/appearance'
 
 // Dev-only panel: flip trend and theme live. Persists to localStorage; ?trend=<id> also works.
 export function TrendSwitcher() {
-  const root = document.documentElement
-  const [trend, setTrend] = useState(root.dataset.trend ?? 'none')
-  const [theme, setTheme] = useState(root.dataset.theme ?? 'light')
+  const { trend, setTrend, theme, setTheme } = useAppearance()
   const [open, setOpen] = useState(false)
-
-  useEffect(() => {
-    if (trend === 'none') delete root.dataset.trend
-    else root.dataset.trend = trend
-    localStorage.setItem('wd-trend', trend)
-  }, [trend, root])
-  useEffect(() => {
-    root.dataset.theme = theme
-    localStorage.setItem('wd-theme', theme)
-  }, [theme, root])
 
   return (
     <div className="fixed bottom-4 right-4 z-50 text-sm" data-wd-dev>

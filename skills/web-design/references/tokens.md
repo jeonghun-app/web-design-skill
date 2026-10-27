@@ -27,6 +27,8 @@ Other groups become plain custom properties, used with Tailwind's `(--var)` shor
 - `motion.duration.*`: `duration-(--motion-duration-small)`
 - `size.*`: `h-(--size-control-md)`, `min-h-(--size-touch-min)`
 - `layout.*`: `container-page`, `section-y` and `prose-measure` utilities, `h-(--layout-nav-h)`. Under `:lang(ko)`, `--layout-prose` switches to `layout.prose-ko` (32em, see `korean.md`).
+- `space.*`: the 4 px spacing scale (`--space-4` = 16 px). These are also the Figma `space/*` variables that bind auto layout padding and gaps.
+- `illus.*` plus `color.illus-*`: the illustration style family (stroke, cap, join, radius, shadow offset, palette). See `illustration.md`.
 - `layer.*`: stacking order (`z-(--layer-sticky|drawer|modal|popover|toast|tooltip)`)
 - `effect.*`: read by the `surface` utility, the hero background, the grain overlay and display text
 

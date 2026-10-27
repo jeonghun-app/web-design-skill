@@ -9,7 +9,11 @@ Figma와 React 웹 프론트엔드를 **하나의 디자인 시스템**으로 �
 
 ![하나의 코드, 일곱 가지 스타일: 기본과 트렌드 팩 6개 (라이트)](docs/trends-light.jpg)
 
-위 7개 화면은 모두 같은 React 코드이고, 활성 트렌드 팩만 다릅니다. 모든 화면이 라이트·다크 모드와 320/375/768/1440px에서 같은 휴먼 팩터 감사를 통과합니다(MUST 0, SHOULD 0). 템플릿에는 제품 UI 페이지(`#/app`)도 있고, 감사 도구가 이 페이지도 모든 트렌드에서 검사합니다. 사이드바 셸, ⌘K 명령 팔레트, 일괄 작업과 실행 취소를 지원하는 데이터 표, 다이얼로그, 메뉴, 토스트, 스켈레톤, 빈 상태 화면을 담았습니다.
+위 7개 화면은 모두 같은 React 코드이고, 활성 트렌드 팩만 다릅니다. 모든 화면이 라이트·다크 모드와 320/375/768/1440px에서 같은 휴먼 팩터 감사를 통과합니다(MUST 0, SHOULD 0). 템플릿에는 제품 UI 페이지(`#/app`)와 **살아있는 스타일 가이드**(`#/system`)도 있고, 감사 도구가 두 페이지를 모든 트렌드에서 검사합니다.
+- `#/app`: 사이드바 셸, ⌘K 명령 팔레트, 일괄 작업과 실행 취소를 지원하는 데이터 표, 다이얼로그, 메뉴, 토스트, 스켈레톤, 빈 상태 화면
+- `#/system`: 실시간 대비 배지가 붙은 파운데이션, 컴포넌트, Do/Don't 카드, 트렌드마다 다시 스타일링되는 토큰 기반 일러스트
+
+![토큰 기반 일러스트: 하나의 소스가 트렌드와 다크 모드에 따라 다시 스타일링됩니다](docs/illustrations.jpg)
 
 ## 구성
 
@@ -26,6 +30,9 @@ skills/web-design/
     content.md             UX 문구 규칙 (영어·한국어)
     korean.md              한국어 우선·CJK 타이포그래피, 폼, KWCAG 2.2, 국내 관례
     review.md              디자인 리뷰 평가표(0–10)와 절차
+    design-process.md      잘하는 디자이너의 작업 방식: 문제 정의, 탐색, 크리틱, 완료 기준
+    figma-authoring.md     Figma 파일 구조, 오토 레이아웃, 컴포넌트, 변수, 핸드오프, 린트 규칙
+    illustration.md        일러스트 역할, 토큰 기반 스타일 체계, 테마 대응, 접근성, IL 체크리스트
     trends.md              트렌드 팩 구조, 고르는 법, 분기별 갱신 절차
     tokens.md              토큰 계약 (DTCG → CSS 변수 → Tailwind v4 → Figma 변수)
     figma.md               공식 Figma MCP를 이용한 양방향 워크플로
@@ -34,6 +41,8 @@ skills/web-design/
     build-tokens.mjs       토큰과 팩을 tokens.css, fonts.css, figma-variables.json으로 빌드
     trend.mjs              list | apply | add | new | check | radar (대비, APCA 권고, 모션, 재검토 기한)
     figma-sync.mjs         push(코드 → Figma 변수) | pull-script | pull(Figma → 코드 비교, --write로 반영)
+    figma-library.mjs      Figma 시작용 라이브러리를 단계별로 생성(페이지, 스타일, 컴포넌트, 리뷰)
+    figma-lint.mjs         Figma 페이지를 작성 규칙(L01–L30)에 맞춰 검사
     audit.mjs              Playwright + axe 휴먼 팩터 감사, 트렌드 × 테마 × 화면 크기별 스크린샷 모음
     new-project.mjs        템플릿으로 독립 실행 가능한 새 프로젝트 생성
   template/                Vite + React 19 + TypeScript + Tailwind v4 + Radix + cva + motion
