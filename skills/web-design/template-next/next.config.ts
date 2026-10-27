@@ -1,0 +1,22 @@
+import type { NextConfig } from 'next'
+// @ts-expect-error -- plain JS module from the vendored skill scripts (no type declarations)
+import { writeSeoFiles } from './design/scripts/seo-files.mjs'
+
+// robots.txt and sitemap.xml from SITE_URL, on every build and dev start (web-quality.md SE-20).
+writeSeoFiles(process.cwd())
+
+// `npm run build:static` writes a static export to out/ (any static host). The default
+// build is a server build (next start, a container, or an adapter). npm names the running
+// script in npm_lifecycle_event on every OS, so no inline env syntax is needed.
+const isExport = process.env.npm_lifecycle_event === 'build:static' || process.env.NEXT_OUTPUT === 'export'
+
+const nextConfig: NextConfig = {
+  // Partial prerendering: the static shell of every route is prerendered; anything dynamic
+  // streams in behind <Suspense>. Default in create-next-app since 16.4.
+  cacheComponents: !isExport, // Next can't prerender partially in export mode
+  partialPrefetching: !isExport,
+  reactStrictMode: true,
+  ...(isExport && { output: 'export' as const, trailingSlash: true, images: { unoptimized: true } }),
+}
+
+export default nextConfig

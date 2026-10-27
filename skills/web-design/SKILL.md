@@ -20,16 +20,17 @@ tokens.json     (brand: hue, type, scale)  +  trends/<id>  (fashion: shape, dept
 ```
 
 ## Paths
-- Skill: this directory (`SKILL_DIR`). Scripts are in `scripts/`, the template project is in `template/`, the trend library is in `trends/`.
+- Skill: this directory (`SKILL_DIR`). Scripts are in `scripts/`, the template project is in `template/` (Vite), the Next.js overlay is in `template-next/`, the trend library is in `trends/`.
+- New project: `node scripts/new-project.mjs <dir> [--framework vite|next] [--site-url https://…] [--lang ko] [--trend <id>] --install`. Both frameworks share the same `src/` (components, sections, screens); in-app links go through `src/lib/routes.ts`.
 - In a project made with `new-project.mjs`, the scripts and trends are vendored into `design/scripts` and `design/trends`. Run them as `npm run tokens|trend|audit|figma-sync`.
 
 ## Stack (default; respect an existing project's stack)
-- Vite + React 19 + TypeScript
+- Vite + React 19 + TypeScript (default: one static build, hash routes, any host), or **Next.js 16 App Router** (`--framework next`) when pages must rank on their own, need per-route metadata, or the LCP on inner routes matters: every route is prerendered, fonts go through `next/font`
 - Tailwind CSS v4: tokens through `@theme`, with dark mode and trends set by `data-theme` and `data-trend` attributes
 - `class-variance-authority` for variants, `tailwind-merge` + `clsx` (`cn`)
 - Radix primitives for every overlay and composite widget (dialog, menu, tabs, popover, tooltip, select)
 - `motion` for layout and spring animation only; CSS transitions on tokens for everything else
-- Playwright + axe-core for the audit
+- Playwright + axe-core for the audit; Vitest browser mode + axe-core for component tests (`npm test`)
 
 For an existing project, adopt the token contract (names in `references/tokens.md`) and the audit. Don't force the template.
 
@@ -95,11 +96,16 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
   - visible labels (CO-05)
   - every interactive state present (RE-01)
   - motion from the tokens, with reduced-motion handled (MT-01 to MT-03)
+- **Web quality while building** (`references/web-quality.md`):
+  - `npm run lint:design` (part of the build) catches raw colors, palette classes, arbitrary px, removed focus, pointer-down actions, clickable divs, missing alt/size (CL-01 to CL-13).
+  - Heavy libraries load late: the motion engine via `LazyMotion` (use `m.*`, never `motion.*`), providers on the page that needs them, routes lazy and preloaded.
+  - Head: real title, description, canonical, Open Graph image (1200 × 630), PNG favicon, JSON-LD on the home page. Every `<a>` has a real `href`.
+  - Behavior with keyboard and focus contracts gets a component test next to the component (`*.test.tsx`, see `components.test.tsx`).
 - The **signature move** gets the craft budget: custom visual, considered motion, art-directed type. Use the `trend-<id>:` variants or `pack.css` only for what tokens can't express.
 
 ### 5. QA
-1. `npm run build`. Generated tokens must be fresh (`tokens --check` is part of the build).
-2. `node scripts/audit.mjs --trends active` (or `all` after touching the tokens). Pages come from `audit.pages` in the config (the template audits `/` and `/#/app`). Fix every **MUST**. Fix each **SHOULD** or write down why it is acceptable. `trend.mjs check` also prints APCA advisories; fix them for body and muted text.
+1. `npm run build` (tokens `--check` and `lint:design` are part of it) and `npm test` (component tests in a real browser).
+2. `node scripts/audit.mjs --trends active` (or `all` after touching the tokens). Pages come from `audit.pages` in the config (the template audits `/`, `/#/app` and `/#/system`). Besides the human-factors rules it runs a throttled mobile perf pass (LCP, CLS, TBT, byte budgets: PF-*) and an SEO/share pass with and without JS (SE-*); see `references/web-quality.md`. For visual regression, `--baseline save` once and `--baseline compare` after changes (VR-01). Fix every **MUST**. Fix each **SHOULD** or write down why it is acceptable. `trend.mjs check` also prints APCA advisories; fix them for body and muted text.
 3. **Look at the result.** Open `design/audit/contact-sheet.html` and read the screenshots for mobile, tablet and desktop in light and dark. Judge them against the brief:
    - Does a 5-second look reveal what this is and what to do next (TR-01)?
    - Is there exactly one focal point above the fold?
@@ -113,7 +119,8 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
 
 ### 6. SYNC and HANDOFF
 - Tokens changed in code: `figma-sync push`. Changed in Figma: `figma-sync pull --write`, then `tokens`.
-- Production: `trend.mjs apply <id> --lock`, which ships only the active pack.
+- Production: `trend.mjs apply <id> --lock`, which ships only the active pack. Set the real origin (`VITE_SITE_URL` or `SITE_URL` in `.env`), replace the OG image and icons, and after deploying run `audit.mjs --url https://…` once (PF-19 compression is only checked on a real host).
+- Code Connect (Figma Organization/Enterprise plans only): `figma/*.figma.ts` maps the library's Button, Badge, Field and Card to the React components; see `references/figma.md` § Code Connect.
 - Report back with:
   - what was built
   - the chosen trend and why (fits, stage)
@@ -143,3 +150,4 @@ Follow `references/figma.md`. Load the Figma MCP skills first (`figma-use`, `fig
 - `references/figma-authoring.md`: file structure, layout, components, variables, handoff; library builder and lint (L01–L30)
 - `references/illustration.md`: roles and sizes, style-family tokens, theming, accessibility, production, IL-01 to IL-22
 - `references/design-process.md`: core designer skills, the process loop, critique, and the definition of done
+- `references/web-quality.md`: performance budgets and PF rules, SEO and share SE rules, code lint CL rules, visual regression

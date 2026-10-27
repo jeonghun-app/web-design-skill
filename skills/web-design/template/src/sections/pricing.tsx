@@ -1,4 +1,6 @@
-import { motion } from 'motion/react'
+'use client'
+
+import * as m from 'motion/react-m'
 import { useState } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -25,7 +27,7 @@ export function Pricing({ plans }: { plans: Plan[] }) {
               className="relative min-h-11 rounded-pill px-4 text-sm font-medium"
             >
               {yearly === o.v && (
-                <motion.span layoutId="billing-pill" transition={{ type: 'spring', bounce: 0.2, duration: 0.3 }} className="absolute inset-0 rounded-pill bg-surface shadow-card" />
+                <m.span layoutId="billing-pill" transition={{ type: 'spring', bounce: 0.2, duration: 0.3 }} className="absolute inset-0 rounded-pill bg-surface shadow-card" />
               )}
               <span className="relative">{o.l}</span>
             </button>

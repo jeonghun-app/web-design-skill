@@ -7,7 +7,7 @@
 | `design/trends/<id>/pack.json` | Trend overrides (same shape) plus metadata | yes |
 | `design/web-design.config.json` | `trend` (active id or `none`), `include` (`all`, `active` or a list), `fonts` (base font CSS URLs) | through `trend.mjs apply` |
 | `src/design/tokens.css` | Generated: `@theme` plus `[data-theme]` / `[data-trend]` overrides plus `trend-<id>:` variants | no |
-| `src/design/fonts.css`, `src/design/trends.json` | Generated | no |
+| `src/design/fonts.json`, `src/design/trends.json` (and `src/design/fonts.ts` when `framework` is `next`) | Generated | no |
 | `design/build/figma-variables.json`, `tokens.resolved.json` | Generated: Figma payload and resolved values per trend and mode | no |
 
 Run `build-tokens.mjs` after every token edit. `build-tokens.mjs --check` fails when generated files are stale; the template's `npm run build` runs it.

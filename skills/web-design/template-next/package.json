@@ -1,0 +1,50 @@
+{
+  "name": "web-design-next-template",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run tokens -- --check && npm run lint:design && next build",
+    "start": "next start",
+    "build:static": "npm run tokens -- --check && npm run lint:design && next build",
+    "tokens": "node design/scripts/build-tokens.mjs",
+    "trend": "node design/scripts/trend.mjs",
+    "audit": "node design/scripts/audit.mjs",
+    "figma-sync": "node design/scripts/figma-sync.mjs",
+    "lint:design": "node design/scripts/code-lint.mjs",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.3.1",
+    "@radix-ui/react-dropdown-menu": "^2.2.1",
+    "@radix-ui/react-slot": "^1.5.0",
+    "@radix-ui/react-tabs": "^1.2.1",
+    "@radix-ui/react-tooltip": "^1.4.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "motion": "^14.6.0",
+    "next": "^16.4.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "@vitest/browser-playwright": "^5.0.5",
+    "axe-core": "^4.14.0",
+    "pixelmatch": "^8.0.0",
+    "pngjs": "^7.0.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.3",
+    "vitest": "^5.0.5",
+    "vitest-browser-react": "^2.3.0"
+  }
+}

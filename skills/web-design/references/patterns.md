@@ -128,7 +128,7 @@ nav → hero → logos/proof → features (bento or chapters) → stats → test
 
 ## App grammar (product UI)
 
-Product screens have their own catalog: shell and navigation, data tables, forms, feedback, empty states, search, settings, dashboards and overlays. It lives in **`app-patterns.md`** and comes with density rules and the places where the reference systems disagree. The template's `#/app` page (`src/pages/app-demo.tsx`) puts it together: a 256 px sidebar that becomes a drawer on mobile, a top bar with ⌘K, KPI cards, a sortable table with bulk actions and undo, dialog, menu, tooltips, skeletons, empty states, and a sticky bottom CTA on phones.
+Product screens have their own catalog: shell and navigation, data tables, forms, feedback, empty states, search, settings, dashboards and overlays. It lives in **`app-patterns.md`** and comes with density rules and the places where the reference systems disagree. The template's `#/app` page (`src/screens/app-demo.tsx`) puts it together: a 256 px sidebar that becomes a drawer on mobile, a top bar with ⌘K, KPI cards, a sortable table with bulk actions and undo, dialog, menu, tooltips, skeletons, empty states, and a sticky bottom CTA on phones.
 
 ## Component inventory
 

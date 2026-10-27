@@ -28,8 +28,44 @@ jobs:
         run: npm run build
       - name: Unit and browser tests
         run: node --test ../../../tests/*.test.mjs
+      - name: Component tests (Vitest browser mode + axe)
+        run: npm test
       - name: Trend packs (contrast, motion, schema)
         run: npm run trend -- check
       - name: Human-factors audit (all trends)
         if: matrix.node == 24
         run: npm run audit -- --trends all --no-shots
+      - name: Upload the audit report
+        if: always() && matrix.node == 24
+        uses: actions/upload-artifact@v4
+        with:
+          name: audit-report
+          path: skills/web-design/template/design/audit/report.*
+          if-no-files-found: ignore
+
+  next:
+    runs-on: ubuntu-latest
+    env:
+      NEXT_TELEMETRY_DISABLED: 1
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Scaffold a Next.js project from the skill
+        run: node skills/web-design/scripts/new-project.mjs "$RUNNER_TEMP/next-app" --framework next --site-url https://example.com --install
+      - name: Install Chromium
+        working-directory: ${{ runner.temp }}/next-app
+        run: npx playwright install --with-deps chromium
+      - name: Build (tokens check, design lint, next build)
+        working-directory: ${{ runner.temp }}/next-app
+        run: npm run build
+      - name: Component tests
+        working-directory: ${{ runner.temp }}/next-app
+        run: npm test
+      - name: Static export
+        working-directory: ${{ runner.temp }}/next-app
+        run: npm run build:static
+      - name: Audit (base trend, light)
+        working-directory: ${{ runner.temp }}/next-app
+        run: npm run audit -- --trends active --themes light --no-shots

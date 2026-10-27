@@ -1,3 +1,5 @@
+'use client'
+
 import { useSyncExternalStore } from 'react'
 
 // Trend + theme live on <html data-trend data-theme>. Every control subscribes to those
@@ -8,6 +10,8 @@ const subscribe = (cb: () => void) => {
   mo.observe(root(), { attributes: true, attributeFilter: ['data-trend', 'data-theme'] })
   return () => mo.disconnect()
 }
+// The server has no <html> attributes to read; it renders the defaults and the client corrects on hydration.
+const serverSnapshot = () => 'none|light'
 const snapshot = () => `${root().dataset.trend ?? 'none'}|${root().dataset.theme ?? 'light'}`
 
 export function setTrend(trend: string) {
@@ -21,6 +25,6 @@ export function setTheme(theme: string) {
 }
 
 export function useAppearance() {
-  const [trend, theme] = useSyncExternalStore(subscribe, snapshot).split('|')
+  const [trend, theme] = useSyncExternalStore(subscribe, snapshot, serverSnapshot).split('|')
   return { trend, setTrend, theme, setTheme }
 }

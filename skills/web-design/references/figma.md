@@ -92,6 +92,28 @@ What Figma variables cannot hold:
 3. Structural differences that tokens can't express live in the pack's `pack.css` (code) and in a component variant property named `trend` (Figma). Keep these rare.
 4. Run `audit.mjs --trends <id>` and re-check the screenshots in Figma with `get_screenshot`.
 
+## Code Connect
+
+Code Connect shows the real React snippet in Dev Mode when someone inspects a library component. It needs a Figma **Organization or Enterprise** plan, and the components must be published to a team library. On other plans, skip this section: the naming contract and `get_design_context` still carry the mapping.
+
+The template ships parserless templates in `figma/*.figma.ts` (configured in `figma.config.json`) for the components that `figma-library.mjs` builds:
+
+| Figma component | Properties read | React |
+|---|---|---|
+| Button | Label, Variant (Solid/Outline/Ghost), Size (MD/LG), State (Disabled → `disabled`) | `<Button variant size disabled>` |
+| Badge | Label, Tone (Brand/Neutral/Success/Danger) | `<Badge tone>` |
+| Field | Label, State (Error → `error` from the Error layer, Disabled → `disabled`) | `<Field label error disabled>` |
+| Card | Title, Body | `<Card><CardTitle/><CardText/></Card>` |
+
+Hover and Focus are runtime states in code, so they map to nothing. When you rename a property or variant in the builder, update the template in the same change: an unmapped variant value renders as `undefined`.
+
+To publish:
+1. Replace `FILE_KEY` and the node ids in each template's `// url=` line with the published component set's URL (from `get_code_connect_suggestions` or Copy link in Figma).
+2. `npx figma connect publish --token <personal access token>`. Add `--dry-run` first.
+3. Check one instance in Dev Mode. The snippet should match what the code component accepts.
+
+Write new templates with the `figma-code-connect` skill. They are `.figma.ts` files with `figma.code` tagged templates, not `.figma.tsx` with `figma.connect()`.
+
 ## Figma-side QA checklist
 - [ ] No unbound colors, radii or spacing on library components. Check them with a `use_figma` read script that lists `boundVariables` gaps.
 - [ ] Mobile frames: interactive layers ≥44×44 (MO-02). Text ≥16 px for body (TY-01).

@@ -35,17 +35,21 @@ skills/web-design/
     illustration.md        illustration roles, a token-driven style family, theming, a11y, IL checklist
     trends.md              how trend packs work, how to choose one, the quarterly refresh procedure
     tokens.md              token contract (DTCG → CSS variables → Tailwind v4 → Figma variables)
-    figma.md               two-way Figma workflow through the official Figma MCP server
+    figma.md               two-way Figma workflow through the official Figma MCP server, Code Connect
+    web-quality.md         perf budgets (PF), SEO and share (SE), code lint (CL), visual regression (VR)
   trends/<id>/             pack.json (metadata + token overrides) + pack.css (signature details)
   scripts/
-    build-tokens.mjs       tokens + packs → tokens.css, fonts.css, figma-variables.json
+    build-tokens.mjs       tokens + packs → tokens.css, fonts.json (+ next/font fonts.ts), figma-variables.json
     trend.mjs              list | apply | add | new | check | radar (contrast, APCA advisory, motion, freshness)
     figma-sync.mjs         push (code → Figma variables) | pull-script | pull (Figma → code diff/--write)
     figma-library.mjs      generate a starter Figma library step by step (pages, styles, components, review)
     figma-lint.mjs         lint a Figma page against the authoring rules (L01–L30)
-    audit.mjs              Playwright + axe human-factors audit, plus a contact sheet per trend × theme × viewport
-    new-project.mjs        scaffold a self-contained project from the template
-  template/                Vite + React 19 + TypeScript + Tailwind v4 + Radix + cva + motion
+    audit.mjs              human-factors audit (Playwright + axe), slow-4G perf pass, SEO/share pass, visual regression
+    code-lint.mjs          static design-discipline lint (CL-01 to CL-13), part of the build
+    seo-files.mjs          robots.txt + sitemap.xml from the site origin (Next projects)
+    new-project.mjs        scaffold a self-contained Vite or Next.js project
+  template/                Vite + React 19 + TypeScript + Tailwind v4 + Radix + cva + motion; Vitest browser tests; Code Connect
+  template-next/           Next.js 16 App Router overlay: same src/, real routes, next/font, metadata, sitemap, robots
 ```
 
 ## Trend packs (reviewed 2026-10)
@@ -71,6 +75,8 @@ cd web-design-skill
 cd skills/web-design/template && npm install && npx playwright install chromium
 ```
 
+Runs on macOS and Linux with Node 22 or 24. On Windows, use WSL: the audit starts its preview server through `npx` and stops it as a POSIX process group.
+
 For Figma work, add the official Figma MCP server to Claude Code and authenticate it with `/mcp`.
 
 ## Use
@@ -87,11 +93,13 @@ Or run the tools directly:
 
 ```bash
 node skills/web-design/scripts/new-project.mjs ../my-site --install --trend signal-dark   # add --lang ko for Korean
+# or: ... ../my-site --framework next --site-url https://my-site.com --install
 cd ../my-site
 npm run dev                          # dev panel (bottom-right) switches trend and theme live
 npm run trend -- list
 npm run trend -- apply warm-natural  # restyle everything
-npm run audit -- --trends all        # human-factors audit + contact sheet in design/audit/
+npm run audit -- --trends all        # human-factors + perf + SEO audit, contact sheet in design/audit/
+npm test                             # component tests (keyboard, focus, axe) in a real browser
 npm run figma-sync -- push > design/build/figma-push.js   # run with the use_figma MCP tool
 ```
 

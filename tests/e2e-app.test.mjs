@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
+import net from 'node:net';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { after, before, test } from 'node:test';
@@ -18,8 +19,10 @@ const skip = ready ? false : 'needs a built template and Playwright Chromium';
 let server, browser, url;
 before(async () => {
   if (skip) return;
-  const port = 4800 + Math.floor(Math.random() * 400);
-  server = spawn('npx', ['vite', 'preview', '--port', String(port), '--strictPort'], { cwd: TEMPLATE, stdio: 'ignore' });
+  // A free port from the OS, and a process group we can kill: npx runs vite as a child,
+  // and a random port could hit a server left by another run.
+  const port = await new Promise((resolve) => { const p = net.createServer().listen(0, '127.0.0.1', () => { const { port: n } = p.address(); p.close(() => resolve(n)); }); });
+  server = spawn('npx', ['vite', 'preview', '--port', String(port), '--strictPort'], { cwd: TEMPLATE, stdio: 'ignore', detached: true });
   url = `http://localhost:${port}/`;
   for (let i = 0; i < 50; i++) {
     try { if ((await fetch(url)).ok) break; } catch { /* starting */ }
@@ -27,7 +30,7 @@ before(async () => {
   }
   browser = await chromium.launch();
 });
-after(async () => { await browser?.close(); server?.kill(); });
+after(async () => { await browser?.close(); if (server) { try { process.kill(-server.pid); } catch { server.kill(); } } });
 
 async function appPage() {
   const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });

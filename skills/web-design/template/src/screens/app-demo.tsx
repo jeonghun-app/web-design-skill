@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -7,11 +9,13 @@ import { Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger } from 
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { EmptyState } from '@/components/ui/empty-state'
 import { Field } from '@/components/ui/field'
-import { Skeleton, useDelayedFlag } from '@/components/ui/skeleton'
+import { Skeleton } from '@/components/ui/skeleton'
+import { useDelayedFlag } from '@/lib/use-delayed-flag'
 import { Tabs } from '@/components/ui/tabs'
 import { useToast } from '@/components/ui/toast'
-import { Tooltip } from '@/components/ui/tooltip'
+import { Tooltip, TooltipProvider } from '@/components/ui/tooltip'
 import { cn } from '@/lib/cn'
+import { routes } from '@/lib/routes'
 
 type Request = { id: string; title: string; requester: string; status: 'Open' | 'In review' | 'Done'; size: number; age: number }
 
@@ -33,7 +37,17 @@ const NAV = [
 
 // Product grammar demo: sidebar shell (drawer on mobile), top bar with ⌘K, KPI cards,
 // a dense table with bulk actions, dialog and menu overlays, toasts with undo.
+// The tooltip provider lives on the page that uses tooltips, so its positioning engine
+// (floating-ui) loads with this chunk instead of the landing page.
 export function AppDemoPage() {
+  return (
+    <TooltipProvider>
+      <AppDemo />
+    </TooltipProvider>
+  )
+}
+
+function AppDemo() {
   const toast = useToast()
   const [navOpen, setNavOpen] = useState(false)
   const [paletteOpen, setPaletteOpen] = useState(false)
@@ -63,7 +77,7 @@ export function AppDemoPage() {
     { id: 'refresh', label: 'Refresh queue', group: 'Actions', run: refresh },
     { id: 'inbox', label: 'Go to Inbox', group: 'Navigation', run: () => {} },
     { id: 'reports', label: 'Go to Reports', group: 'Navigation', run: () => {} },
-    { id: 'landing', label: 'Open marketing page', group: 'Navigation', run: () => { location.hash = '/' } },
+    { id: 'landing', label: 'Open marketing page', group: 'Navigation', run: () => routes.navigate(routes.home) },
   ]
 
   const columns: Column<Request>[] = [
@@ -80,7 +94,7 @@ export function AppDemoPage() {
 
   const sidebar = (
     <nav aria-label="App" className="flex h-full flex-col gap-1 p-3">
-      <a href="#/" className="mb-3 flex min-h-11 items-center gap-2 px-2 font-semibold">
+      <a href={routes.home} className="mb-3 flex min-h-11 items-center gap-2 px-2 font-semibold">
         <span aria-hidden className="grid size-7 place-items-center rounded-control bg-primary text-primary-fg">◆</span>
         Lumen
       </a>
@@ -88,7 +102,7 @@ export function AppDemoPage() {
       {NAV.map((n, i) => (
         <a
           key={n.label}
-          href="#/app"
+          href={routes.app}
           onClick={() => setNavOpen(false)}
           aria-current={i === 0 ? 'page' : undefined}
           className="flex min-h-11 items-center justify-between rounded-control px-2 text-sm text-fg-muted hover:bg-surface-sunken hover:text-fg aria-[current=page]:bg-primary-soft aria-[current=page]:font-medium aria-[current=page]:text-primary-soft-fg pointer-fine:min-h-9"

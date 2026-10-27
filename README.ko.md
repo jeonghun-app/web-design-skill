@@ -35,17 +35,21 @@ skills/web-design/
     illustration.md        일러스트 역할, 토큰 기반 스타일 체계, 테마 대응, 접근성, IL 체크리스트
     trends.md              트렌드 팩 구조, 고르는 법, 분기별 갱신 절차
     tokens.md              토큰 계약 (DTCG → CSS 변수 → Tailwind v4 → Figma 변수)
-    figma.md               공식 Figma MCP를 이용한 양방향 워크플로
+    figma.md               공식 Figma MCP를 이용한 양방향 워크플로, Code Connect
+    web-quality.md         성능 예산(PF), SEO와 공유(SE), 코드 린트(CL), 시각 회귀(VR)
   trends/<id>/             pack.json(메타데이터 + 토큰 덮어쓰기) + pack.css(시그니처 디테일)
   scripts/
-    build-tokens.mjs       토큰과 팩을 tokens.css, fonts.css, figma-variables.json으로 빌드
+    build-tokens.mjs       토큰과 팩을 tokens.css, fonts.json(Next는 next/font용 fonts.ts 추가), figma-variables.json으로 빌드
     trend.mjs              list | apply | add | new | check | radar (대비, APCA 권고, 모션, 재검토 기한)
     figma-sync.mjs         push(코드 → Figma 변수) | pull-script | pull(Figma → 코드 비교, --write로 반영)
     figma-library.mjs      Figma 시작용 라이브러리를 단계별로 생성(페이지, 스타일, 컴포넌트, 리뷰)
     figma-lint.mjs         Figma 페이지를 작성 규칙(L01–L30)에 맞춰 검사
-    audit.mjs              Playwright + axe 휴먼 팩터 감사, 트렌드 × 테마 × 화면 크기별 스크린샷 모음
-    new-project.mjs        템플릿으로 독립 실행 가능한 새 프로젝트 생성
-  template/                Vite + React 19 + TypeScript + Tailwind v4 + Radix + cva + motion
+    audit.mjs              휴먼 팩터 감사(Playwright + axe), 느린 4G 성능 측정, SEO와 공유 점검, 시각 회귀
+    code-lint.mjs          디자인 규율 정적 린트(CL-01~CL-13), 빌드에 포함
+    seo-files.mjs          사이트 주소로 robots.txt와 sitemap.xml 생성(Next 프로젝트)
+    new-project.mjs        독립 실행 가능한 Vite 또는 Next.js 프로젝트 생성
+  template/                Vite + React 19 + TypeScript + Tailwind v4 + Radix + cva + motion, Vitest 브라우저 테스트, Code Connect
+  template-next/           Next.js 16 App Router 오버레이: 같은 src/, 실제 경로, next/font, 메타데이터, sitemap, robots
 ```
 
 ## 트렌드 팩 (2026-10 검토)
@@ -71,6 +75,8 @@ cd web-design-skill
 cd skills/web-design/template && npm install && npx playwright install chromium
 ```
 
+macOS와 Linux, Node 22 또는 24에서 동작합니다. Windows에서는 WSL을 쓰세요. 감사 스크립트가 미리보기 서버를 `npx`로 띄우고 POSIX 프로세스 그룹으로 종료하기 때문입니다.
+
 Figma 작업을 하려면 공식 Figma MCP 서버를 Claude Code에 등록하고 `/mcp`로 인증하세요.
 
 ## 사용
@@ -87,11 +93,13 @@ Claude Code에 이렇게 요청하면 됩니다.
 
 ```bash
 node skills/web-design/scripts/new-project.mjs ../my-site --install --trend signal-dark   # 한국어 사이트는 --lang ko 추가
+# Next.js: ... ../my-site --framework next --site-url https://my-site.com --install
 cd ../my-site
 npm run dev                          # 오른쪽 아래 개발 패널에서 트렌드와 테마를 바로 전환
 npm run trend -- list
 npm run trend -- apply warm-natural  # 전체 스타일 교체
-npm run audit -- --trends all        # 휴먼 팩터 감사와 스크린샷 모음 (design/audit/)
+npm run audit -- --trends all        # 휴먼 팩터 + 성능 + SEO 감사, 결과는 design/audit/
+npm test                             # 실제 브라우저에서 컴포넌트 테스트(키보드, 포커스, axe)
 npm run figma-sync -- push > design/build/figma-push.js   # use_figma MCP 도구로 실행
 ```
 

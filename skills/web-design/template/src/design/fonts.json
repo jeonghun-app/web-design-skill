@@ -1,0 +1,25 @@
+{
+  "eager": [
+    "https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap",
+    "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+  ],
+  "trends": {
+    "kinetic-studio": [
+      "https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..700&display=swap"
+    ],
+    "loud": [
+      "https://fonts.googleapis.com/css2?family=Unbounded:wght@500..800&display=swap"
+    ],
+    "quiet-editorial": [
+      "https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap",
+      "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400..600&display=swap"
+    ],
+    "signal-dark": [
+      "https://fonts.googleapis.com/css2?family=Geist:wght@400..700&display=swap",
+      "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400..600&display=swap"
+    ],
+    "warm-natural": [
+      "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,0..100&display=swap"
+    ]
+  }
+}

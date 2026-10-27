@@ -1,8 +1,8 @@
-import { useEffect, useState, type ComponentProps } from 'react'
+import type { ComponentProps } from 'react'
 import { cn } from '@/lib/cn'
 
 // Skeletons match final geometry (RE-05) and appear only after ~300ms so fast loads
-// never flash a placeholder (RE-04). The shimmer is static under reduced motion.
+// never flash a placeholder (RE-04, useDelayedFlag in lib/use-delayed-flag). The shimmer is static under reduced motion.
 export function Skeleton({ className, ...props }: ComponentProps<'div'>) {
   return (
     <div
@@ -16,17 +16,4 @@ export function Skeleton({ className, ...props }: ComponentProps<'div'>) {
       {...props}
     />
   )
-}
-
-export function useDelayedFlag(active: boolean, delay = 300) {
-  const [show, setShow] = useState(false)
-  useEffect(() => {
-    if (!active) {
-      setShow(false)
-      return
-    }
-    const t = setTimeout(() => setShow(true), delay)
-    return () => clearTimeout(t)
-  }, [active, delay])
-  return show
 }

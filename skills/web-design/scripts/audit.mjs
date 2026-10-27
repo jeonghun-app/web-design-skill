@@ -3,18 +3,26 @@
 //
 //   audit.mjs [--url http://localhost:5173/] [--root <project>] [--trends active|all|a,b]
 //             [--themes light,dark] [--pages /,/#/app] [--out design/audit] [--no-shots]
+//             [--baseline save|compare] [--vr-threshold 0.0001] [--no-perf] [--no-seo]
+//
+// Visual regression: `--baseline save` stores the screenshots in design/baseline/;
+// `--baseline compare` diffs new screenshots against them (VR-01) and writes diff images.
 //
 // Pages default to config.audit.pages (design/web-design.config.json), else "/".
 //
-// Without --url it builds the project and serves dist/ itself (vite preview).
+// Without --url it builds the project and serves it itself (vite preview, or next start
+// when web-design.config.json has "framework": "next").
 // Needs @playwright/test and @axe-core/playwright in the project (the template has them).
 // Writes <out>/report.json, <out>/report.md and <out>/contact-sheet.html. Exit 1 on any MUST failure.
 
 import fs from 'node:fs';
+import net from 'node:net';
 import path from 'node:path';
 import { spawn, spawnSync } from 'node:child_process';
 import { createRequire } from 'node:module';
+import { pathToFileURL } from 'node:url';
 import { parseArgs, readConfig, listTrends } from './lib/tokens.mjs';
+import { perfPass, seoPass } from './lib/perf-seo.mjs';
 
 const args = parseArgs(process.argv.slice(2));
 const root = path.resolve(args.root ?? process.cwd());
@@ -50,12 +58,25 @@ const resolvePage = (p, base) => (p === '' ? base : new URL(p.replace(/^\//, '')
 let server;
 async function ensureServer() {
   if (args.url) return args.url;
-  const r = spawnSync('npx', ['vite', 'build'], { cwd: root, stdio: 'inherit' });
+  const next = config.framework === 'next';
+  const r = spawnSync('npx', next ? ['next', 'build'] : ['vite', 'build'], { cwd: root, stdio: 'inherit' });
   if (r.status !== 0) process.exit(r.status ?? 1);
-  const port = 4300 + Math.floor(Math.random() * 500);
-  server = spawn('npx', ['vite', 'preview', '--port', String(port), '--strictPort'], { cwd: root, stdio: 'ignore' });
+  // Ask the OS for a free port: a random one can land on a server left over from another run,
+  // and the audit would then measure that server's (older) build.
+  const port = await new Promise((resolve, reject) => {
+    const probe = net.createServer().once('error', reject);
+    probe.listen(0, '127.0.0.1', () => { const { port: p } = probe.address(); probe.close(() => resolve(p)); });
+  });
+  server = spawn('npx', next ? ['next', 'start', '--port', String(port)] : ['vite', 'preview', '--port', String(port), '--strictPort'], { cwd: root, stdio: 'ignore', detached: true });
+  let exited = null;
+  server.once('exit', (code) => { exited = code ?? 'signal'; });
+  // Never leave the server behind, whatever path ends the run (errors, process.exit, Ctrl-C).
+  const stop = () => { try { process.kill(-server.pid); } catch { /* already gone */ } };
+  process.once('exit', stop);
+  for (const sig of ['SIGINT', 'SIGTERM']) process.once(sig, () => { stop(); process.exit(130); });
   const url = `http://localhost:${port}/`;
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 150; i++) {
+    if (exited !== null) throw new Error(`preview server exited (${exited}) before it was ready`);
     try { if ((await fetch(url)).ok) return url; } catch { /* not up yet */ }
     await new Promise((r) => setTimeout(r, 200));
   }
@@ -299,11 +320,19 @@ async function focusCheck(page, ctx) {
 
 const url = await ensureServer();
 const browser = await chromium.launch();
+const metrics = {};
 const shots = [];
 fs.mkdirSync(path.join(out, 'shots'), { recursive: true });
 try {
   for (const pagePath of pages) {
   const target = resolvePage(pagePath, url);
+  // Lab performance and SEO run once per page, with the default (active) trend.
+  const pctx = { page: pageId(pagePath), trend: config.trend, theme: 'light', viewport: 'mobile-4g' };
+  if (args['no-perf'] === undefined) metrics[pageId(pagePath)] = { ...metrics[pageId(pagePath)], perf: await perfPass(browser, target, pctx, add, config.audit?.budgets) };
+  // Hash routes share one HTML document, so SEO is judged per document (first page only).
+  if (args['no-seo'] === undefined && (pagePath === pages[0] || !pagePath.includes('#'))) {
+    metrics[pageId(pagePath)] = { ...metrics[pageId(pagePath)], seo: await seoPass(browser, target, { ...pctx, viewport: 'html' }, add, { checkRobots: pagePath === pages[0] }) };
+  }
   for (const trend of trendIds) {
     for (const theme of themes) {
       for (const vp of VIEWPORTS) {
@@ -324,8 +353,10 @@ try {
           add(`axe:${v.id}`, ['critical', 'serious'].includes(v.impact) ? 'MUST' : 'SHOULD', ctx, v.help, v.nodes.map((n) => n.target.join(' ')));
         }
         if (args['no-shots'] === undefined) {
+          // Deterministic captures: fonts loaded, animations finished, caret hidden.
+          await page.evaluate(() => document.fonts.ready);
           const file = path.join('shots', `${pageId(pagePath)}-${trend}-${theme}-${vp.id}.png`);
-          await page.screenshot({ path: path.join(out, file), fullPage: vp.id !== 'tablet' });
+          await page.screenshot({ path: path.join(out, file), fullPage: vp.id !== 'tablet', animations: 'disabled', caret: 'hide' });
           shots.push({ ...ctx, file });
         }
         if (vp.id === 'desktop') {
@@ -349,7 +380,41 @@ try {
   }
 } finally {
   await browser.close();
-  server?.kill();
+  // npx spawns the real server as a child; kill the whole process group.
+  if (server) { try { process.kill(-server.pid); } catch { server.kill(); } }
+}
+
+// VR-01 visual regression against design/baseline/ (same browser build and OS as the baseline).
+const baselineDir = path.join(root, 'design', 'baseline');
+if (args.baseline === 'save' && shots.length) {
+  fs.mkdirSync(baselineDir, { recursive: true });
+  for (const s of shots) fs.copyFileSync(path.join(out, s.file), path.join(baselineDir, path.basename(s.file)));
+  console.log(`saved ${shots.length} baseline screenshots to ${path.relative(root, baselineDir)}`);
+}
+if (args.baseline === 'compare' && shots.length) {
+  const { PNG } = require('pngjs');
+  const pixelmatch = (await import(pathToFileURL(require.resolve('pixelmatch')).href)).default;
+  const threshold = +(args['vr-threshold'] ?? config.audit?.vrThreshold ?? 0.0001); // 0.01%: measured noise ≈0.00x%, a radius change ≈0.03%
+  fs.mkdirSync(path.join(out, 'diff'), { recursive: true });
+  for (const s of shots) {
+    const basePath = path.join(baselineDir, path.basename(s.file));
+    const ctx = { page: s.page, trend: s.trend, theme: s.theme, viewport: s.viewport };
+    if (!fs.existsSync(basePath)) { add('VR-01', 'SHOULD', ctx, 'no baseline screenshot (run --baseline save)', [path.basename(s.file)]); continue; }
+    const a = PNG.sync.read(fs.readFileSync(basePath));
+    const b = PNG.sync.read(fs.readFileSync(path.join(out, s.file)));
+    if (a.width !== b.width || a.height !== b.height) {
+      add('VR-01', 'SHOULD', ctx, 'page size changed since the baseline', [`${path.basename(s.file)} ${a.width}×${a.height} → ${b.width}×${b.height}`]);
+      continue;
+    }
+    const diff = new PNG({ width: a.width, height: a.height });
+    const changed = pixelmatch(a.data, b.data, diff.data, a.width, a.height, { threshold: 0.1 });
+    const ratio = changed / (a.width * a.height);
+    if (ratio > threshold) {
+      const diffFile = path.join('diff', path.basename(s.file));
+      fs.writeFileSync(path.join(out, diffFile), PNG.sync.write(diff));
+      add('VR-01', 'SHOULD', ctx, `visual change above ${(threshold * 100).toFixed(2)}% of pixels since the baseline`, [`${path.basename(s.file)} ${(ratio * 100).toFixed(2)}% → ${diffFile}`]);
+    }
+  }
 }
 
 // Accepted findings: config.audit.accept = [{ page, rule, reason }]. They are reported
@@ -375,10 +440,11 @@ const list = [...grouped.values()].map((g) => ({ ...g, items: [...g.items].slice
 const must = list.filter((f) => f.level === 'MUST');
 const should = list.filter((f) => f.level === 'SHOULD');
 
-fs.writeFileSync(path.join(out, 'report.json'), JSON.stringify({ url, trends: trendIds, themes, findings: list }, null, 2));
+fs.writeFileSync(path.join(out, 'report.json'), JSON.stringify({ url, trends: trendIds, themes, metrics, findings: list }, null, 2));
 const md = [
   `# Audit report`, '', `Pages: ${pages.join(', ')} · Trends: ${trendIds.join(', ')} · Themes: ${themes.join(', ')} · Viewports: 320, 375, 768, 1440`, '',
   `**${must.length} MUST** · **${should.length} SHOULD** · ${list.length - must.length - should.length} accepted`, '',
+  ...Object.entries(metrics).filter(([, m]) => m.perf).map(([pg, m]) => `- ${pg}: LCP ${Math.round(m.perf.lcp ?? 0)} ms · CLS ${(m.perf.cls ?? 0).toFixed(3)} · TBT ${Math.round(m.perf.tbt)} ms · JS ${m.perf.bytes.js} KB (+${m.perf.bytes.jsDeferred} KB deferred) · CSS ${m.perf.bytes.css} KB · fonts ${m.perf.bytes.font} KB (${m.perf.fontFiles} files) · total ${m.perf.bytes.total} KB _(slow 4G, 4× CPU)_`), '',
   ...list.map((f) => `- **${f.level} ${f.rule}**: ${f.msg} _(in ${f.contexts.length} contexts: ${f.contexts.slice(0, 4).join(', ')}${f.contexts.length > 4 ? ', …' : ''})_${f.items.length ? '\n' + f.items.map((i) => `  - \`${i}\``).join('\n') : ''}`),
 ].join('\n');
 fs.writeFileSync(path.join(out, 'report.md'), md + '\n');

@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import trends from '@/design/trends.json'
 import { useAppearance } from '@/lib/appearance'
@@ -8,7 +10,7 @@ export function TrendSwitcher() {
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 text-sm" data-wd-dev>
+    <div className="fixed bottom-4 right-4 z-(--layer-tooltip) text-sm" data-wd-dev>
       {open && (
         <div className="surface mb-2 w-72 rounded-card p-3 shadow-overlay">
           <p className="mb-2 font-semibold">Trend</p>
