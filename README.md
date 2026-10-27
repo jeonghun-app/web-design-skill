@@ -7,13 +7,57 @@ A Claude Code skill that designs and builds web UIs as **one Figma + React syste
 - **Principles that don't change.** How people see, decide and act on a screen: attention, scanning, Fitts's law, touch reach, response times, motion perception and accessibility. They are written as about 75 testable rules.
 - **Trends that change every few months.** Dated, swappable **trend packs**. Moving a product to the current look is a data change, `trend apply <id>`, and not a rewrite. Figma follows with the same command.
 
-![Seven looks, one codebase: base and six trend packs (light)](docs/trends-light.jpg)
+![Eight looks, one codebase: the base and seven trend packs, light mode](docs/trends-light.jpg)
 
-The page above is the same React code in all seven panels. Only the active trend pack differs. Every panel passes the same human-factors audit (0 MUST, 0 SHOULD findings) in light and dark mode, at 320, 375, 768 and 1440 px. The template also has a product-UI page (`#/app`) and a **living style guide** (`#/system`), and the audit checks both on every trend.
-- `#/app` has a sidebar shell, a ⌘K palette, a data table with bulk actions and undo, dialogs, menus, toasts, skeletons and empty states.
-- `#/system` covers foundations with live contrast badges, components, Do/Don't cards, and token-driven illustrations that re-theme with every trend.
+All eight panels run the same React code. Only the active trend pack changes. Every panel passes the same audit in light and dark mode, at 320, 375, 768 and 1440 px, with 0 MUST findings. The audit covers human factors, performance on a slow phone, and SEO.
 
-![Token-driven illustrations: one source, re-themed by every trend and dark mode](docs/illustrations.jpg)
+<details>
+<summary>The same eight looks in dark mode</summary>
+
+![The base and seven trend packs, dark mode](docs/trends-dark.jpg)
+
+</details>
+
+The template has three pages, and the audit checks each one on every trend:
+
+- **`/`, the marketing page:** hero, logos, bento grid, stats, testimonial, pricing, FAQ and CTA.
+- **`#/app`, the product UI:** a sidebar shell, a ⌘K command palette, a data table with sorting, bulk actions and undo, plus dialogs, menus, tooltips, toasts, skeletons and empty states.
+- **`#/system`, a living style guide:** foundations with live contrast badges, components, Do/Don't cards, and illustrations drawn from tokens.
+
+![The product UI in the base trend (light) and signal-dark (dark)](docs/app.jpg)
+
+![The living style guide in the base trend and in warm-natural](docs/system.jpg)
+
+![Token-driven illustrations: one source, re-themed by every trend in light and dark](docs/illustrations.jpg)
+
+## Vite or Next.js
+
+`new-project.mjs` creates either kind of project. Both share the same components, sections and screens in `src/`.
+
+| | Vite (default) | Next.js 16 (`--framework next`) |
+|---|---|---|
+| Routing | hash routes (`#/app`), so any static host works | real paths (`/app`), with metadata per route |
+| First paint | rendered in the browser | every route prerendered to HTML |
+| LCP on slow 4G | 2.1–2.6 s | 1.6 s |
+| First-load JS | 101–143 KB | 170–211 KB |
+| Fonts | stylesheets linked from the head; each trend's fonts load on demand | `next/font`, self-hosted, with metric-matched fallbacks |
+| Deploy | `dist/` on any static host | `next start`, a container, or a static export (`npm run build:static`) |
+
+Choose Next.js when pages need to rank on their own or load faster. Choose Vite when first-load JS on low-end phones matters most.
+
+## Quality gates
+
+Every check runs on every build or audit, and `references/web-quality.md` documents the rules.
+
+| Gate | What it checks | When |
+|---|---|---|
+| `code-lint.mjs` (CL-01–13) | raw colors, default palette classes, arbitrary px, removed focus outlines, actions on pointer down, clickable `div`s, missing `alt` or image size, disabled zoom | `npm run build` |
+| `trend check` | text contrast of 4.5:1 and boundary contrast of 3:1 in both modes, motion limits, pack schema and freshness | CI |
+| `audit.mjs`, human factors | about 75 rules from `principles.md`: targets, measure, focus, contrast, layout and motion, plus axe | `npm run audit` |
+| `audit.mjs`, performance (PF) | on a mobile profile over slow 4G with the CPU slowed 4×: LCP, CLS, TBT, byte budgets, images, fonts, blocking scripts | `npm run audit` |
+| `audit.mjs`, SEO and sharing (SE) | runs with and without JS: title, description, canonical, Open Graph, favicons, JSON-LD, robots and sitemap, crawlable links | `npm run audit` |
+| Visual regression (VR-01) | pixel diffs against saved baselines | `--baseline save` / `compare` |
+| Component tests | keyboard and focus behavior and axe, in a real browser (Vitest browser mode) | `npm test` |
 
 ## What's inside
 
