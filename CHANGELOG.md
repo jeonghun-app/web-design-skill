@@ -18,6 +18,10 @@
   - PNG favicon, apple-touch-icon, manifest and a 1200 × 630 OG image
   - `robots.txt` and `sitemap.xml` generated from `VITE_SITE_URL` (`new-project.mjs --site-url`)
 
+### Docs
+- README (English and Korean) rewritten for v0.4. It has a Vite vs Next.js comparison and a quality-gates table, and its images are regenerated: all 8 looks in light and in dark, the product UI, the style guide, and the illustrations in every trend.
+- `docs/capture.mjs` regenerates every README image from the template build.
+
 ### Changed
 - **Performance:** home LCP 2456 → 2140 ms, app 3228 → 2616 ms, critical JS 146/171/168 → 101/143/129 KB.
   - The motion engine loads after `load` through `LazyMotion` (`m.*` components).
